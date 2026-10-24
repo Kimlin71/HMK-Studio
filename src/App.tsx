@@ -7,9 +7,8 @@ import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Newsletter } from './components/Newsletter'
-import { PetiteManifesto } from './components/PetiteManifesto'
 import { ProductDialog } from './components/ProductDialog'
-import { UpcyclingStory } from './components/UpcyclingStory'
+import { SignatureBead } from './components/SignatureBead'
 import { editorialPieces, type EditorialPiece } from './content/products'
 import './App.css'
 
@@ -26,8 +25,7 @@ function App() {
         <section aria-label="Ateljéns tre sammanhängande uttryck" className="collections-shell">
           <CollectionGrid onExplore={setSelectedPiece} pieces={editorialPieces} />
         </section>
-        <UpcyclingStory />
-        <PetiteManifesto />
+        <SignatureBead />
         <CraftGallery />
         <AboutMaker />
         <Newsletter />

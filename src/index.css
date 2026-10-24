@@ -5,6 +5,7 @@
   --ochre-red: #A7374B;
   --light-glaucous-blue: #A6E6DB;
   --paper: #F5F0E3;
+  --paper-warm: #EFE5C7;
   --linen: #D7C9A7;
   --ink-soft: #25304D;
   --white: #FFFCF5;
@@ -70,7 +71,7 @@ body:has(.piece-dialog[open]) {
 h1,
 h2 {
   text-wrap: balance;
-  overflow-wrap: anywhere;
+  overflow-wrap: normal;
 }
 
 img {

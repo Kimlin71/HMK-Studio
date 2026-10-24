@@ -1,15 +1,15 @@
 export function BrandIntro() {
   return (
     <section aria-labelledby="intro-title" className="brand-intro section-shell" id="filosofi">
-      <div className="section-marker"><span>01</span><span>En tanke om form</span></div>
+      <div className="section-marker"><span>02</span><span>Manifest</span></div>
       <div className="brand-intro__content">
         <p className="eyebrow">Kroppen är inte en storlekstabell</p>
-        <h2 id="intro-title">Kläder ska anpassa sig till människor.<br /><em>Inte tvärtom.</em></h2>
+        <h2 id="intro-title" lang="en">Clothes aren’t{' '}<br /><em>bodies</em></h2>
         <div className="brand-intro__lower">
-          <p>En kropp är mer än en mindre eller större version av en annan. Längd, balans och placering förändrar hur ett plagg känns — och hur det rör sig.</p>
-          <p>Här möts återbrukade plagg, petite-mönster och koreanska hantverksdetaljer i en gemensam idé: design börjar med att se proportionerna.</p>
+          <p lang="en">A smaller size isn’t simply a shorter version of a larger one.</p>
+          <p>Proportion handlar om längd, balans och placering. Genom rekonstruktion kan ett plagg få en ny form — kläder ska anpassas till människor, inte tvärtom.</p>
         </div>
-        <div className="brand-intro__thread" aria-hidden="true"><span /> <b>FORM · PROPORTION · CONNECTION</b></div>
+        <div className="brand-intro__thread" aria-hidden="true"><span /> <b lang="en">FORM · PROPORTION · CONNECTION</b></div>
       </div>
     </section>
   )

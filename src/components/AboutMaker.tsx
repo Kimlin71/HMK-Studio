@@ -9,12 +9,12 @@ export function AboutMaker() {
         <span className="about-maker__image-quote">En liten ateljé<br />med många trådar.</span>
       </div>
       <div className="about-maker__copy">
-        <p className="eyebrow">En personlig utgångspunkt</p>
-        <h2 id="about-title">Två nyfikenheter.<br /><em>En gemensam form.</em></h2>
-        <p>Ateljén växte fram ur två intressen som länge levde sida vid sida: koreansk form och hantverk, och en egen längtan efter plagg och mönster som förstår petite proportioner.</p>
-        <p>Det ena handlar om linjer, material och detaljer. Det andra om hur kläder möter en verklig kropp. Här får de mötas i plagg som görs om med omtanke och detaljer som knyter ihop helheten.</p>
-        <a className="text-link" href="#kontakt">Läs mer om ateljén <span aria-hidden="true">↗</span></a>
-        <div className="about-maker__signature">Made slowly, in Sweden <span>✳</span></div>
+        <p className="eyebrow">Textutkast · godkänns av grundaren</p>
+        <h2 id="about-title">En personlig erfarenhet.<br /><em>En tanke om proportion.</em></h2>
+        <p>Grundarens egen erfarenhet av petite-storlekar är utgångspunkten för idén om proportion: det räcker inte alltid att korta ett plagg.</p>
+        <p>Längd, sömmarnas placering och materialets balans behöver samspela med personen som bär plagget. Den tanken binder samman plagg, mönster och detaljer.</p>
+        <a className="text-link" href="#filosofi">Om petite och proportion <span aria-hidden="true">↗</span></a>
+        <div className="about-maker__signature" lang="en">FORM · PROPORTION · CONNECTION <span>✳</span></div>
       </div>
     </section>
   )

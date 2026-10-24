@@ -3,11 +3,11 @@ import { craftDetails } from '../content/site'
 export function CraftGallery() {
   return (
     <section aria-labelledby="craft-title" className="craft section-shell" id="hantverk">
-      <div className="section-marker"><span>07</span><span>Process & material</span></div>
+      <div className="section-marker"><span>07</span><span>Studio · form och material</span></div>
       <div className="craft__heading">
-        <p className="eyebrow">Det som handen vet</p>
-        <h2 id="craft-title">Omsorg syns<br /><em>i detaljerna.</em></h2>
-        <p>Varje val bär samma tanke — från första mönsterlinjen till den sista knuten.</p>
+        <p className="eyebrow">Designbeslut i detalj</p>
+        <h2 id="craft-title">Placering, balans<br /><em>och förbindelser.</em></h2>
+        <p>En söm påverkar silhuetten. Material ger tyngd och balans. En knut förbinder linjer och detaljer till en helhet.</p>
       </div>
       <div className="craft__gallery">
         {craftDetails.map((item, index) => (

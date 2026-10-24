@@ -3,27 +3,28 @@ export const navigation = [
   { label: 'WEAR', href: '#wear' },
   { label: 'MAKE', href: '#make' },
   { label: 'ADORN', href: '#adorn' },
+  { label: 'Studio', href: '#hantverk' },
   { label: 'Om ateljén', href: '#om-ateljen' },
 ]
 
 export const craftDetails = [
   {
-    title: 'Söm, nära inpå',
-    note: 'Avslut som får ta tid.',
+    title: 'Sömmens placering',
+    note: 'En linje som förändrar silhuetten.',
     image: '/images/stitch-detail.svg',
     alt: 'Grafisk närbild av en röd handsydd söm genom textil',
     className: 'craft-image--stitch',
   },
   {
-    title: 'Material med minne',
-    note: 'En yta, ett tidigare liv.',
+    title: 'Material i balans',
+    note: 'Tyngd och struktur i relation till formen.',
     image: '/images/fabric-study.svg',
     alt: 'Överlappande textilprover i ateljéns färgpalett',
     className: 'craft-image--fabric',
   },
   {
-    title: 'En knut i taget',
-    note: 'Handens rytm i varje detalj.',
+    title: 'Knuten som förbindelse',
+    note: 'Linjer och detaljer knyts till en helhet.',
     image: '/images/knot-study.svg',
     alt: 'Grafisk detaljstudie av tråd, knut och tofs',
     className: 'craft-image--knot',

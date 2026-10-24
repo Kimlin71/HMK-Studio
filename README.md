@@ -1,6 +1,6 @@
 # ATELJÉ — form, textil, detalj
 
-En svensk förstautgåva av en redaktionell ateljéwebbplats byggd med React, TypeScript och Vite. Designvärlden håller WEAR, MAKE och ADORN samman genom proportion, återbruk och hantverk.
+En svensk förstautgåva av en redaktionell ateljéwebbplats byggd med React, TypeScript och Vite. Det befintliga ordmärket ATELJÉ är fortsatt en platshållare. FORM · PROPORTION · CONNECTION håller WEAR / RECONSTRUCT, MAKE / REPROPORTION och ADORN / CONNECT samman. De engelska kampanjtexterna är språkmarkerade; övrig navigation och prototypinformation är på svenska.
 
 ## Starta lokalt
 
@@ -11,7 +11,8 @@ En svensk förstautgåva av en redaktionell ateljéwebbplats byggd med React, Ty
 
 ## Innehåll och komponenter
 
-- `src/content/products.ts` innehåller fiktiva, tydligt markerade demo-produkter.
+- `src/content/products.ts` innehåller kategoriberättelser och fiktiva, tydligt markerade demo-produkter med stabila id:n, kategorikoppling och explicit prototypstatus.
+- `src/content/jewellery.ts` innehåller modulernas färgval och bildbriefen för signaturpärlan. Valen representerar inte lager eller köpbara varianter.
 - `src/content/site.ts` innehåller navigation och hantverksgalleri.
 - `src/components/` innehåller sidans återanvändbara sektioner och produktdetaljdialog.
 - `src/index.css` innehåller designvariabler och globala tillgänglighetsregler.
@@ -21,6 +22,14 @@ En svensk förstautgåva av en redaktionell ateljéwebbplats byggd med React, Ty
 Bildmaterialet består av lokala SVG-studier i `public/images/` och en extern Unsplash-bild i introduktionen. Inga egna ateljéfoton finns i projektet ännu. Bildplatshållare och fiktiva demoobjekt är märkta i sidan och produktdialogen; illustrationerna dokumenterar inte verkliga plagg, personer eller arbetsprocesser.
 
 Nyhetsbrev och kontakt är visuella prototyper utan insamling eller hantering av uppgifter. Inga priser, order, varukorg, checkout eller betalningar är implementerade.
+
+## Berättelse och interaktion
+
+Startsidan följer hero → manifest → RECONSTRUCT → REPROPORTION → CONNECT → signaturpärla → studio → om ateljén → nyhetsbrev. Den befintliga typografin och asymmetriska samlingslayouten behålls; petite-budskapet ligger nu i MAKE i stället för i en dubblerad sektion.
+
+CONNECT innehåller en redaktionell färgstudie med tre separata radiogrupper: KNOT, BEAD och TASSEL. Färgnamn visas tillsammans med färgprover. Tangentbordets piltangenter byter alternativ inom en grupp. Valen finns enbart i komponentens minne och återställs vid omladdning. Ingen lagring, nätverksbegäran, beställning eller verifierad produktkonstruktion är kopplad till studien.
+
+Signaturpärlans stora bildyta är avsiktligt en textmärkt platshållare: en godkänd makrobild saknas. Grundartexten är märkt som textutkast för godkännande. Inga tillverknings-, ursprungs- eller materialpåståenden ska läggas till utan underlag.
 
 ## När ateljéns egna foton finns
 
