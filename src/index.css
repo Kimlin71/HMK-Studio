@@ -1,0 +1,78 @@
+:root {
+  /* Brand colour names from the supplied Sanzo Wada palette; names are descriptive palette labels, not official colour-standard names. */
+  --deep-indigo: #000831;
+  --ivory-buff: #EBD999;
+  --ochre-red: #A7374B;
+  --light-glaucous-blue: #A6E6DB;
+  --paper: #F5F0E3;
+  --linen: #D7C9A7;
+  --ink-soft: #25304D;
+  --white: #FFFCF5;
+  --line: rgba(0, 8, 49, 0.18);
+  --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+  --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: var(--deep-indigo);
+  background: var(--paper);
+  font-family: var(--sans);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--ochre-red);
+  outline-offset: 4px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  color: var(--deep-indigo);
+  background: var(--light-glaucous-blue);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

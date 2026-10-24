@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" fill="none">
+  <defs><linearGradient id="cloth" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d8c7a2"/><stop offset="1" stop-color="#f5f0e3"/></linearGradient><pattern id="threads" width="17" height="17" patternUnits="userSpaceOnUse"><path d="M0 3h17M3 0v17" stroke="#000831" stroke-opacity=".08" stroke-width="2"/></pattern></defs>
+  <path fill="url(#cloth)" d="M0 0h1100v800H0z"/><path fill="url(#threads)" d="M0 0h1100v800H0z"/>
+  <path d="M152 711c116-198 230-311 371-348 124-33 253-7 432-165" stroke="#000831" stroke-opacity=".7" stroke-width="10"/>
+  <path d="M150 695c119-195 230-299 367-335 126-33 253-7 434-165" stroke="#a7374b" stroke-width="5" stroke-linecap="round" stroke-dasharray="2 19"/>
+  <path d="M126 749c130-208 253-325 403-362 130-32 267-9 449-170" stroke="#fffaf0" stroke-opacity=".85" stroke-width="3"/>
+  <circle cx="526" cy="368" r="30" stroke="#000831" stroke-opacity=".42" stroke-width="2"/><circle cx="526" cy="368" r="5" fill="#a7374b"/>
+</svg>
