@@ -1,11 +1,17 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { navigation } from '../content/site'
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuToggleRef = useRef<HTMLButtonElement>(null)
 
   return (
-    <header className="site-header">
+    <header className="site-header" onKeyDown={(event) => {
+      if (event.key === 'Escape' && menuOpen) {
+        setMenuOpen(false)
+        menuToggleRef.current?.focus()
+      }
+    }}>
       <a className="wordmark" href="#hem" aria-label="Ateljé — till startsidan">
         <span className="wordmark__name">ATELJÉ</span>
         <span className="wordmark__caption">FORM · TEXTIL · DETALJ</span>
@@ -15,11 +21,12 @@ export function Header() {
         aria-controls="primary-navigation"
         aria-label={menuOpen ? 'Stäng menyn' : 'Öppna menyn'}
         className="menu-toggle"
+        ref={menuToggleRef}
         onClick={() => setMenuOpen((open) => !open)}
         type="button"
       >
-        <span />
-        <span />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
       </button>
       <nav
         aria-label="Huvudnavigation"
