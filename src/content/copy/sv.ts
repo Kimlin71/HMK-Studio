@@ -18,7 +18,7 @@ export const sv: Copy = {
     menuClose: 'Stäng menyn',
     contact: 'Kontakt',
     languageLabel: 'Språk',
-    nav: { home: 'Hem', wear: 'WEAR', make: 'MAKE', accented: 'ACCENTED', studio: 'Studio', about: 'Om oss' },
+    nav: { home: 'Hem', wear: 'WEAR', make: 'MAKE', accented: 'ACCENTED', shop: 'Butik', studio: 'Studio', about: 'Om oss' },
   },
   hero: {
     eyebrow: 'En koreansk–skandinavisk studio',
@@ -229,6 +229,46 @@ export const sv: Copy = {
     },
     summaryPrefix: 'Din färgstudie:',
     link: 'Se den sammanbindande detaljen',
+  },
+  shop: {
+    section: {
+      label: 'Butik',
+      eyebrow: 'Butik · prototyp',
+      title: 'Välj, eller designa själv.',
+      intro: 'Armband, Maedeup med Norigae och omsydda hanbok. Allt här är demo. Priserna är inte fastställda och inget går att beställa ännu.',
+      disclosure: 'Demoinnehåll: bilderna är konceptbilder och grafiska studier, inte varor i lager. Ingen varukorg, ingen betalning och ingen insamling av uppgifter. Inget sparas eller skickas.',
+      placeholderLabel: 'Platshållare',
+      categories: {
+        bracelet: { title: 'Armband', description: 'Makramésnöre med pärlor eller kristaller, alltid med en signaturpärla.' },
+        maedeup: { title: 'Maedeup med Norigae', description: 'Dekorativa knutar inspirerade av koreanskt knutverk, med Norigae-hänge.' },
+        hanbok: { title: 'Hanbok', description: 'Omsydda av en second hand-herrskjorta. Varje plagg är unikt.' },
+      },
+    },
+    card: {
+      demoLabel: 'Demo · ej till salu',
+      imageNote: 'Konceptbild · demo',
+      priceLabel: 'Pris',
+      priceTbd: 'Pris meddelas senare',
+      orderButton: 'Beställ',
+      orderNote: 'Beställning öppnar senare. Inget skickas eller sparas.',
+      items: {
+        'signature-bracelet-demo': { imageAlt: 'Konceptbild: makrostudie av glaserade signaturpärlor, referens för armbandet. Inte ett foto av en färdig produkt.' },
+        'maedeup-norigae-demo': { imageAlt: 'Konceptbild: studie av en dekorativ knut med tofs, referens för Maedeup och Norigae. Inte ett foto av en färdig produkt.' },
+        'shirt-hanbok-demo': { imageAlt: 'Konceptbild: en omsydd skjorta i hanbokinspirerad form, referens för hanbok. Inte ett foto av en färdig produkt.' },
+      },
+    },
+    bracelet: {
+      title: 'Designa ditt armband',
+      placeholder: 'Platshållare: armbandsbyggaren kommer här. Inget går att välja ännu.',
+    },
+    maedeup: {
+      title: 'Designa din Maedeup med Norigae',
+      placeholder: 'Platshållare: byggaren för Maedeup och Norigae kommer här. Inget går att välja ännu.',
+    },
+    hanbok: {
+      title: 'Hanbok att välja bland',
+      placeholder: 'Platshållare: fler hanbok presenteras här. Inget går att välja ännu.',
+    },
   },
   signatureBead: {
     marker: 'En sammanbindande detalj',

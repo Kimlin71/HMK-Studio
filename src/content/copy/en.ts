@@ -18,7 +18,7 @@ export const en: Copy = {
     menuClose: 'Close menu',
     contact: 'Contact',
     languageLabel: 'Language',
-    nav: { home: 'Home', wear: 'WEAR', make: 'MAKE', accented: 'ACCENTED', studio: 'Studio', about: 'About' },
+    nav: { home: 'Home', wear: 'WEAR', make: 'MAKE', accented: 'ACCENTED', shop: 'Shop', studio: 'Studio', about: 'About' },
   },
   hero: {
     eyebrow: 'A Korean–Scandinavian studio',
@@ -225,6 +225,46 @@ export const en: Copy = {
     },
     summaryPrefix: 'Your colour study:',
     link: 'See the connecting detail',
+  },
+  shop: {
+    section: {
+      label: 'Shop',
+      eyebrow: 'Shop · prototype',
+      title: 'Choose, or design your own.',
+      intro: 'Bracelets, Maedeup with Norigae and re-sewn hanbok. Everything here is a demo. Prices are not set and nothing can be ordered yet.',
+      disclosure: 'Demo content: the images are concept images and graphic studies, not stock. No cart, no payment and no data collection. Nothing is saved or sent.',
+      placeholderLabel: 'Placeholder',
+      categories: {
+        bracelet: { title: 'Bracelets', description: 'Macramé cord with pearls or crystals, always with a signature pearl.' },
+        maedeup: { title: 'Maedeup with Norigae', description: 'Decorative knots inspired by Korean knotwork, with a Norigae pendant.' },
+        hanbok: { title: 'Hanbok', description: 'Re-sewn from one second-hand men’s shirt. Every piece is one of a kind.' },
+      },
+    },
+    card: {
+      demoLabel: 'Demo · not for sale',
+      imageNote: 'Concept image · demo',
+      priceLabel: 'Price',
+      priceTbd: 'Price to be announced',
+      orderButton: 'Order',
+      orderNote: 'Ordering opens later. Nothing is sent or stored.',
+      items: {
+        'signature-bracelet-demo': { imageAlt: 'Concept image: macro study of glazed signature pearls, a reference for the bracelet. Not a photograph of a finished product.' },
+        'maedeup-norigae-demo': { imageAlt: 'Concept image: study of a decorative knot with a tassel, a reference for Maedeup and Norigae. Not a photograph of a finished product.' },
+        'shirt-hanbok-demo': { imageAlt: 'Concept image: a re-sewn shirt in a hanbok-inspired shape, a reference for hanbok. Not a photograph of a finished product.' },
+      },
+    },
+    bracelet: {
+      title: 'Design your bracelet',
+      placeholder: 'Placeholder: the bracelet builder will appear here. Nothing can be chosen yet.',
+    },
+    maedeup: {
+      title: 'Design your Maedeup with Norigae',
+      placeholder: 'Placeholder: the Maedeup and Norigae builder will appear here. Nothing can be chosen yet.',
+    },
+    hanbok: {
+      title: 'Hanbok to choose from',
+      placeholder: 'Placeholder: more hanbok will be presented here. Nothing can be chosen yet.',
+    },
   },
   signatureBead: {
     marker: 'A connecting detail',

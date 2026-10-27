@@ -1,5 +1,6 @@
 import type { ElementKind, ModuleId, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
+import type { ShopCategory, ShopItemId } from '../shop'
 
 export type Language = 'sv' | 'en'
 
@@ -36,7 +37,7 @@ export type Copy = {
     menuClose: string
     contact: string
     languageLabel: string
-    nav: { home: string; wear: string; make: string; accented: string; studio: string; about: string }
+    nav: { home: string; wear: string; make: string; accented: string; shop: string; studio: string; about: string }
   }
   hero: {
     eyebrow: string
@@ -107,6 +108,30 @@ export type Copy = {
     modules: Record<ModuleId, { label: string; description: string }>
     summaryPrefix: string
     link: string
+  }
+  // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
+  shop: {
+    section: {
+      label: string
+      eyebrow: string
+      title: string
+      intro: string
+      disclosure: string
+      placeholderLabel: string
+      categories: Record<ShopCategory, { title: string; description: string }>
+    }
+    card: {
+      demoLabel: string
+      imageNote: string
+      priceLabel: string
+      priceTbd: string
+      orderButton: string
+      orderNote: string
+      items: Record<ShopItemId, { imageAlt: string }>
+    }
+    bracelet: { title: string; placeholder: string }
+    maedeup: { title: string; placeholder: string }
+    hanbok: { title: string; placeholder: string }
   }
   signatureBead: {
     marker: string

@@ -5,6 +5,7 @@ export const navigation = [
   { key: 'wear', href: '#wear' },
   { key: 'make', href: '#make' },
   { key: 'accented', href: '#accented' },
+  { key: 'shop', href: '#butik' },
   { key: 'studio', href: '#hantverk' },
   { key: 'about', href: '#om-ateljen' },
 ] as const
