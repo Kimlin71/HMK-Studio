@@ -9,7 +9,7 @@ The relationship between a garment's dimensions, placement and silhouette, consi
 _Avoid_: Reduced size, scaled-down body
 
 **Connection**:
-The shared design language that makes garments, patterns and adornments part of one considered whole.
+The shared design language that makes garments, patterns and accents part of one considered whole.
 _Avoid_: Separate business lines
 
 ## Offerings
@@ -22,12 +22,12 @@ _Avoid_: Costume, historical replica
 Sewing patterns developed with petite proportions in mind from the first pattern line.
 _Avoid_: Standard pattern made smaller
 
-**ADORN**:
-Hand-tied Korean knots, tassels, jewellery and small details designed to complement the garments.
-_Avoid_: Unconnected accessories shop
+**ACCENTED**:
+Hand-tied knots, tassels, jewellery and small details inspired by Korean decorative knotwork, designed to complement the garments. It replaces the earlier working name ADORN: an accent is a small, deliberate mark that completes a whole, rather than decoration added on top.
+_Avoid_: Unconnected accessories shop, ADORN
 
 **Look**:
-A considered combination of garments and adornments. It expresses the brand's design relationship; it is not itself a product.
+A considered combination of garments and accents. It expresses the brand's design relationship; it is not itself a product.
 _Avoid_: Outfit bundle
 
 **Reconstructed garment**:

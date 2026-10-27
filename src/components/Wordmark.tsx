@@ -28,7 +28,7 @@ export function Wordmark({ footer = false }: WordmarkProps) {
             <feDisplacementMap in="SourceGraphic" in2="wobble" result="edged" scale="1.6" xChannelSelector="R" yChannelSelector="G" />
             {/* Uneven ink: fine grain punches tiny gaps in the fill. */}
             <feTurbulence baseFrequency="0.9" numOctaves="2" result="grain" seed="3" type="fractalNoise" />
-            <feColorMatrix in="grain" result="gaps" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -9 5.6" />
+            <feColorMatrix in="grain" result="gaps" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 -7 5.9" />
             <feComposite in="edged" in2="gaps" operator="in" />
           </filter>
         </defs>

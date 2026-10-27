@@ -1,6 +1,7 @@
 import type { Copy } from './types'
 
-// Svensk text. Utkast: inte godkänd av grundaren, utom texten "Om ateljén" (godkänd tidigare).
+// Svensk text. GODKÄND av grundaren (2026-10-27): alla texter i den här filen och i en.ts.
+// Håll de båda filerna i takt: ändra båda när en mening ändras.
 export const sv: Copy = {
   meta: {
     title: 'Hyang-Mee Studio — Form · Textil · Detalj',

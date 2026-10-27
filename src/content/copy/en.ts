@@ -1,6 +1,7 @@
 import type { Copy } from './types'
 
-// English copy. Draft texts: not yet approved by the founder, except the "About" text (approved in Swedish).
+// English copy. APPROVED by the founder (2026-10-27): all texts in this file and in sv.ts.
+// Keep the two files in step: change both when a sentence changes.
 export const en: Copy = {
   meta: {
     title: 'Hyang-Mee Studio — Form · Textile · Detail',
