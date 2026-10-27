@@ -1,4 +1,4 @@
-import { useId, useState, type ReactNode } from 'react'
+import { useId, useState } from 'react'
 import {
   braceletBeadColours,
   braceletBeadCounts,
@@ -10,52 +10,24 @@ import {
   defaultBraceletDesign,
   type BraceletDesign,
 } from '../content/bracelet'
-import { colourLabels, type ModuleColour } from '../content/jewellery'
+import { colourLabels } from '../content/jewellery'
 import { shopAnchors } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
 import { BraceletDrawing } from './BraceletDrawing'
+import { ColourOptionGroup, CopyDesign, OptionGroup, PresetRow } from './BuilderControls'
+import { useCopyToClipboard } from './useCopyToClipboard'
 import './BraceletBuilder.css'
-
-type OptionGroupProps<T extends string | number> = {
-  legend: string
-  description: string
-  name: string
-  options: { value: T; label: ReactNode; swatch?: ModuleColour }[]
-  value: T
-  onChange: (value: T) => void
-}
-
-// Native radio inputs: arrow keys move within a group, Tab moves between groups.
-function OptionGroup<T extends string | number>({ legend, description, name, options, value, onChange }: OptionGroupProps<T>) {
-  return (
-    <fieldset className="bracelet-options">
-      <legend><span>{legend}</span> <small>{description}</small></legend>
-      <div className="bracelet-options__row">
-        {options.map((option) => (
-          <label className="bracelet-option" key={option.value}>
-            <input checked={option.value === value} name={name} onChange={() => onChange(option.value)} type="radio" value={option.value} />
-            {option.swatch ? <span aria-hidden="true" className={`bracelet-option__swatch tone--${option.swatch}`} /> : null}
-            <span>{option.label}</span>
-          </label>
-        ))}
-      </div>
-    </fieldset>
-  )
-}
-
-const colourOptions = (colours: ModuleColour[]) =>
-  colours.map((colour) => ({ value: colour, swatch: colour, label: <span lang="en">{colourLabels[colour]}</span> }))
 
 export function BraceletBuilder() {
   const { copy } = useCopy()
   const text = copy.shop.bracelet
   const idPrefix = useId()
   const [design, setDesign] = useState<BraceletDesign>(defaultBraceletDesign)
-  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle')
+  const clipboard = useCopyToClipboard()
 
   const update = (patch: Partial<BraceletDesign>) => {
     setDesign((current) => ({ ...current, ...patch }))
-    setCopyStatus('idle')
+    clipboard.reset()
   }
 
   const beadTypeName = text.summary.beadTypeNames[design.beadType]
@@ -70,15 +42,6 @@ export function BraceletBuilder() {
     `${text.summary.signature}: 1, ${colourLabels[design.signatureColour]}`,
     `${text.summary.size}: ${size.label} (${size.range})`,
   ].join('\n')
-
-  const copyDesign = async () => {
-    try {
-      await navigator.clipboard.writeText(plainSummary)
-      setCopyStatus('copied')
-    } catch {
-      setCopyStatus('failed')
-    }
-  }
 
   return (
     <div aria-labelledby={`${idPrefix}-title`} className="bracelet-builder" id={shopAnchors.braceletBuilder} role="group">
@@ -95,70 +58,53 @@ export function BraceletBuilder() {
           <span className="bracelet-builder__preview-note">{text.previewNote}</span>
         </div>
         <div aria-describedby={`${idPrefix}-note`} className="bracelet-builder__controls">
-          <div className="bracelet-presets">
-            <p className="eyebrow">{text.presetsEyebrow}</p>
-            <div className="bracelet-presets__row">
-              {braceletPresets.map((preset) => (
-                <button
-                  className="bracelet-preset"
-                  key={preset.id}
-                  onClick={() => update(preset.design)}
-                  type="button"
-                >
-                  <span lang="en">{copy.connect.families[preset.id].label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
-          <OptionGroup
-            description={text.cord.description}
+          <PresetRow label={text.presetsEyebrow} onSelect={(preset) => update(preset.design)} presets={braceletPresets} />
+          <ColourOptionGroup
+            colours={braceletCordColours}
+            hint={text.cord.description}
             legend={text.cord.legend}
             name={`${idPrefix}-cord`}
             onChange={(cord) => update({ cord })}
-            options={colourOptions(braceletCordColours)}
             value={design.cord}
           />
           <OptionGroup
-            description={text.beadType.description}
+            hint={text.beadType.description}
             legend={text.beadType.legend}
             name={`${idPrefix}-bead-type`}
             onChange={(beadType) => update({ beadType })}
             options={braceletBeadTypes.map((type) => ({ value: type, label: text.beadType.options[type] }))}
             value={design.beadType}
           />
-          <OptionGroup
-            description={text.beadColour.description}
+          <ColourOptionGroup
+            colours={braceletBeadColours}
+            hint={text.beadColour.description}
             legend={text.beadColour.legend}
             name={`${idPrefix}-bead-colour`}
             onChange={(beadColour) => update({ beadColour })}
-            options={colourOptions(braceletBeadColours)}
             value={design.beadColour}
           />
           <OptionGroup
-            description={text.beadCount.description}
+            hint={text.beadCount.description}
             legend={text.beadCount.legend}
             name={`${idPrefix}-bead-count`}
             onChange={(beadCount) => update({ beadCount })}
             options={braceletBeadCounts.map((count) => ({ value: count, label: count }))}
             value={design.beadCount}
           />
-          <OptionGroup
-            description={`${text.signature.description} · ${text.signature.fixed}`}
+          <ColourOptionGroup
+            colours={braceletSignatureColours}
+            hint={`${text.signature.description} · ${text.signature.fixed}`}
             legend={text.signature.legend}
             name={`${idPrefix}-signature`}
             onChange={(signatureColour) => update({ signatureColour })}
-            options={colourOptions(braceletSignatureColours)}
             value={design.signatureColour}
           />
           <OptionGroup
-            description={text.size.description}
+            hint={text.size.description}
             legend={text.size.legend}
             name={`${idPrefix}-size`}
             onChange={(next) => update({ size: next })}
-            options={braceletSizes.map((key) => ({
-              value: key,
-              label: <>{text.size.options[key].label} <small>{text.size.options[key].range}</small></>,
-            }))}
+            options={braceletSizes.map((key) => ({ value: key, label: text.size.options[key].label, detail: text.size.options[key].range }))}
             value={design.size}
           />
           <output aria-live="polite" className="bracelet-builder__summary">
@@ -168,12 +114,13 @@ export function BraceletBuilder() {
             <span>{text.summary.signature}: 1, <span lang="en">{colourLabels[design.signatureColour]}</span></span>
             <span>{text.summary.size}: {size.label} ({size.range})</span>
           </output>
-          <div className="bracelet-builder__copy">
-            <button className="bracelet-copy" onClick={copyDesign} type="button">{text.copy.label}</button>
-            <p className="bracelet-builder__status" role="status">
-              {copyStatus === 'copied' ? text.copy.copied : copyStatus === 'failed' ? text.copy.failed : ''}
-            </p>
-          </div>
+          <CopyDesign
+            copiedText={text.copy.copied}
+            failedText={text.copy.failed}
+            label={text.copy.label}
+            onCopy={() => clipboard.copy(plainSummary)}
+            status={clipboard.status}
+          />
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@
   padding: 32px;
   border: 1px solid var(--line);
   background: var(--white);
+  --builder-selected: var(--paper);
 }
 
 .norigae__heading {
@@ -83,129 +84,6 @@
   gap: 22px;
 }
 
-.norigae-presets__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.norigae-presets .norigae__label {
-  margin-bottom: 10px;
-}
-
-.norigae-preset,
-.norigae__copy-button {
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid var(--line);
-  color: var(--deep-indigo);
-  background: transparent;
-  cursor: pointer;
-  font-size: var(--text-label);
-  transition: border-color 180ms ease, background 180ms ease;
-}
-
-.norigae-preset:hover,
-.norigae__copy-button:hover {
-  border-color: var(--deep-indigo);
-  background: var(--paper);
-}
-
-.norigae-preset:focus-visible,
-.norigae__copy-button:focus-visible {
-  outline: 3px solid var(--deep-indigo);
-  outline-offset: 3px;
-}
-
-.norigae-options {
-  min-width: 0;
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-.norigae-options legend {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 0 0 8px;
-  border-bottom: 1px solid var(--line);
-  font-size: var(--text-label);
-  letter-spacing: 0.12em;
-}
-
-.norigae-options legend small {
-  margin-left: 10px;
-  font-size: var(--text-small);
-  letter-spacing: 0;
-}
-
-.norigae-options__row {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
-  gap: 8px;
-}
-
-.norigae-options__row--choice {
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-}
-
-.norigae-option {
-  position: relative;
-  display: flex;
-  min-width: 0;
-  min-height: 72px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  padding: 8px 6px;
-  border: 1px solid var(--line);
-  cursor: pointer;
-  font-size: var(--text-label);
-  overflow-wrap: anywhere;
-  text-align: center;
-  transition: border-color 180ms ease, background 180ms ease;
-}
-
-.norigae-option--text {
-  min-height: 56px;
-}
-
-.norigae-option small {
-  color: var(--ink-soft);
-  font-size: var(--text-micro);
-}
-
-.norigae-option input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: 0;
-  opacity: 0;
-}
-
-.norigae-option__swatch {
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-}
-
-.norigae-option:hover {
-  border-color: var(--deep-indigo);
-}
-
-.norigae-option:has(input:checked) {
-  border-color: var(--deep-indigo);
-  background: var(--paper);
-  box-shadow: inset 0 -2px var(--deep-indigo);
-}
-
-.norigae-option:has(input:focus-visible) {
-  outline: 3px solid var(--deep-indigo);
-  outline-offset: 3px;
-}
-
 .norigae__pearl {
   margin: 0;
   padding: 10px 14px;
@@ -232,19 +110,6 @@
   list-style: none;
 }
 
-.norigae__copy {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 16px;
-}
-
-.norigae__copy-status {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-}
-
 @media (max-width: 900px) {
   .norigae__workspace {
     grid-template-columns: minmax(0, 1fr);
@@ -266,14 +131,5 @@
 
   .norigae__drawing {
     height: 280px;
-  }
-
-  .norigae-options__row {
-    grid-template-columns: repeat(auto-fill, minmax(84px, 1fr));
-  }
-
-  .norigae-options legend small {
-    display: block;
-    margin: 4px 0 0;
   }
 }

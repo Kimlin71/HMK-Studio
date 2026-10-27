@@ -1,34 +1,10 @@
-import { shopAnchors, shopCategories, shopItems, type ShopCategory } from '../content/shop'
+import { shopAnchors, shopCategories, shopItems } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
 import { BraceletBuilder } from './BraceletBuilder'
 import { NorigaeBuilder } from './NorigaeBuilder'
 import { HanbokShop } from './HanbokShop'
 import { ShopItemCard } from './ShopItemCard'
 import './ShopSection.css'
-
-// Mount points for later tickets. Each id is the anchor its builder or list replaces the placeholder in:
-// T2 bracelet builder -> #armband-bygge, T3 Maedeup builder -> #maedeup-bygge, T4 hanbok list -> #hanbok-lista.
-const mountIds: Record<ShopCategory, string> = {
-  bracelet: shopAnchors.braceletBuilder,
-  maedeup: shopAnchors.maedeupBuilder,
-  hanbok: shopAnchors.hanbokList,
-}
-
-function ShopMountPlaceholder({ category }: { category: ShopCategory }) {
-  const { copy } = useCopy()
-  const text = copy.shop[category]
-
-  if (category === 'bracelet') return <BraceletBuilder />
-  if (category === 'maedeup') return <NorigaeBuilder />
-
-  return (
-    <div className="shop-mount" id={mountIds[category]}>
-      <p className="shop-mount__label">{copy.shop.section.placeholderLabel}</p>
-      <h4>{text.title}</h4>
-      <p>{text.placeholder}</p>
-    </div>
-  )
-}
 
 export function ShopSection() {
   const { copy } = useCopy()
@@ -56,7 +32,7 @@ export function ShopSection() {
               {category === 'hanbok' ? <HanbokShop /> : (
                 <>
                   {items.map((item) => <ShopItemCard item={item} key={item.id} />)}
-                  <ShopMountPlaceholder category={category} />
+                  {category === 'bracelet' ? <BraceletBuilder /> : <NorigaeBuilder />}
                 </>
               )}
             </div>

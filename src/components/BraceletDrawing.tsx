@@ -1,13 +1,9 @@
 import type { BraceletDesign } from '../content/bracelet'
 import type { ModuleColour } from '../content/jewellery'
+import { detail, EDGE, tone } from './drawingStyle'
 
 // Graphic colour study only: a drawing, not a photograph and not a construction drawing.
 // The signature pearl is always drawn once, in the centre, whatever the design.
-
-const tone = (colour: ModuleColour) => `var(--tone-${colour})`
-const EDGE = 'var(--drawing-edge)'
-const detail = (colour: ModuleColour) =>
-  colour === 'indigo' || colour === 'ochre' || colour === 'vandyke' ? 'rgba(255, 252, 245, 0.55)' : 'rgba(15, 30, 107, 0.45)'
 
 const WIDTH = 440
 const CENTRE = WIDTH / 2

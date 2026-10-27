@@ -232,12 +232,10 @@ export const sv: Copy = {
   },
   shop: {
     section: {
-      label: 'Butik',
       eyebrow: 'Butik · prototyp',
       title: 'Välj, eller designa själv.',
       intro: 'Armband, Maedeup med Norigae och omsydda hanbok. Allt här är demo. Priserna är inte fastställda och inget går att beställa ännu.',
       disclosure: 'Demoinnehåll: bilderna är konceptbilder och grafiska studier, inte varor i lager. Ingen varukorg, ingen betalning och ingen insamling av uppgifter. Inget sparas eller skickas.',
-      placeholderLabel: 'Platshållare',
       categories: {
         bracelet: { title: 'Armband', description: 'Makramésnöre med pärlor eller kristaller, alltid med en signaturpärla.' },
         maedeup: { title: 'Maedeup med Norigae', description: 'Dekorativa knutar inspirerade av koreanskt knutverk, med Norigae-hänge.' },
@@ -260,7 +258,6 @@ export const sv: Copy = {
     },
     bracelet: {
       title: 'Designa ditt armband',
-      placeholder: 'Platshållare: armbandsbyggaren kommer här. Inget går att välja ännu.',
       eyebrow: 'Armbandsbyggare · färgstudie',
       intro: 'Välj snöre, pärlor eller kristaller och storlek. Signaturpärlan sitter alltid i mitten och går inte att ta bort.',
       note: 'Detta är en färgstudie, inte en beställning. Inget skickas, sparas eller säljs. Du kan kopiera din design till urklipp.',
@@ -290,7 +287,6 @@ export const sv: Copy = {
     },
     maedeup: {
       title: 'Designa din Maedeup med Norigae',
-      placeholder: 'Platshållare: byggaren för Maedeup och Norigae kommer här. Inget går att välja ännu.',
       intro: 'En Norigae är ett hängande smycke av knut, hänge och tofs, traditionellt buret till hanbok. Välj knut, färger och tofs och se resultatet direkt.',
       note: 'Prototyp: en grafisk studie, inte en beställning. Inget skickas eller sparas. Knutarna är inspirerade av koreanskt knutverk och beskriver ingen dokumenterad teknik.',
       previewLabel: 'Förhandsvisning',
@@ -344,7 +340,6 @@ export const sv: Copy = {
     },
     hanbok: {
       title: 'Hanbok att välja bland',
-      placeholder: 'Platshållare: fler hanbok presenteras här. Inget går att välja ännu.',
       oneOfAKind: 'Unikt plagg',
       oneOfAKindNote: 'Sytt av en enda second hand-herrskjorta. Ingen färg och ingen storlek upprepas.',
       detailsButton: 'Visa detaljer',

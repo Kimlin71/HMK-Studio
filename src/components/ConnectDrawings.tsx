@@ -1,11 +1,7 @@
 import type { ConnectKind, ConnectParts, ElementKind, ModuleColour } from '../content/jewellery'
+import { detail, EDGE, tone } from './drawingStyle'
 
 // Graphic colour studies only. These are drawings, not photographs and not construction drawings.
-
-const tone = (colour: ModuleColour) => `var(--tone-${colour})`
-const EDGE = 'var(--drawing-edge)'
-const detail = (colour: ModuleColour) =>
-  colour === 'indigo' || colour === 'ochre' || colour === 'vandyke' ? 'rgba(255, 252, 245, 0.55)' : 'rgba(15, 30, 107, 0.45)'
 
 export type Placement = { x: number; y: number }
 

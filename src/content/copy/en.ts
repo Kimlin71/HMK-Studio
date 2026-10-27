@@ -228,12 +228,10 @@ export const en: Copy = {
   },
   shop: {
     section: {
-      label: 'Shop',
       eyebrow: 'Shop · prototype',
       title: 'Choose, or design your own.',
       intro: 'Bracelets, Maedeup with Norigae and re-sewn hanbok. Everything here is a demo. Prices are not set and nothing can be ordered yet.',
       disclosure: 'Demo content: the images are concept images and graphic studies, not stock. No cart, no payment and no data collection. Nothing is saved or sent.',
-      placeholderLabel: 'Placeholder',
       categories: {
         bracelet: { title: 'Bracelets', description: 'Macramé cord with pearls or crystals, always with a signature pearl.' },
         maedeup: { title: 'Maedeup with Norigae', description: 'Decorative knots inspired by Korean knotwork, with a Norigae pendant.' },
@@ -256,7 +254,6 @@ export const en: Copy = {
     },
     bracelet: {
       title: 'Design your bracelet',
-      placeholder: 'Placeholder: the bracelet builder will appear here. Nothing can be chosen yet.',
       eyebrow: 'Bracelet builder · colour study',
       intro: 'Choose cord, pearls or crystals and size. The signature pearl always sits in the centre and cannot be removed.',
       note: 'This is a colour study, not an order. Nothing is sent, stored or sold. You can copy your design to the clipboard.',
@@ -286,7 +283,6 @@ export const en: Copy = {
     },
     maedeup: {
       title: 'Design your Maedeup with Norigae',
-      placeholder: 'Placeholder: the Maedeup and Norigae builder will appear here. Nothing can be chosen yet.',
       intro: 'A Norigae is a hanging ornament of knot, pendant and tassel, traditionally worn with a hanbok. Choose the knot, colours and tassel and see the result straight away.',
       note: 'Prototype: a graphic study, not an order. Nothing is sent or stored. The knots are inspired by Korean decorative knotwork and describe no documented technique.',
       previewLabel: 'Preview',
@@ -340,7 +336,6 @@ export const en: Copy = {
     },
     hanbok: {
       title: 'Hanbok to choose from',
-      placeholder: 'Placeholder: more hanbok will be presented here. Nothing can be chosen yet.',
       oneOfAKind: 'One of a kind',
       oneOfAKindNote: 'Sewn from a single second-hand men’s shirt. No colour and no size is repeated.',
       detailsButton: 'View details',
