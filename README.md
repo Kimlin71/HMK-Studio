@@ -42,6 +42,12 @@ CONNECT innehåller en redaktionell färgstudie med fyra separata radiogrupper: 
 
 Signaturpärlans bild är en konceptbild (makrostudie), inte ett foto: ett riktigt makrofoto av den fysiska pärlan saknas fortfarande och märks som väntande. Grundartexten (Om ateljén) är godkänd av grundaren; endast text som grundaren sett omfattas, inte övrig redaktionell text. Inga tillverknings-, ursprungs- eller materialpåståenden ska läggas till utan underlag.
 
+## Shop-gränssnitt och byggare
+
+Specen [`docs/specs/0001-webshop-ui/spec.md`](docs/specs/0001-webshop-ui/spec.md) beskriver en shopsektion med armband, Maedeup med Norigae och hanbokplagg, samt två byggare (armband och Maedeup + Norigae) med live-förhandsvisning i SVG. Varje design har alltid en signaturpärla. Hanbokplagg presenteras som unika, gjorda av en enda second hand-skjorta.
+
+Medvetet inaktivt: priser visas som "pris meddelas senare", och det finns ingen varukorg, kassa, betalning, inloggning eller insamling av personuppgifter. Byggarnas val finns bara i komponentens minne, och det enda resultatet är en sammanfattning på skärmen som kan kopieras till urklipp. En design är ett utkast, inte en beställning. Beslutet finns i [`docs/adr/0002-shop-ui-before-commerce.md`](docs/adr/0002-shop-ui-before-commerce.md); Stripe Checkout, mönster med måttformulär och PDF-generering på servern efter betalning är separata, senare specar.
+
 ## När ateljéns egna foton finns
 
 - Lägg godkända bilder i `public/images/`; använd bara personer och verk som ateljén har rätt att visa.
