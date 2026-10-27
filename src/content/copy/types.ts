@@ -1,5 +1,6 @@
 import type { ElementKind, ModuleId, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
+import type { BeadType, WristSize } from '../bracelet'
 import type { ShopCategory, ShopItemId } from '../shop'
 
 export type Language = 'sv' | 'en'
@@ -129,7 +130,31 @@ export type Copy = {
       orderNote: string
       items: Record<ShopItemId, { imageAlt: string }>
     }
-    bracelet: { title: string; placeholder: string }
+    bracelet: {
+      title: string
+      placeholder: string
+      eyebrow: string
+      intro: string
+      note: string
+      previewEyebrow: string
+      previewNote: string
+      presetsEyebrow: string
+      cord: { legend: string; description: string }
+      beadType: { legend: string; description: string; options: Record<BeadType, string> }
+      beadColour: { legend: string; description: string }
+      signature: { legend: string; description: string; fixed: string }
+      beadCount: { legend: string; description: string }
+      size: { legend: string; description: string; options: Record<WristSize, { label: string; range: string }> }
+      summary: {
+        prefix: string
+        cord: string
+        beads: string
+        signature: string
+        size: string
+        beadTypeNames: Record<BeadType, string>
+      }
+      copy: { label: string; heading: string; copied: string; failed: string }
+    }
     maedeup: { title: string; placeholder: string }
     hanbok: { title: string; placeholder: string }
   }
