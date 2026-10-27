@@ -1,6 +1,7 @@
 import { shopAnchors, shopCategories, shopItems, type ShopCategory } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
 import { BraceletBuilder } from './BraceletBuilder'
+import { NorigaeBuilder } from './NorigaeBuilder'
 import { ShopItemCard } from './ShopItemCard'
 import './ShopSection.css'
 
@@ -17,6 +18,7 @@ function ShopMountPlaceholder({ category }: { category: ShopCategory }) {
   const text = copy.shop[category]
 
   if (category === 'bracelet') return <BraceletBuilder />
+  if (category === 'maedeup') return <NorigaeBuilder />
 
   return (
     <div className="shop-mount" id={mountIds[category]}>

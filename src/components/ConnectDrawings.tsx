@@ -7,9 +7,9 @@ const EDGE = 'var(--drawing-edge)'
 const detail = (colour: ModuleColour) =>
   colour === 'indigo' || colour === 'ochre' || colour === 'vandyke' ? 'rgba(255, 252, 245, 0.55)' : 'rgba(15, 30, 107, 0.45)'
 
-type Placement = { x: number; y: number }
+export type Placement = { x: number; y: number }
 
-function Cord({ d, colour }: { d: string; colour: ModuleColour }) {
+export function Cord({ d, colour }: { d: string; colour: ModuleColour }) {
   return (
     <>
       <path d={d} fill="none" stroke={EDGE} strokeLinecap="round" strokeWidth="4.6" />
@@ -18,7 +18,7 @@ function Cord({ d, colour }: { d: string; colour: ModuleColour }) {
   )
 }
 
-function Ring({ x, y, r, colour }: Placement & { r: number; colour: ModuleColour }) {
+export function Ring({ x, y, r, colour }: Placement & { r: number; colour: ModuleColour }) {
   return (
     <>
       <circle cx={x} cy={y} fill="none" r={r} stroke={EDGE} strokeWidth="4.6" />
@@ -27,7 +27,7 @@ function Ring({ x, y, r, colour }: Placement & { r: number; colour: ModuleColour
   )
 }
 
-function Knot({ x, y, size, colour }: Placement & { size: number; colour: ModuleColour }) {
+export function Knot({ x, y, size, colour }: Placement & { size: number; colour: ModuleColour }) {
   const half = size / 2
   return (
     <g>
@@ -38,7 +38,7 @@ function Knot({ x, y, size, colour }: Placement & { size: number; colour: Module
   )
 }
 
-function Bead({ x, y, r, colour }: Placement & { r: number; colour: ModuleColour }) {
+export function Bead({ x, y, r, colour }: Placement & { r: number; colour: ModuleColour }) {
   return (
     <g>
       <circle cx={x} cy={y} fill={tone(colour)} r={r} stroke={EDGE} strokeWidth="1" />
@@ -50,7 +50,7 @@ function Bead({ x, y, r, colour }: Placement & { r: number; colour: ModuleColour
 
 const strands = [-3, -2, -1, 0, 1, 2, 3]
 
-function Tassel({ x, top, height, width, colour }: { x: number; top: number; height: number; width: number; colour: ModuleColour }) {
+export function Tassel({ x, top, height, width, colour }: { x: number; top: number; height: number; width: number; colour: ModuleColour }) {
   const bottom = top + height
   return (
     <g>
