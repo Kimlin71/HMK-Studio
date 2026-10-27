@@ -157,3 +157,20 @@
     grid-template-columns: repeat(auto-fill, minmax(min(100%, 96px), 1fr));
   }
 }
+
+.builder-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 8px;
+  padding: 16px;
+  border-left: 3px solid var(--deep-indigo);
+  color: var(--ink-soft);
+  background: var(--builder-summary-bg, var(--white));
+  font-size: var(--text-small);
+  line-height: 1.7;
+}
+
+.builder-summary strong {
+  color: var(--ink-heading);
+}

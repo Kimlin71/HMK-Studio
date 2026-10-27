@@ -18,7 +18,7 @@ Customers can only look at the site. The founder wants a simple webshop where th
 | --- | --- |
 | Scope of this PR | Bracelets, Maedeup + Norigae, hanboks. Patterns are a follow-up. |
 | Payment | **None in this PR.** No cart, checkout, payment, accounts or personal data. Stripe Checkout + a minimal serverless backend is a separate, later spec. |
-| Storage | Nothing is stored or sent. Builder state is local React state. |
+| Storage | The builders and the order button store and send nothing. Builder state is local React state. The only thing the site keeps is the language choice, in the visitor's browser (`localStorage` key `hms-language`). |
 | ADR 0001 and `.github/copilot-instructions.md` | Unchanged. This work stays inside their rules (forms inactive, no personal data). |
 | Pattern PDFs (later) | Generated on the server after payment (recorded here so the follow-up spec starts from it). |
 

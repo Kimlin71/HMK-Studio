@@ -1,6 +1,7 @@
 import { useId, type ReactNode } from 'react'
-import { colourLabels, type ModuleColour } from '../content/jewellery'
+import { colourLabels, type ColourFamilyId, type ModuleColour } from '../content/jewellery'
 import { useCopy } from '../i18n/LanguageContext'
+import type { SummaryRow } from './builderSummary'
 import type { CopyStatus } from './useCopyToClipboard'
 import './BuilderControls.css'
 
@@ -56,14 +57,14 @@ export function ColourOptionGroup({ colours, ...props }: ColourOptionGroupProps)
   )
 }
 
-type PresetRowProps<P extends { id: string }> = {
+type PresetRowProps<P extends { id: ColourFamilyId }> = {
   label: string
   presets: P[]
   onSelect: (preset: P) => void
 }
 
 // Colour-family starting points. Labels come from copy.connect.families.
-export function PresetRow<P extends { id: string }>({ label, presets, onSelect }: PresetRowProps<P>) {
+export function PresetRow<P extends { id: ColourFamilyId }>({ label, presets, onSelect }: PresetRowProps<P>) {
   const { copy } = useCopy()
   const labelId = useId()
 
@@ -78,6 +79,21 @@ export function PresetRow<P extends { id: string }>({ label, presets, onSelect }
         ))}
       </div>
     </div>
+  )
+}
+
+// Live summary shared by both builders: one <output>, one row per choice. Colour names stay English.
+export function BuilderSummary({ prefix, rows }: { prefix: string; rows: SummaryRow[] }) {
+  return (
+    <output aria-live="polite" className="builder-summary">
+      <strong>{prefix}</strong>
+      {rows.map((row) => (
+        <span key={row.label}>
+          {row.label}: {row.value ? `${row.value}, ` : ''}
+          {row.colour ? <span lang="en">{colourLabels[row.colour]}</span> : null}
+        </span>
+      ))}
+    </output>
   )
 }
 

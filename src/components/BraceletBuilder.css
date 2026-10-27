@@ -75,23 +75,6 @@
   min-width: 0;
 }
 
-.bracelet-builder__summary {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  margin-top: 8px;
-  padding: 16px;
-  border-left: 3px solid var(--deep-indigo);
-  color: var(--ink-soft);
-  background: var(--white);
-  font-size: var(--text-small);
-  line-height: 1.7;
-}
-
-.bracelet-builder__summary strong {
-  color: var(--ink-heading);
-}
-
 @media (max-width: 900px) {
   .bracelet-builder__workspace {
     grid-template-columns: 1fr;

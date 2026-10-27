@@ -6,6 +6,8 @@
 // Everything here is editorial colour-study content: no stock, no verified materials, no purchasable variants.
 
 export type ModuleColour = 'indigo' | 'ivory' | 'cameo' | 'ochre' | 'glaucous' | 'khaki' | 'vandyke'
+/** Ids of the six colour families. Shared by the CONNECT study and both builders' presets. */
+export type ColourFamilyId = 'indigo-ivory' | 'ochre-glaucous' | 'ivory-glaucous' | 'cameo-indigo' | 'vandyke-khaki' | 'ivory-cameo'
 export type ModuleId = 'knot' | 'cord' | 'bead' | 'tassel'
 export type PaletteGroupId = 'core' | 'character' | 'earth'
 
@@ -33,7 +35,7 @@ export const allColours: ModuleColour[] = paletteGroups.flatMap((group) => group
 
 // Combinations 01-03 are the priority pairings; 04-06 bring in Cameo Pink and the earthy accents.
 // A piece uses one family, or stays nearly monochrome. No piece shows every colour.
-export const colourFamilies: { id: string; number: string; colours: { colour: ModuleColour; accent?: boolean }[] }[] = [
+export const colourFamilies: { id: ColourFamilyId; number: string; colours: { colour: ModuleColour; accent?: boolean }[] }[] = [
   { id: 'indigo-ivory', number: '01', colours: [{ colour: 'indigo' }, { colour: 'ivory' }] },
   { id: 'ochre-glaucous', number: '02', colours: [{ colour: 'ochre' }, { colour: 'glaucous' }] },
   { id: 'ivory-glaucous', number: '03', colours: [{ colour: 'ivory' }, { colour: 'glaucous' }, { colour: 'indigo', accent: true }] },
@@ -51,7 +53,7 @@ export const initialCombination: ModuleSelection = {
 }
 
 // Starting points for the colour study. Each is a suggestion, not a product variant. Ids match colourFamilies.
-export const combinationPresets: { id: string; selection: ModuleSelection }[] = [
+export const combinationPresets: { id: ColourFamilyId; selection: ModuleSelection }[] = [
   { id: 'indigo-ivory', selection: initialCombination },
   { id: 'ochre-glaucous', selection: { knot: 'ochre', cord: 'ochre', bead: 'glaucous', tassel: 'glaucous' } },
   { id: 'ivory-glaucous', selection: { knot: 'ivory', cord: 'indigo', bead: 'ivory', tassel: 'glaucous' } },

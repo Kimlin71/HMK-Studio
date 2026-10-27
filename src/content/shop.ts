@@ -14,9 +14,8 @@ export type ShopItem = {
   category: ShopCategory
   /** English proper name, shown in both languages. */
   name: string
-  image?: string
+  image: string
   imagePosition?: string
-  status: 'demo'
 }
 
 export const shopItems: ShopItem[] = [
@@ -25,14 +24,12 @@ export const shopItems: ShopItem[] = [
     category: 'bracelet',
     name: 'Signature Bracelet No. 1',
     image: '/images/macro-signature-pearl.png',
-    status: 'demo',
   },
   {
     id: 'maedeup-norigae-demo',
     category: 'maedeup',
     name: 'Maedeup Norigae No. 1',
     image: '/images/knot-study.png',
-    status: 'demo',
   },
   {
     id: 'shirt-hanbok-demo',
@@ -40,17 +37,20 @@ export const shopItems: ShopItem[] = [
     name: 'Shirt Hanbok No. 1',
     image: '/images/hanbok2.jpg',
     imagePosition: 'center 14%',
-    status: 'demo',
   },
   {
     id: 'shirt-hanbok-demo-2',
     category: 'hanbok',
     name: 'Shirt Hanbok No. 2',
-    image: '/images/silhouette-study.png',
-    imagePosition: 'center 40%',
-    status: 'demo',
+    image: '/images/hero-proportions.jpg',
+    imagePosition: 'center 20%',
   },
 ]
+
+export type HanbokItem = ShopItem & { id: HanbokItemId }
+
+// Selected once here, so no component repeats the category filter.
+export const hanbokItems: HanbokItem[] = shopItems.filter((item): item is HanbokItem => item.category === 'hanbok')
 
 // Anchors for the shop section and the places where the builders and the hanbok list mount.
 export const shopAnchors = {

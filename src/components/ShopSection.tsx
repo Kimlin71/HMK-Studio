@@ -1,4 +1,4 @@
-import { shopAnchors, shopCategories, shopItems } from '../content/shop'
+import { hanbokItems, shopAnchors, shopCategories, shopItems } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
 import { BraceletBuilder } from './BraceletBuilder'
 import { NorigaeBuilder } from './NorigaeBuilder'
@@ -19,7 +19,6 @@ export function ShopSection() {
         <p className="image-disclosure">{text.disclosure}</p>
       </div>
       {shopCategories.map((category) => {
-        const items = shopItems.filter((item) => item.category === category)
         const categoryText = text.categories[category]
 
         return (
@@ -29,9 +28,9 @@ export function ShopSection() {
               <p>{categoryText.description}</p>
             </div>
             <div className="shop-category__items">
-              {category === 'hanbok' ? <HanbokShop /> : (
+              {category === 'hanbok' ? <HanbokShop items={hanbokItems} /> : (
                 <>
-                  {items.map((item) => <ShopItemCard item={item} key={item.id} />)}
+                  {shopItems.filter((item) => item.category === category).map((item) => <ShopItemCard item={item} key={item.id} />)}
                   {category === 'bracelet' ? <BraceletBuilder /> : <NorigaeBuilder />}
                 </>
               )}
