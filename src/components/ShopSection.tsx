@@ -1,5 +1,6 @@
 import { shopAnchors, shopCategories, shopItems, type ShopCategory } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
+import { NorigaeBuilder } from './NorigaeBuilder'
 import { ShopItemCard } from './ShopItemCard'
 import './ShopSection.css'
 
@@ -14,6 +15,8 @@ const mountIds: Record<ShopCategory, string> = {
 function ShopMountPlaceholder({ category }: { category: ShopCategory }) {
   const { copy } = useCopy()
   const text = copy.shop[category]
+
+  if (category === 'maedeup') return <NorigaeBuilder />
 
   return (
     <div className="shop-mount" id={mountIds[category]}>

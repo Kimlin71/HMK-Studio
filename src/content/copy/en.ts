@@ -260,6 +260,56 @@ export const en: Copy = {
     maedeup: {
       title: 'Design your Maedeup with Norigae',
       placeholder: 'Placeholder: the Maedeup and Norigae builder will appear here. Nothing can be chosen yet.',
+      intro: 'A Norigae is a hanging ornament of knot, pendant and tassel, traditionally worn with a hanbok. Choose the knot, colours and tassel and see the result straight away.',
+      note: 'Prototype: a graphic study, not an order. Nothing is sent or stored. The knots are inspired by Korean decorative knotwork and describe no documented technique.',
+      previewLabel: 'Preview',
+      previewAlt: 'Graphic study of your Norigae: loop, knot, signature pearl, an optional second element and tassel, in the colours you chose.',
+      previewNote: 'Graphic study, not a photograph of a finished product.',
+      presetsLabel: 'Colour suggestions',
+      pearlNote: 'The signature pearl is always in the pendant. You choose its colour, not whether it is there.',
+      knotStyle: {
+        legend: 'Knot style',
+        hint: 'Top knot',
+        options: {
+          diamond: { label: 'Diamond', description: 'Simple, clear shape' },
+          layered: { label: 'Layered', description: 'Knot within knot' },
+          ringed: { label: 'Ringed', description: 'Knot with a ring around it' },
+        },
+      },
+      colours: {
+        knot: { legend: 'Knot colour', hint: 'Top knot' },
+        cord: { legend: 'Cord colour', hint: 'Loop and band' },
+        pendant: { legend: 'Signature pearl colour', hint: 'The pendant, always included' },
+        second: { legend: 'Second element colour', hint: 'Below the pendant' },
+        tassel: { legend: 'Tassel colour', hint: 'At the bottom' },
+      },
+      secondElement: {
+        legend: 'Second element',
+        hint: 'Optional, below the signature pearl',
+        options: { none: 'None', bead: 'Bead', knot: 'Knot' },
+      },
+      tasselLength: {
+        legend: 'Tassel length',
+        hint: 'Three lengths',
+        options: { short: 'Short', medium: 'Medium', long: 'Long' },
+      },
+      summary: {
+        prefix: 'Your Norigae:',
+        labels: {
+          knot: 'Knot',
+          cord: 'Cord',
+          pendant: 'Signature pearl',
+          second: 'Second element',
+          tassel: 'Tassel',
+        },
+      },
+      copy: {
+        button: 'Copy my design',
+        success: 'The design has been copied to your clipboard.',
+        failure: 'Copying failed. Select the summary and copy it yourself.',
+        heading: 'My Norigae (HMK Studio, prototype)',
+        footer: 'Design study. Not an order.',
+      },
     },
     hanbok: {
       title: 'Hanbok to choose from',

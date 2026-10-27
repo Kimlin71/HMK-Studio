@@ -1,5 +1,6 @@
 import type { ElementKind, ModuleId, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
+import type { KnotStyleId, SecondElementId, TasselLengthId } from '../norigae'
 import type { ShopCategory, ShopItemId } from '../shop'
 
 export type Language = 'sv' | 'en'
@@ -130,7 +131,23 @@ export type Copy = {
       items: Record<ShopItemId, { imageAlt: string }>
     }
     bracelet: { title: string; placeholder: string }
-    maedeup: { title: string; placeholder: string }
+    maedeup: {
+      title: string
+      placeholder: string
+      intro: string
+      note: string
+      previewLabel: string
+      previewAlt: string
+      previewNote: string
+      presetsLabel: string
+      pearlNote: string
+      knotStyle: { legend: string; hint: string; options: Record<KnotStyleId, { label: string; description: string }> }
+      colours: Record<'knot' | 'cord' | 'pendant' | 'second' | 'tassel', { legend: string; hint: string }>
+      secondElement: { legend: string; hint: string; options: Record<SecondElementId, string> }
+      tasselLength: { legend: string; hint: string; options: Record<TasselLengthId, string> }
+      summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'second' | 'tassel', string> }
+      copy: { button: string; success: string; failure: string; heading: string; footer: string }
+    }
     hanbok: { title: string; placeholder: string }
   }
   signatureBead: {

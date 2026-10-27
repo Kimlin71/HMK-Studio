@@ -264,6 +264,56 @@ export const sv: Copy = {
     maedeup: {
       title: 'Designa din Maedeup med Norigae',
       placeholder: 'Platshållare: byggaren för Maedeup och Norigae kommer här. Inget går att välja ännu.',
+      intro: 'En Norigae är ett hängande smycke av knut, hänge och tofs, traditionellt buret till hanbok. Välj knut, färger och tofs och se resultatet direkt.',
+      note: 'Prototyp: en grafisk studie, inte en beställning. Inget skickas eller sparas. Knutarna är inspirerade av koreanskt knutverk och beskriver ingen dokumenterad teknik.',
+      previewLabel: 'Förhandsvisning',
+      previewAlt: 'Grafisk studie av din Norigae: slinga, knut, signaturpärla, eventuellt ett andra element och tofs, i de färger du valt.',
+      previewNote: 'Grafisk studie, inte ett foto av en färdig produkt.',
+      presetsLabel: 'Färgförslag',
+      pearlNote: 'Signaturpärlan sitter alltid i hänget. Du väljer dess färg, inte om den finns med.',
+      knotStyle: {
+        legend: 'Knutstil',
+        hint: 'Överknuten',
+        options: {
+          diamond: { label: 'Romb', description: 'Enkel, tydlig form' },
+          layered: { label: 'Lager', description: 'Knut i knut' },
+          ringed: { label: 'Ring', description: 'Knut med ring runt' },
+        },
+      },
+      colours: {
+        knot: { legend: 'Knutens färg', hint: 'Överknuten' },
+        cord: { legend: 'Snoddens färg', hint: 'Slinga och band' },
+        pendant: { legend: 'Signaturpärlans färg', hint: 'Hänget, alltid med' },
+        second: { legend: 'Andra elementets färg', hint: 'Under hänget' },
+        tassel: { legend: 'Tofsens färg', hint: 'Nederst' },
+      },
+      secondElement: {
+        legend: 'Andra element',
+        hint: 'Valfritt, under signaturpärlan',
+        options: { none: 'Inget', bead: 'Pärla', knot: 'Knut' },
+      },
+      tasselLength: {
+        legend: 'Tofsens längd',
+        hint: 'Tre längder',
+        options: { short: 'Kort', medium: 'Medel', long: 'Lång' },
+      },
+      summary: {
+        prefix: 'Din Norigae:',
+        labels: {
+          knot: 'Knut',
+          cord: 'Snodd',
+          pendant: 'Signaturpärla',
+          second: 'Andra element',
+          tassel: 'Tofs',
+        },
+      },
+      copy: {
+        button: 'Kopiera min design',
+        success: 'Designen är kopierad till urklipp.',
+        failure: 'Det gick inte att kopiera. Markera sammanfattningen och kopiera själv.',
+        heading: 'Min Norigae (HMK Studio, prototyp)',
+        footer: 'Designstudie. Inte en beställning.',
+      },
     },
     hanbok: {
       title: 'Hanbok att välja bland',
