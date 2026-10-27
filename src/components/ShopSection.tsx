@@ -2,6 +2,7 @@ import { shopAnchors, shopCategories, shopItems, type ShopCategory } from '../co
 import { useCopy } from '../i18n/LanguageContext'
 import { BraceletBuilder } from './BraceletBuilder'
 import { NorigaeBuilder } from './NorigaeBuilder'
+import { HanbokShop } from './HanbokShop'
 import { ShopItemCard } from './ShopItemCard'
 import './ShopSection.css'
 
@@ -52,8 +53,12 @@ export function ShopSection() {
               <p>{categoryText.description}</p>
             </div>
             <div className="shop-category__items">
-              {items.map((item) => <ShopItemCard item={item} key={item.id} />)}
-              <ShopMountPlaceholder category={category} />
+              {category === 'hanbok' ? <HanbokShop /> : (
+                <>
+                  {items.map((item) => <ShopItemCard item={item} key={item.id} />)}
+                  <ShopMountPlaceholder category={category} />
+                </>
+              )}
             </div>
           </div>
         )

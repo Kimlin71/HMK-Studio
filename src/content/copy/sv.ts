@@ -255,6 +255,7 @@ export const sv: Copy = {
         'signature-bracelet-demo': { imageAlt: 'Konceptbild: makrostudie av glaserade signaturpärlor, referens för armbandet. Inte ett foto av en färdig produkt.' },
         'maedeup-norigae-demo': { imageAlt: 'Konceptbild: studie av en dekorativ knut med tofs, referens för Maedeup och Norigae. Inte ett foto av en färdig produkt.' },
         'shirt-hanbok-demo': { imageAlt: 'Konceptbild: en omsydd skjorta i hanbokinspirerad form, referens för hanbok. Inte ett foto av en färdig produkt.' },
+        'shirt-hanbok-demo-2': { imageAlt: 'Konceptbild: grafisk formstudie av en rak skjorta med linjer för axel, ärm och längd, referens för hanbok. Inte ett foto av en färdig produkt.' },
       },
     },
     bracelet: {
@@ -344,6 +345,35 @@ export const sv: Copy = {
     hanbok: {
       title: 'Hanbok att välja bland',
       placeholder: 'Platshållare: fler hanbok presenteras här. Inget går att välja ännu.',
+      oneOfAKind: 'Unikt plagg',
+      oneOfAKindNote: 'Sytt av en enda second hand-herrskjorta. Ingen färg och ingen storlek upprepas.',
+      detailsButton: 'Visa detaljer',
+      detailsButtonLabel: (name) => `Visa detaljer om ${name}`,
+      fields: { status: 'Status', material: 'Material', sourceShirt: 'Ursprungsskjorta' },
+      fits: {
+        title: 'Så sitter den',
+        intro: 'Varje hanbok utgår från en skjorta som redan finns. Därför avgörs passformen av några proportioner som vägs mot varandra. Det här är bara en beskrivning. Inga mått tas här och inget behöver fyllas i.',
+        shoulder: { label: 'Axel', text: 'Axelns läge flyttas och formas så att plagget vilar där bäraren har sin axel, inte där skjortan hade sin söm.' },
+        sleeve: { label: 'Ärm', text: 'Ärmens längd och vidd vägs mot plaggets volym, så att den känns avsiktlig och inte bara stor.' },
+        length: { label: 'Längd', text: 'Längden balanseras mot kroppens proportioner och mot hur plagget slås om och knyts.' },
+        wrapTie: { label: 'Omlott och knytning', text: 'Omlotten går diagonalt över framsidan och knyts vid sidan. Knytbandets placering avgör hur plagget faller och hur mycket det rör sig.' },
+      },
+      ask: 'Frågor om ett plagg? Förfrågningar öppnar senare. Här finns varken e-postadress eller formulär ännu.',
+      demoNote: 'Demo. Detta är inte ett plagg till salu. Bilden är en konceptbild och inget kan beställas.',
+      items: {
+        'shirt-hanbok-demo': {
+          category: 'Omsydd skjorta · Modern hanbok · Demo',
+          story: 'En klassisk herrskjorta sys om till en modern hanbok med omlott, knytband och en mjuk, förskjuten silhuett. Skjortan är vald second hand och blir utgångspunkten för ett enda plagg.',
+          material: 'Platshållare. Materialsammansättning anges när det finns ett dokumenterat plagg.',
+          sourceShirt: 'Originalskjorta: platshållare. Varje skjorta är unik, så varje hanbok blir det också.',
+        },
+        'shirt-hanbok-demo-2': {
+          category: 'Omsydd skjorta · Formstudie · Demo',
+          story: 'En formstudie av hur axel, ärm och längd kan ritas om från en rak skjorta. Studien visar proportioner, inte ett färdigt plagg.',
+          material: 'Platshållare. Material och färg anges när det finns ett dokumenterat plagg.',
+          sourceShirt: 'Originalskjorta: platshållare. Ingen färg och ingen storlek återkommer i ett annat plagg.',
+        },
+      },
     },
   },
   signatureBead: {

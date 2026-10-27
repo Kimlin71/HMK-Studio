@@ -251,6 +251,7 @@ export const en: Copy = {
         'signature-bracelet-demo': { imageAlt: 'Concept image: macro study of glazed signature pearls, a reference for the bracelet. Not a photograph of a finished product.' },
         'maedeup-norigae-demo': { imageAlt: 'Concept image: study of a decorative knot with a tassel, a reference for Maedeup and Norigae. Not a photograph of a finished product.' },
         'shirt-hanbok-demo': { imageAlt: 'Concept image: a re-sewn shirt in a hanbok-inspired shape, a reference for hanbok. Not a photograph of a finished product.' },
+        'shirt-hanbok-demo-2': { imageAlt: 'Concept image: a graphic form study of a straight shirt with lines for shoulder, sleeve and length, a reference for hanbok. Not a photograph of a finished product.' },
       },
     },
     bracelet: {
@@ -340,6 +341,35 @@ export const en: Copy = {
     hanbok: {
       title: 'Hanbok to choose from',
       placeholder: 'Placeholder: more hanbok will be presented here. Nothing can be chosen yet.',
+      oneOfAKind: 'One of a kind',
+      oneOfAKindNote: 'Sewn from a single second-hand men’s shirt. No colour and no size is repeated.',
+      detailsButton: 'View details',
+      detailsButtonLabel: (name) => `View details for ${name}`,
+      fields: { status: 'Status', material: 'Material', sourceShirt: 'Source shirt' },
+      fits: {
+        title: 'How it fits',
+        intro: 'Every hanbok starts from a shirt that already exists, so the fit comes down to a few proportions weighed against each other. This is a description only. No measurements are taken here and nothing needs to be filled in.',
+        shoulder: { label: 'Shoulder', text: 'The shoulder line is moved and reshaped so the garment rests where the wearer’s shoulder is, not where the shirt’s seam was.' },
+        sleeve: { label: 'Sleeve', text: 'Sleeve length and width are weighed against the volume of the garment, so it feels intentional and not just large.' },
+        length: { label: 'Length', text: 'Length is balanced against the body’s proportions and against how the garment wraps and ties.' },
+        wrapTie: { label: 'Wrap and tie', text: 'The wrap crosses the front diagonally and ties at the side. Where the tie sits decides how the garment falls and how much it moves.' },
+      },
+      ask: 'Questions about a piece? Enquiries open later. There is no email address or form here yet.',
+      demoNote: 'Demo. This is not a garment for sale. The image is a concept image and nothing can be ordered.',
+      items: {
+        'shirt-hanbok-demo': {
+          category: 'Re-sewn shirt · Modern hanbok · Demo',
+          story: 'A classic men’s shirt is sewn anew into a modern hanbok with a wrap, a tie and a soft, offset silhouette. The shirt is found second hand and becomes the starting point for a single garment.',
+          material: 'Placeholder. The material composition is stated once a documented garment exists.',
+          sourceShirt: 'Original shirt: placeholder. Every shirt is unique, so every hanbok is too.',
+        },
+        'shirt-hanbok-demo-2': {
+          category: 'Re-sewn shirt · Form study · Demo',
+          story: 'A form study of how shoulder, sleeve and length can be redrawn from a straight shirt. The study shows proportions, not a finished garment.',
+          material: 'Placeholder. Material and colour are stated once a documented garment exists.',
+          sourceShirt: 'Original shirt: placeholder. No colour and no size recurs in another piece.',
+        },
+      },
     },
   },
   signatureBead: {
