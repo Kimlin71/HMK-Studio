@@ -8,6 +8,7 @@
   --cameo-pink: #E5BCBC;
   /* Character */
   --ochre-red: #A7374B;
+  --ochre-red-faint: rgba(167, 55, 75, 0.42);
   --light-glaucous-blue: #A6E6DB;
   /* Earthy accents */
   --khaki: #C49007;
@@ -24,7 +25,16 @@
   --paper: #F5F0E3;
   --paper-warm: #EFE5C7;
   --linen: #D7C9A7;
-  --ink-soft: #25304D;
+  /* Soft block tints, mixed from palette colours toward paper so text keeps 5:1+ contrast. */
+  --cameo-tint: #F0E0D7;
+  --glaucous-tint: #DDEDE1;
+  /* Text roles. Headings: Vandyke Brown. Small accents (eyebrows, numbers): Ochre Red. Emphasised words in headings: Ochre Red.
+     Interactive UI (nav, buttons, links) stays Deep Indigo. Dark blocks override these roles with Ivory Buff / Cameo Pink / Khaki. */
+  --ink-heading: var(--vandyke-brown);
+  --ink-accent: var(--ochre-red);
+  --ink-em: var(--ochre-red);
+  /* Body text: Vandyke Brown softened toward paper (7.4:1 on paper). */
+  --ink-soft: #5C4A36;
   --white: #FFFCF5;
   --line: rgba(15, 30, 107, 0.18);
   --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
@@ -85,10 +95,26 @@ body:has(.piece-dialog[open]) {
   overflow: hidden;
 }
 
+main {
+  color: var(--ink-heading);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--ink-heading);
+}
+
 h1,
 h2 {
   text-wrap: balance;
   overflow-wrap: normal;
+}
+
+h1 em,
+h2 em {
+  color: var(--ink-em);
 }
 
 img {

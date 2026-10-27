@@ -1,32 +1,16 @@
-export const navigation = [
-  { label: 'Hem', href: '#hem' },
-  { label: 'WEAR', href: '#wear' },
-  { label: 'MAKE', href: '#make' },
-  { label: 'ADORN', href: '#adorn' },
-  { label: 'Studio', href: '#hantverk' },
-  { label: 'Om ateljén', href: '#om-ateljen' },
-]
+// Language-independent site structure. Visible text lives in src/content/copy/.
 
-export const craftDetails = [
-  {
-    title: 'Sömmens placering',
-    note: 'En linje som förändrar silhuetten.',
-    image: '/images/stitch-detail.png',
-    alt: 'Grafisk närbild av en röd handsydd söm genom textil',
-    className: 'craft-image--stitch',
-  },
-  {
-    title: 'Material i balans',
-    note: 'Tyngd och struktur i relation till formen.',
-    image: '/images/fabric-study.png',
-    alt: 'Överlappande textilprover i ateljéns färgpalett',
-    className: 'craft-image--fabric',
-  },
-  {
-    title: 'Knuten som förbindelse',
-    note: 'Linjer och detaljer knyts till en helhet.',
-    image: '/images/knot-study.png',
-    alt: 'Grafisk detaljstudie av tråd, knut och tofs',
-    className: 'craft-image--knot',
-  },
+export const navigation = [
+  { key: 'home', href: '#hem' },
+  { key: 'wear', href: '#wear' },
+  { key: 'make', href: '#make' },
+  { key: 'accented', href: '#accented' },
+  { key: 'studio', href: '#hantverk' },
+  { key: 'about', href: '#om-ateljen' },
+] as const
+
+export const craftImages = [
+  { image: '/images/stitch-detail.png', className: 'craft-image--stitch' },
+  { image: '/images/fabric-study.png', className: 'craft-image--fabric' },
+  { image: '/images/knot-study.png', className: 'craft-image--knot' },
 ]

@@ -2,6 +2,68 @@
   overflow: clip;
 }
 
+/* The site thread: an Ochre Red running stitch down the left edge, with a bead at the start of each chapter.
+   It stays in the left margin, which is always wider than the thread (header and sections start at 19px or more). */
+.site-shell {
+  --thread-x: clamp(8px, 1.6vw, 22px);
+  position: relative;
+}
+
+.site-thread {
+  position: absolute;
+  z-index: 25;
+  top: 0;
+  bottom: 14px;
+  left: var(--thread-x);
+  width: 2px;
+  background: repeating-linear-gradient(to bottom, var(--ochre-red-faint) 0 7px, transparent 7px 14px);
+  pointer-events: none;
+}
+
+.site-thread__sewn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--sewn, 100%);
+  max-height: 100%;
+  background: var(--ochre-red);
+}
+
+.site-thread::after {
+  position: absolute;
+  bottom: -5px;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ochre-red);
+  content: '';
+}
+
+main section[id] {
+  position: relative;
+}
+
+/* On dark blocks the thread's Ochre Red would sink into the background; the bead gets an Ivory Buff ring there. */
+.brand-intro::before,
+.signature-bead::before {
+  box-shadow: 0 0 0 3px var(--ivory-buff);
+}
+
+main section[id]::before {
+  position: absolute;
+  z-index: 24;
+  top: 40px;
+  left: calc(var(--thread-x) + 1px - 5px);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--ochre-red);
+  content: '';
+  pointer-events: none;
+}
+
 .skip-link {
   position: fixed;
   z-index: 30;
@@ -33,24 +95,59 @@
   display: inline-flex;
   width: fit-content;
   min-height: 44px;
-  justify-content: center;
-  flex-direction: column;
-  gap: 4px;
+  align-items: center;
+  gap: 14px;
+  color: var(--ochre-red);
   text-decoration: none;
+}
+
+.wordmark {
+  --seal-ink: var(--white);
+}
+
+/* A little more room than the nominal size: the stamp filter and the 3 degree tilt bleed past the square. */
+.wordmark__seal {
+  flex: none;
+  width: 46px;
+  height: 46px;
+  overflow: visible;
+  color: var(--white);
+}
+
+.wordmark__seal-ground {
+  fill: var(--ochre-red);
+  transition: fill 220ms ease;
+}
+
+.wordmark:hover .wordmark__seal-ground {
+  fill: var(--deep-indigo);
+}
+
+.wordmark__text {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 .wordmark__name {
   font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  line-height: 0.9;
-  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
   white-space: nowrap;
 }
 
+.wordmark__studio,
 .wordmark__caption {
+  color: var(--ink-soft);
   font-size: var(--text-micro);
+  letter-spacing: 0.42em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.wordmark__caption {
   letter-spacing: 0.22em;
 }
 
@@ -115,10 +212,49 @@
   transform-origin: left;
 }
 
-.header-contact {
+.header-end {
+  display: flex;
+  align-items: center;
   justify-self: end;
+  gap: clamp(14px, 2vw, 28px);
+}
+
+.header-contact {
   text-transform: none;
   letter-spacing: 0.02em;
+}
+
+/* Language switch: two real buttons, SV / EN. The active one is filled; both keep a 44px touch target. */
+.language-switch {
+  display: inline-flex;
+  border: 1px solid var(--line);
+}
+
+.language-switch__option {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 10px;
+  border: 0;
+  color: var(--ink-heading);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.language-switch__option + .language-switch__option {
+  border-left: 1px solid var(--line);
+}
+
+.language-switch__option:hover {
+  background: var(--paper-warm);
+}
+
+.language-switch__option[aria-pressed='true'] {
+  color: var(--white);
+  background: var(--ochre-red);
 }
 
 .header-contact span {
@@ -149,6 +285,7 @@
 
 .eyebrow {
   margin: 0 0 22px;
+  color: var(--ink-accent);
   font-size: var(--text-label);
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -188,20 +325,13 @@ h2 em,
   font-weight: 400;
 }
 
-.hero__subtitle {
-  max-width: 360px;
-  margin: 31px 0 8px;
-  font-family: var(--serif);
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-.hero__description {
-  max-width: 370px;
-  margin: 0;
+.hero__lead {
+  max-width: 400px;
+  margin: 28px 0 0;
   color: var(--ink-soft);
-  font-size: var(--text-body);
-  line-height: 1.85;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.55;
 }
 
 .hero__actions {
@@ -384,36 +514,77 @@ h2 em,
   border: 1px solid rgba(255, 252, 245, 0.65);
   border-radius: 50%;
   color: var(--white);
-  background: var(--deep-indigo);
+  background: var(--ochre-red);
   font-size: var(--text-micro);
   letter-spacing: 0.12em;
   line-height: 1.6;
   text-align: center;
 }
 
-.hero__bottomline {
+/* Three doors: the studio's three offerings, visible on the first screen. */
+.hero__doors {
   grid-column: 1 / -1;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  min-height: 54px;
-  color: var(--ink-soft);
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 -1px;
+  border-top: 1px solid var(--line);
+}
+
+.hero__door {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 2px 14px;
+  min-height: 88px;
+  padding: 18px 20px 18px 0;
+  color: inherit;
+  text-decoration: none;
+  transition: background 200ms ease, padding 200ms ease;
+}
+
+.hero__door + .hero__door {
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+
+.hero__door-number {
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--ink-accent);
   font-size: var(--text-micro);
-  letter-spacing: 0.19em;
-  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.16em;
 }
 
-.hero__bottomline i {
-  width: 20px;
-  height: 1px;
-  background: var(--ochre-red);
+.hero__door-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
 }
 
-.hero__scroll {
-  margin-left: auto;
-  letter-spacing: 0.08em;
-  text-transform: none;
+.hero__door-text {
+  grid-column: 2;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.hero__door-arrow {
+  grid-column: 3;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--ochre-red);
+  transition: transform 200ms ease;
+}
+
+.hero__door:hover {
+  background: var(--paper-warm);
+}
+
+.hero__door:hover .hero__door-arrow {
+  transform: translateY(3px);
 }
 
 .section-shell {
@@ -421,11 +592,43 @@ h2 em,
   padding-left: clamp(24px, 10.5vw, 180px);
 }
 
+/* Dark blocks: a deliberate stop in the scroll. Ivory Buff text, Cameo Pink small accents, Khaki for large emphasis. */
+.brand-intro,
+.signature-bead {
+  color: var(--ivory-buff);
+  --ink-heading: var(--ivory-buff);
+  --ink-soft: #E9E0CC;
+  --ink-accent: var(--cameo-pink);
+  --ink-em: var(--khaki);
+  --line: rgba(255, 252, 245, 0.24);
+  --drawing-edge: rgba(255, 252, 245, 0.7);
+}
+
+.brand-intro,
+.signature-bead,
+.site-footer {
+  --focus-ring: var(--ivory-buff);
+}
+
+.brand-intro a:focus-visible,
+.signature-bead a:focus-visible,
+.brand-intro button:focus-visible,
+.signature-bead button:focus-visible {
+  outline-color: var(--focus-ring);
+  box-shadow: 0 0 0 7px var(--deep-indigo);
+}
+
+.signature-bead a:focus-visible,
+.signature-bead button:focus-visible {
+  box-shadow: 0 0 0 7px var(--vandyke-brown);
+}
+
 .brand-intro {
   display: grid;
   grid-template-columns: 0.43fr 1.57fr;
   padding-top: 120px;
   padding-bottom: 119px;
+  background: var(--deep-indigo);
 }
 
 .section-marker {
@@ -439,7 +642,7 @@ h2 em,
 }
 
 .section-marker span:first-child {
-  color: var(--ochre-red);
+  color: var(--ink-accent);
 }
 
 .brand-intro__content > .eyebrow {
@@ -482,7 +685,7 @@ h2 em,
 .brand-intro__thread span {
   width: 86px;
   height: 1px;
-  background: var(--ochre-red);
+  background: var(--ink-em);
 }
 
 .collections-shell {
@@ -499,7 +702,7 @@ h2 em,
 
 .collection--make {
   grid-template-columns: 1.12fr 0.88fr;
-  background: var(--paper-warm);
+  background: var(--cameo-tint);
 }
 
 .collection--make .collection__intro {
@@ -513,7 +716,7 @@ h2 em,
   grid-row: 1;
 }
 
-.collection--adorn {
+.collection--accented {
   grid-template-columns: 0.78fr 1.22fr;
   background: var(--paper);
 }
@@ -535,11 +738,10 @@ h2 em,
 
 .collection__intro .eyebrow {
   margin-bottom: 20px;
-  color: var(--ink-soft);
 }
 
 .collection__intro .eyebrow span {
-  color: var(--ochre-red);
+  color: var(--ink-accent);
 }
 
 .collection__intro h2 {
@@ -587,7 +789,7 @@ h2 em,
   height: 470px;
 }
 
-.collection--adorn .piece-card__image-wrap {
+.collection--accented .piece-card__image-wrap {
   height: 430px;
 }
 
@@ -996,8 +1198,8 @@ h2 em,
   padding: 70px clamp(24px, 10.5vw, 180px);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  color: var(--deep-indigo);
-  background: var(--paper);
+  color: var(--ink-heading);
+  background: var(--glaucous-tint);
 }
 
 .newsletter .eyebrow {
@@ -1079,8 +1281,23 @@ h2 em,
   min-height: 140px;
 }
 
+/* On the Deep Indigo footer Ochre Red text would be too dim: name in Ivory Buff, seal keeps Ochre Red with an Ivory Buff edge. */
+.wordmark--footer {
+  color: var(--ivory-buff);
+}
+
+.wordmark--footer .wordmark__seal {
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(235, 217, 153, 0.7);
+}
+
+.wordmark--footer .wordmark__studio,
 .wordmark--footer .wordmark__caption {
-  color: rgba(255, 252, 245, 0.69);
+  color: rgba(255, 252, 245, 0.78);
+}
+
+.wordmark--footer:hover .wordmark__seal-ground {
+  fill: var(--ivory-buff);
 }
 
 .site-footer__thought {
@@ -1146,7 +1363,7 @@ h2 em,
   padding: 0;
   overflow: auto;
   border: 0;
-  color: var(--deep-indigo);
+  color: var(--ink-heading);
   background: var(--paper);
   box-shadow: 0 25px 100px rgba(0, 8, 49, 0.27);
 }
@@ -1909,8 +2126,8 @@ h2 em,
   gap: 48px 80px;
   padding-top: 90px;
   padding-bottom: 100px;
-  border-bottom: 1px solid var(--line);
-  background: var(--white);
+  background: var(--vandyke-brown);
+  --ground: var(--vandyke-brown);
 }
 
 .signature-bead > .section-marker {
@@ -1929,7 +2146,7 @@ h2 em,
 
 .signature-bead__copy .signature-bead__lead {
   margin: 22px 0;
-  color: var(--deep-indigo);
+  color: var(--ink-em);
   font-family: var(--serif);
   font-size: 24px;
   line-height: 1.4;
@@ -2022,6 +2239,24 @@ h2 em,
     min-height: 76px;
   }
 
+  .header-end {
+    gap: 12px;
+  }
+
+  .header-contact {
+    display: none;
+  }
+
+  .hero__door,
+  .hero__door + .hero__door {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .hero__door-text {
+    display: none;
+  }
+
   .menu-toggle {
     display: flex;
     width: 44px;
@@ -2112,7 +2347,7 @@ h2 em,
     height: 400px;
   }
 
-  .collection--adorn .piece-card__image-wrap {
+  .collection--accented .piece-card__image-wrap {
     height: 370px;
   }
 
@@ -2227,9 +2462,21 @@ h2 em,
     padding: 0 19px;
   }
 
+  .wordmark {
+    gap: 10px;
+  }
+
+  .wordmark__seal {
+    width: 36px;
+    height: 36px;
+  }
+
   .wordmark__name {
-    font-size: 17px;
-    letter-spacing: 0.08em;
+    font-size: 22px;
+  }
+
+  .wordmark__studio {
+    letter-spacing: 0.36em;
   }
 
   .wordmark__caption {
@@ -2256,13 +2503,10 @@ h2 em,
     font-size: clamp(38px, 10.6vw, 66px);
   }
 
-  .hero__subtitle {
-    margin-top: 23px;
-    font-size: 16px;
-  }
-
-  .hero__description {
+  .hero__lead {
     max-width: 340px;
+    margin-top: 22px;
+    font-size: 18px;
   }
 
   .hero__actions {
@@ -2279,17 +2523,23 @@ h2 em,
     margin-left: 4%;
   }
 
-  .hero__bottomline {
-    min-height: 48px;
-    gap: 8px;
+  .hero__doors {
+    grid-template-columns: 1fr;
   }
 
-  .hero__bottomline i {
-    width: 11px;
+  .hero__door,
+  .hero__door + .hero__door {
+    min-height: 64px;
+    padding: 12px 0;
+    border-left: 0;
   }
 
-  .hero__scroll {
-    display: none;
+  .hero__door + .hero__door {
+    border-top: 1px solid var(--line);
+  }
+
+  .hero__door-text {
+    display: block;
   }
 
   .section-shell {
@@ -2328,7 +2578,7 @@ h2 em,
 
   .collection,
   .collection--make,
-  .collection--adorn {
+  .collection--accented {
     display: flex;
     flex-direction: column;
     gap: 22px;
@@ -2358,7 +2608,7 @@ h2 em,
 
   .piece-card__image-wrap,
   .collection--make .piece-card__image-wrap,
-  .collection--adorn .piece-card__image-wrap {
+  .collection--accented .piece-card__image-wrap {
     height: min(113vw, 480px);
   }
 
@@ -2517,5 +2767,25 @@ h2 em,
   .piece-detail dl > div {
     grid-template-columns: 1fr;
     gap: 6px;
+  }
+}
+
+/* Narrowest phones: keep the wordmark clear of the menu button. */
+@media (max-width: 360px) {
+  .wordmark {
+    gap: 8px;
+  }
+
+  .wordmark__seal {
+    width: 32px;
+    height: 32px;
+  }
+
+  .wordmark__name {
+    font-size: 19px;
+  }
+
+  .wordmark__studio {
+    letter-spacing: 0.3em;
   }
 }

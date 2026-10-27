@@ -1,4 +1,5 @@
 import { collections, type EditorialPiece } from '../content/products'
+import { useCopy } from '../i18n/LanguageContext'
 import { ConnectFamily } from './ConnectFamily'
 import { ModularJewellery } from './ModularJewellery'
 import { ReconstructCompare } from './ReconstructCompare'
@@ -9,40 +10,45 @@ type CollectionGridProps = {
 }
 
 export function CollectionGrid({ pieces, onExplore }: CollectionGridProps) {
+  const { copy } = useCopy()
+
   return (
     <div className="collections">
       {collections.map((collection) => {
         const { area } = collection
+        const slug = area.toLowerCase()
+        const text = copy.collections[collection.id]
         const piece = pieces.find((item) => item.collectionId === collection.id)
         if (!piece) return null
+        const pieceCopy = copy.pieces[piece.id]
 
         return (
-          <section aria-labelledby={`${area.toLowerCase()}-title`} className={`collection collection--${area.toLowerCase()}`} id={area.toLowerCase()} key={area}>
+          <section aria-labelledby={`${slug}-title`} className={`collection collection--${slug}`} id={slug} key={area}>
             <div className="collection__intro">
-              <div className="section-marker"><span>{collection.number}</span><span>{area}</span></div>
-              <p className="eyebrow" lang="en">{collection.concept}</p>
-              <h2 id={`${area.toLowerCase()}-title`} lang="en">{collection.title}</h2>
-              <div className="collection__description" lang="en">
-                {collection.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              <div className="section-marker"><span>{collection.number}</span><span lang="en">{area}</span></div>
+              <p className="eyebrow" lang="en">{text.concept}</p>
+              <h2 id={`${slug}-title`}>{text.title}</h2>
+              <div className="collection__description">
+                {text.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
-              {area === 'ADORN' ? (
-                <a className="text-link collection__link" href="#kombination" lang="en">{collection.action} <span aria-hidden="true">↓</span></a>
+              {area === 'ACCENTED' ? (
+                <a className="text-link collection__link" href="#kombination">{text.action} <span aria-hidden="true">↓</span></a>
               ) : (
-                <button className="text-link collection__link" lang="en" onClick={() => onExplore(piece)} type="button">{collection.action} <span aria-hidden="true">↗</span></button>
+                <button className="text-link collection__link" onClick={() => onExplore(piece)} type="button">{text.action} <span aria-hidden="true">↗</span></button>
               )}
             </div>
             {area === 'WEAR' ? <ReconstructCompare piece={piece} /> : (
-              <button aria-label={`Visa ${piece.name}, fiktivt demo, ${piece.category}`} className="piece-card" onClick={() => onExplore(piece)} type="button">
+              <button aria-label={copy.collectionCard.open(piece.name, pieceCopy.category)} className="piece-card" onClick={() => onExplore(piece)} type="button">
                 <span className="piece-card__image-wrap">
-                  {/* Replace illustrations with the atelier's own photographs when available. */}
-                  <img alt={piece.imageAlt} className="piece-card__image" loading="lazy" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
-                  <span className="image-note">Fiktivt demo · Illustration</span>
+                  {/* Replace illustrations with the studio's own photographs when available. */}
+                  <img alt={pieceCopy.imageAlt} className="piece-card__image" loading="lazy" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
+                  <span className="image-note">{copy.collectionCard.imageNote}</span>
                   <span className="piece-card__open" aria-hidden="true">↗</span>
                 </span>
-                <span className="piece-card__meta"><span>{piece.name}</span><span>{piece.category}</span></span>
+                <span className="piece-card__meta"><span>{piece.name}</span><span>{pieceCopy.category}</span></span>
               </button>
             )}
-            {area === 'ADORN' ? <><ConnectFamily /><ModularJewellery /></> : null}
+            {area === 'ACCENTED' ? <><ConnectFamily /><ModularJewellery /></> : null}
           </section>
         )
       })}

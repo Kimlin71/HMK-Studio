@@ -1,24 +1,28 @@
-import { craftDetails } from '../content/site'
+import { craftImages } from '../content/site'
+import { useCopy } from '../i18n/LanguageContext'
 
 export function CraftGallery() {
+  const { copy } = useCopy()
+  const text = copy.craft
+
   return (
     <section aria-labelledby="craft-title" className="craft section-shell" id="hantverk">
-      <div className="section-marker"><span>07</span><span>Studio · form och material</span></div>
+      <div className="section-marker"><span>07</span><span>{text.marker}</span></div>
       <div className="craft__heading">
-        <p className="eyebrow">Designbeslut i detalj</p>
-        <h2 id="craft-title">Placering, balans<br /><em>och förbindelser.</em></h2>
-        <p>En söm påverkar silhuetten. Material ger tyngd och balans. En knut förbinder linjer och detaljer till en helhet.</p>
+        <p className="eyebrow">{text.eyebrow}</p>
+        <h2 id="craft-title">{text.titleTop}<br /><em>{text.titleEm}</em></h2>
+        <p>{text.text}</p>
       </div>
       <div className="craft__gallery">
-        {craftDetails.map((item, index) => (
-          <figure className={`craft-card ${item.className}`} key={item.title}>
+        {craftImages.map((item, index) => (
+          <figure className={`craft-card ${item.className}`} key={item.className}>
             {/* Photography placeholder: macro image of stitching, cloth texture, knotwork or hand-finished jewellery. */}
-            <img alt={item.alt} loading="lazy" src={item.image} />
-            <figcaption><span>0{index + 1} / {item.title}</span><span>{item.note}</span></figcaption>
+            <img alt={text.details[index].alt} loading="lazy" src={item.image} />
+            <figcaption><span>0{index + 1} / {text.details[index].title}</span><span>{text.details[index].note}</span></figcaption>
           </figure>
         ))}
       </div>
-      <p className="image-disclosure">Grafiska platshållare · Detaljstudier som ersätts med ateljéns egna närbilder.</p>
+      <p className="image-disclosure">{text.disclosure}</p>
     </section>
   )
 }

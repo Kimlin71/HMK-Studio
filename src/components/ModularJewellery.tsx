@@ -1,25 +1,25 @@
 import { useState } from 'react'
-import {
-  allColours, colourLabels, combinationPresets, initialCombination, jewelleryModules,
-  type ModuleSelection,
-} from '../content/jewellery'
+import { allColours, colourLabels, combinationPresets, initialCombination, moduleIds, type ModuleSelection } from '../content/jewellery'
+import { useCopy } from '../i18n/LanguageContext'
 import { ColourSwatch } from './ColourSwatch'
 import { ConnectPieceDrawing } from './ConnectDrawings'
 
 export function ModularJewellery() {
+  const { copy } = useCopy()
+  const text = copy.modular
   const [selection, setSelection] = useState<ModuleSelection>(initialCombination)
 
   return (
     <div aria-labelledby="combination-title" className="modular-study" id="kombination">
       <div className="modular-study__heading">
-        <p className="eyebrow">En studie i förbindelser</p>
-        <h3 id="combination-title">Delar som byter färgfamilj.</h3>
-        <p>Flytta färger fritt mellan knut, snodd, pärla och tofs — delarna behöver inte höra till samma färgfamilj. Börja i en av de sex färgkombinationerna och byt en del i taget.</p>
-        <p className="image-disclosure" id="combination-note">Redaktionell prototyp, inte en e-handelskonfigurator. Schemat visar färgmöten, inte faktisk konstruktion eller material. Inget sparas eller beställs.</p>
+        <p className="eyebrow">{text.eyebrow}</p>
+        <h3 id="combination-title">{text.title}</h3>
+        <p>{text.intro}</p>
+        <p className="image-disclosure" id="combination-note">{text.note}</p>
       </div>
       <div className="modular-study__workspace">
         <div aria-hidden="true" className="modular-study__preview">
-          <span className="eyebrow">Färgstudie / ej produktbild</span>
+          <span className="eyebrow">{text.previewEyebrow}</span>
           <div className="modular-study__drawing">
             <ConnectPieceDrawing
               kind="bag-charm"
@@ -27,36 +27,36 @@ export function ModularJewellery() {
             />
           </div>
           <div className="module-connection">
-            {jewelleryModules.map((module) => (
-              <div className="module-sample" key={module.id}>
-                <span className="module-sample__label" lang="en">{module.label}</span>
-                <ColourSwatch colour={selection[module.id]} />
+            {moduleIds.map((id) => (
+              <div className="module-sample" key={id}>
+                <span className="module-sample__label" lang="en">{text.modules[id].label}</span>
+                <ColourSwatch colour={selection[id]} />
               </div>
             ))}
           </div>
-          <span className="modular-study__preview-note">Samma formspråk. Olika färger.</span>
+          <span className="modular-study__preview-note">{text.previewNote}</span>
         </div>
         <div aria-describedby="combination-note" className="modular-study__controls">
           <div className="module-presets">
-            <p className="eyebrow">Utgångspunkt</p>
+            <p className="eyebrow">{text.presetsEyebrow}</p>
             <div className="module-presets__row">
               {combinationPresets.map((preset) => (
                 <button className="module-preset" key={preset.id} onClick={() => setSelection(preset.selection)} type="button">
-                  <span lang="en">{preset.label}</span>
+                  <span lang="en">{copy.connect.families[preset.id].label}</span>
                 </button>
               ))}
             </div>
           </div>
-          {jewelleryModules.map((module) => (
-            <fieldset className="module-options" key={module.id}>
-              <legend><span lang="en">{module.label}</span> <small>{module.description}</small></legend>
+          {moduleIds.map((id) => (
+            <fieldset className="module-options" key={id}>
+              <legend><span lang="en">{text.modules[id].label}</span> <small>{text.modules[id].description}</small></legend>
               <div className="module-options__row">
                 {allColours.map((colour) => (
                   <label className="module-option" key={colour}>
                     <input
-                      checked={selection[module.id] === colour}
-                      name={module.id}
-                      onChange={() => setSelection((current) => ({ ...current, [module.id]: colour }))}
+                      checked={selection[id] === colour}
+                      name={id}
+                      onChange={() => setSelection((current) => ({ ...current, [id]: colour }))}
                       type="radio"
                       value={colour}
                     />
@@ -68,9 +68,9 @@ export function ModularJewellery() {
             </fieldset>
           ))}
           <output aria-live="polite" className="modular-study__summary">
-            Din färgstudie: {jewelleryModules.map((module) => `${module.label}: ${colourLabels[selection[module.id]]}`).join(' · ')}
+            {text.summaryPrefix} {moduleIds.map((id) => `${text.modules[id].label}: ${colourLabels[selection[id]]}`).join(' · ')}
           </output>
-          <a className="text-link" href="#signaturparlan">Se den sammanbindande detaljen <span aria-hidden="true">↓</span></a>
+          <a className="text-link" href="#signaturparlan">{text.link} <span aria-hidden="true">↓</span></a>
         </div>
       </div>
     </div>

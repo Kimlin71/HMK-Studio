@@ -1,7 +1,11 @@
 import { useRef, useState } from 'react'
 import { navigation } from '../content/site'
+import { useCopy } from '../i18n/LanguageContext'
+import { LanguageSwitch } from './LanguageSwitch'
+import { Wordmark } from './Wordmark'
 
 export function Header() {
+  const { copy } = useCopy()
   const [menuOpen, setMenuOpen] = useState(false)
   const menuToggleRef = useRef<HTMLButtonElement>(null)
 
@@ -12,14 +16,11 @@ export function Header() {
         menuToggleRef.current?.focus()
       }
     }}>
-      <a className="wordmark" href="#hem" aria-label="Hyang-Mee Studio — till startsidan">
-        <span className="wordmark__name">Hyang-Mee Studio</span>
-        <span className="wordmark__caption">FORM · TEXTIL · DETALJ</span>
-      </a>
+      <Wordmark />
       <button
         aria-expanded={menuOpen}
         aria-controls="primary-navigation"
-        aria-label={menuOpen ? 'Stäng menyn' : 'Öppna menyn'}
+        aria-label={menuOpen ? copy.header.menuClose : copy.header.menuOpen}
         className="menu-toggle"
         ref={menuToggleRef}
         onClick={() => setMenuOpen((open) => !open)}
@@ -29,18 +30,20 @@ export function Header() {
         <span aria-hidden="true" />
       </button>
       <nav
-        aria-label="Huvudnavigation"
+        aria-label={copy.header.navLabel}
         className={menuOpen ? 'primary-nav primary-nav--open' : 'primary-nav'}
         id="primary-navigation"
       >
         {navigation.map((item) => (
-          <a href={item.href} key={item.label} onClick={() => setMenuOpen(false)}>
-            {item.label}
+          <a href={item.href} key={item.key} onClick={() => setMenuOpen(false)}>
+            {copy.header.nav[item.key]}
           </a>
         ))}
       </nav>
-      {/* Future language switch: add Swedish / English routing when translated pages exist. */}
-      <a className="header-contact" href="#kontakt">Kontakt <span aria-hidden="true">↗</span></a>
+      <div className="header-end">
+        <LanguageSwitch />
+        <a className="header-contact" href="#kontakt">{copy.header.contact} <span aria-hidden="true">↗</span></a>
+      </div>
     </header>
   )
 }

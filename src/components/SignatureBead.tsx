@@ -1,38 +1,42 @@
-import { signatureBead } from '../content/jewellery'
+import { signatureBeadColours, signatureBeadImage } from '../content/jewellery'
+import { useCopy } from '../i18n/LanguageContext'
 import { ColourSwatch } from './ColourSwatch'
 import { ConnectElementDrawing } from './ConnectDrawings'
 
 export function SignatureBead() {
+  const { copy } = useCopy()
+  const text = copy.signatureBead
+
   return (
     <section aria-labelledby="bead-title" className="signature-bead section-shell" id="signaturparlan">
-      <div className="section-marker"><span>06</span><span>En sammanbindande detalj</span></div>
-      <div className="signature-bead__copy" lang="en">
-        <p className="eyebrow">FORM · PROPORTION · CONNECTION</p>
-        <h2 id="bead-title">{signatureBead.title}</h2>
-        <p className="signature-bead__lead">{signatureBead.subtitle}</p>
-        {signatureBead.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+      <div className="section-marker"><span>06</span><span>{text.marker}</span></div>
+      <div className="signature-bead__copy">
+        <p className="eyebrow" lang="en">FORM · PROPORTION · CONNECTION</p>
+        <h2 id="bead-title">{text.title}</h2>
+        <p className="signature-bead__lead">{text.subtitle}</p>
+        {text.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
       </div>
       <figure className="signature-bead__image">
         <div className="signature-bead__concept">
-          <img alt={signatureBead.macroImage.alt} loading="lazy" src={signatureBead.macroImage.src} />
-          <span className="image-note">{signatureBead.macroImage.label}</span>
+          <img alt={text.macro.alt} loading="lazy" src={signatureBeadImage} />
+          <span className="image-note">{text.macro.label}</span>
         </div>
         <figcaption>
-          {signatureBead.macroImage.caption}{' '}
-          <strong>Ateljéns makrofotografi av den fysiska pärlan inväntas.</strong> {signatureBead.imageBrief}
+          {text.macro.caption}{' '}
+          <strong>{text.pendingPhoto}</strong> {text.imageBrief}
         </figcaption>
       </figure>
       <div className="signature-bead__colours">
-        <p>{signatureBead.colourNote}</p>
-        <ul aria-label="Signaturpärlan i olika färger">
-          {signatureBead.colours.map((colour) => (
+        <p>{text.colourNote}</p>
+        <ul aria-label={text.coloursLabel}>
+          {signatureBeadColours.map((colour) => (
             <li key={colour}>
               <ConnectElementDrawing colour={colour} kind="bead" />
               <ColourSwatch colour={colour} />
             </li>
           ))}
         </ul>
-        <small>Grafisk färgstudie, inte ett foto av den fysiska pärlan.</small>
+        <small>{text.coloursFootnote}</small>
       </div>
     </section>
   )
