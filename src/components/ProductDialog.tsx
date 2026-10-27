@@ -34,7 +34,7 @@ export function ProductDialog({ piece, onClose }: ProductDialogProps) {
             <div className="piece-detail__image-wrap">
               {/* Replace with the atelier's own photographs when real pieces are added. */}
               <img alt={piece.imageAlt} className="piece-detail__image" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
-              <span className="piece-detail__area">{piece.area} / Fiktivt demo · Illustration</span>
+              <span className="piece-detail__area">{piece.area} / {piece.imageLabel ?? 'Fiktivt demo · Illustration'}</span>
             </div>
             <div className="piece-detail__copy">
               <p className="eyebrow">{piece.category}</p>
@@ -47,7 +47,7 @@ export function ProductDialog({ piece, onClose }: ProductDialogProps) {
                 {piece.petiteNote && <div><dt>Proportion</dt><dd>{piece.petiteNote}</dd></div>}
                 {piece.related && <div><dt>Att bära tillsammans</dt><dd>{piece.related}</dd></div>}
               </dl>
-              <p className="piece-detail__demo-note" id="piece-demo-note">Fiktivt redaktionellt demoexempel, illustrerat med en grafisk platshållare. Material och hantverk beskriver konceptet, inte ett tillverkat plagg. Inga köp eller beställningar tas emot.</p>
+              <p className="piece-detail__demo-note" id="piece-demo-note">{piece.demoNote ?? 'Fiktivt redaktionellt demoexempel, illustrerat med en grafisk platshållare. Material och hantverk beskriver konceptet, inte ett tillverkat plagg. Inga köp eller beställningar tas emot.'}</p>
             </div>
           </article>
         </>

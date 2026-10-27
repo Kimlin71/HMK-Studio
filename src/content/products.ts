@@ -16,7 +16,8 @@ export const collections: Collection[] = [
     title: 'EXISTING FORM. NEW EXPRESSION.',
     paragraphs: [
       'A familiar shirt becomes the starting point rather than the finished object.',
-      'Existing details meet new proportions, overlapping forms, ties and silhouettes influenced by Korean clothing traditions.',
+      'Garments are sewn anew into a fusion of Korean roots and a Scandinavian upbringing: overlapping forms, ties and new proportions, held in a quiet, restrained silhouette.',
+      'The first concept is a hanbok in a modern style. It is a beginning, not the limit — more garments are to come.',
     ],
     action: 'Discover garments',
   },
@@ -36,11 +37,31 @@ export const collections: Collection[] = [
     paragraphs: [
       'Knot. Bead. Tassel. Colour.',
       'Individual elements are designed to work together, allowing colours and forms to move between pieces.',
-      'Combine indigo with ivory. Ochre with celadon. A quiet combination today, something bolder tomorrow.',
+      'Combine indigo with ivory. Ochre with glaucous blue. Cameo pink with a touch of earth. A quiet combination today, something bolder tomorrow.',
     ],
     action: 'Create your combination',
   },
 ]
+
+// RECONSTRUCT before/after sequence. Both are concept images (same framing, so they cross-fade as one transformation), not photographs of a made garment.
+export const reconstructStages = [
+  {
+    id: 'before',
+    label: 'Before',
+    src: '/images/hanbok1.jpg',
+    alt: 'Konceptbild: kvinna i en ljusblå randig, rak skjorta med knappar och bröstficka. Utgångspunkten före omformningen.',
+    caption: 'Före · den befintliga skjortan',
+    holdMs: 3800,
+  },
+  {
+    id: 'after',
+    label: 'After',
+    src: '/images/hanbok2.jpg',
+    alt: 'Konceptbild: samma skjorta omsydd till en modern hanbok, en fusion av koreansk inspiration och skandinavisk minimalism, med diagonal omlottstängning och ett långt knutet band vid sidan.',
+    caption: 'Efter · omsydd till en modern hanbok',
+    holdMs: 4800,
+  },
+] as const
 
 export type EditorialPiece = {
   id: string
@@ -51,6 +72,8 @@ export type EditorialPiece = {
   category: string
   image: string
   imageAlt: string
+  imageLabel?: string
+  demoNote?: string
   material: string
   story: string
   craftsmanship: string
@@ -68,16 +91,18 @@ export const editorialPieces: EditorialPiece[] = [
     status: 'editorial-prototype',
     name: 'The Crossing Shirt',
     area: 'WEAR',
-    category: 'Omarbetad skjorta · Formstudie',
-    image: '/images/silhouette-study.svg',
-    imageAlt: 'Grafisk plaggstudie i djup indigo med röda sömlinjer',
+    category: 'Omsydd skjorta · Modern hanbok · Formstudie',
+    image: '/images/hanbok2.jpg',
+    imageAlt: reconstructStages[1].alt,
+    imageLabel: 'Konceptbild · ej foto',
+    demoNote: 'Fiktivt redaktionellt demoexempel, illustrerat med en konceptbild. Bilden är en art direction-referens, inte ett foto av ett tillverkat plagg. Material och hantverk beskriver konceptet. Inga köp eller beställningar tas emot.',
     material: 'Materialplatshållare. Faktisk sammansättning anges när ett dokumenterat plagg finns.',
-    story: 'En klassisk herrskjorta får ett nytt liv genom en omlottstängning och en mjuk, förskjuten silhuett. Bekant nog att bära ofta, annorlunda nog att kännas som din.',
-    craftsmanship: 'Formidé: omlott, förskjutna linjer och knytning. Konstruktion och utförande är ännu inte dokumenterade.',
+    story: 'En klassisk herrskjorta syms om och blir en modern hanbok — en fusion av koreanska rätter och en skandinavisk uppväxt. Omlottstängning, knytning och en mjuk, förskjuten silhuett i ett stilla uttryck. Det är det första konceptet, inte det enda: fler omsydda plagg är på väg. Bekant nog att bära ofta, annorlunda nog att kännas som din.',
+    craftsmanship: 'Formidé: omlott, förskjutna linjer och knytning, med avskalade detaljer. Konstruktion och utförande är ännu inte dokumenterade.',
     upcycling: 'Ursprungsskjortan väljs för sin kvalitet och blir utgångspunkten för ett nytt plagg — inte ett material att dölja.',
     petiteNote: 'Axel- och ärmlängd balanseras med plaggets volym för att silhuetten ska kännas avsiktlig på en petite kropp.',
     related: 'CONNECT — knut, signaturpärla och tofs som en gemensam detaljidé.',
-    imagePosition: 'center 27%',
+    imagePosition: 'center 20%',
   },
   {
     id: 'proportion-study-01',
@@ -86,7 +111,7 @@ export const editorialPieces: EditorialPiece[] = [
     name: 'Proportion Study 01',
     area: 'MAKE',
     category: 'Symönster · Petite proportioner',
-    image: '/images/pattern-study.svg',
+    image: '/images/pattern-study.png',
     imageAlt: 'Grafisk mönsterstudie med proportioner och sömlinjer',
     material: 'Koncept för ett digitalt symönster i vävd kvalitet. Inga mönsterfiler eller måttguider finns att ladda ned.',
     story: 'Ett skjortmönster som börjar i proportionerna: kortare överkropp, balanserad ärm och en fåll placerad där plagget får sitt rätta fall.',
@@ -101,7 +126,7 @@ export const editorialPieces: EditorialPiece[] = [
     name: 'Knot no. 01',
     area: 'ADORN',
     category: 'Modulär detalj · Formstudie',
-    image: '/images/knot-study.svg',
+    image: '/images/knot-study.png',
     imageAlt: 'Grafisk studie av en handknuten tråd med tofs',
     material: 'Materialplatshållare. Snodd, pärla, tofs och kopplingar behöver specificeras för verkliga objekt.',
     story: 'En studie av hur knut, pärla, tofs och koppling kan bilda en helhet. Tanken är att färger och delar ska kunna kombineras inom och mellan smycken, dekorativa objekt och plagg.',

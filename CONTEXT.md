@@ -1,4 +1,4 @@
-# Ateljé — brand and product context
+# Hyang-Mee Studio — brand and product context
 
 This glossary names the brand concepts that connect the atelier's clothing, petite patterns and craft details. It describes the creative world, not the website implementation or commerce system.
 
@@ -15,7 +15,7 @@ _Avoid_: Separate business lines
 ## Offerings
 
 **WEAR**:
-Reconstructed clothing, including contemporary garments inspired by Korean hanbok forms and Scandinavian restraint.
+Existing garments sewn anew into a fusion of Korean roots and a Scandinavian upbringing. The modern hanbok is the first concept, not the only kind of garment planned.
 _Avoid_: Costume, historical replica
 
 **MAKE**:

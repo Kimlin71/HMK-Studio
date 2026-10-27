@@ -1,6 +1,6 @@
-# ATELJÉ — form, textil, detalj
+# Hyang-Mee Studio — form, textil, detalj
 
-En svensk förstautgåva av en redaktionell ateljéwebbplats byggd med React, TypeScript och Vite. Det befintliga ordmärket ATELJÉ är fortsatt en platshållare. FORM · PROPORTION · CONNECTION håller WEAR / RECONSTRUCT, MAKE / REPROPORTION och ADORN / CONNECT samman. De engelska kampanjtexterna är språkmarkerade; övrig navigation och prototypinformation är på svenska.
+En svensk förstautgåva av en redaktionell ateljéwebbplats byggd med React, TypeScript och Vite. Namnet är Hyang-Mee Studio; ordmärket är satt i text och någon logotyp finns ännu inte. FORM · PROPORTION · CONNECTION håller WEAR / RECONSTRUCT, MAKE / REPROPORTION och ADORN / CONNECT samman. De engelska kampanjtexterna är språkmarkerade; övrig navigation och prototypinformation är på svenska.
 
 ## Starta lokalt
 
@@ -19,7 +19,7 @@ En svensk förstautgåva av en redaktionell ateljéwebbplats byggd med React, Ty
 - `src/App.css` innehåller responsiv presentation.
 - `CONTEXT.md` definierar varumärkets centrala begrepp.
 
-Bildmaterialet består av lokala SVG-studier i `public/images/` och en extern Unsplash-bild i introduktionen. Inga egna ateljéfoton finns i projektet ännu. Bildplatshållare och fiktiva demoobjekt är märkta i sidan och produktdialogen; illustrationerna dokumenterar inte verkliga plagg, personer eller arbetsprocesser.
+Bildmaterialet består av lokala PNG-bilder i `public/images/`: grafiska illustrationer samt konceptbilder (`atelier-study.png`, `macro-signature-pearl.png`) som är art direction-referenser och inte foton av färdiga produkter. Introbilden (`hero-proportions.jpg`) är också en konceptbild. Stora originalfiler ligger i `originals/` och levereras inte med sajten. Inga externa bilder används längre. Inga egna ateljéfoton finns i projektet ännu. Bildplatshållare och fiktiva demoobjekt är märkta i sidan och produktdialogen; illustrationerna dokumenterar inte verkliga plagg, personer eller arbetsprocesser.
 
 Nyhetsbrev och kontakt är visuella prototyper utan insamling eller hantering av uppgifter. Inga priser, order, varukorg, checkout eller betalningar är implementerade.
 
@@ -27,9 +27,9 @@ Nyhetsbrev och kontakt är visuella prototyper utan insamling eller hantering av
 
 Startsidan följer hero → manifest → RECONSTRUCT → REPROPORTION → CONNECT → signaturpärla → studio → om ateljén → nyhetsbrev. Den befintliga typografin och asymmetriska samlingslayouten behålls; petite-budskapet ligger nu i MAKE i stället för i en dubblerad sektion.
 
-CONNECT innehåller en redaktionell färgstudie med tre separata radiogrupper: KNOT, BEAD och TASSEL. Färgnamn visas tillsammans med färgprover. Tangentbordets piltangenter byter alternativ inom en grupp. Valen finns enbart i komponentens minne och återställs vid omladdning. Ingen lagring, nätverksbegäran, beställning eller verifierad produktkonstruktion är kopplad till studien.
+CONNECT innehåller en redaktionell färgstudie med fyra separata radiogrupper: KNOT, CORD, BEAD och TASSEL. Paletten har sju färger i tre grupper (kärna: Ivory Buff, Deep Indigo, Cameo Pink; karaktär: Ochre Red, Light Glaucous Blue; jordiga accenter: Khaki, Vandyke Brown) och definieras i `src/index.css` och `src/content/jewellery.ts`. Sex förvalda kombinationer finns som utgångspunkt. Färgnamn visas tillsammans med färgprover. Tangentbordets piltangenter byter alternativ inom en grupp. Valen finns enbart i komponentens minne och återställs vid omladdning. Ingen lagring, nätverksbegäran, beställning eller verifierad produktkonstruktion är kopplad till studien.
 
-Signaturpärlans stora bildyta är avsiktligt en textmärkt platshållare: en godkänd makrobild saknas. Grundartexten är märkt som textutkast för godkännande. Inga tillverknings-, ursprungs- eller materialpåståenden ska läggas till utan underlag.
+Signaturpärlans stora bildyta är avsiktligt en textmärkt platshållare: en godkänd makrobild saknas. Grundartexten (Om ateljén) är godkänd av grundaren; endast text som grundaren sett omfattas, inte övrig redaktionell text. Inga tillverknings-, ursprungs- eller materialpåståenden ska läggas till utan underlag.
 
 ## När ateljéns egna foton finns
 

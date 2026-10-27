@@ -2,15 +2,15 @@ export function Footer() {
   return (
     <footer className="site-footer" id="kontakt">
       <div className="site-footer__top">
-        <a className="wordmark wordmark--footer" href="#hem" aria-label="Ateljé — till sidans början">
-          <span className="wordmark__name">ATELJÉ</span>
+        <a className="wordmark wordmark--footer" href="#hem" aria-label="Hyang-Mee Studio — till sidans början">
+          <span className="wordmark__name">Hyang-Mee Studio</span>
           <span className="wordmark__caption">FORM · TEXTIL · DETALJ</span>
         </a>
         <p className="site-footer__thought">Designed for proportion.<br /><em>Made with intention.</em></p>
         <div className="site-footer__contact"><span>Kontaktfunktion öppnar snart.</span><a href="#nyhetsbrev">Om det kommande nyhetsbrevet <span aria-hidden="true">↓</span></a></div>
       </div>
       <div className="site-footer__bottom">
-        <span>© 2026 ATELJÉ — DEMO</span>
+        <span>© 2026 HYANG-MEE STUDIO — DEMO</span>
         <span className="site-footer__social"><span>Instagram · snart</span><span>Pinterest · snart</span></span>
         <span>Form · Proportion · Connection</span>
       </div>

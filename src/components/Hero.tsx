@@ -13,18 +13,16 @@ export function Hero() {
         <p className="hero__index" lang="en">01 / FORM FOLLOWS YOU</p>
       </div>
       <div className="hero__visual">
-        {/* Replace the stock clothing-rail image with the atelier's own editorial photograph. */}
+        {/* Concept image (art direction). Replace with an approved studio photograph when available. */}
         <img
-          alt="En rad plagg på trägalgar mot en ljus vägg"
+          alt="Konceptbild: kvinna i profil i en kort, omsydd blårandig skjorta med ett knutet band, mörka vida byxor och handgjorda smücken med tofsar, mot en varm beige vägg. Inte ett foto av en färdig produkt."
           className="hero__image"
           fetchPriority="high"
-          width="1800"
+          width="896"
           height="1200"
-          sizes="(max-width: 640px) 90vw, 50vw"
-          srcSet="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=640&q=85 640w, https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=960&q=85 960w, https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1440&q=85 1440w, https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=85 1800w"
-          src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=90"
+          src="/images/hero-proportions.jpg"
         />
-        <div className="hero__image-note"><span>Bildplatshållare · Unsplash</span><span>Inte ateljéns egna plagg</span></div>
+        <div className="hero__image-note"><span>Konceptbild · ej foto</span><span>Art direction-referens</span></div>
         <span aria-hidden="true" className="hero__thread" />
         <span className="hero__seal" lang="en">STUDIO<br />EDITION 01</span>
       </div>

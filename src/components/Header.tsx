@@ -12,8 +12,8 @@ export function Header() {
         menuToggleRef.current?.focus()
       }
     }}>
-      <a className="wordmark" href="#hem" aria-label="Ateljé — till startsidan">
-        <span className="wordmark__name">ATELJÉ</span>
+      <a className="wordmark" href="#hem" aria-label="Hyang-Mee Studio — till startsidan">
+        <span className="wordmark__name">Hyang-Mee Studio</span>
         <span className="wordmark__caption">FORM · TEXTIL · DETALJ</span>
       </a>
       <button

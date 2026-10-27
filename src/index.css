@@ -1,15 +1,32 @@
 :root {
-  /* Brand colour names from the supplied Sanzo Wada palette; names are descriptive palette labels, not official colour-standard names. */
-  --deep-indigo: #000831;
+  /* Palette based on Wada Sanzo's colour theory (A Dictionary of Color Combinations). Colour names follow Wada's naming; hex values are the founder's chosen digital values. */
+  /* Core */
   --ivory-buff: #EBD999;
+  /* Deep Indigo: Wada's value #000831 (CMYK 100/92/52/60) reads as black on screen, so screens use a bluer value. Keep the print value for print and physical production. */
+  --deep-indigo-print: #000831;
+  --deep-indigo: #0F1E6B;
+  --cameo-pink: #E5BCBC;
+  /* Character */
   --ochre-red: #A7374B;
   --light-glaucous-blue: #A6E6DB;
+  /* Earthy accents */
+  --khaki: #C49007;
+  --vandyke-brown: #513412;
+  /* CONNECT jewellery tones, one per palette colour. */
+  --tone-indigo: var(--deep-indigo);
+  --tone-ivory: var(--ivory-buff);
+  --tone-cameo: var(--cameo-pink);
+  --tone-ochre: var(--ochre-red);
+  --tone-glaucous: var(--light-glaucous-blue);
+  --tone-khaki: var(--khaki);
+  --tone-vandyke: var(--vandyke-brown);
+  --drawing-edge: rgba(15, 30, 107, 0.6);
   --paper: #F5F0E3;
   --paper-warm: #EFE5C7;
   --linen: #D7C9A7;
   --ink-soft: #25304D;
   --white: #FFFCF5;
-  --line: rgba(0, 8, 49, 0.18);
+  --line: rgba(15, 30, 107, 0.18);
   --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
   --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --text-body: 1rem;

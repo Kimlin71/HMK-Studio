@@ -1,5 +1,7 @@
 import { collections, type EditorialPiece } from '../content/products'
+import { ConnectFamily } from './ConnectFamily'
 import { ModularJewellery } from './ModularJewellery'
+import { ReconstructCompare } from './ReconstructCompare'
 
 type CollectionGridProps = {
   pieces: EditorialPiece[]
@@ -29,16 +31,18 @@ export function CollectionGrid({ pieces, onExplore }: CollectionGridProps) {
                 <button className="text-link collection__link" lang="en" onClick={() => onExplore(piece)} type="button">{collection.action} <span aria-hidden="true">↗</span></button>
               )}
             </div>
-            <button aria-label={`Visa ${piece.name}, fiktivt demo, ${piece.category}`} className="piece-card" onClick={() => onExplore(piece)} type="button">
-              <span className="piece-card__image-wrap">
-                {/* Replace illustrations with the atelier's own photographs when available. */}
-                <img alt={piece.imageAlt} className="piece-card__image" loading="lazy" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
-                <span className="image-note">Fiktivt demo · Illustration</span>
-                <span className="piece-card__open" aria-hidden="true">↗</span>
-              </span>
-              <span className="piece-card__meta"><span>{piece.name}</span><span>{piece.category}</span></span>
-            </button>
-            {area === 'ADORN' ? <ModularJewellery /> : null}
+            {area === 'WEAR' ? <ReconstructCompare piece={piece} /> : (
+              <button aria-label={`Visa ${piece.name}, fiktivt demo, ${piece.category}`} className="piece-card" onClick={() => onExplore(piece)} type="button">
+                <span className="piece-card__image-wrap">
+                  {/* Replace illustrations with the atelier's own photographs when available. */}
+                  <img alt={piece.imageAlt} className="piece-card__image" loading="lazy" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
+                  <span className="image-note">Fiktivt demo · Illustration</span>
+                  <span className="piece-card__open" aria-hidden="true">↗</span>
+                </span>
+                <span className="piece-card__meta"><span>{piece.name}</span><span>{piece.category}</span></span>
+              </button>
+            )}
+            {area === 'ADORN' ? <><ConnectFamily /><ModularJewellery /></> : null}
           </section>
         )
       })}
