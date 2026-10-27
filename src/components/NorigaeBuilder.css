@@ -8,6 +8,7 @@
   border: 1px solid var(--line);
   background: var(--white);
   --builder-selected: var(--paper);
+  --builder-summary-bg: var(--paper-warm);
 }
 
 .norigae__heading {
@@ -92,22 +93,6 @@
   background: var(--cameo-tint);
   font-size: var(--text-small);
   line-height: 1.6;
-}
-
-.norigae__summary {
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-  line-height: 1.7;
-}
-
-.norigae__summary p {
-  margin: 0 0 4px;
-}
-
-.norigae__summary ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 @media (max-width: 900px) {

@@ -1,5 +1,5 @@
-import { useId, useState, type ReactNode } from 'react'
-import { colourLabels, type ModuleColour } from '../content/jewellery'
+import { useId, useState } from 'react'
+import type { ModuleColour } from '../content/jewellery'
 import {
   initialNorigae,
   knotStyleIds,
@@ -8,18 +8,20 @@ import {
   pendantColours,
   secondElementIds,
   tasselLengthIds,
+  type NorigaeColourField,
   type NorigaeDesign,
 } from '../content/norigae'
 import { shopAnchors } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
-import { ColourOptionGroup, CopyDesign, OptionGroup, PresetRow } from './BuilderControls'
+import { BuilderSummary, ColourOptionGroup, CopyDesign, OptionGroup, PresetRow } from './BuilderControls'
 import { NorigaeDrawing } from './NorigaeDrawing'
+import { summaryRowText, type SummaryRow } from './builderSummary'
 import { useCopyToClipboard } from './useCopyToClipboard'
 import './NorigaeBuilder.css'
 
 type ColourKey = 'knot' | 'cord' | 'pendant' | 'second' | 'tassel'
 
-const colourFields: Record<ColourKey, keyof NorigaeDesign> = {
+const colourFields: Record<ColourKey, NorigaeColourField> = {
   knot: 'knotColour',
   cord: 'cordColour',
   pendant: 'pendantColour',
@@ -43,36 +45,29 @@ export function NorigaeBuilder() {
   const labels = text.summary.labels
 
   // One ordered list of summary rows: used for the live summary and for the copied text.
-  const rows: { label: string; value: string; colour?: ModuleColour }[] = [
+  const rows: SummaryRow[] = [
     { label: labels.knot, value: text.knotStyle.options[design.knotStyle].label, colour: design.knotColour },
-    { label: labels.cord, value: '', colour: design.cordColour },
-    { label: labels.pendant, value: '', colour: design.pendantColour },
+    { label: labels.cord, colour: design.cordColour },
+    { label: labels.pendant, colour: design.pendantColour },
     ...(hasSecond ? [{ label: labels.second, value: text.secondElement.options[design.secondElement], colour: design.secondColour }] : []),
     { label: labels.tassel, value: text.tasselLength.options[design.tasselLength], colour: design.tasselColour },
   ]
 
-  const plainRow = (row: (typeof rows)[number]) =>
-    `${row.label}: ${[row.value, row.colour ? colourLabels[row.colour] : ''].filter(Boolean).join(', ')}`
+  const plainSummary = [text.copy.heading, ...rows.map(summaryRowText), text.pearlNote, text.copy.footer].join('\n')
 
-  const renderRow = (row: (typeof rows)[number]): ReactNode => (
-    <>
-      {row.label}: {row.value ? `${row.value}, ` : ''}
-      {row.colour ? <span lang="en">{colourLabels[row.colour]}</span> : null}
-    </>
+  const colourGroup = (key: ColourKey, colours: ModuleColour[]) => (
+    <ColourOptionGroup
+      colours={colours}
+      hint={text.colours[key].hint}
+      legend={text.colours[key].legend}
+      name={`${idPrefix}-${key}`}
+      onChange={(colour) => update({ [colourFields[key]]: colour })}
+      value={design[colourFields[key]]}
+    />
   )
 
-  const plainSummary = [text.copy.heading, ...rows.map(plainRow), text.pearlNote, text.copy.footer].join('\n')
-
-  const colourSets: { key: ColourKey; colours: ModuleColour[]; show: boolean }[] = [
-    { key: 'knot', colours: norigaeColours, show: true },
-    { key: 'cord', colours: norigaeColours, show: true },
-    { key: 'pendant', colours: pendantColours, show: true },
-    { key: 'second', colours: norigaeColours, show: hasSecond },
-    { key: 'tassel', colours: norigaeColours, show: true },
-  ]
-
   return (
-    <div aria-labelledby={`${idPrefix}-title`} className="norigae" id={shopAnchors.maedeupBuilder} role="group">
+    <div aria-describedby={`${idPrefix}-note`} aria-labelledby={`${idPrefix}-title`} className="norigae" id={shopAnchors.maedeupBuilder} role="group">
       <div className="norigae__heading">
         <h4 id={`${idPrefix}-title`}>{text.title}</h4>
         <p>{text.intro}</p>
@@ -81,12 +76,12 @@ export function NorigaeBuilder() {
       <div className="norigae__workspace">
         <div className="norigae__preview">
           <span className="norigae__label">{text.previewLabel}</span>
-          <div className="norigae__drawing" role="img" aria-label={text.previewAlt}>
+          <div aria-hidden="true" className="norigae__drawing">
             <NorigaeDrawing design={design} />
           </div>
           <span className="norigae__label">{text.previewNote}</span>
         </div>
-        <div aria-describedby={`${idPrefix}-note`} className="norigae__controls">
+        <div className="norigae__controls">
           <PresetRow label={text.presetsLabel} onSelect={(preset) => update(preset.colours)} presets={norigaePresets} />
           <OptionGroup
             hint={text.knotStyle.hint}
@@ -97,17 +92,9 @@ export function NorigaeBuilder() {
             value={design.knotStyle}
             wide
           />
-          {colourSets.filter((set) => set.show).map((set) => (
-            <ColourOptionGroup
-              colours={set.colours}
-              hint={text.colours[set.key].hint}
-              key={set.key}
-              legend={text.colours[set.key].legend}
-              name={`${idPrefix}-${set.key}`}
-              onChange={(colour) => update({ [colourFields[set.key]]: colour })}
-              value={design[colourFields[set.key]] as ModuleColour}
-            />
-          ))}
+          {colourGroup('knot', norigaeColours)}
+          {colourGroup('cord', norigaeColours)}
+          {colourGroup('pendant', pendantColours)}
           <p className="norigae__pearl">{text.pearlNote}</p>
           <OptionGroup
             hint={text.secondElement.hint}
@@ -118,6 +105,8 @@ export function NorigaeBuilder() {
             value={design.secondElement}
             wide
           />
+          {hasSecond ? colourGroup('second', norigaeColours) : null}
+          {colourGroup('tassel', norigaeColours)}
           <OptionGroup
             hint={text.tasselLength.hint}
             legend={text.tasselLength.legend}
@@ -127,12 +116,7 @@ export function NorigaeBuilder() {
             value={design.tasselLength}
             wide
           />
-          <div aria-live="polite" className="norigae__summary" role="status">
-            <p>{text.summary.prefix}</p>
-            <ul>
-              {rows.map((row) => <li key={row.label}>{renderRow(row)}</li>)}
-            </ul>
-          </div>
+          <BuilderSummary prefix={text.summary.prefix} rows={rows} />
           <CopyDesign
             copiedText={text.copy.success}
             failedText={text.copy.failure}

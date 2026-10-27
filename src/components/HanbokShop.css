@@ -54,15 +54,14 @@
   object-fit: contain;
 }
 
-.hanbok-card__badges,
-.hanbok-detail__badges {
+.hanbok-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 6px 8px;
   margin: 0;
 }
 
-.hanbok-card__badge {
+.hanbok-badge {
   padding: 4px 8px;
   border: 1px solid currentcolor;
   font-size: var(--text-label);
@@ -71,12 +70,12 @@
   text-transform: uppercase;
 }
 
-.hanbok-card__badge--demo {
+.hanbok-badge--demo {
   color: var(--ink-soft);
   border-style: dashed;
 }
 
-.hanbok-card__badge--unique {
+.hanbok-badge--unique {
   color: var(--ink-accent);
 }
 
@@ -127,7 +126,7 @@
 }
 
 /* Detail dialog (layout comes from the shared piece-dialog styles). */
-.hanbok-detail__badges {
+.hanbok-detail .hanbok-badges {
   margin-top: 14px;
 }
 

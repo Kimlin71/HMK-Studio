@@ -1,10 +1,9 @@
 // Bracelet builder: language-independent data. Visible text lives in src/content/copy/ under `shop.bracelet`.
 // Colour study only: nothing here is stock, a price or a purchasable variant, and nothing is stored or sent.
-import { allColours, signatureBeadColours, type ModuleColour } from './jewellery'
+import { allColours, signatureBeadColours, type ColourFamilyId, type ModuleColour } from './jewellery'
 
 export type BeadType = 'pearl' | 'crystal'
 export type WristSize = 's' | 'm' | 'l'
-export type BraceletPresetId = 'indigo-ivory' | 'ochre-glaucous' | 'ivory-glaucous' | 'cameo-indigo' | 'vandyke-khaki' | 'ivory-cameo'
 
 export type BraceletDesign = {
   cord: ModuleColour
@@ -34,7 +33,7 @@ export const defaultBraceletDesign: BraceletDesign = {
 }
 
 // Starting points, not product variants. Ids match colourFamilies, so labels come from copy.connect.families.
-export const braceletPresets: { id: BraceletPresetId; design: Omit<BraceletDesign, 'size'> }[] = [
+export const braceletPresets: { id: ColourFamilyId; design: Omit<BraceletDesign, 'size'> }[] = [
   { id: 'indigo-ivory', design: { cord: 'indigo', beadType: 'pearl', beadColour: 'ivory', beadCount: 5, signatureColour: 'ochre' } },
   { id: 'ochre-glaucous', design: { cord: 'ochre', beadType: 'crystal', beadColour: 'glaucous', beadCount: 7, signatureColour: 'ivory' } },
   { id: 'ivory-glaucous', design: { cord: 'ivory', beadType: 'crystal', beadColour: 'glaucous', beadCount: 5, signatureColour: 'indigo' } },

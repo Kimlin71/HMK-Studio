@@ -14,10 +14,8 @@ export function ShopItemCard({ item }: ShopItemCardProps) {
   return (
     <article className="shop-card">
       <div className="shop-card__image-wrap">
-        {item.image ? (
-          // Replace concept images with the studio's own photographs when available.
-          <img alt={text.items[item.id].imageAlt} className="shop-card__image" loading="lazy" src={item.image} style={{ objectPosition: item.imagePosition }} />
-        ) : null}
+        {/* Replace concept images with the studio's own photographs when available. */}
+        <img alt={text.items[item.id].imageAlt} className="shop-card__image" loading="lazy" src={item.image} style={{ objectPosition: item.imagePosition }} />
         <span className="image-note">{text.imageNote}</span>
       </div>
       <div className="shop-card__meta">

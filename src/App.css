@@ -151,25 +151,6 @@ main section[id]::before {
   letter-spacing: 0.22em;
 }
 
-/* The longer name leaves less room for the menu: give the nav the free space and tighten gaps. */
-@media (min-width: 901px) and (max-width: 1240px) {
-  .site-header {
-    grid-template-columns: auto 1fr auto;
-    gap: 0 28px;
-    padding-right: clamp(20px, 3vw, 40px);
-    padding-left: clamp(20px, 3vw, 40px);
-  }
-
-  .primary-nav {
-    justify-self: end;
-    gap: clamp(14px, 1.8vw, 28px);
-  }
-
-  .primary-nav a {
-    letter-spacing: 0.08em;
-  }
-}
-
 .primary-nav {
   display: flex;
   align-items: center;
@@ -222,6 +203,42 @@ main section[id]::before {
 .header-contact {
   text-transform: none;
   letter-spacing: 0.02em;
+}
+
+/* The longer name leaves less room for the menu: give the nav the free space and tighten gaps. */
+@media (min-width: 901px) and (max-width: 1240px) {
+  .site-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 0 clamp(12px, 2vw, 28px);
+    padding-right: clamp(16px, 3vw, 40px);
+    padding-left: clamp(16px, 3vw, 40px);
+  }
+
+  .primary-nav {
+    justify-self: end;
+    gap: clamp(10px, 1.5vw, 28px);
+  }
+
+  .primary-nav a {
+    letter-spacing: 0.04em;
+  }
+
+  .wordmark {
+    gap: 10px;
+  }
+
+  .wordmark__seal {
+    width: 38px;
+    height: 38px;
+  }
+
+  .wordmark__name {
+    font-size: 24px;
+  }
+
+  .header-end {
+    gap: 14px;
+  }
 }
 
 /* Language switch: two real buttons, SV / EN. The active one is filled; both keep a 44px touch target. */

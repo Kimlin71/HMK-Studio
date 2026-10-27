@@ -1,6 +1,6 @@
 # Shop UI before commerce
 
-The shop section (bracelets, Maedeup with Norigae, hanboks) and its two builders ship before any payment: prices read "price to be announced", nothing is stored or sent, and ordering stays inactive, so the pieces can be explored and the design language tested without handling personal data or money. [ADR 0001](./0001-editorial-first-vite-site.md) still applies in full: forms stay inactive, there is no cart, checkout or personal data, and demo content is never presented as stock for sale. Stripe Checkout with a minimal serverless backend, measurement-based petite patterns, and server-side PDF generation after payment are planned in separate specs.
+The shop section (bracelets, Maedeup with Norigae, hanboks) and its two builders ship before any payment: prices read "price to be announced", the builders and the order button store and send nothing (the only thing the site keeps is the language choice, in the visitor's own browser under `localStorage` key `hms-language`), and ordering stays inactive, so the pieces can be explored and the design language tested without handling personal data or money. [ADR 0001](./0001-editorial-first-vite-site.md) still applies in full: forms stay inactive, there is no cart, checkout or personal data, and demo content is never presented as stock for sale. Stripe Checkout with a minimal serverless backend, measurement-based petite patterns, and server-side PDF generation after payment are planned in separate specs.
 
 Consequences:
 

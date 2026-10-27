@@ -3,7 +3,7 @@
 // Knot styles are graphic studies inspired by Korean decorative knotwork, not documented techniques.
 // Nothing here is stock, a product variant or an order.
 
-import { allColours, signatureBeadColours, type ModuleColour } from './jewellery'
+import { allColours, signatureBeadColours, type ColourFamilyId, type ModuleColour } from './jewellery'
 
 export type KnotStyleId = 'diamond' | 'layered' | 'ringed'
 export type SecondElementId = 'none' | 'bead' | 'knot'
@@ -41,10 +41,12 @@ export const initialNorigae: NorigaeDesign = {
   tasselLength: 'medium',
 }
 
-type NorigaeColours = Pick<NorigaeDesign, 'knotColour' | 'cordColour' | 'pendantColour' | 'secondColour' | 'tasselColour'>
+export type NorigaeColourField = 'knotColour' | 'cordColour' | 'pendantColour' | 'secondColour' | 'tasselColour'
+
+type NorigaeColours = Pick<NorigaeDesign, NorigaeColourField>
 
 // Colour starting points. Ids match colourFamilies so the family names in copy.connect.families are reused.
-export const norigaePresets: { id: string; colours: NorigaeColours }[] = [
+export const norigaePresets: { id: ColourFamilyId; colours: NorigaeColours }[] = [
   { id: 'indigo-ivory', colours: { knotColour: 'indigo', cordColour: 'indigo', pendantColour: 'ivory', secondColour: 'ivory', tasselColour: 'ivory' } },
   { id: 'ochre-glaucous', colours: { knotColour: 'ochre', cordColour: 'ochre', pendantColour: 'glaucous', secondColour: 'glaucous', tasselColour: 'glaucous' } },
   { id: 'ivory-glaucous', colours: { knotColour: 'ivory', cordColour: 'indigo', pendantColour: 'ivory', secondColour: 'glaucous', tasselColour: 'glaucous' } },
