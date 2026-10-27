@@ -8,7 +8,7 @@ En tvåspråkig (svenska och engelska) redaktionell webbplats för Hyang-Mee Stu
 - Språkväxlaren (SV / EN) ligger i sidhuvudet. Valet sätter även `<html lang>`, sidtitel och metabeskrivning.
 - All synlig text ligger i `src/content/copy/sv.ts` och `en.ts`. Båda följer typen `Copy` i `types.ts`; en saknad sträng är ett kompileringsfel.
 - Egennamn översätts inte: WEAR, MAKE, ACCENTED, produktnamn och Wada Sanzos färgnamn.
-- Alla texter i `sv.ts` och `en.ts` är godkända av grundaren (2026-10-27). När en mening ändras ska båda språken ändras och nytt godkännande behövs.
+- Alla texter i `sv.ts` och `en.ts` är godkända av grundaren (2026-10-27). Språkliga justeringar (ton, rytm, tydlighet) får göras utan nytt godkännande, men båda språken ska ändras tillsammans. Ändrad innebörd, nya påståenden och grundartexten (`about`) kräver grundarens godkännande.
 - Språkvalet sparas bara i den egna webbläsaren (`localStorage`) och innehåller ingen personuppgift. Det skickas aldrig någonstans.
 
 ## Starta lokalt

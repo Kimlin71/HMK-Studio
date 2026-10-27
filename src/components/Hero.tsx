@@ -16,13 +16,13 @@ export function Hero() {
     <section aria-labelledby="hero-title" className="hero" id="hem">
       <div className="hero__copy">
         <p className="eyebrow"><span className="eyebrow__line" /> {hero.eyebrow}</p>
-        <h1 id="hero-title" lang="en">{hero.titleTop}{' '}<br /><em>{hero.titleEm}</em></h1>
+        <h1 id="hero-title">{hero.titleTop}{' '}<br /><em>{hero.titleEm}</em></h1>
         <p className="hero__lead">{hero.lead}</p>
         <div className="hero__actions">
           <a className="button button--dark" href="#wear">{hero.primaryCta} <span aria-hidden="true">↗</span></a>
           <a className="text-link" href="#filosofi">{hero.secondaryCta} <span aria-hidden="true">↓</span></a>
         </div>
-        <p className="hero__index" lang="en">{hero.index}</p>
+        <p className="hero__index">{hero.index}</p>
       </div>
       <div className="hero__visual">
         {/* Concept image (art direction). Replace with an approved studio photograph when available. */}
@@ -36,7 +36,7 @@ export function Hero() {
         />
         <div className="hero__image-note"><span>{hero.imageNote[0]}</span><span>{hero.imageNote[1]}</span></div>
         <span aria-hidden="true" className="hero__thread" />
-        <span className="hero__seal" lang="en">{hero.seal[0]}<br />{hero.seal[1]}</span>
+        <span className="hero__seal">{hero.seal[0]}<br />{hero.seal[1]}</span>
       </div>
       <nav aria-label={hero.doorsLabel} className="hero__doors">
         {doorOrder.map(({ area, href }, index) => (

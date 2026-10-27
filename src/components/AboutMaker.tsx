@@ -19,7 +19,7 @@ export function AboutMaker() {
         <p>{text.p1}</p>
         <p>{text.p2}</p>
         <a className="text-link" href="#filosofi">{text.link} <span aria-hidden="true">↗</span></a>
-        <div className="about-maker__signature" lang="en">FORM · PROPORTION · CONNECTION <span>✳</span></div>
+        <div className="about-maker__signature">{copy.tagline} <span>✳</span></div>
       </div>
     </section>
   )

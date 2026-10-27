@@ -1,16 +1,17 @@
 import type { Copy } from './types'
 
-// English copy. APPROVED by the founder (2026-10-27): all texts in this file and in sv.ts.
+// English copy. Approved by the founder (2026-10-27). The copy edit of the same day (contrast reveals, dashes, sentence fragments) was made with the founder's permission; `about` is unchanged.
 // Keep the two files in step: change both when a sentence changes.
 export const en: Copy = {
   meta: {
     title: 'Hyang-Mee Studio — Form · Textile · Detail',
     description:
-      'Hyang-Mee Studio: an editorial prototype about garments sewn anew, petite patterns and accents inspired by Korean craft. It shows design concepts and clearly labelled placeholder images, not a range for sale.',
+      'Hyang-Mee Studio: re-sewn garments, petite patterns and accents inspired by Korean craft. A prototype with labelled concept images. Nothing is for sale.',
   },
   skipLink: 'Skip to content',
   collectionsLabel: 'The studio’s three connected expressions',
-  wordmark: { home: 'Hyang-Mee Studio — to the home page', top: 'Hyang-Mee Studio — to the top of the page' },
+  tagline: 'FORM · PROPORTION · CONNECTION',
+  wordmark: { home: 'Hyang-Mee Studio — to the home page', top: 'Hyang-Mee Studio — to the top of the page', caption: 'FORM · TEXTILE · DETAIL' },
   header: {
     navLabel: 'Main navigation',
     menuOpen: 'Open menu',
@@ -21,9 +22,9 @@ export const en: Copy = {
   },
   hero: {
     eyebrow: 'A Korean–Scandinavian studio',
-    titleTop: 'MADE FOR',
+    titleTop: 'FOR',
     titleEm: 'YOUR PROPORTIONS',
-    lead: 'Garments sewn anew, patterns for petite proportions and accents made by hand. Korean roots, a Scandinavian upbringing.',
+    lead: 'Thrifted garments sewn anew, patterns for petite proportions and accents made by hand. Korean roots, a Scandinavian upbringing.',
     primaryCta: 'See the concept',
     secondaryCta: 'About petite and proportion',
     index: '01 / FORM FOLLOWS YOU',
@@ -33,7 +34,7 @@ export const en: Copy = {
     seal: ['STUDIO', 'EDITION 01'],
     doorsLabel: 'What the studio makes',
     doors: {
-      WEAR: { title: 'WEAR', text: 'Existing garments sewn anew.' },
+      WEAR: { title: 'WEAR', text: 'Thrifted garments sewn anew.' },
       MAKE: { title: 'MAKE', text: 'Sewing patterns for petite proportions.' },
       ACCENTED: { title: 'ACCENTED', text: 'Knots, tassels and small details.' },
     },
@@ -41,40 +42,41 @@ export const en: Copy = {
   },
   brandIntro: {
     marker: 'Manifesto',
-    eyebrow: 'The body is not a size chart',
-    titleTop: 'Clothes aren’t',
-    titleEm: 'bodies',
-    lead: 'A smaller size isn’t simply a shorter version of a larger one.',
-    body: 'Proportion is about length, balance and placement. Through reconstruction a garment can take a new form — clothes should adapt to people, not the other way round.',
+    eyebrow: 'Proportion before size',
+    titleTop: 'Your body is',
+    titleEm: 'not a size',
+    lead: 'A smaller size isn’t a shorter version of a larger one.',
+    body: 'Proportion is about length, balance and placement. With reconstruction a garment can take a new form. Clothes should adapt to people.',
   },
   collections: {
     reconstruct: {
       concept: 'RECONSTRUCT',
-      title: 'EXISTING FORM. NEW EXPRESSION.',
+      title: 'FROM THRIFT STORE TO MODERN HANBOK.',
       paragraphs: [
-        'A familiar shirt becomes the starting point rather than the finished object.',
+        'We find garments second hand and sew them anew. A familiar shirt becomes the starting point rather than the finished object, and gets a second life.',
         'Garments are sewn anew into a fusion of Korean roots and a Scandinavian upbringing: overlapping forms, ties and new proportions, held in a quiet, restrained silhouette.',
-        'The first concept is a hanbok in a modern style. It is a beginning, not the limit — more garments are to come.',
+        'Reuse is our way of caring for the environment. What already exists does not need to be made again.',
+        'The first concept is a hanbok in a modern style. It is a beginning. More garments are to come.',
       ],
       action: 'Discover garments',
     },
     reproportion: {
       concept: 'REPROPORTION',
-      title: 'SMALLER IS NOT THE SAME AS PETITE.',
+      title: 'SEWING PATTERNS FOR PETITE PROPORTIONS.',
       paragraphs: [
-        'Petite is about proportion, not simply size.',
-        'Patterns developed with attention to torso length, placement, balance and the relationship between the parts of a garment.',
-        'Because a pattern should adapt to the person wearing it.',
+        'Petite is about proportion, and size is only part of it.',
+        'Patterns are developed with attention to torso length, placement, balance and the relationship between the parts of a garment.',
+        'A pattern should adapt to the person wearing it.',
       ],
       action: 'Explore patterns',
     },
     connect: {
       concept: 'CONNECT',
-      title: 'ONE LANGUAGE. MANY COMBINATIONS.',
+      title: 'TRY YOUR OWN COLOUR COMBINATIONS.',
       paragraphs: [
         'Knot. Bead. Tassel. Colour.',
         'Individual elements are designed to work together, allowing colours and forms to move between pieces.',
-        'Combine indigo with ivory. Ochre with glaucous blue. Cameo pink with a touch of earth. A quiet combination today, something bolder tomorrow.',
+        'Combine Deep Indigo with Ivory Buff. Ochre Red with Light Glaucous Blue. Cameo Pink with a touch of earth. A quiet combination today, something bolder tomorrow.',
       ],
       action: 'Create your combination',
     },
@@ -106,9 +108,9 @@ export const en: Copy = {
         'Fictional editorial demo, illustrated with a concept image. The image is an art-direction reference, not a photograph of a made garment. Material and craft describe the concept. No purchases or orders are taken.',
       material: 'Material placeholder. The actual composition is stated once a documented garment exists.',
       story:
-        'A classic men’s shirt is sewn anew and becomes a modern hanbok — a fusion of Korean roots and a Scandinavian upbringing. A wrap closure, a tie and a soft, offset silhouette in a quiet expression. It is the first concept, not the only one: more re-sewn garments are on their way. Familiar enough to wear often, different enough to feel like yours.',
+        'A classic men’s shirt is sewn anew into a modern hanbok, a fusion of Korean roots and a Scandinavian upbringing. A wrap closure, a tie and a soft, offset silhouette in a quiet expression. It is the first concept, and more re-sewn garments are on their way. Familiar enough to wear often, different enough to feel like yours.',
       craftsmanship: 'Form idea: wrap, offset lines and tying, with pared-back details. Construction and finishing are not yet documented.',
-      upcycling: 'The original shirt is chosen for its quality and becomes the starting point for a new garment — not a material to hide.',
+      upcycling: 'The original shirt is found second hand, chosen for its quality and becomes the starting point for a new garment.',
       petiteNote: 'Shoulder and sleeve length are balanced against the volume of the garment so the silhouette feels intentional on a petite body.',
       related: 'ACCENTED — knot, signature bead and tassel as a shared detail idea.',
     },
@@ -121,7 +123,7 @@ export const en: Copy = {
       material: 'Concept for a digital sewing pattern in a woven fabric. No pattern files or measurement guides are available to download.',
       story: 'A shirt pattern that starts from proportion: a shorter torso, a balanced sleeve and a hem placed where the garment falls right.',
       craftsmanship: 'Concept for the placement of shoulder, waist and sleeve. Fitting, instructions and measurement guides remain to be documented.',
-      petiteNote: 'Designed for petite proportions from the first pattern line — not scaled down from a standard block.',
+      petiteNote: 'Designed for petite proportions from the first pattern line, instead of being scaled down from a standard block.',
       related: 'Pair it with The Crossing Shirt for a shared silhouette and a detail in the same tone.',
     },
     'knot-no-01': {
@@ -146,8 +148,9 @@ export const en: Copy = {
     eyebrow: 'The CONNECT family',
     title: 'One bead. Many pieces.',
     origin: 'Inspired by Korean decorative knotwork',
-    lead: 'Five pieces and a library of interchangeable parts. The signature bead is what recurs; the rest is deliberately quieter. Not every part is equally decorated, and not every colour appears in every piece.',
+    lead: 'Five pieces and a library of interchangeable parts. The signature bead is what recurs, and the rest is deliberately quieter. Parts are decorated to different degrees, and each colour appears only in some of the pieces.',
     paletteLabel: 'The palette',
+    paletteNote: 'The colours and their names are based on Wada Sanzo’s colour theory and his book A Dictionary of Color Combinations.',
     paletteGroups: {
       core: { label: 'Core', note: 'The base of most combinations.' },
       character: { label: 'Character', note: 'The colours that show first.' },
@@ -157,7 +160,7 @@ export const en: Copy = {
     familiesLabel: 'Colour families',
     families: {
       'indigo-ivory': { label: 'Deep Indigo + Ivory Buff', note: 'Dark and light in balance. Ivory Buff carries the knot, cord, bead and tassel equally well.' },
-      'ochre-glaucous': { label: 'Ochre Red + Light Glaucous Blue', note: 'Warm meets cool. The boldest colour meeting — used sparingly.' },
+      'ochre-glaucous': { label: 'Ochre Red + Light Glaucous Blue', note: 'Warm meets cool. The boldest colour meeting, used sparingly.' },
       'ivory-glaucous': { label: 'Ivory Buff + Light Glaucous Blue + Deep Indigo accent', note: 'Light and still. Deep Indigo appears only as a small detail.' },
       'cameo-indigo': { label: 'Cameo Pink + Deep Indigo', note: 'Soft meets deep. Cameo Pink warms Deep Indigo.' },
       'vandyke-khaki': { label: 'Vandyke Brown + Khaki', note: 'Earthy and muted. Khaki lights up Vandyke Brown.' },
@@ -170,7 +173,7 @@ export const en: Copy = {
       'signature-pendant': {
         subtitle: undefined,
         roleLabel: 'Anchor · signature bead',
-        description: 'One knot, one bead. The Ivory Buff signature bead shows first — the rest recedes into Deep Indigo.',
+        description: 'One knot, one bead. The Ivory Buff signature bead shows first and the rest recedes into Deep Indigo.',
       },
       'quiet-knot-earrings': {
         roleLabel: 'Quiet · no tassel',
@@ -178,7 +181,7 @@ export const en: Copy = {
       },
       'long-knot-earrings': {
         roleLabel: 'Statement · with tassel',
-        description: 'The movement is in the tassel. No bead — the knot and the tassel are enough.',
+        description: 'The movement is in the tassel. No bead. The knot and the tassel are enough.',
       },
       'modular-bracelet': {
         roleLabel: 'Modular · interchangeable parts',
@@ -190,7 +193,7 @@ export const en: Copy = {
       },
     },
     elementsEyebrow: 'Interchangeable elements',
-    elementsNote: 'Knot, bead and tassel can move between pieces and between colour families — a subset is shown here, not every colour in every part.',
+    elementsNote: 'Knot, bead and tassel can move between pieces and between colour families. Only a subset of the colours is shown here.',
     elementNames: {
       knot: { label: 'KNOT', description: 'Knot' },
       bead: { label: 'BEAD', description: 'Signature bead' },
@@ -207,18 +210,18 @@ export const en: Copy = {
   },
   modular: {
     eyebrow: 'A study in connections',
-    title: 'Parts that change colour family.',
+    title: 'Change colour, one part at a time.',
     intro:
-      'Move colours freely between knot, cord, bead and tassel — the parts do not need to belong to the same colour family. Start from one of the six colour combinations and change one part at a time.',
-    note: 'Editorial prototype, not an e-commerce configurator. The diagram shows colour meetings, not actual construction or materials. Nothing is saved or ordered.',
+      'Move colours freely between knot, cord, bead and tassel. The parts do not need to belong to the same colour family. Start from one of the six colour combinations and change one part at a time.',
+    note: 'Editorial prototype without e-commerce. The diagram shows colour meetings. Construction and materials are not yet fixed. Nothing is saved or ordered.',
     previewEyebrow: 'Colour study / not a product image',
     previewNote: 'Same form language. Different colours.',
     presetsEyebrow: 'Starting point',
     modules: {
-      knot: { label: 'KNOT', description: 'The knot · the first connection' },
-      cord: { label: 'CORD', description: 'The cord · the carrying line' },
-      bead: { label: 'BEAD', description: 'The bead · a shared detail' },
-      tassel: { label: 'TASSEL', description: 'The tassel · form in motion' },
+      knot: { label: 'KNOT', description: 'The first connection' },
+      cord: { label: 'CORD', description: 'The carrying line' },
+      bead: { label: 'BEAD', description: 'A shared detail' },
+      tassel: { label: 'TASSEL', description: 'Form in motion' },
     },
     summaryPrefix: 'Your colour study:',
     link: 'See the connecting detail',
@@ -226,16 +229,17 @@ export const en: Copy = {
   signatureBead: {
     marker: 'A connecting detail',
     title: 'THE SIGNATURE BEAD',
-    subtitle: 'One detail. A connecting thread.',
+    subtitle: 'Hyang and Mee in one bead.',
     paragraphs: [
-      'A recurring sculptural element designed to move between knots, tassels, jewellery and garments.',
-      'Recognisable on its own. Designed to belong to something larger.',
+      'The bead is a symbol of harmony. We don’t always agree, but we can harmonise even though we are different, as long as we respect each other and take the other in without judging. That is what the dots on the bead mean.',
+      'It resembles yin and yang, but it is something else. It is Hyang and Mee.',
+      'The bead recurs across the studio’s jewellery and is made to move between knots, tassels and garments.',
     ],
-    colourNote: 'The same form in every colour. Ivory Buff is a jewellery colour in its own right, not a neutral background.',
+    colourNote: 'The same form in every colour. Ivory Buff is a jewellery colour in its own right.',
     coloursLabel: 'The signature bead in different colours',
     coloursFootnote: 'Graphic colour study, not a photograph of the physical bead.',
     macro: {
-      alt: 'Macro study of two glossy, glazed beads with a curving two-colour pattern and a through-hole, one in Deep Indigo and pink and one in Ivory and Ochre Red, on pale linen. Concept image, not a photograph of a finished product.',
+      alt: 'Macro study of two glossy, glazed beads with a curving two-colour pattern, a dot in the other half’s colour and a through-hole, one in Deep Indigo and pink and one in Ivory and Ochre Red, on pale linen. Concept image, not a photograph of a finished product.',
       label: 'Concept image · macro study',
       caption: 'Macro study of the signature bead as an art-direction reference, not a photograph of a finished physical product.',
     },
@@ -245,8 +249,8 @@ export const en: Copy = {
   craft: {
     marker: 'Studio · form and material',
     eyebrow: 'Design decisions in detail',
-    titleTop: 'Placement, balance',
-    titleEm: 'and connections.',
+    titleTop: 'Small choices.',
+    titleEm: 'Big difference.',
     text: 'A seam affects the silhouette. Material gives weight and balance. A knot joins lines and details into a whole.',
     details: [
       { title: 'Seam placement', note: 'A line that changes the silhouette.', alt: 'Graphic close-up of a red hand-sewn seam through textile' },
@@ -270,8 +274,8 @@ export const en: Copy = {
   },
   newsletter: {
     eyebrow: 'Letters from the studio',
-    title: 'News, not noise.',
-    text: 'A place for future notes on form, material and design process. The newsletter is not open for sign-up.',
+    title: 'Follow the work in the studio.',
+    text: 'Future notes on form, material and design process will have a place here. The newsletter is not open for sign-up yet.',
     formLabel: 'Newsletter preview',
     emailLabel: 'Email address',
     placeholder: 'name@example.com',
@@ -280,7 +284,7 @@ export const en: Copy = {
     note: 'Inactive prototype form. No data is sent or stored.',
   },
   footer: {
-    thought: ['Designed for proportion.', 'Made with intention.'],
+    thought: ['Made for proportion.', 'Form follows you.'],
     contactSoon: 'Contact form opens soon.',
     newsletterLink: 'About the upcoming newsletter',
     legal: '© 2026 HYANG-MEE STUDIO — DEMO',

@@ -14,7 +14,7 @@ export function BrandIntro() {
           <p>{brandIntro.lead}</p>
           <p>{brandIntro.body}</p>
         </div>
-        <div className="brand-intro__thread" aria-hidden="true"><span /> <b lang="en">FORM · PROPORTION · CONNECTION</b></div>
+        <div className="brand-intro__thread" aria-hidden="true"><span /> <b>{copy.tagline}</b></div>
       </div>
     </section>
   )

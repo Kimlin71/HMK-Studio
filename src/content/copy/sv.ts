@@ -1,16 +1,17 @@
 import type { Copy } from './types'
 
-// Svensk text. GODKÄND av grundaren (2026-10-27): alla texter i den här filen och i en.ts.
+// Svensk text. Godkänd av grundaren (2026-10-27). Textjusteringen samma dag (kontrastvändningar, tankstreck, meningsfragment) är gjord med grundarens medgivande; `about` är oförändrad.
 // Håll de båda filerna i takt: ändra båda när en mening ändras.
 export const sv: Copy = {
   meta: {
     title: 'Hyang-Mee Studio — Form · Textil · Detalj',
     description:
-      'Hyang-Mee Studio: en redaktionell prototyp om omsydda plagg, petite-mönster och accenter inspirerade av koreanskt hantverk. Visar designkoncept och tydligt märkta platshållarbilder, inte ett försäljningsutbud.',
+      'Hyang-Mee Studio: omsydda plagg, petite-mönster och accenter inspirerade av koreanskt hantverk. Prototyp med märkta konceptbilder. Inget är till salu.',
   },
   skipLink: 'Hoppa till innehållet',
   collectionsLabel: 'Studions tre sammanhängande uttryck',
-  wordmark: { home: 'Hyang-Mee Studio — till startsidan', top: 'Hyang-Mee Studio — till sidans början' },
+  tagline: 'FORM · PROPORTION · FÖRBINDELSE',
+  wordmark: { home: 'Hyang-Mee Studio — till startsidan', top: 'Hyang-Mee Studio — till sidans början', caption: 'FORM · TEXTIL · DETALJ' },
   header: {
     navLabel: 'Huvudnavigation',
     menuOpen: 'Öppna menyn',
@@ -21,19 +22,19 @@ export const sv: Copy = {
   },
   hero: {
     eyebrow: 'En koreansk–skandinavisk studio',
-    titleTop: 'MADE FOR',
-    titleEm: 'YOUR PROPORTIONS',
-    lead: 'Omsydda plagg, mönster för petite proportioner och accenter gjorda för hand. Koreanska rötter, skandinavisk uppväxt.',
+    titleTop: 'FÖR',
+    titleEm: 'DINA PROPORTIONER',
+    lead: 'Second hand-plagg som sys om, mönster för petite proportioner och accenter gjorda för hand. Koreanska rötter, skandinavisk uppväxt.',
     primaryCta: 'Se konceptet',
     secondaryCta: 'Om petite och proportion',
-    index: '01 / FORM FOLLOWS YOU',
+    index: '01 / FORMEN FÖLJER DIG',
     imageAlt:
       'Konceptbild: kvinna i profil i en kort, omsydd blårandig skjorta med ett knutet band, mörka vida byxor och handgjorda smycken med tofsar, mot en varm beige vägg. Inte ett foto av en färdig produkt.',
-    imageNote: ['Konceptbild · ej foto', 'Art direction-referens'],
-    seal: ['STUDIO', 'EDITION 01'],
+    imageNote: ['Konceptbild · ej foto', 'Referens för bildspråk'],
+    seal: ['STUDIO', 'UTGÅVA 01'],
     doorsLabel: 'Vad studion gör',
     doors: {
-      WEAR: { title: 'WEAR', text: 'Befintliga plagg som sys om.' },
+      WEAR: { title: 'WEAR', text: 'Second hand-plagg som sys om.' },
       MAKE: { title: 'MAKE', text: 'Sömnadsmönster för petite proportioner.' },
       ACCENTED: { title: 'ACCENTED', text: 'Knutar, tofsar och små detaljer.' },
     },
@@ -41,40 +42,41 @@ export const sv: Copy = {
   },
   brandIntro: {
     marker: 'Manifest',
-    eyebrow: 'Kroppen är inte en storlekstabell',
-    titleTop: 'Kläder är inte',
-    titleEm: 'kroppar',
-    lead: 'En mindre storlek är inte bara en kortare version av en större.',
-    body: 'Proportion handlar om längd, balans och placering. Genom rekonstruktion kan ett plagg få en ny form — kläder ska anpassas till människor, inte tvärtom.',
+    eyebrow: 'Proportion före storlek',
+    titleTop: 'Din kropp är',
+    titleEm: 'inte en storlek',
+    lead: 'En mindre storlek är inte en kortare version av en större.',
+    body: 'Proportion handlar om längd, balans och placering. Med rekonstruktion kan ett plagg få en ny form. Kläder ska anpassas efter människor.',
   },
   collections: {
     reconstruct: {
       concept: 'RECONSTRUCT',
-      title: 'BEFINTLIG FORM. NYTT UTTRYCK.',
+      title: 'FRÅN SECOND HAND TILL MODERN HANBOK.',
       paragraphs: [
-        'En välbekant skjorta blir en utgångspunkt snarare än något färdigt.',
-        'Plagg syms om till en fusion av koreanska rötter och en skandinavisk uppväxt: överlappande former, knytningar och nya proportioner i en stilla, återhållen silhuett.',
-        'Det första konceptet är en hanbok i modern stil. Det är en början, inte en gräns — fler plagg är på väg.',
+        'Vi hittar plagg second hand och syr om dem. En välbekant skjorta blir en utgångspunkt snarare än något färdigt, och får ett nytt liv.',
+        'Plaggen syms om till en fusion av koreanska rötter och en skandinavisk uppväxt: överlappande former, knytningar och nya proportioner i en stilla, återhållen silhuett.',
+        'Återbruk är vårt sätt att ta hänsyn till miljön. Det som redan finns behöver inte tillverkas på nytt.',
+        'Det första konceptet är en hanbok i modern stil. Det är en början. Fler plagg är på väg.',
       ],
       action: 'Upptäck plaggen',
     },
     reproportion: {
       concept: 'REPROPORTION',
-      title: 'MINDRE ÄR INTE DET SAMMA SOM PETITE.',
+      title: 'SYMÖNSTER FÖR PETITE PROPORTIONER.',
       paragraphs: [
-        'Petite handlar om proportion, inte bara storlek.',
-        'Mönster som utvecklas med uppmärksamhet på bålens längd, placering, balans och förhållandet mellan plaggets delar.',
-        'För ett mönster ska anpassas efter den som bär plagget.',
+        'Petite handlar om proportion, och storlek är bara en del av den.',
+        'Mönstren utvecklas med blick för bålens längd, placering, balans och förhållandet mellan plaggets delar.',
+        'Ett mönster ska anpassas efter den som bär plagget.',
       ],
       action: 'Utforska mönstren',
     },
     connect: {
       concept: 'CONNECT',
-      title: 'ETT SPRÅK. MÅNGA KOMBINATIONER.',
+      title: 'PRÖVA DINA EGNA FÄRGKOMBINATIONER.',
       paragraphs: [
         'Knut. Pärla. Tofs. Färg.',
         'Enskilda delar är utformade för att fungera tillsammans, så att färger och former kan flytta mellan smycken.',
-        'Kombinera indigo med ivory. Ochre med glaucous blue. Cameo pink med en gnutta jord. En stilla kombination i dag, något djärvare i morgon.',
+        'Kombinera Deep Indigo med Ivory Buff. Ochre Red med Light Glaucous Blue. Cameo Pink med en gnutta jord. En stilla kombination i dag, något djärvare i morgon.',
       ],
       action: 'Skapa din kombination',
     },
@@ -103,12 +105,12 @@ export const sv: Copy = {
         'Konceptbild: skjorta omsydd till en modern hanbok, en fusion av koreansk inspiration och skandinavisk minimalism, med diagonal omlottstängning och ett långt knutet band vid sidan.',
       imageLabel: 'Konceptbild · ej foto',
       demoNote:
-        'Fiktivt redaktionellt demoexempel, illustrerat med en konceptbild. Bilden är en art direction-referens, inte ett foto av ett tillverkat plagg. Material och hantverk beskriver konceptet. Inga köp eller beställningar tas emot.',
+        'Fiktivt redaktionellt demoexempel, illustrerat med en konceptbild. Bilden är en referens för bildspråk, inte ett foto av ett tillverkat plagg. Material och hantverk beskriver konceptet. Inga köp eller beställningar tas emot.',
       material: 'Materialplatshållare. Faktisk sammansättning anges när ett dokumenterat plagg finns.',
       story:
-        'En klassisk herrskjorta syms om och blir en modern hanbok — en fusion av koreanska rötter och en skandinavisk uppväxt. Omlottstängning, knytning och en mjuk, förskjuten silhuett i ett stilla uttryck. Det är det första konceptet, inte det enda: fler omsydda plagg är på väg. Bekant nog att bära ofta, annorlunda nog att kännas som din.',
+        'En klassisk herrskjorta syms om till en modern hanbok, en fusion av koreanska rötter och en skandinavisk uppväxt. Omlottstängning, knytning och en mjuk, förskjuten silhuett i ett stilla uttryck. Det är det första konceptet, och fler omsydda plagg är på väg. Bekant nog att bära ofta, annorlunda nog att kännas som din.',
       craftsmanship: 'Formidé: omlott, förskjutna linjer och knytning, med avskalade detaljer. Konstruktion och utförande är ännu inte dokumenterade.',
-      upcycling: 'Ursprungsskjortan väljs för sin kvalitet och blir utgångspunkten för ett nytt plagg — inte ett material att dölja.',
+      upcycling: 'Ursprungsskjortan hittas second hand, väljs för sin kvalitet och blir utgångspunkten för ett nytt plagg.',
       petiteNote: 'Axel- och ärmlängd balanseras med plaggets volym för att silhuetten ska kännas avsiktlig på en petite kropp.',
       related: 'ACCENTED — knut, signaturpärla och tofs som en gemensam detaljidé.',
     },
@@ -121,7 +123,7 @@ export const sv: Copy = {
       material: 'Koncept för ett digitalt symönster i vävd kvalitet. Inga mönsterfiler eller måttguider finns att ladda ned.',
       story: 'Ett skjortmönster som börjar i proportionerna: kortare överkropp, balanserad ärm och en fåll placerad där plagget får sitt rätta fall.',
       craftsmanship: 'Koncept för placering av axel, midja och ärm. Provning, instruktioner och måttunderlag återstår att dokumentera.',
-      petiteNote: 'Utformat för petite proportioner från första mönsterlinjen — inte nedskalat från ett standardblock.',
+      petiteNote: 'Utformat för petite proportioner från första mönsterlinjen, i stället för att skalas ned från ett standardblock.',
       related: 'Matcha med The Crossing Shirt för en gemensam silhuett och en detalj i samma ton.',
     },
     'knot-no-01': {
@@ -145,9 +147,10 @@ export const sv: Copy = {
   connect: {
     eyebrow: 'CONNECT-familjen',
     title: 'En pärla. Många smycken.',
-    origin: 'Inspired by Korean decorative knotwork',
-    lead: 'Fem smycken och ett bibliotek av utbytbara delar. Signaturpärlan är det som återkommer; övrigt är medvetet tystare. Inte varje del är lika dekorerad och inte varje färg finns i varje smycke.',
+    origin: 'Inspirerad av koreanskt dekorativt knutverk',
+    lead: 'Fem smycken och ett bibliotek av utbytbara delar. Signaturpärlan är det som återkommer, resten är medvetet tystare. Delarna är olika rikt dekorerade, och varje färg finns bara i några av smyckena.',
     paletteLabel: 'Paletten',
+    paletteNote: 'Färgerna och deras namn bygger på Wada Sanzos färglära och hans bok A Dictionary of Color Combinations.',
     paletteGroups: {
       core: { label: 'Kärna', note: 'Basen i de flesta kombinationer.' },
       character: { label: 'Karaktär', note: 'Färgerna som syns först.' },
@@ -157,7 +160,7 @@ export const sv: Copy = {
     familiesLabel: 'Färgfamiljer',
     families: {
       'indigo-ivory': { label: 'Deep Indigo + Ivory Buff', note: 'Mörkt och ljust i jämvikt. Ivory Buff bär lika gärna knut, snodd, pärla och tofs.' },
-      'ochre-glaucous': { label: 'Ochre Red + Light Glaucous Blue', note: 'Varmt möter svalt. Det mest uttalade färgmötet — används sparsamt.' },
+      'ochre-glaucous': { label: 'Ochre Red + Light Glaucous Blue', note: 'Varmt möter svalt. Det mest uttalade färgmötet, som används sparsamt.' },
       'ivory-glaucous': { label: 'Ivory Buff + Light Glaucous Blue + Deep Indigo accent', note: 'Ljust och stilla. Deep Indigo förekommer bara som en liten detalj.' },
       'cameo-indigo': { label: 'Cameo Pink + Deep Indigo', note: 'Mjukt möter djupt. Cameo Pink gör Deep Indigo varmare.' },
       'vandyke-khaki': { label: 'Vandyke Brown + Khaki', note: 'Jordigt och dämpat. Khaki ger ljus åt Vandyke Brown.' },
@@ -170,7 +173,7 @@ export const sv: Copy = {
       'signature-pendant': {
         subtitle: 'Signaturhänge',
         roleLabel: 'Ankare · signaturpärla',
-        description: 'En knut, en pärla. Den Ivory Buff-färgade signaturpärlan syns först — resten drar sig tillbaka mot Deep Indigo.',
+        description: 'En knut, en pärla. Den Ivory Buff-färgade signaturpärlan syns först och resten drar sig tillbaka mot Deep Indigo.',
       },
       'quiet-knot-earrings': {
         subtitle: 'Stilla knutörhängen, utan tofs',
@@ -180,7 +183,7 @@ export const sv: Copy = {
       'long-knot-earrings': {
         subtitle: 'Långa knutörhängen med tofs',
         roleLabel: 'Uttalat · med tofs',
-        description: 'Rörelsen ligger i tofsen. Ingen pärla — knuten och tofsen räcker.',
+        description: 'Rörelsen ligger i tofsen. Ingen pärla. Knuten och tofsen räcker.',
       },
       'modular-bracelet': {
         subtitle: 'Modulärt armband',
@@ -194,15 +197,15 @@ export const sv: Copy = {
       },
     },
     elementsEyebrow: 'Utbytbara delar',
-    elementsNote: 'Knut, pärla och tofs kan flytta mellan smycken och mellan färgfamiljer — en delmängd visas här, inte varje färg i varje del.',
+    elementsNote: 'Knut, pärla och tofs kan flytta mellan smycken och mellan färgfamiljer. Här visas en delmängd av färgerna.',
     elementNames: {
-      knot: { label: 'KNOT', description: 'Knut' },
-      bead: { label: 'BEAD', description: 'Signaturpärla' },
-      tassel: { label: 'TASSEL', description: 'Tofs' },
+      knot: { label: 'KNUT', description: 'Knut' },
+      bead: { label: 'PÄRLA', description: 'Signaturpärla' },
+      tassel: { label: 'TOFS', description: 'Tofs' },
     },
     statusLabel: 'Status för bilder och text',
     disclosure:
-      'Teckningarna är grafiska färgstudier, inte fotografier av färdiga fysiska produkter. Eventuella genererade konceptbilder är endast referenser för art direction och visas inte som produktbilder. Inga smycken är till salu, och konstruktion och material är ännu inte dokumenterade.',
+      'Teckningarna är grafiska färgstudier, inte fotografier av färdiga fysiska produkter. Eventuella genererade konceptbilder är endast referenser för bildspråk och visas inte som produktbilder. Inga smycken är till salu, och konstruktion och material är ännu inte dokumenterade.',
     pending: [
       { label: 'Originalfoton från studion', status: 'Väntar' },
       { label: 'Makrofoto av den fysiska signaturpärlan', status: 'Väntar' },
@@ -211,18 +214,18 @@ export const sv: Copy = {
   },
   modular: {
     eyebrow: 'En studie i förbindelser',
-    title: 'Delar som byter färgfamilj.',
+    title: 'Byt färg, en del i taget.',
     intro:
-      'Flytta färger fritt mellan knut, snodd, pärla och tofs — delarna behöver inte höra till samma färgfamilj. Börja i en av de sex färgkombinationerna och byt en del i taget.',
-    note: 'Redaktionell prototyp, inte en e-handelskonfigurator. Schemat visar färgmöten, inte faktisk konstruktion eller material. Inget sparas eller beställs.',
+      'Flytta färger fritt mellan knut, snodd, pärla och tofs. Delarna behöver inte höra till samma färgfamilj. Börja i en av de sex färgkombinationerna och byt en del i taget.',
+    note: 'Redaktionell prototyp utan e-handel. Schemat visar färgmöten. Konstruktion och material är ännu inte fastställda. Inget sparas eller beställs.',
     previewEyebrow: 'Färgstudie / ej produktbild',
     previewNote: 'Samma formspråk. Olika färger.',
     presetsEyebrow: 'Utgångspunkt',
     modules: {
-      knot: { label: 'KNOT', description: 'Knuten · första förbindelsen' },
-      cord: { label: 'CORD', description: 'Snodden · bärande linje' },
-      bead: { label: 'BEAD', description: 'Pärlan · en gemensam detalj' },
-      tassel: { label: 'TASSEL', description: 'Tofsen · form i rörelse' },
+      knot: { label: 'KNUT', description: 'Första förbindelsen' },
+      cord: { label: 'SNODD', description: 'Den bärande linjen' },
+      bead: { label: 'PÄRLA', description: 'En gemensam detalj' },
+      tassel: { label: 'TOFS', description: 'Form i rörelse' },
     },
     summaryPrefix: 'Din färgstudie:',
     link: 'Se den sammanbindande detaljen',
@@ -230,18 +233,19 @@ export const sv: Copy = {
   signatureBead: {
     marker: 'En sammanbindande detalj',
     title: 'SIGNATURPÄRLAN',
-    subtitle: 'En detalj. En förbindande tråd.',
+    subtitle: 'Hyang och Mee i en pärla.',
     paragraphs: [
-      'Ett återkommande skulpturalt element som är format för att flytta mellan knutar, tofsar, smycken och plagg.',
-      'Igenkännlig i sig själv. Gjord för att höra till något större.',
+      'Pärlan är en symbol för harmoni. Vi tycker inte alltid lika, men vi kan harmoniera trots att vi är olika, så länge vi respekterar varandra och tar in den andra utan att döma. Det är vad prickarna på pärlan betyder.',
+      'Den påminner om yin och yang, men är något annat. Det är Hyang och Mee.',
+      'Pärlan återkommer i studions smycken och är gjord för att flytta mellan knutar, tofsar och plagg.',
     ],
-    colourNote: 'Samma form i varje färg. Ivory Buff är en egen smyckesfärg, inte en neutral bakgrund.',
+    colourNote: 'Samma form i varje färg. Ivory Buff är en egen smyckesfärg.',
     coloursLabel: 'Signaturpärlan i olika färger',
     coloursFootnote: 'Grafisk färgstudie, inte ett foto av den fysiska pärlan.',
     macro: {
-      alt: 'Makrostudie av två blanka, glaserade pärlor med ett svängt tvåfärgsmönster och ett genomgående hål, en i Deep Indigo och rosa och en i Ivory och Ochre Red, på ljus linneduk. Konceptbild, inte ett foto av en färdig produkt.',
+      alt: 'Makrostudie av två blanka, glaserade pärlor med ett svängt tvåfärgsmönster, en prick i den andra halvans färg och ett genomgående hål, en i Deep Indigo och rosa och en i Ivory och Ochre Red, på ljus linneduk. Konceptbild, inte ett foto av en färdig produkt.',
       label: 'Konceptbild · makrostudie',
-      caption: 'Makrostudie av signaturpärlan som art direction-referens, inte ett fotografi av en färdig fysisk produkt.',
+      caption: 'Makrostudie av signaturpärlan som referens för bildspråk, inte ett fotografi av en färdig fysisk produkt.',
     },
     pendingPhoto: 'Studions makrofotografi av den fysiska pärlan inväntas.',
     imageBrief: 'Makrofotografi av signaturpärlan, med hela formen och hålets anslutning synliga.',
@@ -249,8 +253,8 @@ export const sv: Copy = {
   craft: {
     marker: 'Studio · form och material',
     eyebrow: 'Designbeslut i detalj',
-    titleTop: 'Placering, balans',
-    titleEm: 'och förbindelser.',
+    titleTop: 'Små val.',
+    titleEm: 'Stor skillnad.',
     text: 'En söm påverkar silhuetten. Material ger tyngd och balans. En knut förbinder linjer och detaljer till en helhet.',
     details: [
       { title: 'Sömmens placering', note: 'En linje som förändrar silhuetten.', alt: 'Grafisk närbild av en röd handsydd söm genom textil' },
@@ -262,7 +266,7 @@ export const sv: Copy = {
   about: {
     marker: 'Om studion',
     imageAlt:
-      'Konceptbild i fem delar av studiomiljön: trådspolar, pärlor och armband, en docka med omlottskjorta och mönsterdelar, en läderväska med pärlberlock samt en moodboard med tygprover. Inte ett foto av färdiga produkter.',
+      'Konceptbild i fem delar av studiomiljön: trådspolar, pärlor och armband, en docka med omlottskjorta och mönsterdelar, en läderväska med pärlberlock samt en inspirationstavla med tygprover. Inte ett foto av färdiga produkter.',
     imageNote: 'Miljöbild · konceptbild, ej foto',
     quote: ['En liten studio', 'med många trådar.'],
     eyebrow: 'Grundarens text · godkänd',
@@ -274,8 +278,8 @@ export const sv: Copy = {
   },
   newsletter: {
     eyebrow: 'Brev från studion',
-    title: 'Nyheter, inte brus.',
-    text: 'En plats för framtida anteckningar om form, material och designprocess. Nyhetsbrevet är inte öppet för anmälan.',
+    title: 'Följ arbetet i studion.',
+    text: 'Här får framtida anteckningar om form, material och designprocess plats. Nyhetsbrevet är inte öppet för anmälan ännu.',
     formLabel: 'Förhandsvisning av nyhetsbrev',
     emailLabel: 'E-postadress',
     placeholder: 'namn@exempel.se',
@@ -284,7 +288,7 @@ export const sv: Copy = {
     note: 'Inaktivt prototypformulär. Inga uppgifter skickas eller lagras.',
   },
   footer: {
-    thought: ['Gjord för proportion.', 'Skapad med avsikt.'],
+    thought: ['Gjord för proportion.', 'Formen följer dig.'],
     contactSoon: 'Kontaktfunktion öppnar snart.',
     newsletterLink: 'Om det kommande nyhetsbrevet',
     legal: '© 2026 HYANG-MEE STUDIO — DEMO',

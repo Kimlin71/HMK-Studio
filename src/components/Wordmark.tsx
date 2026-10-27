@@ -46,7 +46,7 @@ export function Wordmark({ footer = false }: WordmarkProps) {
       <span className="wordmark__text">
         <span className="wordmark__name">Hyang-Mee</span>
         <span className="wordmark__studio">Studio</span>
-        {footer ? <span className="wordmark__caption">FORM · TEXTIL · DETALJ</span> : null}
+        {footer ? <span className="wordmark__caption">{copy.wordmark.caption}</span> : null}
       </span>
     </a>
   )

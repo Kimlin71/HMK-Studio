@@ -15,7 +15,7 @@ export function Footer() {
       <div className="site-footer__bottom">
         <span>{footer.legal}</span>
         <span className="site-footer__social"><span>{footer.instagram}</span><span>{footer.pinterest}</span></span>
-        <span>Form · Proportion · Connection</span>
+        <span>{copy.tagline}</span>
       </div>
       {/* Future commerce: connect product detail views to variants, made-to-order enquiries and a checkout only when ready. */}
     </footer>

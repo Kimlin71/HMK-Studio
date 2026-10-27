@@ -28,7 +28,8 @@ export type Copy = {
   meta: { title: string; description: string }
   skipLink: string
   collectionsLabel: string
-  wordmark: { home: string; top: string }
+  tagline: string
+  wordmark: { home: string; top: string; caption: string }
   header: {
     navLabel: string
     menuOpen: string
@@ -79,6 +80,7 @@ export type Copy = {
     origin: string
     lead: string
     paletteLabel: string
+    paletteNote: string
     paletteGroups: Record<PaletteGroupId, { label: string; note: string }>
     indigoPrint: string
     familiesLabel: string

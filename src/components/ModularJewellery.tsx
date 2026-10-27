@@ -29,7 +29,7 @@ export function ModularJewellery() {
           <div className="module-connection">
             {moduleIds.map((id) => (
               <div className="module-sample" key={id}>
-                <span className="module-sample__label" lang="en">{text.modules[id].label}</span>
+                <span className="module-sample__label">{text.modules[id].label}</span>
                 <ColourSwatch colour={selection[id]} />
               </div>
             ))}
@@ -49,7 +49,7 @@ export function ModularJewellery() {
           </div>
           {moduleIds.map((id) => (
             <fieldset className="module-options" key={id}>
-              <legend><span lang="en">{text.modules[id].label}</span> <small>{text.modules[id].description}</small></legend>
+              <legend><span>{text.modules[id].label}</span> <small>{text.modules[id].description}</small></legend>
               <div className="module-options__row">
                 {allColours.map((colour) => (
                   <label className="module-option" key={colour}>

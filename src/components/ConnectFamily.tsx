@@ -13,11 +13,12 @@ export function ConnectFamily() {
       <div className="connect-family__heading">
         <p className="eyebrow">{text.eyebrow}</p>
         <h3 id="connect-family-title">{text.title}</h3>
-        <p className="connect-family__origin" lang="en">{text.origin}</p>
+        <p className="connect-family__origin">{text.origin}</p>
       </div>
       <p className="connect-family__lead">{text.lead}</p>
 
       <div aria-label={text.paletteLabel} className="connect-palette" role="group">
+        <p className="connect-palette__note">{text.paletteNote}</p>
         {paletteGroups.map((group) => (
           <div className="connect-palette__group" key={group.id}>
             <p className="eyebrow">{text.paletteGroups[group.id].label}</p>
@@ -83,7 +84,7 @@ export function ConnectFamily() {
         <div className="connect-elements__groups">
           {connectElements.map((group) => (
             <div className="connect-element-group" key={group.kind}>
-              <p className="connect-element-group__label"><span lang="en">{text.elementNames[group.kind].label}</span> <small>{text.elementNames[group.kind].description}</small></p>
+              <p className="connect-element-group__label"><span>{text.elementNames[group.kind].label}</span> <small>{text.elementNames[group.kind].description}</small></p>
               <ul>
                 {group.colours.map((colour) => (
                   <li key={colour}>

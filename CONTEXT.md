@@ -15,7 +15,7 @@ _Avoid_: Separate business lines
 ## Offerings
 
 **WEAR**:
-Existing garments sewn anew into a fusion of Korean roots and a Scandinavian upbringing. The modern hanbok is the first concept, not the only kind of garment planned.
+Second-hand (thrifted) garments sewn anew into a fusion of Korean roots and a Scandinavian upbringing. Reuse is the studio's way of caring for the environment. The modern hanbok is the first concept, not the only kind of garment planned.
 _Avoid_: Costume, historical replica
 
 **MAKE**:

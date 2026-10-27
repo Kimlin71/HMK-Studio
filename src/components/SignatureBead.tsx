@@ -11,7 +11,7 @@ export function SignatureBead() {
     <section aria-labelledby="bead-title" className="signature-bead section-shell" id="signaturparlan">
       <div className="section-marker"><span>06</span><span>{text.marker}</span></div>
       <div className="signature-bead__copy">
-        <p className="eyebrow" lang="en">FORM · PROPORTION · CONNECTION</p>
+        <p className="eyebrow">{copy.tagline}</p>
         <h2 id="bead-title">{text.title}</h2>
         <p className="signature-bead__lead">{text.subtitle}</p>
         {text.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
