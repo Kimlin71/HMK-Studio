@@ -1,6 +1,6 @@
 import type { ElementKind, ModuleId, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
-import type { ShopCategory, ShopItemId } from '../shop'
+import type { HanbokItemId, ShopCategory, ShopItemId } from '../shop'
 
 export type Language = 'sv' | 'en'
 
@@ -131,7 +131,26 @@ export type Copy = {
     }
     bracelet: { title: string; placeholder: string }
     maedeup: { title: string; placeholder: string }
-    hanbok: { title: string; placeholder: string }
+    hanbok: {
+      title: string
+      placeholder: string
+      oneOfAKind: string
+      oneOfAKindNote: string
+      detailsButton: string
+      detailsButtonLabel: (name: string) => string
+      fields: { status: string; material: string; sourceShirt: string }
+      fits: {
+        title: string
+        intro: string
+        shoulder: { label: string; text: string }
+        sleeve: { label: string; text: string }
+        length: { label: string; text: string }
+        wrapTie: { label: string; text: string }
+      }
+      ask: string
+      demoNote: string
+      items: Record<HanbokItemId, { category: string; story: string; material: string; sourceShirt: string }>
+    }
   }
   signatureBead: {
     marker: string

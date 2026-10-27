@@ -1,5 +1,6 @@
 import { shopAnchors, shopCategories, shopItems, type ShopCategory } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
+import { HanbokShop } from './HanbokShop'
 import { ShopItemCard } from './ShopItemCard'
 import './ShopSection.css'
 
@@ -47,8 +48,12 @@ export function ShopSection() {
               <p>{categoryText.description}</p>
             </div>
             <div className="shop-category__items">
-              {items.map((item) => <ShopItemCard item={item} key={item.id} />)}
-              <ShopMountPlaceholder category={category} />
+              {category === 'hanbok' ? <HanbokShop /> : (
+                <>
+                  {items.map((item) => <ShopItemCard item={item} key={item.id} />)}
+                  <ShopMountPlaceholder category={category} />
+                </>
+              )}
             </div>
           </div>
         )
