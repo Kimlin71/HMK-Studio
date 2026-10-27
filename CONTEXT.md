@@ -37,3 +37,25 @@ _Avoid_: Upcycled as a generic product label without material context
 **Demo piece**:
 Fictional editorial content used to demonstrate a future product presentation. It is not for sale and must be replaced or clearly retained as sample content.
 _Avoid_: Live product
+
+## Accents and pieces
+
+**Maedeup**:
+Korean decorative knotwork (매듭), and the knots that the studio's ACCENTED pieces are inspired by. Used as a general name for the craft; it does not claim a specific documented knot technique.
+_Avoid_: Maedup (misspelling), macramé (a different craft, used for the bracelet cord)
+
+**Norigae**:
+A Korean ornament (노리개) made of a knot, cord and tassel, traditionally worn with hanbok. In the studio it is the pairing of Maedeup knotwork with a tassel as an accent for a garment.
+_Avoid_: Charm, keyring
+
+**Signature pearl**:
+The one pearl that every bracelet and Maedeup/Norigae piece carries, the studio's recognisable mark. It is always present and cannot be removed from a design.
+_Avoid_: Logo bead, optional pearl
+
+**Custom design**:
+A customer's on-screen combination of colours and parts. It is an exploration, not an order: nothing is stored, sent or reserved, and it is not a commitment to make or sell the piece.
+_Avoid_: Order, custom order, saved design
+
+**One-of-a-kind piece**:
+A hanbok made from a single second-hand men's shirt, so no two are the same. Fit depends on the individual shirt and the wearer's proportions.
+_Avoid_: Limited edition, made to stock
