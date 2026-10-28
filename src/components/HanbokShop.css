@@ -170,9 +170,9 @@
 
 .hanbok-fits h3 {
   margin: 0 0 8px;
-  font-family: var(--serif);
+  font-family: var(--shop-heading);
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .hanbok-fits > p {

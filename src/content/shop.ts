@@ -37,7 +37,7 @@ export type ShopItem = {
 
 export const shopItems: ShopItem[] = [
   // Bracelets: finished products shown from the founder's photographs (background removed, transparent WebP).
-  { id: 'signature-bracelet-1', category: 'bracelet', name: 'Signature Bracelet No. 1', image: '/images/shop/bracelets/bracelet-1.webp' },
+  { id: 'signature-bracelet-1', category: 'bracelet', name: 'Signature Bracelet No. 1', image: '/images/shop/bracelets/bracelet-1.webp.jpg' },
   { id: 'signature-bracelet-2', category: 'bracelet', name: 'Signature Bracelet No. 2', image: '/images/shop/bracelets/bracelet-2.webp' },
   { id: 'signature-bracelet-3', category: 'bracelet', name: 'Signature Bracelet No. 3', image: '/images/shop/bracelets/bracelet-3.webp' },
   // Maedeup with Norigae: four finished pieces from the founder's photographs. The builder below is for a design of one's own.

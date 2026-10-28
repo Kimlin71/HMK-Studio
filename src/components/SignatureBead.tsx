@@ -20,10 +20,6 @@ export function SignatureBead() {
         <div className="signature-bead__concept">
           <img alt={text.macro.alt} loading="lazy" src={signatureBeadImage} />
         </div>
-        <figcaption>
-          {text.macro.caption}{' '}
-          <strong>{text.pendingPhoto}</strong> {text.imageBrief}
-        </figcaption>
       </figure>
       <div className="signature-bead__colours">
         <p>{text.colourNote}</p>
@@ -35,7 +31,6 @@ export function SignatureBead() {
             </li>
           ))}
         </ul>
-        <small>{text.coloursFootnote}</small>
       </div>
     </section>
   )

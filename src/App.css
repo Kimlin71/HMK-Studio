@@ -463,24 +463,32 @@ h2 em,
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 8px;
+  gap: 22px;
   min-height: 545px;
   align-self: stretch;
+  padding: 20px;
   overflow: hidden;
-  background: var(--paper);
+  background: var(--paper-warm);
 }
 
-/* One tile per offering: the hanbok tall on the left, the Norigae and the pattern stacked on the right. */
+/* One tile per offering: the hanbok tall on the left, the Norigae and the pattern stacked on the right.
+   Each tile is a framed print, tilted a little, so the grid reads as pictures pinned to a board.
+   The three photographs have different backgrounds (cool grey, off-white, white), so every image is
+   multiplied onto the same warm tint and the backgrounds read as one. */
 .hero__tile {
   position: relative;
   min-height: 0;
   margin: 0;
   overflow: hidden;
-  background: var(--linen);
+  isolation: isolate;
+  border: 7px solid var(--white);
+  background: var(--cameo-tint);
+  box-shadow: 0 12px 26px rgba(81, 52, 18, 0.18);
 }
 
 .hero__tile--wear {
   grid-row: 1 / 3;
+  transform: rotate(-1.8deg);
 }
 
 .hero__tile--accented,
@@ -488,8 +496,16 @@ h2 em,
   grid-column: 2;
 }
 
+.hero__tile--accented {
+  transform: rotate(1.6deg);
+}
+
 .hero__tile--make {
-  background: var(--white);
+  transform: rotate(-1deg);
+}
+
+.hero__tile .hero__image {
+  mix-blend-mode: multiply;
 }
 
 .hero__tile--make .hero__image {
@@ -732,9 +748,25 @@ h2 em,
   grid-row: 1;
 }
 
+/* ACCENTED: a narrow text column on the left and the wide colour moodboard on the right, as large as the section allows. */
 .collection--accented {
-  grid-template-columns: 0.78fr 1.22fr;
+  grid-template-columns: minmax(0, 0.6fr) minmax(0, 1.4fr);
+  column-gap: 0;
   background: var(--paper);
+}
+
+/* The intro is a size container, so the heading scales with its own column (cqi) and not with the window. */
+.collection--accented .collection__intro {
+  padding: 55px 28px 40px 0;
+  container-type: inline-size;
+}
+
+.collection--accented .collection__intro .section-marker {
+  left: 0;
+}
+
+.collection--accented .piece-card {
+  align-self: center;
 }
 
 .collection__intro {
@@ -766,15 +798,16 @@ h2 em,
   line-height: 1.06;
 }
 
-/* The Swedish ACCENTED heading has a very long word. Smaller type and a safe break keep it clear of the picture. */
+/* The Swedish ACCENTED heading has a very long word. It breaks only at the soft hyphen in the copy (FÄRGKOMBI-NATIONER),
+   and the type size follows the column width so "FÄRGKOMBI-" always fits on one line. */
 .collection--accented .collection__intro {
   min-width: 0;
 }
 
 .collection--accented .collection__intro h2 {
   max-width: 100%;
-  font-size: clamp(28px, 2.9vw, 46px);
-  hyphens: auto;
+  font-size: clamp(26px, 10.5cqi, 44px);
+  hyphens: manual;
   overflow-wrap: break-word;
 }
 
@@ -805,28 +838,43 @@ h2 em,
   text-align: left;
 }
 
+/* Every picture is a framed print with a colour block offset behind it, a different palette colour per section. */
 .piece-card__image-wrap {
   position: relative;
   display: block;
   height: 490px;
   overflow: hidden;
+  border: 8px solid var(--white);
   background: var(--linen);
+  box-shadow: 14px 14px 0 var(--linen), 0 18px 34px rgba(81, 52, 18, 0.16);
+  transition: transform 260ms ease, box-shadow 260ms ease;
 }
 
 .collection--make .piece-card__image-wrap {
   height: 470px;
+  box-shadow: 14px 14px 0 var(--cameo-pink), 0 18px 34px rgba(81, 52, 18, 0.16);
+  transform: rotate(-1deg);
 }
 
 .collection--accented .piece-card__image-wrap {
-  height: 430px;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  box-shadow: 14px 14px 0 var(--light-glaucous-blue), 0 18px 34px rgba(81, 52, 18, 0.16);
+}
+
+.piece-card:hover .piece-card__image-wrap {
+  box-shadow: 18px 18px 0 var(--ochre-red-faint), 0 22px 40px rgba(81, 52, 18, 0.2);
+  transform: translate(-3px, -3px) rotate(0deg);
 }
 
 .piece-card__image {
-  padding: 12px;
+  padding: 0;
+  object-fit: cover;
+  transition: transform 600ms ease;
 }
 
 .piece-card:hover .piece-card__image {
-  opacity: 0.92;
+  transform: scale(1.03);
 }
 
 .piece-card__open {
@@ -866,7 +914,7 @@ h2 em,
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 8px;
-  padding-top: 13px;
+  padding-top: 28px;
 }
 
 .piece-card__meta span:first-child {
@@ -891,7 +939,9 @@ h2 em,
   position: relative;
   height: 560px;
   overflow: hidden;
+  border: 8px solid var(--white);
   background: var(--linen);
+  box-shadow: 14px 14px 0 var(--linen), 0 18px 34px rgba(81, 52, 18, 0.16);
   touch-action: pan-y;
   user-select: none;
 }
@@ -1016,7 +1066,7 @@ h2 em,
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 4px 12px;
-  padding-top: 13px;
+  padding-top: 28px;
 }
 
 .compare__caption span:first-child {
@@ -1087,7 +1137,7 @@ h2 em,
 
 .craft__gallery {
   display: grid;
-  grid-template-columns: 1.1fr 0.8fr 0.9fr;
+  grid-template-columns: repeat(3, 1fr);
   align-items: start;
   gap: 20px;
 }
@@ -1096,29 +1146,39 @@ h2 em,
   margin: 0;
 }
 
-.craft-image--fabric {
-  margin-top: 72px;
+/* Same size for all three, but each print sits at its own slight angle. */
+.craft__gallery .craft-card:nth-child(1) {
+  transform: rotate(-1deg);
 }
 
-.craft-image--knot {
-  margin-top: 26px;
+.craft__gallery .craft-card:nth-child(2) {
+  transform: rotate(0.8deg);
 }
 
+.craft__gallery .craft-card:nth-child(3) {
+  transform: rotate(-0.6deg);
+}
+
+/* All three images share one frame so the gallery reads as an even row. */
 .craft-card img {
-  height: 290px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  border: 6px solid var(--white);
   background: var(--linen);
+  box-shadow: 0 12px 24px rgba(81, 52, 18, 0.16);
+  object-fit: cover;
 }
 
 .craft-image--stitch img {
-  height: 355px;
+  object-position: center 55%;
 }
 
 .craft-image--fabric img {
-  height: 275px;
+  object-position: center 55%;
 }
 
 .craft-image--knot img {
-  height: 320px;
+  object-position: center 50%;
 }
 
 .craft-card figcaption {
@@ -1159,7 +1219,10 @@ h2 em,
 .about-maker__image {
   position: relative;
   min-height: 490px;
+  border: 8px solid var(--white);
   background: var(--linen);
+  box-shadow: 14px 14px 0 var(--cameo-pink), 0 18px 34px rgba(81, 52, 18, 0.16);
+  transform: rotate(-1.2deg);
 }
 
 .about-maker__image img {
@@ -1702,7 +1765,10 @@ h2 em,
   position: relative;
   overflow: hidden;
   max-height: 640px;
+  border: 8px solid var(--paper);
   background: var(--paper);
+  box-shadow: 14px 14px 0 var(--ochre-red);
+  transform: rotate(1deg);
 }
 
 .signature-bead__concept img {
@@ -1720,14 +1786,9 @@ h2 em,
   line-height: 1.1;
 }
 
-.signature-bead__placeholder > span:last-child,
-.signature-bead__image figcaption {
+.signature-bead__placeholder > span:last-child {
   color: var(--ink-soft);
   font-size: var(--text-small);
-}
-
-.signature-bead__image figcaption {
-  margin-top: 12px;
 }
 
 @media (max-width: 900px) {
@@ -1843,6 +1904,21 @@ h2 em,
     left: 0;
   }
 
+  /* On a tablet the text column would be too narrow, so ACCENTED stacks: text first, the wide picture under it. */
+  .collection--accented {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 8px;
+  }
+
+  .collection--accented .collection__intro {
+    max-width: 640px;
+    padding: 55px 0 36px;
+  }
+
+  .collection--accented .collection__intro h2 {
+    font-size: clamp(30px, 6vw, 46px);
+  }
+
   .piece-card__image-wrap {
     height: 410px;
   }
@@ -1852,7 +1928,7 @@ h2 em,
   }
 
   .collection--accented .piece-card__image-wrap {
-    height: 370px;
+    height: auto;
   }
 
   .piece-detail__image-wrap {
@@ -1953,9 +2029,15 @@ h2 em,
   }
 
   .hero__visual {
-    grid-template-rows: 190px 190px;
+    grid-template-rows: 200px 200px;
+    gap: 14px;
     min-height: 0;
-    margin-left: 4%;
+    padding: 14px;
+    margin-left: 0;
+  }
+
+  .hero__tile {
+    border-width: 5px;
   }
 
   .hero__doors {
@@ -2036,15 +2118,40 @@ h2 em,
     font-size: clamp(34px, 9.3vw, 50px);
   }
 
+  .collection--accented .collection__intro h2 {
+    max-width: 100%;
+    font-size: clamp(34px, 9.3vw, 46px);
+  }
+
   .collection__description {
     max-width: 355px;
     margin: 15px 0 11px;
   }
 
   .piece-card__image-wrap,
-  .collection--make .piece-card__image-wrap,
-  .collection--accented .piece-card__image-wrap {
+  .collection--make .piece-card__image-wrap {
     height: min(113vw, 480px);
+    box-shadow: 8px 8px 0 var(--cameo-pink), 0 12px 24px rgba(81, 52, 18, 0.16);
+  }
+
+  /* The wide moodboard runs edge to edge on a phone so it stays as large as possible. */
+  .collection--accented .piece-card {
+    width: calc(100% + 44px);
+    margin: 0 -22px;
+  }
+
+  .collection--accented .piece-card__image-wrap {
+    border-width: 0;
+    box-shadow: none;
+  }
+
+  .compare__stage {
+    box-shadow: 8px 8px 0 var(--linen), 0 12px 24px rgba(81, 52, 18, 0.16);
+  }
+
+  .about-maker__image,
+  .signature-bead__concept {
+    box-shadow: 8px 8px 0 var(--cameo-pink);
   }
 
   .piece-card__meta {
@@ -2080,27 +2187,12 @@ h2 em,
   }
 
   .craft__gallery {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 12px;
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .craft-image--stitch {
-    grid-column: 1 / -1;
-  }
-
-  .craft-image--fabric,
-  .craft-image--knot {
-    margin-top: 0;
-  }
-
-  .craft-card img,
-  .craft-image--fabric img,
-  .craft-image--knot img {
-    height: 48vw;
-  }
-
-  .craft-image--stitch img {
-    height: 66vw;
+  .craft-card img {
+    aspect-ratio: 4 / 3;
   }
 
   .about-maker {

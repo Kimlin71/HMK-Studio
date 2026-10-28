@@ -58,7 +58,7 @@ The home page follows: hero (one message and three doors: WEAR, MAKE, ACCENTED) 
 
 CONNECT contains an editorial colour study with four separate radio groups: KNOT, CORD, BEAD and TASSEL. The palette has seven colours in three groups (core: Ivory Buff, Deep Indigo, Cameo Pink; character: Ochre Red, Light Glaucous Blue; earthy accents: Khaki, Vandyke Brown) and is defined in `src/index.css` and `src/content/jewellery.ts`. Six preset combinations are provided as a starting point. Colour names are shown together with swatches, and the arrow keys change option within a group. The choices exist only in the component's memory and reset on reload. No storage, network request, order or verified product construction is connected to the study.
 
-The signature pearl image is a concept image (macro study), not a photo. A real macro photo of the physical pearl is still missing and is marked as pending. The founder text (About the atelier) is approved by the founder; only text the founder has seen is covered, not other editorial text. No manufacturing, origin or material claims may be added without supporting evidence.
+The signature pearl image is a concept image (macro study), not a photo. A real macro photo of the physical pearl is still missing. This is stated in the alt text, not in any text on the page. The founder text (About the atelier) is approved by the founder; only text the founder has seen is covered, not other editorial text. No manufacturing, origin or material claims may be added without supporting evidence.
 
 ## The shop prototype flow
 

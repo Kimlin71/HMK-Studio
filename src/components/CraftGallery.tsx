@@ -16,13 +16,11 @@ export function CraftGallery() {
       <div className="craft__gallery">
         {craftImages.map((item, index) => (
           <figure className={`craft-card ${item.className}`} key={item.className}>
-            {/* Photography placeholder: macro image of stitching, cloth texture, knotwork or hand-finished jewellery. */}
             <img alt={text.details[index].alt} loading="lazy" src={item.image} />
             <figcaption><span>0{index + 1} / {text.details[index].title}</span><span>{text.details[index].note}</span></figcaption>
           </figure>
         ))}
       </div>
-      <p className="image-disclosure">{text.disclosure}</p>
     </section>
   )
 }

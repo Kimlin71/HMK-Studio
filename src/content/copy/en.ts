@@ -392,13 +392,9 @@ export const en: Copy = {
     ],
     colourNote: 'The same form in every colour. Ivory Buff is a jewellery colour in its own right.',
     coloursLabel: 'The signature bead in different colours',
-    coloursFootnote: 'Graphic colour study, not a photograph of the physical bead.',
     macro: {
       alt: 'Macro study of two glossy, glazed beads with a curving two-colour pattern, a dot in the other half’s colour and a through-hole, one in Deep Indigo and pink and one in Ivory and Ochre Red, on pale linen. Concept image, not a photograph of a finished product.',
-      caption: 'Macro study of the signature bead as an art-direction reference, not a photograph of a finished physical product.',
     },
-    pendingPhoto: 'The studio’s macro photograph of the physical bead is pending.',
-    imageBrief: 'Macro photograph of the signature bead, with the whole form and the connection of the hole visible.',
   },
   craft: {
     marker: 'Studio · form and material',
@@ -407,11 +403,10 @@ export const en: Copy = {
     titleEm: 'Big difference.',
     text: 'A seam affects the silhouette. Material gives weight and balance. A knot joins lines and details into a whole.',
     details: [
-      { title: 'Seam placement', note: 'A line that changes the silhouette.', alt: 'Graphic close-up of a red hand-sewn seam through textile' },
-      { title: 'Material in balance', note: 'Weight and structure in relation to form.', alt: 'Overlapping textile samples in the studio’s colour palette' },
-      { title: 'The knot as a connection', note: 'Lines and details are tied into a whole.', alt: 'Graphic detail study of thread, knot and tassel' },
+      { title: 'Seam placement', note: 'A line that changes the silhouette.', alt: 'Close-up of a needle with brown thread sewing a row of short stitches along the edge of beige linen, next to a dusty-pink fabric. Spools of thread and a sketch are visible in the background.' },
+      { title: 'Material in balance', note: 'Weight and structure in relation to form.', alt: 'A stack of folded linen fabrics in yellow, dusty pink, mustard and dark green, with zigzag-edged colour swatches, a dish of colour cards and dried flowers in the background.' },
+      { title: 'The knot as a connection', note: 'Lines and details are tied into a whole.', alt: 'Two hands hold a hand-tied knot in rust-red cord, with fabric swatches, spools of thread and a sketchbook on the table behind.' },
     ],
-    disclosure: 'Graphic placeholders · Detail studies to be replaced by the studio’s own close-ups.',
   },
   about: {
     marker: 'About the studio',

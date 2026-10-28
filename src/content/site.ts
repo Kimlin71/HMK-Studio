@@ -14,8 +14,8 @@ export const navigation = [
 export const aboutImage = '/images/personal-experience.jpg'
 
 export const craftImages = [
-  { image: '/images/stitch-detail.png', className: 'craft-image--stitch' },
-  { image: '/images/fabric-study.png', className: 'craft-image--fabric' },
+  { image: '/images/stitch-detail.jpeg.jpg', className: 'craft-image--stitch' },
+  { image: '/images/fabric-study.jpeg.jpg', className: 'craft-image--fabric' },
   { image: '/images/knot-study.jpg', className: 'craft-image--knot' },
 ]
 

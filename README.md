@@ -49,7 +49,7 @@ Startsidan följer hero (ett budskap och tre dörrar: WEAR, MAKE, ACCENTED) → 
 
 CONNECT innehåller en redaktionell färgstudie med fyra separata radiogrupper: KNOT, CORD, BEAD och TASSEL. Paletten har sju färger i tre grupper (kärna: Ivory Buff, Deep Indigo, Cameo Pink; karaktär: Ochre Red, Light Glaucous Blue; jordiga accenter: Khaki, Vandyke Brown) och definieras i `src/index.css` och `src/content/jewellery.ts`. Sex förvalda kombinationer finns som utgångspunkt. Färgnamn visas tillsammans med färgprover. Tangentbordets piltangenter byter alternativ inom en grupp. Valen finns enbart i komponentens minne och återställs vid omladdning. Ingen lagring, nätverksbegäran, beställning eller verifierad produktkonstruktion är kopplad till studien.
 
-Signaturpärlans bild är en konceptbild (makrostudie), inte ett foto: ett riktigt makrofoto av den fysiska pärlan saknas fortfarande och märks som väntande. Grundartexten (Om ateljén) är godkänd av grundaren; endast text som grundaren sett omfattas, inte övrig redaktionell text. Inga tillverknings-, ursprungs- eller materialpåståenden ska läggas till utan underlag.
+Signaturpärlans bild är en konceptbild (makrostudie), inte ett foto: ett riktigt makrofoto av den fysiska pärlan saknas fortfarande. Det framgår av alt-texten, inte av någon text på sidan. Grundartexten (Om ateljén) är godkänd av grundaren; endast text som grundaren sett omfattas, inte övrig redaktionell text. Inga tillverknings-, ursprungs- eller materialpåståenden ska läggas till utan underlag.
 
 ## Butikens prototypflöde
 

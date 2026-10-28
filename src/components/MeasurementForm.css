@@ -21,10 +21,10 @@
 
 .measure__heading h3 {
   margin: 0 0 8px;
-  font-family: var(--serif);
+  font-family: var(--shop-heading);
   font-size: clamp(26px, 3vw, 36px);
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 .measure__heading p {
@@ -181,9 +181,9 @@
 
 .measure__result h4 {
   margin: 0;
-  font-family: var(--serif);
+  font-family: var(--shop-heading);
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .measure__note {

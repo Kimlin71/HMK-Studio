@@ -234,10 +234,7 @@ export type Copy = {
     paragraphs: string[]
     colourNote: string
     coloursLabel: string
-    coloursFootnote: string
-    macro: { alt: string; caption: string }
-    pendingPhoto: string
-    imageBrief: string
+    macro: { alt: string }
   }
   craft: {
     marker: string
@@ -246,7 +243,6 @@ export type Copy = {
     titleEm: string
     text: string
     details: { title: string; note: string; alt: string }[]
-    disclosure: string
   }
   about: {
     marker: string

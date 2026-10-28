@@ -43,7 +43,7 @@ export function CollectionGrid({ pieces, onExplore }: CollectionGridProps) {
                   <img alt={pieceCopy.imageAlt} className="piece-card__image" loading="lazy" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
                   <span className="piece-card__open" aria-hidden="true">↗</span>
                 </span>
-                <span className="piece-card__meta"><span>{piece.name}</span><span>{pieceCopy.category}</span></span>
+                {area === 'ACCENTED' ? null : <span className="piece-card__meta"><span>{piece.name}</span><span>{pieceCopy.category}</span></span>}
               </button>
             )}
             {area === 'ACCENTED' ? <ConnectFamily /> : null}
