@@ -41,8 +41,8 @@ export const shopItems: ShopItem[] = [
   { id: 'signature-bracelet-2', category: 'bracelet', name: 'Signature Bracelet No. 2', image: '/images/shop/bracelets/bracelet-2.webp' },
   { id: 'signature-bracelet-3', category: 'bracelet', name: 'Signature Bracelet No. 3', image: '/images/shop/bracelets/bracelet-3.webp' },
   // Maedeup with Norigae: four finished pieces from the founder's photographs. The builder below is for a design of one's own.
-  { id: 'maedeup-norigae-1', category: 'maedeup', name: 'Maedeup Norigae No. 1', image: '/images/shop/norigae/maedeup-norigae-1.jpg' },
-  { id: 'maedeup-norigae-2', category: 'maedeup', name: 'Maedeup Norigae No. 2', image: '/images/shop/norigae/maedeup-norigae-2.jpg' },
+  { id: 'maedeup-norigae-1', category: 'maedeup', name: 'Maedeup Norigae No. 1', image: '/images/shop/norigae/maedeup-norigae-1.webp' },
+  { id: 'maedeup-norigae-2', category: 'maedeup', name: 'Maedeup Norigae No. 2', image: '/images/shop/norigae/maedeup-norigae-2.webp' },
   { id: 'maedeup-norigae-3', category: 'maedeup', name: 'Maedeup Norigae No. 3', image: '/images/shop/norigae/maedeup-norigae-3.jpg' },
   { id: 'maedeup-norigae-4', category: 'maedeup', name: 'Maedeup Norigae No. 4', image: '/images/shop/norigae/maedeup-norigae-4.jpg' },
   {
