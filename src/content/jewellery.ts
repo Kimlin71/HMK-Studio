@@ -84,4 +84,4 @@ export const connectElements: { kind: ElementKind; colours: ModuleColour[] }[] =
 export const signatureBeadColours: ModuleColour[] = ['ivory', 'indigo', 'cameo', 'ochre', 'glaucous']
 
 // Macro study of the bead: a concept image, never a photograph of a finished physical product.
-export const signatureBeadImage = '/images/macro-signature-pearl.png'
+export const signatureBeadImage = '/images/macro-signature-pearl.jpg'

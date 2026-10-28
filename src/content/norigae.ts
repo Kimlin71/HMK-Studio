@@ -41,11 +41,20 @@ export const initialNorigae: NorigaeDesign = {
 }
 
 /**
- * The design that the founder's photograph shows. While the customer's design equals this one, the photograph is a true preview.
- * Placeholder: set it to match `norigaePhoto` once the photograph is in place.
+ * The design that the founder's photograph shows: everything Deep Indigo, a pearl in Deep Indigo and Cameo Pink, a long tassel, no second element.
+ * While the customer's design equals this one, the photograph is a true preview.
  */
-export const norigaeShowcase: NorigaeDesign = initialNorigae
-export const norigaePhoto = '/images/shop/norigae/norigae-reference.jpg'
+export const norigaeShowcase: NorigaeDesign = {
+  knotStyle: 'ringed',
+  knotColour: 'indigo',
+  cordColour: 'indigo',
+  pendant: { first: 'indigo', second: 'cameo', pattern: 'vertical' },
+  secondElement: 'none',
+  secondColour: 'indigo',
+  tasselColour: 'indigo',
+  tasselLength: 'long',
+}
+export const norigaePhoto = '/images/shop/norigae/norigae-reference.webp'
 
 export function isNorigaeShowcase(design: NorigaeDesign) {
   const s = norigaeShowcase

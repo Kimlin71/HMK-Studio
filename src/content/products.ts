@@ -59,7 +59,7 @@ export const editorialPieces: EditorialPiece[] = [
     status: 'editorial-prototype',
     name: 'Knot no. 01',
     area: 'ACCENTED',
-    image: '/images/knot-study.png',
+    image: '/images/knot-study.jpg',
     imagePosition: 'center 46%',
   },
 ]

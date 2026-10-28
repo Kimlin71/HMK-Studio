@@ -36,7 +36,7 @@ export const braceletStyles: Record<BraceletStyleId, BraceletStyle> = {
     beadType: 'pearl',
     beadCount: 5,
     knotBands: true,
-    photo: '/images/shop/bracelets/bracelet-1.jpg',
+    photo: '/images/shop/bracelets/bracelet-1.webp',
     base: { cord: 'indigo', beadColour: 'ivory', signature: { first: 'ochre', second: 'ivory', pattern: 'vertical' } },
   },
   'no-2': {
@@ -45,7 +45,7 @@ export const braceletStyles: Record<BraceletStyleId, BraceletStyle> = {
     beadType: 'crystal',
     beadCount: 7,
     knotBands: true,
-    photo: '/images/shop/bracelets/bracelet-2.jpg',
+    photo: '/images/shop/bracelets/bracelet-2.webp',
     base: { cord: 'ochre', beadColour: 'glaucous', signature: { first: 'ivory', second: 'indigo', pattern: 'horizontal' } },
   },
   'no-3': {
@@ -54,7 +54,7 @@ export const braceletStyles: Record<BraceletStyleId, BraceletStyle> = {
     beadType: 'pearl',
     beadCount: 3,
     knotBands: false,
-    photo: '/images/shop/bracelets/bracelet-3.jpg',
+    photo: '/images/shop/bracelets/bracelet-3.webp',
     base: { cord: 'vandyke', beadColour: 'ivory', signature: { first: 'cameo', second: 'vandyke', pattern: 'vertical' } },
   },
 }

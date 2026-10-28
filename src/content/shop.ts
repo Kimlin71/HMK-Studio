@@ -23,7 +23,7 @@ export const shopItems: ShopItem[] = [
     id: 'maedeup-norigae-demo',
     category: 'maedeup',
     name: 'Maedeup Norigae No. 1',
-    image: '/images/knot-study.png',
+    image: '/images/knot-study.jpg',
   },
   {
     id: 'shirt-hanbok-demo',
