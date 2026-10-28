@@ -11,11 +11,11 @@ export const navigation = [
 ] as const
 
 // Picture in the About section. A concept image, not a photograph of the founder. If the file is missing, a placeholder is shown.
-export const aboutImage = '/images/personal-experience.jpg'
+export const aboutImage = '/images/about/personal-experience.jpg'
 
 export const craftImages = [
-  { image: '/images/stitch-detail.jpeg.jpg', className: 'craft-image--stitch' },
-  { image: '/images/fabric-study.jpeg.jpg', className: 'craft-image--fabric' },
+  { image: '/images/stitch-detail.jpg', className: 'craft-image--stitch' },
+  { image: '/images/fabric-study.jpg', className: 'craft-image--fabric' },
   { image: '/images/knot-study.jpg', className: 'craft-image--knot' },
 ]
 
