@@ -6,7 +6,8 @@
 // Everything here is editorial colour-study content: no stock, no verified materials, no purchasable variants.
 
 export type ModuleColour = 'indigo' | 'ivory' | 'cameo' | 'ochre' | 'glaucous' | 'khaki' | 'vandyke'
-export type ModuleId = 'knot' | 'cord' | 'bead' | 'tassel'
+/** Ids of the six colour families. Shared by the CONNECT study and both builders' presets. */
+export type ColourFamilyId = 'indigo-ivory' | 'ochre-glaucous' | 'ivory-glaucous' | 'cameo-indigo' | 'vandyke-khaki' | 'ivory-cameo'
 export type PaletteGroupId = 'core' | 'character' | 'earth'
 
 export const colourDefinitions: Record<ModuleColour, { label: string; hex: string; printNote?: boolean }> = {
@@ -33,31 +34,13 @@ export const allColours: ModuleColour[] = paletteGroups.flatMap((group) => group
 
 // Combinations 01-03 are the priority pairings; 04-06 bring in Cameo Pink and the earthy accents.
 // A piece uses one family, or stays nearly monochrome. No piece shows every colour.
-export const colourFamilies: { id: string; number: string; colours: { colour: ModuleColour; accent?: boolean }[] }[] = [
+export const colourFamilies: { id: ColourFamilyId; number: string; colours: { colour: ModuleColour; accent?: boolean }[] }[] = [
   { id: 'indigo-ivory', number: '01', colours: [{ colour: 'indigo' }, { colour: 'ivory' }] },
   { id: 'ochre-glaucous', number: '02', colours: [{ colour: 'ochre' }, { colour: 'glaucous' }] },
   { id: 'ivory-glaucous', number: '03', colours: [{ colour: 'ivory' }, { colour: 'glaucous' }, { colour: 'indigo', accent: true }] },
   { id: 'cameo-indigo', number: '04', colours: [{ colour: 'cameo' }, { colour: 'indigo' }] },
   { id: 'vandyke-khaki', number: '05', colours: [{ colour: 'vandyke' }, { colour: 'khaki' }] },
   { id: 'ivory-cameo', number: '06', colours: [{ colour: 'ivory' }, { colour: 'cameo' }, { colour: 'vandyke', accent: true }] },
-]
-
-export const moduleIds: ModuleId[] = ['knot', 'cord', 'bead', 'tassel']
-
-export type ModuleSelection = Record<ModuleId, ModuleColour>
-
-export const initialCombination: ModuleSelection = {
-  knot: 'indigo', cord: 'indigo', bead: 'ivory', tassel: 'ivory',
-}
-
-// Starting points for the colour study. Each is a suggestion, not a product variant. Ids match colourFamilies.
-export const combinationPresets: { id: string; selection: ModuleSelection }[] = [
-  { id: 'indigo-ivory', selection: initialCombination },
-  { id: 'ochre-glaucous', selection: { knot: 'ochre', cord: 'ochre', bead: 'glaucous', tassel: 'glaucous' } },
-  { id: 'ivory-glaucous', selection: { knot: 'ivory', cord: 'indigo', bead: 'ivory', tassel: 'glaucous' } },
-  { id: 'cameo-indigo', selection: { knot: 'cameo', cord: 'indigo', bead: 'indigo', tassel: 'cameo' } },
-  { id: 'vandyke-khaki', selection: { knot: 'vandyke', cord: 'vandyke', bead: 'khaki', tassel: 'khaki' } },
-  { id: 'ivory-cameo', selection: { knot: 'ivory', cord: 'vandyke', bead: 'ivory', tassel: 'cameo' } },
 ]
 
 export type ConnectKind = 'pendant' | 'earrings-long' | 'earrings-quiet' | 'bracelet' | 'bag-charm'

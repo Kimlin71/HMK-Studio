@@ -22,6 +22,10 @@ _Avoid_: Costume, historical replica
 Sewing patterns developed with petite proportions in mind from the first pattern line.
 _Avoid_: Standard pattern made smaller
 
+**Measured pattern** (sv: måttanpassat mönster):
+A MAKE pattern whose dimensions follow one person's own measurements, so it fits their proportions rather than a standard size. It is meant to be sold as a digital pattern, which separates it from a Custom design, an on-screen exploration only.
+_Avoid_: Custom pattern, standard size pattern
+
 **ACCENTED**:
 Hand-tied knots, tassels, jewellery and small details inspired by Korean decorative knotwork, designed to complement the garments. It replaces the earlier working name ADORN: an accent is a small, deliberate mark that completes a whole, rather than decoration added on top.
 _Avoid_: Unconnected accessories shop, ADORN
@@ -37,3 +41,25 @@ _Avoid_: Upcycled as a generic product label without material context
 **Demo piece**:
 Fictional editorial content used to demonstrate a future product presentation. It is not for sale and must be replaced or clearly retained as sample content.
 _Avoid_: Live product
+
+## Accents and pieces
+
+**Maedeup**:
+Korean decorative knotwork (매듭), and the knots that the studio's ACCENTED pieces are inspired by. Used as a general name for the craft; it does not claim a specific documented knot technique.
+_Avoid_: Maedup (misspelling), macramé (a different craft, used for the bracelet cord)
+
+**Norigae**:
+A Korean ornament (노리개), traditionally worn with hanbok. In the studio's builder it is a top knot, a pendant carrying the signature pearl, an optional second element (a bead or a knot) and a tassel, joined by cord, as an accent for a garment.
+_Avoid_: Charm, keyring
+
+**Signature pearl**:
+The one pearl that every bracelet and Maedeup/Norigae piece carries, the studio's recognisable mark. It always has two colours, divided by a curved line with a dot of each colour in the other half, and the dividing line runs either vertically or horizontally. It is always present and cannot be removed from a design.
+_Avoid_: Logo bead, optional pearl
+
+**Custom design**:
+A customer's on-screen combination of colours and parts. It is an exploration, not an order: the builder stores, sends and reserves nothing, and it is not a commitment to make or sell the piece.
+_Avoid_: Order, custom order, saved design
+
+**One-of-a-kind piece**:
+A hanbok made from a single second-hand men's shirt, so no two are the same. Fit depends on the individual shirt and the wearer's proportions.
+_Avoid_: Limited edition, made to stock

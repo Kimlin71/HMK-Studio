@@ -5,6 +5,6 @@
 - Håll varumärkets erbjudanden samman genom proportion, rekonstruktion och hantverk.
 - Lägg återanvändbara UI-delar i `src/components/` och presentationsinnehåll/demo-produkter i `src/content/`.
 - Märk platshållartext och bilder tydligt; använd inte demo-innehåll som om det vore produkter till salu.
-- Behåll formulär inaktiva tills integritet, lagring och inskick uttryckligen har utformats.
-- Lägg inte till varukorg, checkout, betalningar eller insamling av personuppgifter utan ett separat godkänt krav.
+- Varukorg, kassa, måttformulär och mönsternedladdning får finnas som hårdkodad prototyp (ADR 0003), men bara med fiktiva data: inga riktiga uppgifter får skrivas in, sparas eller skickas, inget betalningsanrop görs, och varje skärm märks som prototyp.
+- Lägg inte till riktig betalning, konton, backend eller insamling av riktiga personuppgifter utan en ny spec och ett nytt ADR.
 - Kontrollera ändringar med `npm run build` och `npm run lint`.

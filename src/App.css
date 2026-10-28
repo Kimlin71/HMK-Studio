@@ -151,25 +151,6 @@ main section[id]::before {
   letter-spacing: 0.22em;
 }
 
-/* The longer name leaves less room for the menu: give the nav the free space and tighten gaps. */
-@media (min-width: 901px) and (max-width: 1240px) {
-  .site-header {
-    grid-template-columns: auto 1fr auto;
-    gap: 0 28px;
-    padding-right: clamp(20px, 3vw, 40px);
-    padding-left: clamp(20px, 3vw, 40px);
-  }
-
-  .primary-nav {
-    justify-self: end;
-    gap: clamp(14px, 1.8vw, 28px);
-  }
-
-  .primary-nav a {
-    letter-spacing: 0.08em;
-  }
-}
-
 .primary-nav {
   display: flex;
   align-items: center;
@@ -222,6 +203,42 @@ main section[id]::before {
 .header-contact {
   text-transform: none;
   letter-spacing: 0.02em;
+}
+
+/* The longer name leaves less room for the menu: give the nav the free space and tighten gaps. */
+@media (min-width: 901px) and (max-width: 1240px) {
+  .site-header {
+    grid-template-columns: auto 1fr auto;
+    gap: 0 clamp(12px, 2vw, 28px);
+    padding-right: clamp(16px, 3vw, 40px);
+    padding-left: clamp(16px, 3vw, 40px);
+  }
+
+  .primary-nav {
+    justify-self: end;
+    gap: clamp(10px, 1.5vw, 28px);
+  }
+
+  .primary-nav a {
+    letter-spacing: 0.04em;
+  }
+
+  .wordmark {
+    gap: 10px;
+  }
+
+  .wordmark__seal {
+    width: 38px;
+    height: 38px;
+  }
+
+  .wordmark__name {
+    font-size: 24px;
+  }
+
+  .header-end {
+    gap: 14px;
+  }
 }
 
 /* Language switch: two real buttons, SV / EN. The active one is filled; both keep a 44px touch target. */
@@ -1482,167 +1499,12 @@ h2 em,
   letter-spacing: 0.05em;
   line-height: 1.7;
 }
-
-.modular-study {
-  grid-column: 1 / -1;
-  min-width: 0;
-  margin-top: 64px;
-  padding-top: 40px;
-  border-top: 1px solid var(--line);
-}
-
-.modular-study__heading {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 60px;
-  margin-bottom: 32px;
-}
-
-.modular-study__heading .eyebrow {
-  grid-column: 1 / -1;
-  margin-bottom: 0;
-}
-
-.modular-study h3,
 .signature-bead h2 {
   margin: 0;
   font-family: var(--serif);
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.08;
-}
-
-.modular-study h3 {
-  grid-row: span 2;
-  max-width: 400px;
-  font-size: clamp(36px, 4vw, 54px);
-}
-
-.modular-study__heading > p:not(.eyebrow) {
-  max-width: 480px;
-  margin: 0;
-  color: var(--ink-soft);
-}
-
-.modular-study__workspace {
-  display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 48px;
-}
-
-.modular-study__preview {
-  display: flex;
-  min-height: 440px;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 28px;
-  background: var(--paper-warm);
-}
-
-.modular-study__preview > .eyebrow,
-.modular-study__preview-note {
-  font-size: var(--text-micro);
-}
-
-.modular-study__drawing {
-  width: 100%;
-  max-width: 190px;
-  height: 260px;
-  margin: 8px auto;
-  --ground: var(--paper-warm);
-}
-
-.module-connection {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 14px 20px;
-  width: 100%;
-}
-
-.module-sample {
-  display: grid;
-  gap: 4px;
-  font-size: var(--text-label);
-}
-
-.module-sample__label {
-  letter-spacing: 0.12em;
-}
-
-.module-options {
-  min-width: 0;
-  margin: 0 0 24px;
-  padding: 0;
-  border: 0;
-}
-
-.module-options legend {
-  width: 100%;
-  margin-bottom: 12px;
-  padding: 0 0 10px;
-  border-bottom: 1px solid var(--line);
-  font-size: var(--text-label);
-  letter-spacing: 0.12em;
-}
-
-.module-options legend small {
-  margin-left: 12px;
-  font-size: var(--text-small);
-  letter-spacing: 0;
-}
-
-.module-options__row {
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.module-option {
-  position: relative;
-  display: flex;
-  min-height: 76px;
-  min-width: 0;
-  text-align: center;
-  overflow-wrap: anywhere;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 7px;
-  padding: 8px 4px;
-  border: 1px solid var(--line);
-  cursor: pointer;
-  font-size: var(--text-label);
-  transition: border-color 180ms ease, background 180ms ease;
-}
-
-.module-option input {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: 0;
-  opacity: 0;
-}
-
-.module-option__swatch {
-  width: 20px;
-  height: 20px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-}
-
-.module-option:has(input:checked) {
-  border-color: var(--deep-indigo);
-  background: var(--white);
-  box-shadow: inset 0 -2px var(--deep-indigo);
-}
-
-.module-option:hover {
-  border-color: var(--deep-indigo);
-}
-
-.module-option:has(input:focus-visible) {
-  outline: 3px solid var(--deep-indigo);
-  outline-offset: 3px;
 }
 
 .tone--indigo { background: var(--tone-indigo); }
@@ -2045,37 +1907,6 @@ h2 em,
   text-align: right;
 }
 
-.module-presets {
-  margin-bottom: 24px;
-}
-
-.module-presets .eyebrow {
-  margin-bottom: 10px;
-  font-size: var(--text-micro);
-}
-
-.module-presets__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.module-preset {
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid var(--line);
-  color: var(--deep-indigo);
-  background: transparent;
-  cursor: pointer;
-  font-size: var(--text-label);
-  transition: border-color 180ms ease, background 180ms ease;
-}
-
-.module-preset:hover {
-  border-color: var(--deep-indigo);
-  background: var(--white);
-}
-
 .signature-bead__colours {
   grid-column: 1 / -1;
   display: flex;
@@ -2117,13 +1948,6 @@ h2 em,
   flex-basis: 100%;
   color: var(--ink-soft);
   font-size: var(--text-micro);
-}
-
-.modular-study__summary {
-  display: block;
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-  line-height: 1.8;
 }
 
 .signature-bead {
@@ -2210,15 +2034,6 @@ h2 em,
     gap: 32px;
     padding-right: 7vw;
     padding-left: 7vw;
-  }
-
-  .modular-study__workspace {
-    grid-template-columns: 0.7fr 1.3fr;
-    gap: 24px;
-  }
-
-  .module-options__row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .connect-pieces {
@@ -2368,30 +2183,6 @@ h2 em,
 }
 
 @media (max-width: 640px) {
-  .modular-study {
-    margin-top: 12px;
-    padding-top: 30px;
-  }
-
-  .modular-study__heading,
-  .modular-study__workspace {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .modular-study__heading h3 {
-    grid-row: auto;
-  }
-
-  .modular-study__preview {
-    min-height: 0;
-    gap: 20px;
-    padding: 20px;
-  }
-
-  .modular-study__preview .eyebrow {
-    margin: 0;
-  }
 
   .connect-family {
     margin-top: 12px;
@@ -2427,21 +2218,6 @@ h2 em,
 
   .connect-piece--anchor .connect-piece__figure {
     height: 300px;
-  }
-
-  .module-connection {
-    gap: 12px;
-    margin: 8px 0;
-  }
-
-  .module-options__row {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 6px;
-  }
-
-  .module-options legend small {
-    display: block;
-    margin: 4px 0 0;
   }
 
   .signature-bead {

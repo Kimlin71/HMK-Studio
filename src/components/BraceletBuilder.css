@@ -1,0 +1,97 @@
+/* Bracelet builder. Component-scoped so it does not collide with App.css. */
+.bracelet-builder {
+  grid-column: 1 / -1;
+  min-width: 0;
+  padding: 32px;
+  border: 1px solid var(--line);
+  background: var(--paper-warm);
+  scroll-margin-top: 96px;
+}
+
+.bracelet-builder__heading {
+  max-width: 640px;
+  margin-bottom: 28px;
+}
+
+.bracelet-builder__heading h4 {
+  margin: 0 0 10px;
+  color: var(--ink-heading);
+  font-family: var(--serif);
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 400;
+}
+
+.bracelet-builder__heading p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.bracelet-builder__heading .eyebrow {
+  margin-bottom: 12px;
+  color: var(--ink-accent);
+}
+
+.bracelet-builder__heading .image-disclosure {
+  margin-top: 14px;
+}
+
+.bracelet-builder__workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  gap: 40px;
+  align-items: start;
+}
+
+.bracelet-builder__preview {
+  position: sticky;
+  top: 96px;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.bracelet-builder__preview .eyebrow {
+  margin: 0;
+  font-size: var(--text-micro);
+}
+
+.bracelet-drawing {
+  width: 100%;
+  height: auto;
+}
+
+.bracelet-builder__preview-note {
+  color: var(--ink-soft);
+  font-size: var(--text-label);
+  letter-spacing: 0.08em;
+}
+
+.bracelet-builder__controls {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .bracelet-builder__workspace {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .bracelet-builder__preview {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .bracelet-builder {
+    padding: 20px 16px;
+  }
+
+  .bracelet-builder__preview {
+    padding: 16px;
+  }
+}

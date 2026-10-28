@@ -1,5 +1,9 @@
-import type { ElementKind, ModuleId, PaletteGroupId } from '../jewellery'
+import type { ColourFamilyId, ElementKind, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
+import type { BeadType, BraceletStyleId, WristSize } from '../bracelet'
+import type { KnotStyleId, SecondElementId, TasselLengthId } from '../norigae'
+import type { PearlPattern } from '../signaturePearl'
+import type { HanbokItemId, ShopCategory, ShopItemId } from '../shop'
 
 export type Language = 'sv' | 'en'
 
@@ -36,7 +40,7 @@ export type Copy = {
     menuClose: string
     contact: string
     languageLabel: string
-    nav: { home: string; wear: string; make: string; accented: string; studio: string; about: string }
+    nav: { home: string; wear: string; make: string; accented: string; shop: string; studio: string; about: string }
   }
   hero: {
     eyebrow: string
@@ -84,7 +88,7 @@ export type Copy = {
     paletteGroups: Record<PaletteGroupId, { label: string; note: string }>
     indigoPrint: string
     familiesLabel: string
-    families: Record<string, { label: string; note: string }>
+    families: Record<ColourFamilyId, { label: string; note: string }>
     accentNote: string
     piecesLabel: string
     figureNote: string
@@ -96,17 +100,96 @@ export type Copy = {
     disclosure: string
     pending: { label: string; status: string }[]
   }
-  modular: {
-    eyebrow: string
-    title: string
-    intro: string
-    note: string
-    previewEyebrow: string
-    previewNote: string
-    presetsEyebrow: string
-    modules: Record<ModuleId, { label: string; description: string }>
-    summaryPrefix: string
-    link: string
+  // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
+  shop: {
+    section: {
+      eyebrow: string
+      title: string
+      intro: string
+      disclosure: string
+      categories: Record<ShopCategory, { title: string; description: string }>
+    }
+    card: {
+      demoLabel: string
+      imageNote: string
+      priceLabel: string
+      priceTbd: string
+      orderButton: string
+      orderNote: string
+      items: Record<ShopItemId, { imageAlt: string }>
+    }
+    // Both builders share these key names for the same concepts: title, intro, note, previewLabel, previewNote,
+    // presetsLabel, `hint` on option groups, summary and copy.
+    bracelet: {
+      title: string
+      eyebrow: string
+      intro: string
+      note: string
+      previewLabel: string
+      presetsLabel: string
+      style: { legend: string; hint: string; options: Record<BraceletStyleId, string> }
+      photoAlt: Record<BraceletStyleId, string>
+      cord: { legend: string; hint: string }
+      beadColour: { legend: string; hint: string }
+      size: { legend: string; hint: string; options: Record<WristSize, { label: string; range: string }> }
+      summary: {
+        prefix: string
+        labels: Record<'style' | 'cord' | 'beads' | 'signature' | 'size', string>
+        /** Value shown for the signature pearl count: exactly one. */
+        signatureCount: string
+        beadTypeNames: Record<BeadType, string>
+      }
+      copy: { button: string; success: string; failure: string; heading: string; footer: string }
+    }
+    maedeup: {
+      title: string
+      intro: string
+      note: string
+      previewLabel: string
+      presetsLabel: string
+      photoAlt: string
+      pearlNote: string
+      knotStyle: { legend: string; hint: string; options: Record<KnotStyleId, { label: string; description: string }> }
+      colours: Record<'knot' | 'cord' | 'second' | 'tassel', { legend: string; hint: string }>
+      secondElement: { legend: string; hint: string; options: Record<SecondElementId, string> }
+      tasselLength: { legend: string; hint: string; options: Record<TasselLengthId, string> }
+      summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'second' | 'tassel', string> }
+      copy: { button: string; success: string; failure: string; heading: string; footer: string }
+    }
+
+    signaturePearl: {
+      first: { legend: string; hint: string }
+      second: { legend: string; hint: string }
+      pattern: { legend: string; hint: string; options: Record<PearlPattern, string> }
+    }
+    preview: {
+      legend: string
+      hint: string
+      options: { photo: string; drawing: string }
+      photoNote: string
+      photoDiffers: string
+      photoMissing: string
+      drawingNote: string
+    }
+    hanbok: {
+      title: string
+      oneOfAKind: string
+      oneOfAKindNote: string
+      detailsButton: string
+      detailsButtonLabel: (name: string) => string
+      fields: { status: string; material: string; sourceShirt: string }
+      fits: {
+        title: string
+        intro: string
+        shoulder: { label: string; text: string }
+        sleeve: { label: string; text: string }
+        length: { label: string; text: string }
+        wrapTie: { label: string; text: string }
+      }
+      ask: string
+      demoNote: string
+      items: Record<HanbokItemId, { category: string; story: string; material: string; sourceShirt: string }>
+    }
   }
   signatureBead: {
     marker: string

@@ -1,7 +1,6 @@
 import { collections, type EditorialPiece } from '../content/products'
 import { useCopy } from '../i18n/LanguageContext'
 import { ConnectFamily } from './ConnectFamily'
-import { ModularJewellery } from './ModularJewellery'
 import { ReconstructCompare } from './ReconstructCompare'
 
 type CollectionGridProps = {
@@ -32,7 +31,7 @@ export function CollectionGrid({ pieces, onExplore }: CollectionGridProps) {
                 {text.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               </div>
               {area === 'ACCENTED' ? (
-                <a className="text-link collection__link" href="#kombination">{text.action} <span aria-hidden="true">↓</span></a>
+                <a className="text-link collection__link" href="#maedeup-bygge">{text.action} <span aria-hidden="true">↓</span></a>
               ) : (
                 <button className="text-link collection__link" onClick={() => onExplore(piece)} type="button">{text.action} <span aria-hidden="true">↗</span></button>
               )}
@@ -48,7 +47,7 @@ export function CollectionGrid({ pieces, onExplore }: CollectionGridProps) {
                 <span className="piece-card__meta"><span>{piece.name}</span><span>{pieceCopy.category}</span></span>
               </button>
             )}
-            {area === 'ACCENTED' ? <><ConnectFamily /><ModularJewellery /></> : null}
+            {area === 'ACCENTED' ? <ConnectFamily /> : null}
           </section>
         )
       })}

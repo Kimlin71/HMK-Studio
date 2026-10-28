@@ -1,0 +1,172 @@
+/* Hanbok shop pieces. Component-scoped so it does not collide with App.css. */
+.hanbok-shop {
+  display: grid;
+  grid-column: 1 / -1;
+  min-width: 0;
+  gap: 24px;
+}
+
+.hanbok-shop__title {
+  margin: 0;
+  color: var(--ink-heading);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.hanbok-shop__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 32px 28px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hanbok-shop__ask {
+  max-width: 620px;
+  margin: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+
+.hanbok-card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.hanbok-card__image-wrap {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: var(--linen);
+}
+
+.hanbok-card__image {
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  object-fit: contain;
+}
+
+.hanbok-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 8px;
+  margin: 0;
+}
+
+.hanbok-badge {
+  padding: 4px 8px;
+  border: 1px solid currentcolor;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hanbok-badge--demo {
+  color: var(--ink-soft);
+  border-style: dashed;
+}
+
+.hanbok-badge--unique {
+  color: var(--ink-accent);
+}
+
+.hanbok-card__name {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.hanbok-card__note,
+.hanbok-card__price {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+
+.hanbok-card__price span {
+  margin-right: 6px;
+  font-size: var(--text-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.hanbok-card__details {
+  min-height: 44px;
+  width: 100%;
+  padding: 10px 16px;
+  border: 1px solid var(--deep-indigo);
+  color: var(--deep-indigo);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hanbok-card__details:hover {
+  color: var(--paper);
+  background: var(--deep-indigo);
+}
+
+.hanbok-card__details:focus-visible {
+  outline: 2px solid var(--ochre-red);
+  outline-offset: 2px;
+}
+
+/* Detail dialog (layout comes from the shared piece-dialog styles). */
+.hanbok-detail .hanbok-badges {
+  margin-top: 14px;
+}
+
+.hanbok-detail .piece-detail__copy h2 {
+  overflow-wrap: anywhere;
+}
+
+.hanbok-fits {
+  margin: 24px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.hanbok-fits h3 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.hanbok-fits > p {
+  margin: 0 0 12px;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.7;
+}
+
+.hanbok-fits dl {
+  margin: 0;
+}
+
+.hanbok-detail__ask {
+  margin: 20px 0 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .hanbok-card__image-wrap {
+    height: 260px;
+  }
+}

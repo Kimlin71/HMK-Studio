@@ -8,6 +8,7 @@ import { Header } from './components/Header'
 import { Hero } from './components/Hero'
 import { Newsletter } from './components/Newsletter'
 import { ProductDialog } from './components/ProductDialog'
+import { ShopSection } from './components/ShopSection'
 import { SignatureBead } from './components/SignatureBead'
 import { SiteThread } from './components/SiteThread'
 import { editorialPieces, type EditorialPiece } from './content/products'
@@ -30,6 +31,7 @@ function App() {
           <section aria-label={copy.collectionsLabel} className="collections-shell">
             <CollectionGrid onExplore={setSelectedPiece} pieces={editorialPieces} />
           </section>
+          <ShopSection />
           <SignatureBead />
           <CraftGallery />
           <AboutMaker />
