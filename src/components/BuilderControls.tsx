@@ -56,18 +56,25 @@ export function ColourOptionGroup({ colours, ...props }: ColourOptionGroupProps)
   )
 }
 
-// Live summary shared by both builders: one <output>, one row per choice. Colour names stay English.
+// The content of one summary row: label, optional text, colour names. Colour names stay English. Shared by the builder summary, the cart and the checkout.
+export function SummaryRowContent({ row }: { row: SummaryRow }) {
+  return (
+    <>
+      {row.label}: {row.value ? `${row.value}, ` : ''}
+      {row.colours?.map((colour, index) => (
+        <span key={colour + index}>{index > 0 ? ' + ' : null}<span lang="en">{colourLabels[colour]}</span></span>
+      ))}
+    </>
+  )
+}
+
+// Live summary shared by both builders: one <output>, one row per choice.
 export function BuilderSummary({ prefix, rows }: { prefix: string; rows: SummaryRow[] }) {
   return (
     <output aria-live="polite" className="builder-summary">
       <strong>{prefix}</strong>
       {rows.map((row) => (
-        <span key={row.label}>
-          {row.label}: {row.value ? `${row.value}, ` : ''}
-          {row.colours?.map((colour, index) => (
-            <span key={colour + index}>{index > 0 ? ' + ' : null}<span lang="en">{colourLabels[colour]}</span></span>
-          ))}
-        </span>
+        <span key={row.label}><SummaryRowContent row={row} /></span>
       ))}
     </output>
   )

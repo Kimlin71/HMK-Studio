@@ -4,10 +4,11 @@ import {
   CAP_EASE_CM,
   SEAM_TOLERANCE_CM,
   demoMeasurements,
+  formatMeasurement,
   generatePattern,
   measurementKeys,
   measurementRanges,
-  parseMeasurement,
+  readMeasurementField,
   polylineLength,
   validateMeasurements,
   type Measurements,
@@ -57,13 +58,13 @@ test('cross rules: shoulder must fit the bust, hem must fall below the waist', (
   assert.equal(validateMeasurements({ ...demoMeasurements, upperBody: 47, length: 52 }).length, 'lengthVsUpperBody')
 })
 
-test('parseMeasurement accepts decimals with comma or point and rejects text', () => {
-  assert.equal(parseMeasurement('37'), 37)
-  assert.equal(parseMeasurement(' 37,5 '), 37.5)
-  assert.equal(parseMeasurement('37.5'), 37.5)
-  assert.equal(parseMeasurement(''), null)
-  assert.equal(parseMeasurement('abc'), null)
-  assert.equal(parseMeasurement('-5'), null)
+test('readMeasurementField accepts comma or point and returns null for empty or unreadable text', () => {
+  assert.equal(readMeasurementField('37'), 37)
+  assert.equal(readMeasurementField(' 37,5 '), 37.5)
+  assert.equal(readMeasurementField('37.5'), 37.5)
+  assert.equal(readMeasurementField(''), null)
+  assert.equal(readMeasurementField('abc'), null)
+  assert.equal(readMeasurementField('-5'), -5)
 })
 
 test('the same measurements always give the same pieces', () => {
@@ -106,3 +107,9 @@ for (const [name, measurements] of [
     }
   })
 }
+
+test('formatMeasurement uses a decimal comma in Swedish and keeps the unit', () => {
+  assert.equal(formatMeasurement(37, 'sv'), '37\u00a0cm')
+  assert.equal(formatMeasurement(37.5, 'sv'), '37,5\u00a0cm')
+  assert.equal(formatMeasurement(37.5, 'en'), '37.5\u00a0cm')
+})

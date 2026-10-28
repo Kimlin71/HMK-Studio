@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { navigation } from '../content/site'
 import { useCopy } from '../i18n/LanguageContext'
+import { CartButton } from './CartButton'
 import { LanguageSwitch } from './LanguageSwitch'
 import { Wordmark } from './Wordmark'
 
@@ -41,6 +42,7 @@ export function Header() {
         ))}
       </nav>
       <div className="header-end">
+        <CartButton />
         <LanguageSwitch />
         <a className="header-contact" href="#kontakt">{copy.header.contact} <span aria-hidden="true">↗</span></a>
       </div>

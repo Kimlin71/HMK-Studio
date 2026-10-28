@@ -2,6 +2,8 @@ import type { CollectionId, PieceId, ProductArea } from '../products'
 import type { TasselLengthId } from '../norigae'
 import type { PearlPattern } from '../signaturePearl'
 import type { HanbokItemId, ShopCategory, ShopItemId } from '../shop'
+import type { MeasurementKey, PatternPieceId } from '../pattern'
+import type { CustomerField } from '../order'
 
 export type Language = 'sv' | 'en'
 
@@ -31,6 +33,7 @@ export type Copy = {
     menuClose: string
     contact: string
     languageLabel: string
+    cartButton: { text: string; label: (count: number) => string }
     nav: { home: string; wear: string; make: string; accented: string; shop: string; studio: string; about: string }
   }
   hero: {
@@ -90,8 +93,6 @@ export type Copy = {
       imageNote: string
       priceLabel: string
       priceTbd: string
-      orderButton: string
-      orderNote: string
       /** Shown instead of the picture while the picture file is missing. */
       imagePending: string
       items: Record<ShopItemId, { imageAlt: string }>
@@ -107,6 +108,8 @@ export type Copy = {
       tasselLength: { legend: string; hint: string; options: Record<TasselLengthId, string> }
       summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'tassel', string> }
       copy: { button: string; success: string; failure: string; heading: string; footer: string }
+      /** Shown under the add button: this exact design goes in the cart. */
+      addNote: string
     }
 
     signaturePearl: {
@@ -142,6 +145,84 @@ export type Copy = {
       demoNote: string
       items: Record<HanbokItemId, { category: string; story: string; material: string; sourceShirt: string }>
     }
+  }
+  /** Said on every screen of the shop flow. */
+  prototypeNotice: string
+  /** Small tag next to every field a visitor can type in. */
+  demoTag: string
+  cart: {
+    add: { button: string; added: string }
+    panel: {
+      title: string
+      empty: string
+      total: string
+      removeText: string
+      remove: (name: string) => string
+      checkout: string
+      startOver: string
+    }
+    /** Said next to every price and total. */
+    priceMarker: string
+    /** Small kind label above each cart line. */
+    kinds: { bracelet: string; norigae: string; pattern: string }
+    /** Summary label for a measurement value, for example `37 cm`. */
+    unit: string
+  }
+  pattern: {
+    eyebrow: string
+    title: string
+    intro: string
+    form: {
+      legend: string
+      customer: string
+      customerName: string
+      demoNote: string
+      range: (min: number, max: number) => string
+      fields: Record<MeasurementKey, { label: string; short: string; hint: string }>
+      errors: Record<'required' | 'shoulderVsBust' | 'lengthVsUpperBody', string> & {
+        tooLow: (min: number) => string
+        tooHigh: (max: number) => string
+      }
+      generate: string
+      invalidSummary: string
+    }
+    preview: {
+      title: string
+      note: string
+      stale: string
+      alt: string
+      pieces: Record<PatternPieceId, string>
+      legend: { measurements: string; fold: string; grain: string }
+      add: string
+      empty: string
+    }
+    download: { button: string; note: string; fileHint: string }
+  }
+  checkout: {
+    title: string
+    back: string
+    summary: string
+    empty: string
+    emptyAction: string
+    detailsTitle: string
+    detailsNote: string
+    fields: Record<CustomerField, { label: string; hint?: string }>
+    errors: { required: string; summary: string }
+    payment: { title: string; note: string }
+    pay: (total: string) => string
+    processing: string
+    startOver: string
+    delivery: string
+  }
+  confirmation: {
+    title: string
+    thanks: string
+    orderNumber: string
+    items: string
+    empty: string
+    emptyAction: string
+    downloadTitle: string
+    startOver: string
   }
   signatureBead: {
     marker: string

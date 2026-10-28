@@ -1,3 +1,5 @@
+import type { SignaturePearlDesign } from './signaturePearl.ts'
+
 // Language-independent shop catalogue. Visible text lives in src/content/copy/ under `shop`.
 // DEMO CONTENT: every item is a fictional placeholder, never stock for sale. Prices are not numbers on purpose.
 
@@ -8,6 +10,16 @@ export const shopCategories: ShopCategory[] = ['bracelet', 'maedeup', 'hanbok']
 export type HanbokItemId = 'shirt-hanbok-demo' | 'shirt-hanbok-demo-2'
 
 export type BraceletItemId = 'signature-bracelet-1' | 'signature-bracelet-2' | 'signature-bracelet-3'
+
+/**
+ * The signature pearl of each finished bracelet, read from the photographs (the dividing line is drawn horizontally).
+ * Shown in the cart so a bracelet is described by its colours, as a Norigae is.
+ */
+export const braceletPearls: Record<BraceletItemId, SignaturePearlDesign> = {
+  'signature-bracelet-1': { first: 'glaucous', second: 'cameo', pattern: 'horizontal' },
+  'signature-bracelet-2': { first: 'indigo', second: 'ivory', pattern: 'horizontal' },
+  'signature-bracelet-3': { first: 'khaki', second: 'vandyke', pattern: 'horizontal' },
+}
 
 export type ShopItemId = BraceletItemId | 'maedeup-norigae-demo' | HanbokItemId
 
@@ -29,8 +41,8 @@ export const shopItems: ShopItem[] = [
     id: 'maedeup-norigae-demo',
     category: 'maedeup',
     name: 'Maedeup Norigae No. 1',
-    // The founder's picture goes here. Until the file exists the card shows a "picture coming" placeholder.
-    image: '/images/shop/norigae/maedeup-norigae.webp',
+    // The founder's photograph, also shown in the builder. Cart and checkout add the design it shows.
+    image: '/images/shop/norigae/norigae-reference.webp',
   },
   {
     id: 'shirt-hanbok-demo',
@@ -57,3 +69,5 @@ export const shopAnchors = {
   maedeupBuilder: 'maedeup-bygge',
   hanbokList: 'hanbok-lista',
 } as const
+
+export const getShopItem = (id: ShopItemId) => shopItems.find((item) => item.id === id)

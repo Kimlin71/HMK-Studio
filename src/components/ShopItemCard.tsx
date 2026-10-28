@@ -1,16 +1,20 @@
 import { useState } from 'react'
+import { shopItemToNewCartItem } from '../content/cart'
+import { price } from '../content/prices'
 import type { ShopItem } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
+import { AddToCartButton } from './AddToCartButton'
+import { Price } from './Price'
 
 type ShopItemCardProps = {
   item: ShopItem
 }
 
-// Demo item card. The order button is deliberately inactive: nothing is ordered, sent or stored.
+// Demo item card. The button puts the item in the in-memory cart. Nothing is ordered, sent or stored.
 export function ShopItemCard({ item }: ShopItemCardProps) {
   const { copy } = useCopy()
   const text = copy.shop.card
-  const noteId = `shop-order-note-${item.id}`
+  const cartItem = shopItemToNewCartItem(item)
   const [missing, setMissing] = useState(false)
 
   return (
@@ -30,9 +34,10 @@ export function ShopItemCard({ item }: ShopItemCardProps) {
         <h4 className="shop-card__name" lang="en">{item.name}</h4>
         <p className="shop-card__demo">{text.demoLabel}</p>
       </div>
-      <p className="shop-card__price"><span>{text.priceLabel}</span> {text.priceTbd}</p>
-      <button aria-describedby={noteId} className="shop-card__order" disabled type="button">{text.orderButton}</button>
-      <p className="shop-card__note" id={noteId}>{text.orderNote}</p>
+      <p className="shop-card__price">
+        <span>{text.priceLabel}</span> {cartItem ? <Price amount={price(cartItem)} /> : text.priceTbd}
+      </p>
+      {cartItem ? <AddToCartButton item={cartItem} /> : null}
     </article>
   )
 }

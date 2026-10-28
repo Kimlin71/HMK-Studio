@@ -36,11 +36,12 @@ export type MeasurementErrors = Partial<Record<MeasurementKey, MeasurementError>
 const MIN_HEM_BELOW_WAIST_CM = 6
 
 /**
- * Reads a decimal typed by a person: comma or point, digits only. Anything else (empty, text, minus sign) is null.
+ * Reads what a person typed in a measurement field: comma or point as the decimal mark. Empty or unreadable text is null.
+ * A negative number is returned as it is, so validation can say it is too small.
  */
-export function parseMeasurement(text: string): number | null {
+export function readMeasurementField(text: string): number | null {
   const cleaned = text.trim().replace(',', '.')
-  if (!/^\d+(\.\d+)?$/.test(cleaned)) return null
+  if (cleaned === '') return null
   const value = Number(cleaned)
   return Number.isFinite(value) ? value : null
 }
@@ -71,12 +72,19 @@ export function toMeasurements(input: MeasurementInput): Measurements | null {
   return Object.keys(validateMeasurements(input)).length === 0 ? (input as Measurements) : null
 }
 
+/** Anchor of the measurement form in the MAKE section. */
+export const patternAnchor = 'mattanpassat-monster'
+
+/** A measurement for display: decimal comma in Swedish, point in English, always with its unit. */
+export const formatMeasurement = (value: number, language: 'sv' | 'en') =>
+  `${language === 'sv' ? String(value).replace('.', ',') : String(value)}\u00a0cm`
+
 export const sameMeasurements = (a: Measurements, b: Measurements) => measurementKeys.every((key) => a[key] === b[key])
 
 /** A point in cm. x grows to the right, y grows downwards. */
 export type Point = readonly [number, number]
 
-export type PieceId = 'back' | 'front' | 'sleeve'
+export type PatternPieceId = 'back' | 'front' | 'sleeve'
 
 export type PatternEdge = { id: string; points: Point[] }
 
@@ -89,7 +97,7 @@ export type PatternMark = {
 }
 
 export type PatternPiece = {
-  id: PieceId
+  id: PatternPieceId
   /** Left edge of the piece (0 for the body pieces, minus the half bicep for the sleeve). Width and height are in cm. */
   minX: number
   width: number
@@ -100,6 +108,7 @@ export type PatternPiece = {
   /** Edge id that sits on the fold of the fabric, if any. */
   foldEdge?: string
   grainLine: { from: Point; to: Point }
+  /** Where the piece name starts (text anchored at its start). */
   nameAt: Point
   marks: PatternMark[]
 }
@@ -178,16 +187,15 @@ export function generatePattern(m: Measurements): PatternPiece[] {
       { id: 'hem', points: line(hemSide, [0, hem]) },
       { id: 'centre', points: line([0, hem], centreTop) },
     ]
-    const markX = NECK_HALF_CM + 2
-    const shoulderYAtMark = (SHOULDER_DROP_CM * (markX - NECK_HALF_CM)) / (half - NECK_HALF_CM)
+    // Labels are two short lines (name, value) placed inside the piece, clear of the other marks, the grain line and the piece name.
     const marks: PatternMark[] = isBack
       ? [
-          { key: 'shoulder', from: [0, SHOULDER_DROP_CM], to: [half, SHOULDER_DROP_CM], label: { at: [half / 2, SHOULDER_DROP_CM + 2.4], anchor: 'middle' } },
-          { key: 'length', from: [2.5, 0], to: [2.5, hem], label: { at: [3.4, hem / 2], anchor: 'start' } },
+          { key: 'shoulder', from: [0, SHOULDER_DROP_CM], to: [half, SHOULDER_DROP_CM], label: { at: [half / 2, SHOULDER_DROP_CM + 1.5], anchor: 'middle' } },
+          { key: 'length', from: [2.5, BACK_NECK_DROP_CM], to: [2.5, hem], label: { at: [3.4, hem / 2 - 1.5], anchor: 'start' } },
         ]
       : [
-          { key: 'bust', from: [0, underarm], to: [width, underarm], label: { at: [width / 2, underarm - 3.2], anchor: 'middle' } },
-          { key: 'upperBody', from: [markX, shoulderYAtMark], to: [markX, m.upperBody], label: { at: [markX - 0.9, m.upperBody * 0.42], anchor: 'end' } },
+          { key: 'bust', from: [0, underarm], to: [width, underarm], label: { at: [width - 0.8, underarm + 1.5], anchor: 'end' } },
+          { key: 'upperBody', from: [NECK_HALF_CM, 0], to: [NECK_HALF_CM, m.upperBody], label: { at: [NECK_HALF_CM + 1, 14], anchor: 'start' } },
         ]
     return {
       id,
@@ -197,8 +205,8 @@ export function generatePattern(m: Measurements): PatternPiece[] {
       outline: closedOutline(edges),
       edges,
       foldEdge: 'centre',
-      grainLine: { from: [width * (isBack ? 0.62 : 0.72), underarm + 3], to: [width * (isBack ? 0.62 : 0.72), hem - 4] },
-      nameAt: [width * 0.4, hem - 9],
+      grainLine: { from: [width * (isBack ? 0.62 : 0.72), underarm + 6], to: [width * (isBack ? 0.62 : 0.72), hem - 9] },
+      nameAt: [4.5, hem - 3],
       marks,
     }
   }
@@ -234,9 +242,9 @@ export function generatePattern(m: Measurements): PatternPiece[] {
     height: m.sleeve,
     outline: closedOutline(sleeveEdges),
     edges: sleeveEdges,
-    grainLine: { from: [-bicep * 0.45, capHeight + 4], to: [-bicep * 0.45, m.sleeve - 3] },
-    nameAt: [0, m.sleeve * 0.8],
-    marks: [{ key: 'sleeve', from: [0, 0], to: [0, m.sleeve], label: { at: [0.8, m.sleeve * 0.5], anchor: 'start' } }],
+    grainLine: { from: [bicep * 0.45, capHeight + 4], to: [bicep * 0.45, m.sleeve - 9] },
+    nameAt: [-wrist + 1, m.sleeve - 3],
+    marks: [{ key: 'sleeve', from: [0, 0], to: [0, m.sleeve], label: { at: [-0.8, m.sleeve * 0.45], anchor: 'end' } }],
   }
 
   return [back, front, sleeve]

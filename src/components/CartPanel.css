@@ -1,0 +1,159 @@
+/* Cart dialog. Component-scoped; the dialog frame itself comes from .piece-dialog in App.css. */
+.cart-dialog {
+  width: min(560px, calc(100% - 32px));
+}
+
+.cart-panel {
+  display: grid;
+  gap: 18px;
+  padding: 24px 28px 32px;
+}
+
+.cart-panel h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 400;
+}
+
+.cart-panel__empty {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+.cart-panel__total {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 18px;
+}
+
+.cart-panel__total > span:first-child {
+  font-size: var(--text-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cart-panel__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+}
+
+.cart-panel__checkout {
+  min-height: 48px;
+  padding: 10px 22px;
+  border: 1px solid var(--deep-indigo);
+  color: var(--white);
+  background: var(--deep-indigo);
+  cursor: pointer;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cart-panel__checkout:hover {
+  color: var(--deep-indigo);
+  background: transparent;
+}
+
+.cart-panel__link,
+.cart-panel__shop {
+  min-height: 44px;
+  padding: 8px 4px;
+  border: 0;
+  color: var(--deep-indigo);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--text-small);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.cart-panel__shop {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+}
+
+/* Order lines: shared by the cart, the checkout and the confirmation. */
+.order-lines {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.order-line {
+  display: grid;
+  gap: 8px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: var(--white);
+}
+
+.order-line__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2px 14px;
+  align-items: baseline;
+}
+
+.order-line__kind {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--ink-accent);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.order-line__name {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.order-line__rows {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  padding: 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  list-style: none;
+}
+
+.order-line__remove {
+  justify-self: start;
+  min-height: 44px;
+  padding: 8px 4px;
+  border: 0;
+  color: var(--deep-indigo);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--text-small);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  .cart-dialog {
+    width: calc(100% - 20px);
+  }
+
+  .cart-panel {
+    padding: 20px 16px 26px;
+  }
+}

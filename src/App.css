@@ -2229,3 +2229,118 @@ h2 em,
     letter-spacing: 0.3em;
   }
 }
+
+/* Shop flow: shared small parts (price, demo tag, prototype notice). Cart, form and flow views have their own CSS files. */
+.visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.price {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  color: var(--ink-heading);
+  font-weight: 600;
+}
+
+.price__marker,
+.demo-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border: 1px solid var(--ink-accent);
+  color: var(--ink-accent);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.demo-tag {
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.prototype-notice {
+  display: inline-block;
+  margin: 0;
+  padding: 8px 14px;
+  border-left: 3px solid var(--ochre-red);
+  color: var(--ink-heading);
+  background: var(--cameo-tint);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.add-to-cart {
+  display: grid;
+  gap: 6px;
+}
+
+.add-to-cart__button {
+  min-height: 48px;
+  width: 100%;
+  padding: 10px 18px;
+  border: 1px solid var(--deep-indigo);
+  color: var(--white);
+  background: var(--deep-indigo);
+  cursor: pointer;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: background 180ms ease, color 180ms ease;
+}
+
+.add-to-cart__button:hover {
+  color: var(--deep-indigo);
+  background: transparent;
+}
+
+.add-to-cart__status {
+  min-height: 1.5em;
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.cart-button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  color: var(--ink-heading);
+  background: transparent;
+  cursor: pointer;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cart-button:hover {
+  border-color: var(--deep-indigo);
+}
+
+.cart-button__count {
+  display: inline-grid;
+  min-width: 24px;
+  height: 24px;
+  place-items: center;
+  color: var(--white);
+  background: var(--ochre-red);
+  font-size: var(--text-label);
+  letter-spacing: 0;
+}

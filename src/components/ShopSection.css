@@ -120,27 +120,6 @@
   text-transform: uppercase;
 }
 
-.shop-card__order {
-  min-height: 44px;
-  width: 100%;
-  padding: 10px 16px;
-  border: 1px dashed var(--ink-soft);
-  color: var(--ink-soft);
-  background: transparent;
-  cursor: not-allowed;
-  font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.shop-card__note {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-  line-height: 1.6;
-}
-
 @media (max-width: 640px) {
   .shop {
     padding-top: 64px;
