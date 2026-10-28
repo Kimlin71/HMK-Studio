@@ -25,13 +25,16 @@ export const sv: Copy = {
     eyebrow: 'En koreansk–skandinavisk studio',
     titleTop: 'FÖR',
     titleEm: 'DINA PROPORTIONER',
-    lead: 'Fyra smycken i samma formspråk. Signaturpärlan är det som återkommer, resten är medvetet tystare, och varje färg finns bara i några av smyckena.',
+    lead: 'Omsydda hanbok, sömnadsmönster för petite proportioner och handknutna Norigae. Allt formas efter människan, inte efter en storlek.',
     primaryCta: 'Se konceptet',
     secondaryCta: 'Om petite och proportion',
     index: '01 / FORMEN FÖLJER DIG',
-    imageAlt:
-      'Konceptbild: kvinna i profil i en kort, omsydd blårandig skjorta med ett knutet band, mörka vida byxor och handgjorda smycken med tofsar, mot en varm beige vägg. Inte ett foto av en färdig produkt.',
-    imageNote: ['Konceptbild · ej foto', 'Referens för bildspråk'],
+    tiles: {
+      WEAR: { alt: 'Konceptbild: en kvinna i en kort blå omlottjacka av denim med knytband och en veckad blå kjol med knytband i midjan, sedd framifrån.' },
+      MAKE: { alt: 'Konceptbild av ett sömnadsmönster: ett par vida byxor i terrakotta bredvid en teknisk ritning.' },
+      ACCENTED: { alt: 'Konceptbild: en Norigae i marinblått med en knut överst, en tvåfärgad signaturpärla och en tofs.' },
+    },
+    imageNote: ['Konceptbilder · ej foton', 'Referens för bildspråk'],
     seal: ['STUDIO', 'UTGÅVA 01'],
     doorsLabel: 'Vad studion gör',
     doors: {

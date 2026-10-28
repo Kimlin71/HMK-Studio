@@ -17,21 +17,20 @@
   gap: 8px;
   margin: 0 calc(-1 * var(--shop-side)) 72px;
   padding: 72px var(--shop-side) 64px;
-  color: var(--ivory-buff);
-  background: var(--deep-indigo);
-  --ink-heading: var(--ivory-buff);
-  --ink-soft: #E9E0CC;
-  --ink-accent: var(--cameo-pink);
+  color: var(--white);
+  /* Ochre Red, not the deep indigo of the manifesto above, so the shop reads as a place of its own. Small text is white: ivory and
+     cameo pink are under 4.5:1 on this red at small sizes. */
+  background: var(--ochre-red);
 }
 
 .shop__banner .eyebrow {
   margin: 0;
-  color: var(--cameo-pink);
+  color: var(--white);
 }
 
 .shop__banner h2 {
   margin: 0;
-  color: var(--ivory-buff);
+  color: var(--white);
   font-family: var(--serif);
   font-size: clamp(40px, 6vw, 84px);
   font-weight: 400;
@@ -42,7 +41,7 @@
 .shop__banner p:last-child {
   max-width: 640px;
   margin: 8px 0 0;
-  color: #E9E0CC;
+  color: var(--white);
   font-size: 18px;
   line-height: 1.7;
 }

@@ -45,7 +45,8 @@ export type Copy = {
     primaryCta: string
     secondaryCta: string
     index: string
-    imageAlt: string
+    /** Picture of what each offering is, shown as a tile next to the headline. */
+    tiles: Record<ProductArea, { alt: string }>
     imageNote: [string, string]
     seal: [string, string]
     doorsLabel: string

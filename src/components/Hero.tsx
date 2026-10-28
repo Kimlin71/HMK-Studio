@@ -1,4 +1,5 @@
 import type { ProductArea } from '../content/products'
+import { heroTiles } from '../content/site'
 import { useCopy } from '../i18n/LanguageContext'
 
 const doorOrder: { area: ProductArea; href: string }[] = [
@@ -25,18 +26,22 @@ export function Hero() {
         <p className="hero__index">{hero.index}</p>
       </div>
       <div className="hero__visual">
-        {/* Concept image (art direction). Replace with an approved studio photograph when available. */}
-        <img
-          alt={hero.imageAlt}
-          className="hero__image"
-          fetchPriority="high"
-          width="896"
-          height="1200"
-          src="/images/hero-proportions.jpg"
-        />
+        {/* Concept images (art direction). Replace with approved studio photographs when available. */}
+        {heroTiles.map((tile, index) => (
+          <figure className={`hero__tile hero__tile--${tile.area.toLowerCase()}`} key={tile.area}>
+            <img
+              alt={hero.tiles[tile.area].alt}
+              className="hero__image"
+              fetchPriority={index === 0 ? 'high' : undefined}
+              height={tile.height}
+              src={tile.image}
+              style={{ objectPosition: tile.position }}
+              width={tile.width}
+            />
+            <figcaption lang="en">{tile.area}</figcaption>
+          </figure>
+        ))}
         <div className="hero__image-note"><span>{hero.imageNote[0]}</span><span>{hero.imageNote[1]}</span></div>
-        <span aria-hidden="true" className="hero__thread" />
-        <span className="hero__seal">{hero.seal[0]}<br />{hero.seal[1]}</span>
       </div>
       <nav aria-label={hero.doorsLabel} className="hero__doors">
         {doorOrder.map(({ area, href }, index) => (

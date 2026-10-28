@@ -25,13 +25,16 @@ export const en: Copy = {
     eyebrow: 'A Korean–Scandinavian studio',
     titleTop: 'FOR',
     titleEm: 'YOUR PROPORTIONS',
-    lead: 'Four pieces in one design language. The signature pearl is what returns, the rest is deliberately quieter, and each colour appears in only a few of the pieces.',
+    lead: 'Re-sewn hanbok, sewing patterns for petite proportions and hand-tied Norigae. Everything follows the person, not a size.',
     primaryCta: 'See the concept',
     secondaryCta: 'About petite and proportion',
     index: '01 / FORM FOLLOWS YOU',
-    imageAlt:
-      'Concept image: a woman in profile in a short, re-sewn blue-striped shirt with a knotted tie, dark wide trousers and handmade jewellery with tassels, against a warm beige wall. Not a photograph of a finished product.',
-    imageNote: ['Concept image · not a photo', 'Art-direction reference'],
+    tiles: {
+      WEAR: { alt: 'Concept image: a woman in a short blue denim wrap jacket with a tie and a pleated blue skirt with a tie at the waist, seen from the front.' },
+      MAKE: { alt: 'Concept image of a sewing pattern: a pair of wide terracotta trousers next to a technical drawing.' },
+      ACCENTED: { alt: 'Concept image: a navy Norigae with a knot at the top, a two-colour signature pearl and a tassel.' },
+    },
+    imageNote: ['Concept images · not photos', 'Art-direction reference'],
     seal: ['STUDIO', 'EDITION 01'],
     doorsLabel: 'What the studio makes',
     doors: {
