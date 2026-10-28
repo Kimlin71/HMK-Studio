@@ -32,10 +32,11 @@ export const allColours: ModuleColour[] = paletteGroups.flatMap((group) => group
 
 export type ElementKind = 'knot' | 'bead' | 'tassel'
 
-export const signatureBeadColours: ModuleColour[] = ['ivory', 'indigo', 'cameo', 'ochre', 'glaucous']
+// The signature pearl can be made in every colour of the palette, in two colours at a time.
+export const signatureBeadColours: ModuleColour[] = allColours
 
 // Macro study of the bead: a concept image, never a photograph of a finished physical product.
 export const signatureBeadImage = '/images/macro-signature-pearl.jpg'
 
-// Picture under the ACCENTED body text. The founder's own picture goes here; until the file exists a placeholder is shown.
-export const connectFamilyImage = '/images/shop/connect/connect-family.webp'
+// Picture under the ACCENTED body text: the concept image of the studio environment (not a photograph of finished products).
+export const connectFamilyImage = '/images/atelier-study.jpg'

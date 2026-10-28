@@ -149,7 +149,11 @@ export const sv: Copy = {
     title: 'En pärla. Många smycken.',
     origin: 'Inspirerad av koreanskt dekorativt knutverk',
     lead: 'Fem smycken och ett bibliotek av utbytbara delar. Signaturpärlan är det som återkommer, resten är medvetet tystare. Delarna är olika rikt dekorerade, och varje färg finns bara i några av smyckena.',
-    image: { alt: 'Bild från ACCENTED: handgjorda smycken med signaturpärla.', pending: 'Bild kommer' },
+    image: {
+      alt: 'Konceptbild i fem delar av studiomiljön: trådspolar, pärlor och armband, en docka med omlottskjorta och mönsterdelar, en läderväska med pärlberlock samt en inspirationstavla med tygprover. Inte ett foto av färdiga produkter.',
+      note: 'Miljöbild · konceptbild, ej foto',
+      pending: 'Bild kommer',
+    },
   },
   shop: {
     section: {
@@ -296,9 +300,8 @@ export const sv: Copy = {
   },
   about: {
     marker: 'Om studion',
-    imageAlt:
-      'Konceptbild i fem delar av studiomiljön: trådspolar, pärlor och armband, en docka med omlottskjorta och mönsterdelar, en läderväska med pärlberlock samt en inspirationstavla med tygprover. Inte ett foto av färdiga produkter.',
-    imageNote: 'Miljöbild · konceptbild, ej foto',
+    imageAlt: 'Bild till avsnittet Om studion.',
+    imagePending: 'Bild kommer',
     quote: ['En liten studio', 'med många trådar.'],
     eyebrow: 'Grundarens text · godkänd',
     titleTop: 'En personlig erfarenhet.',

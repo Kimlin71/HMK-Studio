@@ -2,9 +2,9 @@
 .connect-family__figure {
   position: relative;
   display: grid;
-  max-width: 760px;
+  max-width: 480px;
   margin: 0;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 4;
   place-items: center;
   overflow: hidden;
   background: var(--linen);

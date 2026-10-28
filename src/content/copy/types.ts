@@ -74,7 +74,7 @@ export type Copy = {
     title: string
     origin: string
     lead: string
-    image: { alt: string; pending: string }
+    image: { alt: string; note: string; pending: string }
   }
   // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
   shop: {
@@ -167,7 +167,7 @@ export type Copy = {
   about: {
     marker: string
     imageAlt: string
-    imageNote: string
+    imagePending: string
     quote: [string, string]
     eyebrow: string
     titleTop: string

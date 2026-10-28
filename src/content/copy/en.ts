@@ -149,7 +149,11 @@ export const en: Copy = {
     title: 'One bead. Many pieces.',
     origin: 'Inspired by Korean decorative knotwork',
     lead: 'Five pieces and a library of interchangeable parts. The signature bead is what recurs, and the rest is deliberately quieter. Parts are decorated to different degrees, and each colour appears only in some of the pieces.',
-    image: { alt: 'Picture from ACCENTED: handmade jewellery with the signature pearl.', pending: 'Picture coming' },
+    image: {
+      alt: 'Concept image in five parts of the studio environment: spools of thread, beads and bracelets, a mannequin with a wrap shirt and pattern pieces, a leather bag with a bead charm and a moodboard with fabric samples. Not a photograph of finished products.',
+      note: 'Environment image · concept, not a photo',
+      pending: 'Picture coming',
+    },
   },
   shop: {
     section: {
@@ -296,9 +300,8 @@ export const en: Copy = {
   },
   about: {
     marker: 'About the studio',
-    imageAlt:
-      'Concept image in five parts of the studio environment: spools of thread, beads and bracelets, a mannequin with a wrap shirt and pattern pieces, a leather bag with a bead charm and a moodboard with fabric samples. Not a photograph of finished products.',
-    imageNote: 'Environment image · concept, not a photo',
+    imageAlt: 'Picture for the About the studio section.',
+    imagePending: 'Picture coming',
     quote: ['A small studio', 'with many threads.'],
     eyebrow: 'The founder’s text · approved',
     titleTop: 'A personal experience.',

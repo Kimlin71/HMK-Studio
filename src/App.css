@@ -1169,6 +1169,19 @@ h2 em,
   object-position: center;
 }
 
+.about-maker__pending {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  margin: 0;
+  padding: 16px;
+  place-items: center;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
 .about-maker__image-quote {
   position: absolute;
   right: -22px;
