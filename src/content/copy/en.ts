@@ -162,7 +162,7 @@ export const en: Copy = {
       categories: {
         bracelet: { title: 'Bracelets', description: 'Three finished macramé bracelets with pearls and a two-colour signature pearl.' },
         maedeup: { title: 'Maedeup with Norigae', description: 'Four finished Norigae with a knot, a pendant and a tassel, inspired by Korean knotwork. Or design your own.' },
-        pattern: { title: 'Sewing patterns', description: 'Digital patterns. Enter your measurements and add the pattern to the cart.' },
+        pattern: { title: 'Sewing patterns', description: 'To create your custom petite patterns, we need a few details. Please provide your measurements below.' },
         hanbok: { title: 'Hanbok', description: 'Re-sewn from one second-hand men’s shirt. Every piece is one of a kind.' },
       },
     },

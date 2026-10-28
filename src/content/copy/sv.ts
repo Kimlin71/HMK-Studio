@@ -162,7 +162,7 @@ export const sv: Copy = {
       categories: {
         bracelet: { title: 'Armband', description: 'Tre färdiga armband i makramé med pärlor och en tvåfärgad signaturpärla.' },
         maedeup: { title: 'Maedeup med Norigae', description: 'Fyra färdiga Norigae med knut, hänge och tofs, inspirerade av koreanskt knutverk. Eller designa din egen.' },
-        pattern: { title: 'Sömnadsmönster', description: 'Digitala mönster. Du fyller i dina mått och lägger mönstret i varukorgen.' },
+        pattern: { title: 'Sömnadsmönster', description: 'För att skapa dina egna petite-mönster behöver vi några uppgifter. Ange dina mått nedan.' },
         hanbok: { title: 'Hanbok', description: 'Omsydda av en second hand-herrskjorta. Varje plagg är unikt.' },
       },
     },
