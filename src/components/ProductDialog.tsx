@@ -19,7 +19,6 @@ export function ProductDialog({ piece, onClose }: ProductDialogProps) {
           <div className="piece-detail__image-wrap">
             {/* Replace with the studio's own photographs when real pieces are added. */}
             <img alt={pieceCopy.imageAlt} className="piece-detail__image" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
-            <span className="piece-detail__area"><span lang="en">{piece.area}</span> / {pieceCopy.imageLabel}</span>
           </div>
           <div className="piece-detail__copy">
             <p className="eyebrow">{pieceCopy.category}</p>

@@ -23,7 +23,6 @@ export function HanbokDialog({ item, onClose }: HanbokDialogProps) {
           <div className="piece-detail__image-wrap">
             {/* Replace with the studio's own photographs when real pieces are added. */}
             <img alt={card.items[item.id].imageAlt} className="piece-detail__image" src={item.image} style={{ objectPosition: item.imagePosition }} />
-            <span className="piece-detail__area"><span lang="en">WEAR</span> / {card.imageNote}</span>
           </div>
           <div className="piece-detail__copy">
             <p className="eyebrow">{itemCopy.category}</p>

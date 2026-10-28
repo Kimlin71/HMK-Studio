@@ -26,7 +26,6 @@ export function ShopItemCard({ item }: ShopItemCardProps) {
         ) : (
           <>
             <img alt={text.items[item.id].imageAlt} className="shop-card__image" loading="lazy" onError={() => setMissing(true)} src={item.image} style={{ objectPosition: item.imagePosition }} />
-            <span className="image-note">{text.imageNote}</span>
           </>
         )}
       </div>

@@ -26,7 +26,6 @@ export function PatternShop() {
             ) : (
               <>
                 <img alt={text.products[product.id].imageAlt} className="shop-card__image" loading="lazy" onError={() => setMissing((ids) => [...ids, product.id])} src={product.image} />
-                <span className="image-note">{copy.shop.card.imageNote}</span>
               </>
             )}
           </div>

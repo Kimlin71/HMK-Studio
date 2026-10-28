@@ -41,7 +41,6 @@ export function CollectionGrid({ pieces, onExplore }: CollectionGridProps) {
                 <span className="piece-card__image-wrap">
                   {/* Replace illustrations with the studio's own photographs when available. */}
                   <img alt={pieceCopy.imageAlt} className="piece-card__image" loading="lazy" src={piece.image} style={{ objectPosition: piece.imagePosition }} />
-                  <span className="image-note">{copy.collectionCard.imageNote}</span>
                   <span className="piece-card__open" aria-hidden="true">↗</span>
                 </span>
                 <span className="piece-card__meta"><span>{piece.name}</span><span>{pieceCopy.category}</span></span>

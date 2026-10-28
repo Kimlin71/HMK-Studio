@@ -11,7 +11,6 @@ export type Language = 'sv' | 'en'
 export type PieceCopy = {
   category: string
   imageAlt: string
-  imageLabel: string
   demoNote: string
   material: string
   story: string
@@ -47,7 +46,6 @@ export type Copy = {
     index: string
     /** Picture of what each offering is, shown as a tile next to the headline. */
     tiles: Record<ProductArea, { alt: string }>
-    imageNote: [string, string]
     seal: [string, string]
     doorsLabel: string
     doors: Record<ProductArea, { title: string; text: string }>
@@ -55,7 +53,7 @@ export type Copy = {
   }
   brandIntro: { marker: string; eyebrow: string; titleTop: string; titleEm: string; lead: string; body: string }
   collections: Record<CollectionId, { concept: string; title: string; paragraphs: string[]; action: string }>
-  collectionCard: { open: (name: string, category: string) => string; imageNote: string }
+  collectionCard: { open: (name: string, category: string) => string }
   compare: {
     before: string
     after: string
@@ -63,7 +61,6 @@ export type Copy = {
     afterAlt: string
     beforeCaption: string
     afterCaption: string
-    imageNote: string
     sliderLabel: string
     sliderValue: (percent: number) => string
     leftRight: (left: string, right: string) => string
@@ -79,7 +76,7 @@ export type Copy = {
     title: string
     origin: string
     lead: string
-    image: { alt: string; note: string; pending: string }
+    image: { alt: string; pending: string }
   }
   // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
   shop: {
@@ -96,7 +93,6 @@ export type Copy = {
       demoLabel: string
       /** Label on cards that can be put in the demo cart. */
       prototypeLabel: string
-      imageNote: string
       priceLabel: string
       priceTbd: string
       /** Shown instead of the picture while the picture file is missing. */
@@ -238,7 +234,7 @@ export type Copy = {
     colourNote: string
     coloursLabel: string
     coloursFootnote: string
-    macro: { alt: string; label: string; caption: string }
+    macro: { alt: string; caption: string }
     pendingPhoto: string
     imageBrief: string
   }

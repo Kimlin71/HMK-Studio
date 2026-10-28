@@ -34,7 +34,6 @@ export const sv: Copy = {
       MAKE: { alt: 'Konceptbild av ett sömnadsmönster: ett par vida byxor i terrakotta bredvid en teknisk ritning.' },
       ACCENTED: { alt: 'Konceptbild: en Norigae i marinblått med en knut överst, en tvåfärgad signaturpärla och en tofs.' },
     },
-    imageNote: ['Konceptbilder · ej foton', 'Referens för bildspråk'],
     seal: ['STUDIO', 'UTGÅVA 01'],
     doorsLabel: 'Vad studion gör',
     doors: {
@@ -87,7 +86,6 @@ export const sv: Copy = {
   },
   collectionCard: {
     open: (name, category) => `Visa ${name}, fiktivt demo, ${category}`,
-    imageNote: 'Fiktivt demo · Illustration',
   },
   compare: {
     before: 'Före',
@@ -97,7 +95,6 @@ export const sv: Copy = {
       'Konceptbild: samma skjorta omsydd till en modern hanbok, en fusion av koreansk inspiration och skandinavisk minimalism, med diagonal omlottstängning och ett långt knutet band vid sidan.',
     beforeCaption: 'den befintliga skjortan',
     afterCaption: 'omsydd till en modern hanbok',
-    imageNote: 'Konceptbild · före / efter, ej foto',
     sliderLabel: 'Jämför före och efter. Dra åt vänster eller höger.',
     sliderValue: (percent) => `Skjortan visas till ${percent} procent från vänster, den omsydda, moderna hanboken till höger`,
     leftRight: (left, right) => `Vänster · ${left} / Höger · ${right}`,
@@ -107,7 +104,6 @@ export const sv: Copy = {
       category: 'Omsydd skjorta · Modern hanbok · Formstudie',
       imageAlt:
         'Konceptbild: skjorta omsydd till en modern hanbok, en fusion av koreansk inspiration och skandinavisk minimalism, med diagonal omlottstängning och ett långt knutet band vid sidan.',
-      imageLabel: 'Konceptbild · ej foto',
       demoNote:
         'Fiktivt redaktionellt demoexempel, illustrerat med en konceptbild. Bilden är en referens för bildspråk, inte ett foto av ett tillverkat plagg. Material och hantverk beskriver konceptet. Inga köp eller beställningar tas emot.',
       material: 'Materialplatshållare. Faktisk sammansättning anges när ett dokumenterat plagg finns.',
@@ -121,7 +117,6 @@ export const sv: Copy = {
     'proportion-study-01': {
       category: 'Symönster · Petite proportioner',
       imageAlt: 'Konceptbild av en ateljebräda: en lång, vit omlottskjorta på en docka, en surfplatta med måttlista, en bärbar dator med mönsterdelar, måttband och tygprover.',
-      imageLabel: 'Fiktivt demo · Illustration',
       demoNote:
         'Fiktivt redaktionellt demoexempel, illustrerat med en grafisk platshållare. Material och hantverk beskriver konceptet, inte ett tillverkat plagg. Inga köp eller beställningar tas emot.',
       material: 'Koncept för ett digitalt symönster i vävd kvalitet. Inga mönsterfiler eller måttguider finns att ladda ned.',
@@ -133,7 +128,6 @@ export const sv: Copy = {
     'knot-no-01': {
       category: 'Modulär detalj · Formstudie',
       imageAlt: 'Konceptbild med inspirationsbilder: en Norigae med tofs på en mobil, en tygkasse, i håret och på en kjol och en skjorta, bredvid tygprover i samma färger.',
-      imageLabel: 'Fiktivt demo · Illustration',
       demoNote:
         'Fiktivt redaktionellt demoexempel, illustrerat med en grafisk platshållare. Material och hantverk beskriver konceptet, inte ett tillverkat föremål. Inga köp eller beställningar tas emot.',
       material: 'Materialplatshållare. Snodd, pärla, tofs och kopplingar behöver specificeras för verkliga objekt.',
@@ -155,7 +149,6 @@ export const sv: Copy = {
     lead: 'Fem smycken och ett bibliotek av utbytbara delar. Signaturpärlan är det som återkommer, resten är medvetet tystare. Delarna är olika rikt dekorerade, och varje färg finns bara i några av smyckena.',
     image: {
       alt: 'Konceptbild i fem delar av studiomiljön: trådspolar, pärlor och armband, en docka med omlottskjorta och mönsterdelar, en läderväska med pärlberlock samt en inspirationstavla med tygprover. Inte ett foto av färdiga produkter.',
-      note: 'Miljöbild · konceptbild, ej foto',
       pending: 'Bild kommer',
     },
   },
@@ -176,7 +169,6 @@ export const sv: Copy = {
     card: {
       demoLabel: 'Demo · ej till salu',
       prototypeLabel: 'Demo · prototyp',
-      imageNote: 'Konceptbild · demo',
       priceLabel: 'Pris',
       priceTbd: 'Pris meddelas senare',
       imagePending: 'Bild kommer',
@@ -395,7 +387,6 @@ export const sv: Copy = {
     coloursFootnote: 'Grafisk färgstudie, inte ett foto av den fysiska pärlan.',
     macro: {
       alt: 'Makrostudie av två blanka, glaserade pärlor med ett svängt tvåfärgsmönster, en prick i den andra halvans färg och ett genomgående hål, en i Deep Indigo och rosa och en i Ivory och Ochre Red, på ljus linneduk. Konceptbild, inte ett foto av en färdig produkt.',
-      label: 'Konceptbild · makrostudie',
       caption: 'Makrostudie av signaturpärlan som referens för bildspråk, inte ett fotografi av en färdig fysisk produkt.',
     },
     pendingPhoto: 'Studions makrofotografi av den fysiska pärlan inväntas.',

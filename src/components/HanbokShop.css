@@ -74,13 +74,6 @@
   }
 }
 
-/* The label sits at the bottom edge so it never covers the face. */
-.hanbok-card__image-wrap .image-note {
-  top: auto;
-  bottom: 12px;
-  left: 12px;
-}
-
 .hanbok-badges {
   display: flex;
   flex-wrap: wrap;

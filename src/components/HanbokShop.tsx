@@ -23,7 +23,6 @@ export function HanbokShop({ items }: { items: HanbokItem[] }) {
               <img alt={card.items[item.id].imageAlt} className="hanbok-card__image" loading="lazy" src={item.image} style={{ objectPosition: item.imagePosition }} />
               {/* The view from behind appears on hover and keyboard focus. Decorative: the front picture carries the description. */}
               {item.hoverImage ? <img alt="" className="hanbok-card__image hanbok-card__image--back" loading="lazy" src={item.hoverImage} /> : null}
-              <span className="image-note">{card.imageNote}</span>
             </div>
             <HanbokBadges />
             <h5 className="hanbok-card__name" lang="en">{item.name}</h5>

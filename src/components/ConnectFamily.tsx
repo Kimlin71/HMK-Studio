@@ -24,7 +24,6 @@ export function ConnectFamily() {
         ) : (
           <>
             <img alt={text.image.alt} loading="lazy" onError={() => setMissing(true)} src={connectFamilyImage} />
-            <span className="image-note">{text.image.note}</span>
           </>
         )}
       </figure>

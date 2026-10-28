@@ -41,7 +41,6 @@ export function Hero() {
             <figcaption lang="en">{tile.area}</figcaption>
           </figure>
         ))}
-        <div className="hero__image-note"><span>{hero.imageNote[0]}</span><span>{hero.imageNote[1]}</span></div>
       </div>
       <nav aria-label={hero.doorsLabel} className="hero__doors">
         {doorOrder.map(({ area, href }, index) => (

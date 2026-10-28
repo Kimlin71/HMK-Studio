@@ -95,6 +95,13 @@
   min-width: 0;
   flex-direction: column;
   gap: 10px;
+  /* Cards in one row are equally tall, and the button sits at the bottom of each, so names of different length do not move it. */
+  align-self: stretch;
+}
+
+.shop-card > .add-to-cart,
+.shop-card > .add-to-cart__button {
+  margin-top: auto;
 }
 
 .shop-card__image-wrap {

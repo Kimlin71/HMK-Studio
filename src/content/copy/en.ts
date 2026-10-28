@@ -34,7 +34,6 @@ export const en: Copy = {
       MAKE: { alt: 'Concept image of a sewing pattern: a pair of wide terracotta trousers next to a technical drawing.' },
       ACCENTED: { alt: 'Concept image: a navy Norigae with a knot at the top, a two-colour signature pearl and a tassel.' },
     },
-    imageNote: ['Concept images · not photos', 'Art-direction reference'],
     seal: ['STUDIO', 'EDITION 01'],
     doorsLabel: 'What the studio makes',
     doors: {
@@ -87,7 +86,6 @@ export const en: Copy = {
   },
   collectionCard: {
     open: (name, category) => `View ${name}, fictional demo, ${category}`,
-    imageNote: 'Fictional demo · Illustration',
   },
   compare: {
     before: 'Before',
@@ -97,7 +95,6 @@ export const en: Copy = {
       'Concept image: the same shirt re-sewn into a modern hanbok, a fusion of Korean inspiration and Scandinavian minimalism, with a diagonal wrap closure and a long knotted tie at the side.',
     beforeCaption: 'the existing shirt',
     afterCaption: 'sewn anew into a modern hanbok',
-    imageNote: 'Concept image · before / after, not a photo',
     sliderLabel: 'Compare before and after. Drag left or right.',
     sliderValue: (percent) => `The shirt is shown ${percent} percent from the left, the re-sewn modern hanbok on the right`,
     leftRight: (left, right) => `Left · ${left} / Right · ${right}`,
@@ -107,7 +104,6 @@ export const en: Copy = {
       category: 'Re-sewn shirt · Modern hanbok · Form study',
       imageAlt:
         'Concept image: a shirt re-sewn into a modern hanbok, a fusion of Korean inspiration and Scandinavian minimalism, with a diagonal wrap closure and a long knotted tie at the side.',
-      imageLabel: 'Concept image · not a photo',
       demoNote:
         'Fictional editorial demo, illustrated with a concept image. The image is an art-direction reference, not a photograph of a made garment. Material and craft describe the concept. No purchases or orders are taken.',
       material: 'Material placeholder. The actual composition is stated once a documented garment exists.',
@@ -121,7 +117,6 @@ export const en: Copy = {
     'proportion-study-01': {
       category: 'Sewing pattern · Petite proportions',
       imageAlt: 'Concept image of a studio desk: a long white wrap shirt on a mannequin, a tablet with a measurement list, a laptop with pattern pieces, a tape measure and fabric samples.',
-      imageLabel: 'Fictional demo · Illustration',
       demoNote:
         'Fictional editorial demo, illustrated with a graphic placeholder. Material and craft describe the concept, not a made garment. No purchases or orders are taken.',
       material: 'Concept for a digital sewing pattern in a woven fabric. No pattern files or measurement guides are available to download.',
@@ -133,7 +128,6 @@ export const en: Copy = {
     'knot-no-01': {
       category: 'Modular detail · Form study',
       imageAlt: 'Concept moodboard: a Norigae with a tassel on a phone, a tote bag, in hair and on a skirt and a shirt, next to fabric samples in matching colours.',
-      imageLabel: 'Fictional demo · Illustration',
       demoNote:
         'Fictional editorial demo, illustrated with a graphic placeholder. Material and craft describe the concept, not a made piece. No purchases or orders are taken.',
       material: 'Material placeholder. Cord, bead, tassel and fittings need to be specified for real objects.',
@@ -155,7 +149,6 @@ export const en: Copy = {
     lead: 'Five pieces and a library of interchangeable parts. The signature bead is what recurs, and the rest is deliberately quieter. Parts are decorated to different degrees, and each colour appears only in some of the pieces.',
     image: {
       alt: 'Concept image in five parts of the studio environment: spools of thread, beads and bracelets, a mannequin with a wrap shirt and pattern pieces, a leather bag with a bead charm and a moodboard with fabric samples. Not a photograph of finished products.',
-      note: 'Environment image · concept, not a photo',
       pending: 'Picture coming',
     },
   },
@@ -176,7 +169,6 @@ export const en: Copy = {
     card: {
       demoLabel: 'Demo · not for sale',
       prototypeLabel: 'Demo · prototype',
-      imageNote: 'Concept image · demo',
       priceLabel: 'Price',
       priceTbd: 'Price to be announced',
       imagePending: 'Picture coming',
@@ -395,7 +387,6 @@ export const en: Copy = {
     coloursFootnote: 'Graphic colour study, not a photograph of the physical bead.',
     macro: {
       alt: 'Macro study of two glossy, glazed beads with a curving two-colour pattern, a dot in the other half’s colour and a through-hole, one in Deep Indigo and pink and one in Ivory and Ochre Red, on pale linen. Concept image, not a photograph of a finished product.',
-      label: 'Concept image · macro study',
       caption: 'Macro study of the signature bead as an art-direction reference, not a photograph of a finished physical product.',
     },
     pendingPhoto: 'The studio’s macro photograph of the physical bead is pending.',
