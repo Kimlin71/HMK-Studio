@@ -25,7 +25,7 @@ export const sv: Copy = {
     eyebrow: 'En koreansk–skandinavisk studio',
     titleTop: 'FÖR',
     titleEm: 'DINA PROPORTIONER',
-    lead: 'Omsydda hanbok, sömnadsmönster för petite proportioner och handknutna Norigae. Allt formas efter människan, inte efter en storlek.',
+    lead: 'Våra plagg och mönster är en fusion av koreanskt och skandinaviskt mode: omsydda hanbok, sömnadsmönster för petite proportioner och handknutna Norigae. Allt formas efter människan, inte efter en storlek.',
     primaryCta: 'Se konceptet',
     secondaryCta: 'Om petite och proportion',
     index: '01 / FORMEN FÖLJER DIG',
@@ -154,7 +154,7 @@ export const sv: Copy = {
   },
   shop: {
     section: {
-      banner: { eyebrow: 'Prototyp · allt är demo', title: 'Välkommen till webshopen', line: 'Här kan du välja armband, Maedeup med Norigae och sömnadsmönster, lägga dem i varukorgen och gå till kassan.' },
+      banner: { eyebrow: 'Prototyp · allt är demo', title: 'Välkommen till vår webshop', line: 'Här kan du välja armband, Maedeup med Norigae och sömnadsmönster, lägga dem i varukorgen och gå till kassan.' },
       eyebrow: 'Butik · prototyp',
       title: 'Välj, eller designa själv.',
       intro: 'Armband, Maedeup med Norigae, sömnadsmönster och omsydda hanbok. Allt här är demo. Priserna är fiktiva och inget går att köpa på riktigt.',

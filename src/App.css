@@ -206,8 +206,9 @@ main section[id]::before {
   letter-spacing: 0.02em;
 }
 
-/* The longer name leaves less room for the menu: give the nav the free space and tighten gaps. */
-@media (min-width: 901px) and (max-width: 1240px) {
+/* The longer name, the cart button and the language switch leave less room for the menu: give the nav the free space and tighten gaps.
+   Up to 1640 px, where the three-column header has room again. */
+@media (min-width: 901px) and (max-width: 1640px) {
   .site-header {
     grid-template-columns: auto 1fr auto;
     gap: 0 clamp(12px, 2vw, 28px);
@@ -222,6 +223,7 @@ main section[id]::before {
 
   .primary-nav a {
     letter-spacing: 0.04em;
+    white-space: nowrap;
   }
 
   .wordmark {
@@ -239,6 +241,26 @@ main section[id]::before {
 
   .header-end {
     gap: 14px;
+  }
+}
+
+/* Just above the mobile menu (901-1060 px) the Swedish menu, the logo and the buttons do not fit on one row: the header contact
+   link moves away and the wordmark gets smaller, so the menu keeps one row. */
+@media (min-width: 901px) and (max-width: 1060px) {
+  .header-contact {
+    display: none;
+  }
+
+  .wordmark__name {
+    font-size: 21px;
+  }
+
+  .primary-nav {
+    gap: 10px;
+  }
+
+  .primary-nav a {
+    letter-spacing: 0.02em;
   }
 }
 
@@ -2329,8 +2351,8 @@ h2 em,
   stroke-width: 1.6;
 }
 
-/* The header is crowded below 1240 px and on phones: the cart shows an icon and the count, and the full name stays in aria-label. */
-@media (max-width: 1240px) {
+/* The header is crowded up to 1640 px and on phones: the cart shows an icon and the count, and the full name stays in aria-label. */
+@media (max-width: 1640px) {
   .cart-button {
     gap: 6px;
     padding: 0 8px;

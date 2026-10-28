@@ -25,7 +25,7 @@ export const en: Copy = {
     eyebrow: 'A Korean–Scandinavian studio',
     titleTop: 'FOR',
     titleEm: 'YOUR PROPORTIONS',
-    lead: 'Re-sewn hanbok, sewing patterns for petite proportions and hand-tied Norigae. Everything follows the person, not a size.',
+    lead: 'Our garments and patterns are a fusion of Korean and Scandinavian fashion: re-sewn hanbok, sewing patterns for petite proportions and hand-tied Norigae. Everything follows the person, not a size.',
     primaryCta: 'See the concept',
     secondaryCta: 'About petite and proportion',
     index: '01 / FORM FOLLOWS YOU',
@@ -154,7 +154,7 @@ export const en: Copy = {
   },
   shop: {
     section: {
-      banner: { eyebrow: 'Prototype · everything is a demo', title: 'Welcome to the webshop', line: 'Choose bracelets, Maedeup with Norigae and sewing patterns, put them in the cart and go to the checkout.' },
+      banner: { eyebrow: 'Prototype · everything is a demo', title: 'Welcome to our webshop', line: 'Choose bracelets, Maedeup with Norigae and sewing patterns, put them in the cart and go to the checkout.' },
       eyebrow: 'Shop · prototype',
       title: 'Choose, or design your own.',
       intro: 'Bracelets, Maedeup with Norigae, sewing patterns and re-sewn hanbok. Everything here is a demo. Prices are fictional and nothing can be bought for real.',
