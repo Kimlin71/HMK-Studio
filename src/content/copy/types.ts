@@ -90,6 +90,8 @@ export type Copy = {
     }
     card: {
       demoLabel: string
+      /** Label on cards that can be put in the demo cart. */
+      prototypeLabel: string
       imageNote: string
       priceLabel: string
       priceTbd: string

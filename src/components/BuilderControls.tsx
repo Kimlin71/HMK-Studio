@@ -60,7 +60,7 @@ export function ColourOptionGroup({ colours, ...props }: ColourOptionGroupProps)
 export function SummaryRowContent({ row }: { row: SummaryRow }) {
   return (
     <>
-      {row.label}: {row.value ? `${row.value}, ` : ''}
+      {row.label}: {row.value}{row.value && row.colours?.length ? ', ' : ''}
       {row.colours?.map((colour, index) => (
         <span key={colour + index}>{index > 0 ? ' + ' : null}<span lang="en">{colourLabels[colour]}</span></span>
       ))}

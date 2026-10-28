@@ -2,14 +2,15 @@
 // Every function returns a new list and leaves the old one untouched.
 
 import type { BraceletItemId, ShopItem } from './shop.ts'
-import { norigaeShowcase, type NorigaeDesign } from './norigae.ts'
+import { norigaeProducts, type NorigaeDesign, type NorigaeProductId } from './norigae.ts'
 import type { Measurements } from './pattern.ts'
 import { price } from './prices.ts'
 
 /** What is added: one of the three kinds the prototype sells. Hanbok is a demo piece and has no cart item. */
 export type NewCartItem =
   | { kind: 'bracelet'; braceletId: BraceletItemId }
-  | { kind: 'norigae'; design: NorigaeDesign }
+  /** `productId` is set when a finished piece from the shop is bought, and absent for the customer's own design. */
+  | { kind: 'norigae'; design: NorigaeDesign; productId?: NorigaeProductId }
   | { kind: 'pattern'; measurements: Measurements }
 
 export type CartItem = NewCartItem & { id: string; quantity: 1 }
@@ -34,11 +35,13 @@ export const cartItemCount = (items: readonly CartItem[]) => items.reduce((sum, 
 export const hasPattern = (items: readonly CartItem[]) => items.some((item) => item.kind === 'pattern')
 
 /**
- * The cart item a shop card adds. The Maedeup card shows the founder's photograph, so it adds the design that photograph shows.
- * Hanbok has none.
+ * The cart item a shop card adds: a bracelet as it is, a finished Norigae with the colours of its photograph. Hanbok has none.
  */
 export function shopItemToNewCartItem(item: Pick<ShopItem, 'id' | 'category'>): NewCartItem | null {
   if (item.category === 'bracelet') return { kind: 'bracelet', braceletId: item.id as BraceletItemId }
-  if (item.category === 'maedeup') return { kind: 'norigae', design: norigaeShowcase }
+  if (item.category === 'maedeup') {
+    const productId = item.id as NorigaeProductId
+    return { kind: 'norigae', design: norigaeProducts[productId], productId }
+  }
   return null
 }

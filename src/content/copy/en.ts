@@ -117,7 +117,7 @@ export const en: Copy = {
     },
     'proportion-study-01': {
       category: 'Sewing pattern · Petite proportions',
-      imageAlt: 'Graphic pattern study with proportions and seam lines',
+      imageAlt: 'Concept image of a studio desk: a long white wrap shirt on a mannequin, a tablet with a measurement list, a laptop with pattern pieces, a tape measure and fabric samples.',
       imageLabel: 'Fictional demo · Illustration',
       demoNote:
         'Fictional editorial demo, illustrated with a graphic placeholder. Material and craft describe the concept, not a made garment. No purchases or orders are taken.',
@@ -129,7 +129,7 @@ export const en: Copy = {
     },
     'knot-no-01': {
       category: 'Modular detail · Form study',
-      imageAlt: 'Graphic study of a hand-knotted cord with a tassel',
+      imageAlt: 'Concept moodboard: a Norigae with a tassel on a phone, a tote bag, in hair and on a skirt and a shirt, next to fabric samples in matching colours.',
       imageLabel: 'Fictional demo · Illustration',
       demoNote:
         'Fictional editorial demo, illustrated with a graphic placeholder. Material and craft describe the concept, not a made piece. No purchases or orders are taken.',
@@ -164,12 +164,13 @@ export const en: Copy = {
       disclosure: 'Demo content: the images are concept images and graphic studies, not stock. The cart, checkout and payment are a prototype with fictional details: no real order, no payment and no data collection. The only thing the site keeps is your language choice, in your own browser.',
       categories: {
         bracelet: { title: 'Bracelets', description: 'Three finished macramé bracelets with pearls and a two-colour signature pearl.' },
-        maedeup: { title: 'Maedeup with Norigae', description: 'Decorative knots inspired by Korean knotwork, with a Norigae pendant.' },
+        maedeup: { title: 'Maedeup with Norigae', description: 'Four finished Norigae with a knot, a pendant and a tassel, inspired by Korean knotwork. Or design your own.' },
         hanbok: { title: 'Hanbok', description: 'Re-sewn from one second-hand men’s shirt. Every piece is one of a kind.' },
       },
     },
     card: {
       demoLabel: 'Demo · not for sale',
+      prototypeLabel: 'Demo · prototype',
       imageNote: 'Concept image · demo',
       priceLabel: 'Price',
       priceTbd: 'Price to be announced',
@@ -178,7 +179,10 @@ export const en: Copy = {
         'signature-bracelet-1': { imageAlt: 'A bracelet in dusty-pink macramé with white pearls and gold beads, with a light-blue and pink signature pearl in the centre.' },
         'signature-bracelet-2': { imageAlt: 'A bracelet in pale macramé with gold beads, with a dark-blue and off-white signature pearl in the centre.' },
         'signature-bracelet-3': { imageAlt: 'A bracelet in dark-brown macramé with gold beads, with a brown and sand-coloured signature pearl in the centre.' },
-        'maedeup-norigae-demo': { imageAlt: 'Picture: a dark-blue Maedeup with a Norigae pendant, a tassel and a two-colour signature pearl.' },
+        'maedeup-norigae-1': { imageAlt: 'A Norigae in pale turquoise with a knot at the top, a turquoise and off-white signature pearl and a long tassel.' },
+        'maedeup-norigae-2': { imageAlt: 'A Norigae in dusty pink with a knot at the top, a pink and turquoise signature pearl and a long tassel.' },
+        'maedeup-norigae-3': { imageAlt: 'A Norigae in mustard with a knot at the top, a mustard and dark-brown signature pearl and a tassel.' },
+        'maedeup-norigae-4': { imageAlt: 'A Norigae in navy with a knot at the top, a navy and red signature pearl and a long tassel.' },
         'shirt-hanbok-demo': { imageAlt: 'Image: a young woman in a short blue wrap jacket with a tie and a pleated blue skirt with a tie at the waist, seen from the front. Concept image, not a photograph of a documented garment.' },
         'shirt-hanbok-demo-2': { imageAlt: 'Image: a woman in a short lilac shirt with a diagonal wrap, buttons and a knot at the side, with wide jeans, seen from the front. Concept image, not a photograph of a documented garment.' },
       },

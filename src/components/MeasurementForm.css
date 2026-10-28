@@ -1,5 +1,5 @@
 /* Measured pattern: form and SVG preview. Component-scoped. Lines are at least 2 px and text at least 14 px (16 px body)
-   at 1280 px so they survive a compressed screen share. */
+   at 1280 px so they survive a compressed screen share. The drawing is 8 px per cm: lines 2.4 px, labels 16 px. */
 .measure {
   grid-column: 1 / -1;
   display: grid;
@@ -42,9 +42,14 @@
 
 .measure__workspace {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 32px 48px;
-  align-items: start;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.measure__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 0 28px;
 }
 
 .measure__form fieldset {
@@ -80,6 +85,7 @@
 
 .measure__field {
   display: grid;
+  align-content: start;
   gap: 4px;
   margin-bottom: 16px;
 }
@@ -219,14 +225,14 @@
   fill: var(--paper);
   stroke: var(--deep-indigo);
   stroke-linejoin: round;
-  stroke-width: 0.28px;
+  stroke-width: 0.3px;
 }
 
 .pattern-piece__fold {
   fill: none;
   stroke: var(--ochre-red);
   stroke-dasharray: 1.1 0.8;
-  stroke-width: 0.32px;
+  stroke-width: 0.4px;
 }
 
 .pattern-piece__grain,
@@ -236,7 +242,7 @@
   stroke: var(--ink-soft);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 0.22px;
+  stroke-width: 0.3px;
 }
 
 .pattern-piece__dimension {
@@ -250,18 +256,18 @@
 .pattern-piece__label {
   fill: var(--ink-heading);
   font-family: var(--sans);
-  font-size: 1.6px;
+  font-size: 2px;
   font-weight: 600;
   paint-order: stroke;
   stroke: var(--paper);
   stroke-linejoin: round;
-  stroke-width: 0.5px;
+  stroke-width: 0.6px;
 }
 
 .pattern-piece__name {
   fill: var(--ink-heading);
   font-family: var(--serif);
-  font-size: 2.2px;
+  font-size: 2.3px;
   font-weight: 600;
 }
 
@@ -271,12 +277,6 @@
   margin-top: 12px;
   color: var(--ink-soft);
   font-size: var(--text-small);
-}
-
-@media (max-width: 900px) {
-  .measure__workspace {
-    grid-template-columns: minmax(0, 1fr);
-  }
 }
 
 @media (max-width: 640px) {

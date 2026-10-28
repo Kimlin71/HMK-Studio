@@ -24,7 +24,12 @@ function describe(item: CartItem, copy: Copy, language: 'sv' | 'en'): Line {
       }
     }
     case 'norigae':
-      return { name: kinds.norigae, kind: kinds.norigae, rows: norigaeSummaryRows(item.design, copy) }
+      return {
+        name: item.productId ? (getShopItem(item.productId)?.name ?? kinds.norigae) : kinds.norigae,
+        nameLang: item.productId ? 'en' : undefined,
+        kind: kinds.norigae,
+        rows: norigaeSummaryRows(item.design, copy),
+      }
     case 'pattern':
       return {
         name: kinds.pattern,

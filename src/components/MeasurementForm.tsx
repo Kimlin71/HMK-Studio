@@ -67,6 +67,7 @@ export function MeasurementForm() {
             </legend>
             <p className="measure__customer">{text.form.customer} <strong>{text.form.customerName}</strong></p>
             <p className="measure__demo-note" id={`${idPrefix}-demo`}>{text.form.demoNote}</p>
+            <div className="measure__fields">
             {measurementKeys.map((key) => {
               const field = text.form.fields[key]
               const range = measurementRanges[key]
@@ -97,6 +98,7 @@ export function MeasurementForm() {
                 </div>
               )
             })}
+            </div>
             <p className="measure__summary" role="status">{valid ? '' : text.form.invalidSummary}</p>
             <button aria-disabled={!valid} className="measure__generate" disabled={!valid} type="submit">{text.form.generate}</button>
           </fieldset>

@@ -10,12 +10,14 @@ export function ConnectFamily() {
 
   return (
     <div aria-labelledby="connect-family-title" className="connect-family" id="connect-familj" role="group">
-      <div className="connect-family__heading">
-        <p className="eyebrow">{text.eyebrow}</p>
-        <h3 id="connect-family-title">{text.title}</h3>
-        <p className="connect-family__origin">{text.origin}</p>
+      <div className="connect-family__text">
+        <div className="connect-family__heading">
+          <p className="eyebrow">{text.eyebrow}</p>
+          <h3 id="connect-family-title">{text.title}</h3>
+          <p className="connect-family__origin">{text.origin}</p>
+        </div>
+        <p className="connect-family__lead">{text.lead}</p>
       </div>
-      <p className="connect-family__lead">{text.lead}</p>
       <figure className="connect-family__figure">
         {missing ? (
           <p className="connect-family__pending">{text.image.pending}</p>

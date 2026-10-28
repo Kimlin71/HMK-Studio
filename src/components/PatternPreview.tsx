@@ -2,11 +2,11 @@ import { formatMeasurement, type Measurements, type PatternPiece, type Point } f
 import { useCopy } from '../i18n/LanguageContext'
 
 // SVG drawing of the pattern pieces from generatePattern(). Units in the SVG are centimetres.
-// Each piece is its own SVG, drawn at about 10 px per cm, so lines (2.5 px) and labels (about 17 px) stay readable
+// Each piece is its own SVG, drawn at 8 px per cm, so lines (2.4 px) and labels (16 px) stay readable
 // in a compressed screen share and shrink only on very narrow screens.
 
 const PAD = 3
-const PX_PER_CM = 10
+const PX_PER_CM = 8
 const toPath = (points: readonly Point[]) => points.map(([x, y], index) => `${index === 0 ? 'M' : 'L'}${x.toFixed(2)} ${y.toFixed(2)}`).join(' ')
 
 // A small arrow head at `tip`, pointing away from `from`.
@@ -44,7 +44,7 @@ function PieceDrawing({ piece, measurements }: { piece: PatternPiece; measuremen
           <path className="pattern-piece__arrow pattern-piece__arrow--dimension" d={`${arrowHead(mark.to, mark.from)} ${arrowHead(mark.from, mark.to)}`} />
           <text className="pattern-piece__label" textAnchor={mark.label.anchor} x={mark.label.at[0]} y={mark.label.at[1]}>
             <tspan x={mark.label.at[0]}>{text.form.fields[mark.key].short}</tspan>
-            <tspan dy="1.9" x={mark.label.at[0]}>{formatMeasurement(measurements[mark.key], language)}</tspan>
+            <tspan dy="2.3" x={mark.label.at[0]}>{formatMeasurement(measurements[mark.key], language)}</tspan>
           </text>
         </g>
       ))}

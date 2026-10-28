@@ -194,8 +194,8 @@ export function generatePattern(m: Measurements): PatternPiece[] {
           { key: 'length', from: [2.5, BACK_NECK_DROP_CM], to: [2.5, hem], label: { at: [3.4, hem / 2 - 1.5], anchor: 'start' } },
         ]
       : [
-          { key: 'bust', from: [0, underarm], to: [width, underarm], label: { at: [width - 0.8, underarm + 1.5], anchor: 'end' } },
-          { key: 'upperBody', from: [NECK_HALF_CM, 0], to: [NECK_HALF_CM, m.upperBody], label: { at: [NECK_HALF_CM + 1, 14], anchor: 'start' } },
+          { key: 'bust', from: [0, underarm], to: [width, underarm], label: { at: [1.6, underarm + 1.6], anchor: 'start' } },
+          { key: 'upperBody', from: [NECK_HALF_CM, 0], to: [NECK_HALF_CM, m.upperBody], label: { at: [NECK_HALF_CM + 1, underarm + 7], anchor: 'start' } },
         ]
     return {
       id,
@@ -205,7 +205,7 @@ export function generatePattern(m: Measurements): PatternPiece[] {
       outline: closedOutline(edges),
       edges,
       foldEdge: 'centre',
-      grainLine: { from: [width * (isBack ? 0.62 : 0.72), underarm + 6], to: [width * (isBack ? 0.62 : 0.72), hem - 9] },
+      grainLine: { from: [width * (isBack ? 0.62 : 0.86), underarm + 6], to: [width * (isBack ? 0.62 : 0.86), hem - 9] },
       nameAt: [4.5, hem - 3],
       marks,
     }
@@ -243,8 +243,8 @@ export function generatePattern(m: Measurements): PatternPiece[] {
     outline: closedOutline(sleeveEdges),
     edges: sleeveEdges,
     grainLine: { from: [bicep * 0.45, capHeight + 4], to: [bicep * 0.45, m.sleeve - 9] },
-    nameAt: [-wrist + 1, m.sleeve - 3],
-    marks: [{ key: 'sleeve', from: [0, 0], to: [0, m.sleeve], label: { at: [-0.8, m.sleeve * 0.45], anchor: 'end' } }],
+    nameAt: [-wrist + 0.4, m.sleeve - 3],
+    marks: [{ key: 'sleeve', from: [0, 0], to: [0, m.sleeve], label: { at: [-1.6, m.sleeve * 0.45], anchor: 'end' } }],
   }
 
   return [back, front, sleeve]

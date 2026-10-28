@@ -117,7 +117,7 @@ export const sv: Copy = {
     },
     'proportion-study-01': {
       category: 'Symönster · Petite proportioner',
-      imageAlt: 'Grafisk mönsterstudie med proportioner och sömlinjer',
+      imageAlt: 'Konceptbild av en ateljebräda: en lång, vit omlottskjorta på en docka, en surfplatta med måttlista, en bärbar dator med mönsterdelar, måttband och tygprover.',
       imageLabel: 'Fiktivt demo · Illustration',
       demoNote:
         'Fiktivt redaktionellt demoexempel, illustrerat med en grafisk platshållare. Material och hantverk beskriver konceptet, inte ett tillverkat plagg. Inga köp eller beställningar tas emot.',
@@ -129,7 +129,7 @@ export const sv: Copy = {
     },
     'knot-no-01': {
       category: 'Modulär detalj · Formstudie',
-      imageAlt: 'Grafisk studie av en handknuten tråd med tofs',
+      imageAlt: 'Konceptbild med inspirationsbilder: en Norigae med tofs på en mobil, en tygkasse, i håret och på en kjol och en skjorta, bredvid tygprover i samma färger.',
       imageLabel: 'Fiktivt demo · Illustration',
       demoNote:
         'Fiktivt redaktionellt demoexempel, illustrerat med en grafisk platshållare. Material och hantverk beskriver konceptet, inte ett tillverkat föremål. Inga köp eller beställningar tas emot.',
@@ -164,12 +164,13 @@ export const sv: Copy = {
       disclosure: 'Demoinnehåll: bilderna är konceptbilder och grafiska studier, inte varor i lager. Varukorg, kassa och betalning är en prototyp med fiktiva uppgifter: ingen riktig beställning, ingen betalning och ingen insamling av uppgifter. Det enda som sajten behåller är ditt språkval, i din egen webbläsare.',
       categories: {
         bracelet: { title: 'Armband', description: 'Tre färdiga armband i makramé med pärlor och en tvåfärgad signaturpärla.' },
-        maedeup: { title: 'Maedeup med Norigae', description: 'Dekorativa knutar inspirerade av koreanskt knutverk, med Norigae-hänge.' },
+        maedeup: { title: 'Maedeup med Norigae', description: 'Fyra färdiga Norigae med knut, hänge och tofs, inspirerade av koreanskt knutverk. Eller designa din egen.' },
         hanbok: { title: 'Hanbok', description: 'Omsydda av en second hand-herrskjorta. Varje plagg är unikt.' },
       },
     },
     card: {
       demoLabel: 'Demo · ej till salu',
+      prototypeLabel: 'Demo · prototyp',
       imageNote: 'Konceptbild · demo',
       priceLabel: 'Pris',
       priceTbd: 'Pris meddelas senare',
@@ -178,7 +179,10 @@ export const sv: Copy = {
         'signature-bracelet-1': { imageAlt: 'Armband i dammrosa makramé med vita pärlor och guldpärlor, med en signaturpärla i ljusblått och rosa i mitten.' },
         'signature-bracelet-2': { imageAlt: 'Armband i ljust makramé med guldpärlor, med en signaturpärla i mörkblått och benvitt i mitten.' },
         'signature-bracelet-3': { imageAlt: 'Armband i mörkbrunt makramé med guldpärlor, med en signaturpärla i brunt och sandfärgat i mitten.' },
-        'maedeup-norigae-demo': { imageAlt: 'Bild: en Maedeup med Norigae-hänge i mörkblått, med tofs och en tvåfärgad signaturpärla.' },
+        'maedeup-norigae-1': { imageAlt: 'Norigae i ljust turkosblått med en knut överst, en signaturpärla i turkos och benvitt och en lång tofs.' },
+        'maedeup-norigae-2': { imageAlt: 'Norigae i dammrosa med en knut överst, en signaturpärla i rosa och turkos och en lång tofs.' },
+        'maedeup-norigae-3': { imageAlt: 'Norigae i senapsgult med en knut överst, en signaturpärla i senap och mörkbrunt och en tofs.' },
+        'maedeup-norigae-4': { imageAlt: 'Norigae i marinblått med en knut överst, en signaturpärla i marinblått och rött och en lång tofs.' },
         'shirt-hanbok-demo': { imageAlt: 'Bild: en ung kvinna i en kort blå omlottjacka med knytband och en veckad blå kjol med knytband i midjan, sedd framifrån. Konceptbild, inte ett foto av ett dokumenterat plagg.' },
         'shirt-hanbok-demo-2': { imageAlt: 'Bild: en kvinna i en kort lila skjorta med diagonal omlott, knappar och en knut vid sidan, med vida jeans, sedd framifrån. Konceptbild, inte ett foto av ett dokumenterat plagg.' },
       },

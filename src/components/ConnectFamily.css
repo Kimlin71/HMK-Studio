@@ -1,13 +1,30 @@
-/* Picture frame under the ACCENTED body text. Component-scoped so it does not collide with App.css. */
+/* The CONNECT family: text on the left, the landscape studio picture on the right. Component-scoped so it does not collide with App.css. */
+.connect-family {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 24px clamp(28px, 4vw, 64px);
+}
+
+.connect-family__text {
+  min-width: 0;
+}
+
 .connect-family__figure {
   position: relative;
   display: grid;
-  max-width: 480px;
+  width: 100%;
   margin: 0;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 2;
   place-items: center;
   overflow: hidden;
   background: var(--linen);
+}
+
+@media (max-width: 900px) {
+  .connect-family {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .connect-family__figure img {

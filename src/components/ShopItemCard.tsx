@@ -18,7 +18,7 @@ export function ShopItemCard({ item }: ShopItemCardProps) {
   const [missing, setMissing] = useState(false)
 
   return (
-    <article className="shop-card">
+    <article className={`shop-card shop-card--${item.category}`}>
       <div className="shop-card__image-wrap">
         {/* Replace concept images with the studio's own photographs when available. */}
         {missing ? (
@@ -32,7 +32,7 @@ export function ShopItemCard({ item }: ShopItemCardProps) {
       </div>
       <div className="shop-card__meta">
         <h4 className="shop-card__name" lang="en">{item.name}</h4>
-        <p className="shop-card__demo">{text.demoLabel}</p>
+        <p className="shop-card__demo">{cartItem ? text.prototypeLabel : text.demoLabel}</p>
       </div>
       <p className="shop-card__price">
         <span>{text.priceLabel}</span> {cartItem ? <Price amount={price(cartItem)} /> : text.priceTbd}

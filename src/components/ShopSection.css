@@ -134,3 +134,17 @@
     height: 260px;
   }
 }
+
+/* Maedeup with Norigae: tall studio photographs in different proportions, shown whole on the pale ground of the photographs. */
+.shop-card--maedeup .shop-card__image-wrap {
+  height: auto;
+  aspect-ratio: 3 / 4;
+  background: #F6F4F5;
+}
+
+.shop-card--maedeup .shop-card__image {
+  padding: 0;
+  object-fit: contain;
+  /* The photographs have slightly different white backgrounds. Multiply blends each into the card ground so no frame shows. */
+  mix-blend-mode: multiply;
+}

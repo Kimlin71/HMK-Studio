@@ -55,6 +55,25 @@
   object-position: center top;
 }
 
+/* The view from behind lies on top and fades in on hover or keyboard focus. Touch screens have no hover and keep the front view. */
+.hanbok-card__image--back {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.hanbok-card:hover .hanbok-card__image--back,
+.hanbok-card:focus-within .hanbok-card__image--back {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hanbok-card__image--back {
+    transition: none;
+  }
+}
+
 /* The label sits at the bottom edge so it never covers the face. */
 .hanbok-card__image-wrap .image-note {
   top: auto;

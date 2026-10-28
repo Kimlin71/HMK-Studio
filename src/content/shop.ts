@@ -1,3 +1,4 @@
+import type { NorigaeProductId } from './norigae.ts'
 import type { SignaturePearlDesign } from './signaturePearl.ts'
 
 // Language-independent shop catalogue. Visible text lives in src/content/copy/ under `shop`.
@@ -21,7 +22,7 @@ export const braceletPearls: Record<BraceletItemId, SignaturePearlDesign> = {
   'signature-bracelet-3': { first: 'khaki', second: 'vandyke', pattern: 'horizontal' },
 }
 
-export type ShopItemId = BraceletItemId | 'maedeup-norigae-demo' | HanbokItemId
+export type ShopItemId = BraceletItemId | NorigaeProductId | HanbokItemId
 
 export type ShopItem = {
   id: ShopItemId
@@ -30,6 +31,8 @@ export type ShopItem = {
   name: string
   image: string
   imagePosition?: string
+  /** Shown instead of `image` while the card is hovered or focused with the keyboard (hanbok: the view from behind). */
+  hoverImage?: string
 }
 
 export const shopItems: ShopItem[] = [
@@ -37,24 +40,24 @@ export const shopItems: ShopItem[] = [
   { id: 'signature-bracelet-1', category: 'bracelet', name: 'Signature Bracelet No. 1', image: '/images/shop/bracelets/bracelet-1.webp' },
   { id: 'signature-bracelet-2', category: 'bracelet', name: 'Signature Bracelet No. 2', image: '/images/shop/bracelets/bracelet-2.webp' },
   { id: 'signature-bracelet-3', category: 'bracelet', name: 'Signature Bracelet No. 3', image: '/images/shop/bracelets/bracelet-3.webp' },
-  {
-    id: 'maedeup-norigae-demo',
-    category: 'maedeup',
-    name: 'Maedeup Norigae No. 1',
-    // The founder's photograph, also shown in the builder. Cart and checkout add the design it shows.
-    image: '/images/shop/norigae/norigae-reference.webp',
-  },
+  // Maedeup with Norigae: four finished pieces from the founder's photographs. The builder below is for a design of one's own.
+  { id: 'maedeup-norigae-1', category: 'maedeup', name: 'Maedeup Norigae No. 1', image: '/images/shop/norigae/maedeup-norigae-1.jpg' },
+  { id: 'maedeup-norigae-2', category: 'maedeup', name: 'Maedeup Norigae No. 2', image: '/images/shop/norigae/maedeup-norigae-2.jpg' },
+  { id: 'maedeup-norigae-3', category: 'maedeup', name: 'Maedeup Norigae No. 3', image: '/images/shop/norigae/maedeup-norigae-3.jpg' },
+  { id: 'maedeup-norigae-4', category: 'maedeup', name: 'Maedeup Norigae No. 4', image: '/images/shop/norigae/maedeup-norigae-4.jpg' },
   {
     id: 'shirt-hanbok-demo',
     category: 'hanbok',
     name: 'Shirt Hanbok No. 1',
     image: '/images/shop/hanbok/hanbok-1.jpg',
+    hoverImage: '/images/shop/hanbok/hanbok-1b.jpg',
   },
   {
     id: 'shirt-hanbok-demo-2',
     category: 'hanbok',
     name: 'Shirt Hanbok No. 2',
     image: '/images/shop/hanbok/hanbok-2.jpg',
+    hoverImage: '/images/shop/hanbok/hanbok-2b.jpg',
   },
 ]
 

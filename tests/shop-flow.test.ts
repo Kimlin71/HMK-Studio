@@ -1,11 +1,13 @@
 import assert from 'node:assert/strict'
+import { existsSync, statSync } from 'node:fs'
 import test from 'node:test'
 import { addItem, cartItemCount, cartTotal, hasPattern, removeItem, shopItemToNewCartItem, type CartItem } from '../src/content/cart.ts'
-import { initialNorigae, norigaeShowcase } from '../src/content/norigae.ts'
+import { initialNorigae, norigaeProducts, norigaeShowcase } from '../src/content/norigae.ts'
 import { PAYMENT_DELAY_MS, demoCustomer, formatOrderNumber, placeOrder, validateCustomer } from '../src/content/order.ts'
 import { demoMeasurements } from '../src/content/pattern.ts'
 import { formatPrice, price } from '../src/content/prices.ts'
 import { parseRoute, routeHash } from '../src/content/routes.ts'
+import { getShopItem, type ShopItemId } from '../src/content/shop.ts'
 
 const NBSP = '\u00a0'
 
@@ -52,7 +54,7 @@ test('cart: add, remove and total without mutating the input', () => {
 
 test('shop cards map to cart items; hanbok has none', () => {
   assert.deepEqual(shopItemToNewCartItem({ id: 'signature-bracelet-3', category: 'bracelet' }), { kind: 'bracelet', braceletId: 'signature-bracelet-3' })
-  assert.deepEqual(shopItemToNewCartItem({ id: 'maedeup-norigae-demo', category: 'maedeup' }), { kind: 'norigae', design: norigaeShowcase })
+  assert.deepEqual(shopItemToNewCartItem({ id: 'maedeup-norigae-3', category: 'maedeup' }), { kind: 'norigae', design: norigaeProducts['maedeup-norigae-3'], productId: 'maedeup-norigae-3' })
   assert.equal(shopItemToNewCartItem({ id: 'shirt-hanbok-demo', category: 'hanbok' }), null)
 })
 
@@ -93,4 +95,24 @@ test('routes: only #kassa and #bekraftelse leave the normal page', () => {
   assert.equal(parseRoute('#bekraftelse'), 'confirmation')
   assert.equal(routeHash('checkout'), '#kassa')
   assert.equal(routeHash('confirmation'), '#bekraftelse')
+})
+
+test('the four finished Norigae are shop items with a photograph, a design and a price', () => {
+  const ids = Object.keys(norigaeProducts)
+  assert.equal(ids.length, 4)
+  for (const id of ids) {
+    const item = getShopItem(id as ShopItemId)
+    assert.ok(item, `${id} is in the shop`)
+    assert.equal(item.category, 'maedeup')
+    assert.ok(existsSync(`public${item.image}`), `${item.image} exists`)
+    assert.ok(statSync(`public${item.image}`).size < 400_000, `${item.image} is under 400 kB`)
+    const cartItem = shopItemToNewCartItem(item)
+    assert.ok(cartItem && price(cartItem) >= 450)
+  }
+})
+
+test('the designs of the finished Norigae differ from each other and from the builder start', () => {
+  const keys = Object.values(norigaeProducts).map((design) => JSON.stringify(design))
+  assert.equal(new Set(keys).size, 4)
+  assert.ok(!keys.includes(JSON.stringify(initialNorigae)))
 })

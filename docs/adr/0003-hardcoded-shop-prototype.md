@@ -8,6 +8,8 @@ The site is a prototype for a school presentation, not a live shop. It may now c
 
 Considered options: keep everything inactive (cannot show a purchase flow in the presentation), or build a real backend with Stripe (not needed for the presentation and would handle personal data). The goal is that the prototype can become a real shop later, so the seams are kept: prices, the cart, the customer, the order and the pattern rules live in `src/content/` and plain functions, not inside UI components.
 
+Bracelets are three finished products the customer picks, not a free builder; only the Maedeup with Norigae is built by the customer. The cart, checkout and confirmation share one flow for all three kinds of item (bracelet, Norigae, measured pattern).
+
 Consequences:
 
 - Measurement fields are pre-filled with a fictional customer ("Kund Demo") and show a visible note that nothing is saved or sent.

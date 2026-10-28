@@ -54,4 +54,41 @@ export function isNorigaeShowcase(design: NorigaeDesign) {
   )
 }
 
+export type NorigaeProductId = 'maedeup-norigae-1' | 'maedeup-norigae-2' | 'maedeup-norigae-3' | 'maedeup-norigae-4'
+
+/**
+ * The four finished Norigae in the shop, with the colours read from their photographs. A customer who does not want
+ * to design their own buys one of these as it is.
+ */
+export const norigaeProducts: Record<NorigaeProductId, NorigaeDesign> = {
+  'maedeup-norigae-1': {
+    knotColour: 'glaucous',
+    cordColour: 'glaucous',
+    pendant: { first: 'glaucous', second: 'ivory', pattern: 'horizontal' },
+    tasselColour: 'glaucous',
+    tasselLength: 'long',
+  },
+  'maedeup-norigae-2': {
+    knotColour: 'cameo',
+    cordColour: 'cameo',
+    pendant: { first: 'cameo', second: 'glaucous', pattern: 'vertical' },
+    tasselColour: 'cameo',
+    tasselLength: 'long',
+  },
+  'maedeup-norigae-3': {
+    knotColour: 'khaki',
+    cordColour: 'khaki',
+    pendant: { first: 'khaki', second: 'vandyke', pattern: 'horizontal' },
+    tasselColour: 'khaki',
+    tasselLength: 'medium',
+  },
+  'maedeup-norigae-4': {
+    knotColour: 'indigo',
+    cordColour: 'indigo',
+    pendant: { first: 'indigo', second: 'ochre', pattern: 'vertical' },
+    tasselColour: 'indigo',
+    tasselLength: 'long',
+  },
+}
+
 export type NorigaeColourField = 'knotColour' | 'cordColour' | 'tasselColour'

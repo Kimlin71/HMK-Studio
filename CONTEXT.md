@@ -26,6 +26,10 @@ _Avoid_: Standard pattern made smaller
 A MAKE pattern whose dimensions follow one person's own measurements, so it fits their proportions rather than a standard size. It is meant to be sold as a digital pattern, which separates it from a Custom design, an on-screen exploration only.
 _Avoid_: Custom pattern, standard size pattern
 
+**Prototype shop**:
+The hard-coded flow on the site (cart, checkout, mocked payment, order confirmation and a pattern download) that runs on fictional data for a presentation. It shows how a purchase would feel and sells nothing.
+_Avoid_: Webshop, store, live checkout
+
 **ACCENTED**:
 Hand-tied knots, tassels, jewellery and small details inspired by Korean decorative knotwork, designed to complement the garments. It replaces the earlier working name ADORN: an accent is a small, deliberate mark that completes a whole, rather than decoration added on top.
 _Avoid_: Unconnected accessories shop, ADORN
