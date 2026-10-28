@@ -19,7 +19,6 @@ export function SignatureBead() {
       <figure className="signature-bead__image">
         <div className="signature-bead__concept">
           <img alt={text.macro.alt} loading="lazy" src={signatureBeadImage} />
-          <span className="image-note">{text.macro.label}</span>
         </div>
         <figcaption>
           {text.macro.caption}{' '}

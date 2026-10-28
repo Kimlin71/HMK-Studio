@@ -1,16 +1,16 @@
-import type { ColourFamilyId, ElementKind, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
-import type { BeadType, BraceletStyleId, WristSize } from '../bracelet'
-import type { KnotStyleId, SecondElementId, TasselLengthId } from '../norigae'
+import type { TasselLengthId } from '../norigae'
 import type { PearlPattern } from '../signaturePearl'
 import type { HanbokItemId, ShopCategory, ShopItemId } from '../shop'
+import type { MeasurementKey } from '../pattern'
+import type { PatternFabric, PatternMaterial, PatternProductId, SkillLevel } from '../patterns'
+import type { CustomerField } from '../order'
 
 export type Language = 'sv' | 'en'
 
 export type PieceCopy = {
   category: string
   imageAlt: string
-  imageLabel: string
   demoNote: string
   material: string
   story: string
@@ -18,13 +18,6 @@ export type PieceCopy = {
   upcycling?: string
   petiteNote?: string
   related: string
-}
-
-export type ConnectPieceCopy = {
-  /** Translation of the product name, shown under it. Omitted when it would only repeat the name. */
-  subtitle?: string
-  roleLabel: string
-  description: string
 }
 
 // One Copy per language. Both languages must satisfy this type, so a missing string is a compile error.
@@ -40,6 +33,7 @@ export type Copy = {
     menuClose: string
     contact: string
     languageLabel: string
+    cartButton: { text: string; label: (count: number) => string }
     nav: { home: string; wear: string; make: string; accented: string; shop: string; studio: string; about: string }
   }
   hero: {
@@ -50,8 +44,8 @@ export type Copy = {
     primaryCta: string
     secondaryCta: string
     index: string
-    imageAlt: string
-    imageNote: [string, string]
+    /** Picture of what each offering is, shown as a tile next to the headline. */
+    tiles: Record<ProductArea, { alt: string }>
     seal: [string, string]
     doorsLabel: string
     doors: Record<ProductArea, { title: string; text: string }>
@@ -59,7 +53,7 @@ export type Copy = {
   }
   brandIntro: { marker: string; eyebrow: string; titleTop: string; titleEm: string; lead: string; body: string }
   collections: Record<CollectionId, { concept: string; title: string; paragraphs: string[]; action: string }>
-  collectionCard: { open: (name: string, category: string) => string; imageNote: string }
+  collectionCard: { open: (name: string, category: string) => string }
   compare: {
     before: string
     after: string
@@ -67,7 +61,6 @@ export type Copy = {
     afterAlt: string
     beforeCaption: string
     afterCaption: string
-    imageNote: string
     sliderLabel: string
     sliderValue: (percent: number) => string
     leftRight: (left: string, right: string) => string
@@ -83,26 +76,13 @@ export type Copy = {
     title: string
     origin: string
     lead: string
-    paletteLabel: string
-    paletteNote: string
-    paletteGroups: Record<PaletteGroupId, { label: string; note: string }>
-    indigoPrint: string
-    familiesLabel: string
-    families: Record<ColourFamilyId, { label: string; note: string }>
-    accentNote: string
-    piecesLabel: string
-    figureNote: string
-    pieces: Record<string, ConnectPieceCopy>
-    elementsEyebrow: string
-    elementsNote: string
-    elementNames: Record<ElementKind, { label: string; description: string }>
-    statusLabel: string
-    disclosure: string
-    pending: { label: string; status: string }[]
+    image: { alt: string; pending: string }
   }
   // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
   shop: {
     section: {
+      /** The banner that marks the start of the shop. */
+      banner: { eyebrow: string; title: string; line: string }
       eyebrow: string
       title: string
       intro: string
@@ -111,50 +91,27 @@ export type Copy = {
     }
     card: {
       demoLabel: string
-      imageNote: string
+      /** Label on cards that can be put in the demo cart. */
+      prototypeLabel: string
       priceLabel: string
       priceTbd: string
-      orderButton: string
-      orderNote: string
+      /** Shown instead of the picture while the picture file is missing. */
+      imagePending: string
       items: Record<ShopItemId, { imageAlt: string }>
-    }
-    // Both builders share these key names for the same concepts: title, intro, note, previewLabel, previewNote,
-    // presetsLabel, `hint` on option groups, summary and copy.
-    bracelet: {
-      title: string
-      eyebrow: string
-      intro: string
-      note: string
-      previewLabel: string
-      presetsLabel: string
-      style: { legend: string; hint: string; options: Record<BraceletStyleId, string> }
-      photoAlt: Record<BraceletStyleId, string>
-      cord: { legend: string; hint: string }
-      beadColour: { legend: string; hint: string }
-      size: { legend: string; hint: string; options: Record<WristSize, { label: string; range: string }> }
-      summary: {
-        prefix: string
-        labels: Record<'style' | 'cord' | 'beads' | 'signature' | 'size', string>
-        /** Value shown for the signature pearl count: exactly one. */
-        signatureCount: string
-        beadTypeNames: Record<BeadType, string>
-      }
-      copy: { button: string; success: string; failure: string; heading: string; footer: string }
     }
     maedeup: {
       title: string
       intro: string
       note: string
       previewLabel: string
-      presetsLabel: string
       photoAlt: string
       pearlNote: string
-      knotStyle: { legend: string; hint: string; options: Record<KnotStyleId, { label: string; description: string }> }
-      colours: Record<'knot' | 'cord' | 'second' | 'tassel', { legend: string; hint: string }>
-      secondElement: { legend: string; hint: string; options: Record<SecondElementId, string> }
+      colours: Record<'knot' | 'cord' | 'tassel', { legend: string; hint: string }>
       tasselLength: { legend: string; hint: string; options: Record<TasselLengthId, string> }
-      summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'second' | 'tassel', string> }
+      summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'tassel', string> }
       copy: { button: string; success: string; failure: string; heading: string; footer: string }
+      /** Shown under the add button: this exact design goes in the cart. */
+      addNote: string
     }
 
     signaturePearl: {
@@ -191,6 +148,84 @@ export type Copy = {
       items: Record<HanbokItemId, { category: string; story: string; material: string; sourceShirt: string }>
     }
   }
+  /** Said on every screen of the shop flow. */
+  prototypeNotice: string
+  /** Small tag next to every field a visitor can type in. */
+  demoTag: string
+  cart: {
+    add: { button: string; added: string }
+    panel: {
+      title: string
+      empty: string
+      total: string
+      removeText: string
+      remove: (name: string) => string
+      checkout: string
+      startOver: string
+    }
+    /** Said next to every price and total. */
+    priceMarker: string
+    /** Small kind label above each cart line. */
+    kinds: { bracelet: string; norigae: string; pattern: string }
+    /** Summary label for a measurement value, for example `37 cm`. */
+    unit: string
+  }
+  pattern: {
+    card: { skillLabel: string; open: string; openLabel: (name: string) => string }
+    skill: Record<SkillLevel, string>
+    products: Record<PatternProductId, { description: string; imageAlt: string }>
+    details: {
+      fabricTitle: string
+      extrasTitle: string
+      widthLabel: string
+      amountLabel: string
+      yards: (amount: number) => string
+      width: (cm: number) => string
+      fabrics: Record<PatternFabric, string>
+      extras: Record<PatternMaterial, string>
+    }
+    dialogNote: string
+    form: {
+      legend: string
+      customer: string
+      customerName: string
+      demoNote: string
+      range: (min: number, max: number) => string
+      fields: Record<MeasurementKey, { label: string; hint: string }>
+      errors: Record<'required' | 'shoulderVsBust' | 'lengthVsUpperBody' | 'waistVsHip', string> & {
+        tooLow: (min: number) => string
+        tooHigh: (max: number) => string
+      }
+      invalidSummary: string
+    }
+    download: { button: string; note: string; fileHint: string }
+  }
+  checkout: {
+    title: string
+    back: string
+    summary: string
+    empty: string
+    emptyAction: string
+    detailsTitle: string
+    detailsNote: string
+    fields: Record<CustomerField, { label: string; hint?: string }>
+    errors: { required: string; summary: string }
+    payment: { title: string; note: string }
+    pay: (total: string) => string
+    processing: string
+    startOver: string
+    delivery: string
+  }
+  confirmation: {
+    title: string
+    thanks: string
+    orderNumber: string
+    items: string
+    empty: string
+    emptyAction: string
+    downloadTitle: string
+    startOver: string
+  }
   signatureBead: {
     marker: string
     title: string
@@ -199,7 +234,7 @@ export type Copy = {
     colourNote: string
     coloursLabel: string
     coloursFootnote: string
-    macro: { alt: string; label: string; caption: string }
+    macro: { alt: string; caption: string }
     pendingPhoto: string
     imageBrief: string
   }
@@ -215,7 +250,7 @@ export type Copy = {
   about: {
     marker: string
     imageAlt: string
-    imageNote: string
+    imagePending: string
     quote: [string, string]
     eyebrow: string
     titleTop: string

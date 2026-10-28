@@ -119,3 +119,16 @@
     height: 280px;
   }
 }
+
+.norigae__price {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.norigae__price > span:first-child {
+  margin-right: 6px;
+  font-size: var(--text-label);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}

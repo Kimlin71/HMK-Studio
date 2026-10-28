@@ -2,7 +2,7 @@
 // `pattern` is the direction of that dividing line: vertical (left and right halves) or horizontal (top and bottom halves).
 // Language-independent data. Visible text lives in src/content/copy/ under `shop.signaturePearl`.
 
-import type { ModuleColour } from './jewellery'
+import type { ModuleColour } from './jewellery.ts'
 
 export type PearlPattern = 'vertical' | 'horizontal'
 

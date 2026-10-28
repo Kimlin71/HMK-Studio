@@ -1,0 +1,128 @@
+/* Sewing patterns: card and dialog. Component-scoped; the dialog frame comes from .piece-dialog in App.css. */
+.shop-card--pattern .shop-card__image-wrap {
+  height: auto;
+  aspect-ratio: 1 / 1;
+  background: var(--white);
+}
+
+.shop-card--pattern .shop-card__image {
+  padding: 0;
+  object-fit: contain;
+}
+
+.pattern-dialog {
+  width: min(1040px, calc(100% - 32px));
+}
+
+.pattern-dialog__body {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 28px 40px;
+  padding: 24px 32px 36px;
+}
+
+.pattern-dialog__picture {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  background: var(--white);
+}
+
+.pattern-dialog__picture img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.pattern-dialog__copy {
+  display: grid;
+  min-width: 0;
+  gap: 14px;
+  align-content: start;
+}
+
+.pattern-dialog__copy h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.pattern-dialog__copy p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+.pattern-dialog__note {
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.pattern-dialog__skill span {
+  margin-right: 6px;
+  color: var(--ink-accent);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pattern-dialog__table h3 {
+  margin: 0 0 6px;
+  font-size: var(--text-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pattern-dialog__table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-small);
+}
+
+.pattern-dialog__table th,
+.pattern-dialog__table td {
+  padding: 8px 10px 8px 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+
+.pattern-dialog__table thead th {
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.pattern-dialog__copy .measure__form {
+  margin-top: 8px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+@media (max-width: 900px) {
+  .pattern-dialog__body {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 20px 16px 28px;
+  }
+
+  .pattern-dialog__picture {
+    position: static;
+    display: grid;
+    max-height: 420px;
+    place-items: center;
+    overflow: hidden;
+  }
+
+  .pattern-dialog__picture img {
+    width: auto;
+    max-width: 100%;
+    max-height: 420px;
+  }
+}
+
+@media (max-width: 640px) {
+  .pattern-dialog {
+    width: calc(100% - 20px);
+  }
+}

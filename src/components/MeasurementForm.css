@@ -1,0 +1,299 @@
+/* Measured pattern: form and SVG preview. Component-scoped. Lines are at least 2 px and text at least 14 px (16 px body)
+   at 1280 px so they survive a compressed screen share. The drawing is 8 px per cm: lines 2.4 px, labels 16 px. */
+.measure {
+  grid-column: 1 / -1;
+  display: grid;
+  min-width: 0;
+  gap: 28px;
+  margin-top: 56px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  --builder-selected: var(--paper);
+}
+
+.measure__heading {
+  display: grid;
+  max-width: 680px;
+  justify-items: start;
+  gap: 4px;
+}
+
+.measure__heading h3 {
+  margin: 0 0 8px;
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.measure__heading p {
+  margin: 0 0 10px;
+}
+
+.measure__heading .eyebrow {
+  margin-bottom: 6px;
+}
+
+.measure__heading > p:not(.eyebrow):not(.prototype-notice) {
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.measure__workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.measure__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 0 28px;
+}
+
+.measure__form fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.measure__form legend {
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink-heading);
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.measure__customer {
+  margin: 0 0 4px;
+  color: var(--ink-soft);
+}
+
+.measure__demo-note {
+  margin: 0 0 18px;
+  color: var(--ink-heading);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.measure__field {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.measure__field label {
+  color: var(--ink-heading);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.measure__control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.measure__control input {
+  width: 130px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--ink-soft);
+  color: var(--ink-heading);
+  background: var(--white);
+  font-size: 16px;
+}
+
+.measure__control span {
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+.measure__field--error .measure__control input {
+  border-width: 2px;
+  border-color: var(--ochre-red);
+}
+
+.measure__hint {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.5;
+}
+
+.measure__error {
+  margin: 0;
+  color: var(--ochre-red);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.measure__summary,
+.measure__stale {
+  min-height: 1.5em;
+  margin: 0 0 8px;
+  color: var(--ochre-red);
+  font-size: var(--text-small);
+  font-weight: 600;
+}
+
+.measure__generate {
+  min-height: 48px;
+  padding: 10px 22px;
+  border: 1px solid var(--deep-indigo);
+  color: var(--white);
+  background: var(--deep-indigo);
+  cursor: pointer;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.measure__generate:hover:not(:disabled) {
+  color: var(--deep-indigo);
+  background: transparent;
+}
+
+.measure__generate:disabled {
+  border-style: dashed;
+  border-color: var(--ink-soft);
+  color: var(--ink-soft);
+  background: transparent;
+  cursor: not-allowed;
+}
+
+.measure__result {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+  padding: 24px;
+  background: var(--paper-warm);
+}
+
+.measure__result h4 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.measure__note {
+  margin: 0;
+}
+
+.measure__stale {
+  margin: 0;
+}
+
+.measure__buy {
+  display: grid;
+  max-width: 340px;
+  gap: 10px;
+}
+
+.pattern-preview {
+  margin: 0;
+}
+
+.pattern-preview__pieces {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 20px 28px;
+  padding: 16px;
+  background: var(--white);
+}
+
+.pattern-piece {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.pattern-piece__shape {
+  fill: var(--paper);
+  stroke: var(--deep-indigo);
+  stroke-linejoin: round;
+  stroke-width: 0.3px;
+}
+
+.pattern-piece__fold {
+  fill: none;
+  stroke: var(--ochre-red);
+  stroke-dasharray: 1.1 0.8;
+  stroke-width: 0.4px;
+}
+
+.pattern-piece__grain,
+.pattern-piece__dimension,
+.pattern-piece__arrow {
+  fill: none;
+  stroke: var(--ink-soft);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 0.3px;
+}
+
+.pattern-piece__dimension {
+  stroke: var(--ochre-red);
+}
+
+.pattern-piece__arrow--dimension {
+  stroke: var(--ochre-red);
+}
+
+.pattern-piece__label {
+  fill: var(--ink-heading);
+  font-family: var(--sans);
+  font-size: 2px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-linejoin: round;
+  stroke-width: 0.6px;
+}
+
+.pattern-piece__name {
+  fill: var(--ink-heading);
+  font-family: var(--serif);
+  font-size: 2.3px;
+  font-weight: 600;
+}
+
+.pattern-preview__legend {
+  display: grid;
+  gap: 4px;
+  margin-top: 12px;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+}
+
+@media (max-width: 640px) {
+  .measure {
+    margin-top: 36px;
+    padding: 20px 16px;
+  }
+
+  .measure__result {
+    padding: 14px 10px;
+  }
+
+  .pattern-preview__pieces {
+    padding: 8px;
+  }
+}
+
+.measure__hint span {
+  display: block;
+}

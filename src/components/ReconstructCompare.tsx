@@ -16,7 +16,6 @@ export function ReconstructCompare({ piece }: { piece: EditorialPiece }) {
         <img alt={compare.afterAlt} className="compare__image compare__image--after" loading="eager" src={reconstructImages.after} />
         <span aria-hidden="true" className="compare__label compare__label--before">{compare.before}</span>
         <span aria-hidden="true" className="compare__label compare__label--after">{compare.after}</span>
-        <span className="image-note">{compare.imageNote}</span>
         <input
           aria-label={compare.sliderLabel}
           aria-valuetext={compare.sliderValue(Math.round(position))}

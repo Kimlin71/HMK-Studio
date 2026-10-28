@@ -1,4 +1,4 @@
-import type { ConnectKind, ConnectParts, ElementKind, ModuleColour } from '../content/jewellery'
+import type { ElementKind, ModuleColour } from '../content/jewellery'
 import { detail, EDGE, tone } from './drawingStyle'
 
 // Graphic colour studies only. These are drawings, not photographs and not construction drawings.
@@ -56,78 +56,6 @@ export function Tassel({ x, top, height, width, colour }: { x: number; top: numb
       ))}
       <rect fill={tone(colour)} height="6" rx="1.5" stroke={EDGE} strokeWidth="1" width="8" x={x - 4} y={top} />
     </g>
-  )
-}
-
-function Layout({ kind, parts }: { kind: ConnectKind; parts: ConnectParts }) {
-  const { knot, cord, bead, tassel, accent } = parts
-
-  switch (kind) {
-    case 'pendant':
-      return (
-        <>
-          <Cord colour={cord} d="M14 0C20 62 48 82 60 88C72 82 100 62 106 0" />
-          <Knot colour={knot} size={13} x={60} y={100} />
-          {bead ? <Bead colour={bead} r={15} x={60} y={132} /> : null}
-        </>
-      )
-    case 'earrings-quiet':
-      return (
-        <>
-          {[38, 82].map((x) => (
-            <g key={x}>
-              <Ring colour={cord} r={4} x={x} y={18} />
-              <Cord colour={cord} d={`M${x} 22L${x} 52`} />
-              <Knot colour={knot} size={11} x={x} y={62} />
-            </g>
-          ))}
-        </>
-      )
-    case 'earrings-long':
-      return (
-        <>
-          {[38, 82].map((x) => (
-            <g key={x}>
-              <Ring colour={cord} r={4} x={x} y={12} />
-              <Cord colour={cord} d={`M${x} 16L${x} 36`} />
-              <Knot colour={knot} size={10} x={x} y={46} />
-              {tassel ? <Tassel colour={tassel} height={62} top={56} width={18} x={x} /> : null}
-            </g>
-          ))}
-        </>
-      )
-    case 'bracelet':
-      return (
-        <>
-          <Cord colour={cord} d="M14 80A46 30 0 1 1 106 80A46 30 0 1 1 14 80" />
-          <Knot colour={knot} size={11} x={60} y={50} />
-          {bead ? (
-            <>
-              <Bead colour={bead} r={8} x={14} y={80} />
-              <Bead colour={bead} r={8} x={106} y={80} />
-            </>
-          ) : null}
-          {accent ? <Bead colour={accent} r={5} x={60} y={110} /> : null}
-        </>
-      )
-    case 'bag-charm':
-      return (
-        <>
-          <Ring colour={cord} r={9} x={60} y={14} />
-          <Cord colour={cord} d="M60 23L60 66" />
-          <Knot colour={knot} size={12} x={60} y={76} />
-          {bead ? <Bead colour={bead} r={12} x={60} y={106} /> : null}
-          {tassel ? <Tassel colour={tassel} height={36} top={116} width={20} x={60} /> : null}
-        </>
-      )
-  }
-}
-
-export function ConnectPieceDrawing({ kind, parts }: { kind: ConnectKind; parts: ConnectParts }) {
-  return (
-    <svg aria-hidden="true" className="connect-drawing" focusable="false" viewBox={kind === 'earrings-quiet' ? '20 4 80 80' : '0 0 120 160'}>
-      <Layout kind={kind} parts={parts} />
-    </svg>
   )
 }
 

@@ -1,20 +1,5 @@
 /* Controls shared by the bracelet and Maedeup builders. Component-scoped so it does not collide with App.css.
    A builder sets --builder-selected to the background of a chosen option, so it contrasts with the builder's own ground. */
-.builder-presets {
-  margin-bottom: 24px;
-}
-
-.builder-presets .eyebrow {
-  margin-bottom: 10px;
-  font-size: var(--text-micro);
-}
-
-.builder-presets__row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
 .builder-button {
   min-height: 44px;
   padding: 8px 14px;

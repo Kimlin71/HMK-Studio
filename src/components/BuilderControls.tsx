@@ -1,6 +1,5 @@
-import { useId, type ReactNode } from 'react'
-import { colourLabels, type ColourFamilyId, type ModuleColour } from '../content/jewellery'
-import { useCopy } from '../i18n/LanguageContext'
+import type { ReactNode } from 'react'
+import { colourLabels, type ModuleColour } from '../content/jewellery'
 import type { SummaryRow } from './builderSummary'
 import type { CopyStatus } from './useCopyToClipboard'
 import './BuilderControls.css'
@@ -57,43 +56,25 @@ export function ColourOptionGroup({ colours, ...props }: ColourOptionGroupProps)
   )
 }
 
-type PresetRowProps<P extends { id: ColourFamilyId }> = {
-  label: string
-  presets: P[]
-  onSelect: (preset: P) => void
-}
-
-// Colour-family starting points. Labels come from copy.connect.families.
-export function PresetRow<P extends { id: ColourFamilyId }>({ label, presets, onSelect }: PresetRowProps<P>) {
-  const { copy } = useCopy()
-  const labelId = useId()
-
+// The content of one summary row: label, optional text, colour names. Colour names stay English. Shared by the builder summary, the cart and the checkout.
+export function SummaryRowContent({ row }: { row: SummaryRow }) {
   return (
-    <div className="builder-presets">
-      <p className="eyebrow" id={labelId}>{label}</p>
-      <div aria-labelledby={labelId} className="builder-presets__row" role="group">
-        {presets.map((preset) => (
-          <button className="builder-button" key={preset.id} onClick={() => onSelect(preset)} type="button">
-            <span lang="en">{copy.connect.families[preset.id].label}</span>
-          </button>
-        ))}
-      </div>
-    </div>
+    <>
+      {row.label}: {row.value}{row.value && row.colours?.length ? ', ' : ''}
+      {row.colours?.map((colour, index) => (
+        <span key={colour + index}>{index > 0 ? ' + ' : null}<span lang="en">{colourLabels[colour]}</span></span>
+      ))}
+    </>
   )
 }
 
-// Live summary shared by both builders: one <output>, one row per choice. Colour names stay English.
+// Live summary shared by both builders: one <output>, one row per choice.
 export function BuilderSummary({ prefix, rows }: { prefix: string; rows: SummaryRow[] }) {
   return (
     <output aria-live="polite" className="builder-summary">
       <strong>{prefix}</strong>
       {rows.map((row) => (
-        <span key={row.label}>
-          {row.label}: {row.value ? `${row.value}, ` : ''}
-          {row.colours?.map((colour, index) => (
-            <span key={colour + index}>{index > 0 ? ' + ' : null}<span lang="en">{colourLabels[colour]}</span></span>
-          ))}
-        </span>
+        <span key={row.label}><SummaryRowContent row={row} /></span>
       ))}
     </output>
   )

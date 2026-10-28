@@ -1,8 +1,49 @@
 /* Shop section. Component-scoped so it does not collide with App.css. */
+/* The shop is a place of its own: a dark banner (as in the other dark blocks) opens it, and the shelves sit on a warmer ground
+   than the editorial pages above and below. */
+/* --shop-side is the section's side padding at each width, so the banner can bleed out to the page edges. */
 .shop {
-  padding-top: 96px;
+  --shop-side: clamp(24px, 10.5vw, 180px);
+  padding-top: 0;
+  padding-right: var(--shop-side);
   padding-bottom: 96px;
-  border-top: 1px solid var(--line);
+  padding-left: var(--shop-side);
+  border-top: 0;
+  background: var(--paper-warm);
+}
+
+.shop__banner {
+  display: grid;
+  gap: 8px;
+  margin: 0 calc(-1 * var(--shop-side)) 72px;
+  padding: 72px var(--shop-side) 64px;
+  color: var(--white);
+  /* Ochre Red, not the deep indigo of the manifesto above, so the shop reads as a place of its own. Small text is white: ivory and
+     cameo pink are under 4.5:1 on this red at small sizes. */
+  background: var(--ochre-red);
+}
+
+.shop__banner .eyebrow {
+  margin: 0;
+  color: var(--white);
+}
+
+.shop__banner h2 {
+  margin: 0;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.shop__banner p:last-child {
+  max-width: 640px;
+  margin: 8px 0 0;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 .shop__intro {
@@ -10,8 +51,9 @@
   margin-bottom: 56px;
 }
 
-.shop__intro h2 {
+.shop__intro h3 {
   margin: 0 0 16px;
+  font-size: clamp(24px, 3vw, 32px);
 }
 
 .shop__lead {
@@ -53,6 +95,13 @@
   min-width: 0;
   flex-direction: column;
   gap: 10px;
+  /* Cards in one row are equally tall, and the button sits at the bottom of each, so names of different length do not move it. */
+  align-self: stretch;
+}
+
+.shop-card > .add-to-cart,
+.shop-card > .add-to-cart__button {
+  margin-top: auto;
 }
 
 .shop-card__image-wrap {
@@ -67,6 +116,19 @@
   height: 100%;
   padding: 12px;
   object-fit: contain;
+}
+
+.shop-card__pending {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--ink-soft);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  text-align: center;
 }
 
 .shop-card__meta {
@@ -107,31 +169,23 @@
   text-transform: uppercase;
 }
 
-.shop-card__order {
-  min-height: 44px;
-  width: 100%;
-  padding: 10px 16px;
-  border: 1px dashed var(--ink-soft);
-  color: var(--ink-soft);
-  background: transparent;
-  cursor: not-allowed;
-  font-size: var(--text-label);
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.shop-card__note {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: var(--text-small);
-  line-height: 1.6;
+@media (max-width: 900px) {
+  .shop {
+    --shop-side: 7vw;
+  }
 }
 
 @media (max-width: 640px) {
   .shop {
-    padding-top: 64px;
+    --shop-side: 23px;
+    padding-top: 0;
     padding-bottom: 64px;
+  }
+
+  .shop__banner {
+    margin-bottom: 44px;
+    padding-top: 52px;
+    padding-bottom: 44px;
   }
 
   .shop__intro {
@@ -141,4 +195,23 @@
   .shop-card__image-wrap {
     height: 260px;
   }
+}
+
+/* Maedeup with Norigae: tall photographs in different proportions, shown whole on the same linen ground as the bracelets.
+   Nos. 1 and 2 have their background removed. Nos. 3 and 4 still have a pale one: multiply blends it into the linen. */
+.shop-card--maedeup .shop-card__image-wrap {
+  height: auto;
+  aspect-ratio: 3 / 4;
+}
+
+.shop-card--maedeup .shop-card__image {
+  padding: 0;
+  object-fit: contain;
+  /* Multiply blends the pale studio background of the photographs that still have one into the card ground, so no frame shows. */
+  mix-blend-mode: multiply;
+}
+
+/* Pieces with the background removed (transparent WebP) need no blending, and multiply would darken their pastel colours. */
+.shop-card--maedeup .shop-card__image[src$='.webp'] {
+  mix-blend-mode: normal;
 }
