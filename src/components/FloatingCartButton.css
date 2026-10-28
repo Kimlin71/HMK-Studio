@@ -1,0 +1,85 @@
+/* Floating cart button, bottom-right. Sits above the site thread (z-index 25) and below the skip link (30). */
+.floating-cart {
+  position: fixed;
+  z-index: 28;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 52px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 16px;
+  border: 1px solid var(--deep-indigo);
+  color: var(--white);
+  background: var(--deep-indigo);
+  box-shadow: 0 6px 20px rgb(0 0 0 / 22%);
+  cursor: pointer;
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  animation: floating-cart-in 220ms ease-out;
+}
+
+.floating-cart:hover {
+  background: var(--ink-heading);
+}
+
+.floating-cart:focus-visible {
+  outline: 3px solid var(--ochre-red);
+  outline-offset: 3px;
+}
+
+.floating-cart__icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.floating-cart__count {
+  display: inline-grid;
+  min-width: 26px;
+  height: 26px;
+  place-items: center;
+  color: var(--white);
+  background: var(--ochre-red);
+  font-size: var(--text-label);
+  letter-spacing: 0;
+  animation: floating-cart-pop 260ms ease-out;
+}
+
+@keyframes floating-cart-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes floating-cart-pop {
+  50% {
+    transform: scale(1.25);
+  }
+}
+
+/* On phones only the icon and the count remain; the full name is in aria-label. */
+@media (max-width: 480px) {
+  .floating-cart {
+    padding: 0 12px;
+  }
+
+  .floating-cart__text {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-cart,
+  .floating-cart__count {
+    animation: none;
+  }
+}

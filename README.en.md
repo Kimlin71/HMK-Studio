@@ -38,7 +38,7 @@ Requires Node 22.18 or later.
 - `src/cart/` holds the cart's React state (`CartProvider`, `useCart`) and `src/routing/` holds the hash routing.
 - `src/components/` holds the page's reusable sections and the product detail dialog.
   - The shop: `ShopSection`, `ShopItemCard`, `NorigaeBuilder` (+ `NorigaeDrawing`), `HanbokShop`, `HanbokDialog` and `HanbokBadges`.
-  - The prototype flow: `AddToCartButton`, `CartButton`, `CartPanel`, `OrderLines`, `Price`, `PatternShop`, `MeasurementForm`, `FlowShell`, `CheckoutView` and `ConfirmationView`.
+  - The prototype flow: `AddToCartButton`, `CartButton`, `FloatingCartButton` (fixed bottom-right once the cart has items), `CartPanel`, `OrderLines`, `Price`, `PatternShop`, `MeasurementForm`, `FlowShell`, `CheckoutView` and `ConfirmationView`.
   - Shared parts: `BuilderControls`, `PearlControls`, `SignaturePearlDrawing`, `DesignPreview` (photo or drawing), `builderSummary`, `useCopyToClipboard` and the dialog shell `PieceDialogShell`, which `ProductDialog` also uses.
 - `src/index.css` holds design variables and global accessibility rules.
 - `src/App.css` holds responsive presentation.

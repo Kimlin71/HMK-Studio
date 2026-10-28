@@ -6,6 +6,7 @@ import { AboutMaker } from './components/AboutMaker'
 import { BrandIntro } from './components/BrandIntro'
 import { CollectionGrid } from './components/CollectionGrid'
 import { CraftGallery } from './components/CraftGallery'
+import { FloatingCartButton } from './components/FloatingCartButton'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Hero } from './components/Hero'
@@ -48,6 +49,7 @@ function App() {
         </main>
         <Footer />
       </div>
+      <FloatingCartButton />
       <CartPanel />
       <ProductDialog onClose={() => setSelectedPiece(null)} piece={selectedPiece} />
     </>
