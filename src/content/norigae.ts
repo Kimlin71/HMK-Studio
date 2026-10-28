@@ -3,8 +3,8 @@
 // The knot is one fixed shape, a graphic study inspired by Korean decorative knotwork, not a documented technique.
 // Nothing here is stock, a product variant or an order.
 
-import { allColours, type ModuleColour } from './jewellery'
-import { samePearl, type SignaturePearlDesign } from './signaturePearl'
+import { allColours, type ModuleColour } from './jewellery.ts'
+import { samePearl, type SignaturePearlDesign } from './signaturePearl.ts'
 
 export type TasselLengthId = 'short' | 'medium' | 'long'
 
