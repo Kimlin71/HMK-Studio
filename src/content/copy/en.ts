@@ -319,7 +319,7 @@ export const en: Copy = {
       stale: 'The measurements have changed. Generate the pattern again to update the drawing.',
       alt: 'Pattern pieces for the back, front and sleeve, drawn from the measurements entered.',
       pieces: { back: 'Back', front: 'Front', sleeve: 'Sleeve' },
-      legend: { measurements: 'Measurements in cm are marked on the pieces.', fold: 'Dashed edge: placed on the fold of the fabric.', grain: 'Arrow: grain direction.' },
+      legend: { measurements: 'Measurements in cm are marked on the pieces.', halves: 'Front and back are drawn as halves on the fold, so the shoulder and bust marks show only part of the full measurement.', fold: 'Dashed edge: placed on the fold of the fabric.', grain: 'Arrow: grain direction.' },
       add: 'Add the pattern to the cart',
       empty: 'Generate the pattern and it appears here.',
     },

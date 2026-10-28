@@ -319,7 +319,7 @@ export const sv: Copy = {
       stale: 'Måtten har ändrats. Skapa mönstret igen för att uppdatera ritningen.',
       alt: 'Mönsterdelar för bakstycke, framstycke och ärm, ritade efter de angivna måtten.',
       pieces: { back: 'Bakstycke', front: 'Framstycke', sleeve: 'Ärm' },
-      legend: { measurements: 'Måtten i cm är markerade på delarna.', fold: 'Streckad kant: läggs mot tygets vikning.', grain: 'Pil: trådriktning.' },
+      legend: { measurements: 'Måtten i cm är markerade på delarna.', halves: 'Fram- och bakstycke är ritade som halvor mot vikningen, så axel- och bröstmarkeringarna visar bara en del av hela måttet.', fold: 'Streckad kant: läggs mot tygets vikning.', grain: 'Pil: trådriktning.' },
       add: 'Lägg mönstret i varukorgen',
       empty: 'Skapa mönstret så visas det här.',
     },

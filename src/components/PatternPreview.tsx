@@ -58,12 +58,13 @@ export function PatternPreview({ pieces, measurements }: { pieces: PatternPiece[
   const text = copy.pattern.preview
 
   return (
-    <figure aria-label={text.alt} className="pattern-preview" role="group">
+    <figure aria-label={text.alt} className="pattern-preview">
       <div className="pattern-preview__pieces">
         {pieces.map((piece) => <PieceDrawing key={piece.id} measurements={measurements} piece={piece} />)}
       </div>
       <figcaption className="pattern-preview__legend">
         <span>{text.legend.measurements}</span>
+        <span>{text.legend.halves}</span>
         <span>{text.legend.fold}</span>
         <span>{text.legend.grain}</span>
       </figcaption>

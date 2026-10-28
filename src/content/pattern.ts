@@ -6,6 +6,8 @@
 // Garment: a straight shirt following `proportion-study-01` ("shorter upper body, balanced sleeve, hem where the garment falls right").
 // Waist and hip are not measured because the shirt is straight.
 
+import type { Language } from './copy/types.ts'
+
 export type MeasurementKey = 'shoulder' | 'bust' | 'upperBody' | 'sleeve' | 'length'
 
 export const measurementKeys: MeasurementKey[] = ['shoulder', 'bust', 'upperBody', 'sleeve', 'length']
@@ -76,7 +78,7 @@ export function toMeasurements(input: MeasurementInput): Measurements | null {
 export const patternAnchor = 'mattanpassat-monster'
 
 /** A measurement for display: decimal comma in Swedish, point in English, always with its unit. */
-export const formatMeasurement = (value: number, language: 'sv' | 'en') =>
+export const formatMeasurement = (value: number, language: Language) =>
   `${language === 'sv' ? String(value).replace('.', ',') : String(value)}\u00a0cm`
 
 export const sameMeasurements = (a: Measurements, b: Measurements) => measurementKeys.every((key) => a[key] === b[key])
@@ -191,7 +193,7 @@ export function generatePattern(m: Measurements): PatternPiece[] {
     const marks: PatternMark[] = isBack
       ? [
           { key: 'shoulder', from: [0, SHOULDER_DROP_CM], to: [half, SHOULDER_DROP_CM], label: { at: [half / 2, SHOULDER_DROP_CM + 1.5], anchor: 'middle' } },
-          { key: 'length', from: [2.5, BACK_NECK_DROP_CM], to: [2.5, hem], label: { at: [3.4, hem / 2 - 1.5], anchor: 'start' } },
+          { key: 'length', from: [NECK_HALF_CM, 0], to: [NECK_HALF_CM, hem], label: { at: [NECK_HALF_CM + 0.9, hem / 2 - 1.5], anchor: 'start' } },
         ]
       : [
           { key: 'bust', from: [0, underarm], to: [width, underarm], label: { at: [1.6, underarm + 1.6], anchor: 'start' } },

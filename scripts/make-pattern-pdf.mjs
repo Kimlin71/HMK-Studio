@@ -90,6 +90,8 @@ for (const piece of pieces) {
 
 text(MARGIN, top - 62 * SCALE - 34, 9, 'Streckad kant: läggs mot tygets vikning. Pil: trådriktning. Mått i cm. Skala ca 1:5, inte i full storlek.')
 text(MARGIN, top - 62 * SCALE - 47, 9, 'Dashed edge: placed on the fold. Line: grain direction. Measurements in cm. Scale about 1:5, not full size.')
+text(MARGIN, top - 62 * SCALE - 60, 8, 'Fram- och bakstycke är halvor mot vikningen: axel- och bröstmarkeringarna visar en del av hela måttet.')
+text(MARGIN, top - 62 * SCALE - 71, 8, 'Front and back are halves on the fold: the shoulder and bust marks show part of the full measurement.')
 text(MARGIN, 40, 8, 'Fast demofil / fixed demo file. Inget sparas eller skickas. Nothing is saved or sent.', { grey: 0.4 })
 
 // PDF file: catalog, pages, page, two fonts, content stream.

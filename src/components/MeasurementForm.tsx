@@ -91,16 +91,16 @@ export function MeasurementForm() {
                       type="number"
                       value={texts[key]}
                     />
-                    <span aria-hidden="true">cm</span>
+                    <span aria-hidden="true">{copy.cart.unit}</span>
                   </div>
-                  <p className="measure__hint" id={hintId}>{field.hint}. {text.form.range(range.min, range.max)}</p>
+                  <p className="measure__hint" id={hintId}><span>{field.hint}</span> <span>{text.form.range(range.min, range.max)}</span></p>
                   {error ? <p className="measure__error" id={errorId}>{errorText(error, key)}</p> : null}
                 </div>
               )
             })}
             </div>
             <p className="measure__summary" role="status">{valid ? '' : text.form.invalidSummary}</p>
-            <button aria-disabled={!valid} className="measure__generate" disabled={!valid} type="submit">{text.form.generate}</button>
+            <button className="measure__generate" disabled={!valid} type="submit">{text.form.generate}</button>
           </fieldset>
         </form>
         <div className="measure__result">

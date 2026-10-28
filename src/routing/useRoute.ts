@@ -14,8 +14,3 @@ export function useRoute(): Route {
 export const goTo = (route: Exclude<Route, 'home'>) => {
   window.location.hash = routeHash(route)
 }
-
-/** Back to the shop section on the normal page. */
-export const goToShop = (shopAnchor: string) => {
-  window.location.hash = `#${shopAnchor}`
-}

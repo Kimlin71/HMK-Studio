@@ -293,3 +293,7 @@
     padding: 8px;
   }
 }
+
+.measure__hint span {
+  display: block;
+}

@@ -6,12 +6,12 @@ import { price } from '../content/prices'
 import { norigaeSummaryRows, type SummaryRow } from './builderSummary'
 import { SummaryRowContent } from './BuilderControls'
 import { Price } from './Price'
-import type { Copy } from '../content/copy/types'
+import type { Copy, Language } from '../content/copy/types'
 
 type Line = { name: string; nameLang?: 'en'; kind: string; rows: SummaryRow[] }
 
 // What one cart item looks like, taken from the item data (never copied text), in the current language.
-function describe(item: CartItem, copy: Copy, language: 'sv' | 'en'): Line {
+function describe(item: CartItem, copy: Copy, language: Language): Line {
   const kinds = copy.cart.kinds
   switch (item.kind) {
     case 'bracelet': {

@@ -194,7 +194,7 @@ export type Copy = {
       stale: string
       alt: string
       pieces: Record<PatternPieceId, string>
-      legend: { measurements: string; fold: string; grain: string }
+      legend: { measurements: string; halves: string; fold: string; grain: string }
       add: string
       empty: string
     }

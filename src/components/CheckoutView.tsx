@@ -1,6 +1,6 @@
 import { useEffect, useId, useRef, useState, type FormEvent } from 'react'
 import { useCart } from '../cart/CartContext'
-import { cartTotal } from '../content/cart'
+import { cartTotal, type CartItem } from '../content/cart'
 import { PAYMENT_DELAY_MS, customerFields, demoCustomer, validateCustomer, type Customer } from '../content/order'
 import { formatPrice } from '../content/prices'
 import { shopAnchors } from '../content/shop'
@@ -15,11 +15,14 @@ import { Price } from './Price'
 export function CheckoutView() {
   const { copy, language } = useCopy()
   const text = copy.checkout
-  const { items, placeOrder } = useCart()
+  const { items: cartItems, placeOrder } = useCart()
   const idPrefix = useId()
   const [customer, setCustomer] = useState<Customer>(demoCustomer)
   const [tried, setTried] = useState(false)
   const [processing, setProcessing] = useState(false)
+  // The order as it was when "pay" was pressed, so the summary does not flash empty when the cart is cleared just before the confirmation shows.
+  const [frozen, setFrozen] = useState<CartItem[] | null>(null)
+  const items = frozen ?? cartItems
   const timer = useRef<number | undefined>(undefined)
 
   // Leaving the view cancels a payment that has not finished.
@@ -41,7 +44,13 @@ export function CheckoutView() {
   const onSubmit = (event: FormEvent) => {
     event.preventDefault()
     setTried(true)
-    if (hasErrors || processing) return
+    if (processing) return
+    if (hasErrors) {
+      const first = customerFields.find((field) => errors[field])
+      if (first) document.getElementById(`${idPrefix}-${first}`)?.focus()
+      return
+    }
+    setFrozen(items)
     setProcessing(true)
     timer.current = window.setTimeout(() => {
       placeOrder()
