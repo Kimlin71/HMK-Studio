@@ -132,6 +132,7 @@ export type Copy = {
       title: string
       oneOfAKind: string
       oneOfAKindNote: string
+      availability: string
       detailsButton: string
       detailsButtonLabel: (name: string) => string
       fields: { status: string; material: string; sourceShirt: string }
@@ -252,7 +253,6 @@ export type Copy = {
     imageAlt: string
     imagePending: string
     quote: [string, string]
-    eyebrow: string
     titleTop: string
     titleEm: string
     p1: string

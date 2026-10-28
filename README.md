@@ -2,6 +2,8 @@
 
 En tvåspråkig (svenska och engelska) redaktionell webbplats för Hyang-Mee Studio, byggd med React, TypeScript och Vite. Ordmärket är satt i text med en stämplad SVG-sigill (samma sigill är favicon, `public/favicon.svg`) och någon färdig logotyp finns ännu inte. FORM · PROPORTION · CONNECTION håller WEAR / RECONSTRUCT, MAKE / REPROPORTION och ACCENTED / CONNECT samman. ACCENTED ersätter arbetsnamnet ADORN.
 
+> English version: [`README.en.md`](README.en.md). Håll de två filerna i takt.
+
 ## Språk
 
 - Svenska är standard. Ett sparat val (`localStorage`, nyckel `hms-language`, ingen personuppgift) går först, därefter webbläsarens språk (`sv` eller `en`), annars svenska.
@@ -37,7 +39,7 @@ En tvåspråkig (svenska och engelska) redaktionell webbplats för Hyang-Mee Stu
 - `src/App.css` innehåller responsiv presentation.
 - `CONTEXT.md` definierar varumärkets centrala begrepp.
 
-Bildmaterialet består av lokala bilder (PNG och JPG, högst 400 kB var) i `public/images/`: grafiska illustrationer samt konceptbilder (`atelier-study.jpg`, `macro-signature-pearl.jpg`, `pattern-study.jpg`, `try-your-own-colours.jpg`) som är art direction-referenser och inte foton av färdiga produkter. Förstasidans tre bilder (hanbok, Norigae och byxmönster, se `heroTiles` i `src/content/site.ts`) återanvänder butikens konceptbilder. Stora originalfiler ligger i `originals/` och levereras inte med sajten. Inga externa bilder används längre. Inga egna ateljéfoton finns i projektet ännu. Konceptbilder har inga etiketter på bilden längre (på Kims begäran). Att de är konceptbilder framgår av alt-texterna, av texten "Demoinnehåll" högst upp i butiken och av märkningen "Demo · prototyp" på korten. Platshållare för bilder som saknas (till exempel "Bild kommer") och fiktiva demoobjekt är fortfarande märkta; illustrationerna dokumenterar inte verkliga plagg, personer eller arbetsprocesser.
+Bildmaterialet består av lokala bilder (PNG och JPG, högst 400 kB var) i `public/images/`: grafiska illustrationer samt konceptbilder (`atelier-study.jpg`, `macro-signature-pearl.jpg`, `pattern-study.jpg`, `personal-experience.jpg`, `try-your-own-colours.jpg`) som är art direction-referenser och inte foton av färdiga produkter. Förstasidans tre bilder (hanbok, Norigae och byxmönster, se `heroTiles` i `src/content/site.ts`) återanvänder butikens konceptbilder. Stora originalfiler ligger i `originals/` och levereras inte med sajten. Inga externa bilder används längre. Inga egna ateljéfoton finns i projektet ännu. Konceptbilder har inga etiketter på bilden längre (på Kims begäran). Att de är konceptbilder framgår av alt-texterna, av texten "Demoinnehåll" högst upp i butiken och av märkningen "Demo · prototyp" på korten. Platshållare för bilder som saknas (till exempel "Bild kommer") och fiktiva demoobjekt är fortfarande märkta; illustrationerna dokumenterar inte verkliga plagg, personer eller arbetsprocesser.
 
 Nyhetsbrev och kontakt är visuella prototyper utan insamling eller hantering av uppgifter. Butiken är en hårdkodad prototyp (se nedan): varukorg, kassa och betalning finns, men allt är mockat med fiktiva uppgifter och inget sparas eller skickas.
 

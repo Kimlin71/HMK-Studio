@@ -16,6 +16,7 @@ export function HanbokShop({ items }: { items: HanbokItem[] }) {
   return (
     <div className="hanbok-shop" id={shopAnchors.hanbokList}>
       <h4 className="hanbok-shop__title">{text.title}</h4>
+      <p className="hanbok-shop__availability">{text.availability}</p>
       <ul className="hanbok-shop__list">
         {items.map((item) => (
           <li className="hanbok-card" key={item.id}>

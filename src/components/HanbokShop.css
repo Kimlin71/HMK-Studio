@@ -14,6 +14,14 @@
   font-weight: 400;
 }
 
+.hanbok-shop__availability {
+  max-width: 620px;
+  margin: -8px 0 0;
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  line-height: 1.6;
+}
+
 .hanbok-shop__list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));

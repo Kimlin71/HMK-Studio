@@ -10,8 +10,8 @@ export const navigation = [
   { key: 'about', href: '#om-ateljen' },
 ] as const
 
-// Picture in the About section. The founder's own picture goes here; until the file exists a placeholder is shown.
-export const aboutImage = '/images/about/personal-experience.jpg'
+// Picture in the About section. A concept image, not a photograph of the founder. If the file is missing, a placeholder is shown.
+export const aboutImage = '/images/personal-experience.jpg'
 
 export const craftImages = [
   { image: '/images/stitch-detail.png', className: 'craft-image--stitch' },
