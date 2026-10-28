@@ -162,7 +162,7 @@ export const en: Copy = {
       categories: {
         bracelet: { title: 'Bracelets', description: 'Three finished macramé bracelets with pearls and a two-colour signature pearl.' },
         maedeup: { title: 'Maedeup with Norigae', description: 'Four finished Norigae with a knot, a pendant and a tassel, inspired by Korean knotwork. Or design your own.' },
-        pattern: { title: 'Sewing patterns', description: 'To create your custom petite patterns, we need a few details. Please provide your measurements below.' },
+        pattern: { title: 'Sewing patterns', description: 'To create your custom petite patterns, we need a few details. Please provide your measurements in cm by clicking on the button below your pattern.' },
         hanbok: { title: 'Hanbok', description: 'Re-sewn from one second-hand men’s shirt. Every piece is one of a kind.' },
       },
     },
@@ -284,7 +284,7 @@ export const en: Copy = {
     unit: 'cm',
   },
   pattern: {
-    card: { skillLabel: 'Level', open: 'Choose measurements', openLabel: (name) => `Choose measurements for ${name}` },
+    card: { skillLabel: 'Level', open: 'Your measurements', openLabel: (name) => `Your measurements for ${name}` },
     skill: { beginnerIntermediate: 'Beginner to intermediate' },
     products: {
       'pattern-1': {

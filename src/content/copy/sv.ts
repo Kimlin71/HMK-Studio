@@ -162,7 +162,7 @@ export const sv: Copy = {
       categories: {
         bracelet: { title: 'Armband', description: 'Tre färdiga armband i makramé med pärlor och en tvåfärgad signaturpärla.' },
         maedeup: { title: 'Maedeup med Norigae', description: 'Fyra färdiga Norigae med knut, hänge och tofs, inspirerade av koreanskt knutverk. Eller designa din egen.' },
-        pattern: { title: 'Sömnadsmönster', description: 'För att skapa dina egna petite-mönster behöver vi några uppgifter. Ange dina mått nedan.' },
+        pattern: { title: 'Sömnadsmönster', description: 'För att skapa dina egna petite-mönster behöver vi några uppgifter. Ange dina mått i cm genom att klicka på knappen under ditt mönster.' },
         hanbok: { title: 'Hanbok', description: 'Omsydda av en second hand-herrskjorta. Varje plagg är unikt.' },
       },
     },
@@ -284,7 +284,7 @@ export const sv: Copy = {
     unit: 'cm',
   },
   pattern: {
-    card: { skillLabel: 'Nivå', open: 'Välj mått', openLabel: (name) => `Välj mått för ${name}` },
+    card: { skillLabel: 'Nivå', open: 'Dina mått', openLabel: (name) => `Dina mått för ${name}` },
     skill: { beginnerIntermediate: 'Nybörjare till medel' },
     products: {
       'pattern-1': {
