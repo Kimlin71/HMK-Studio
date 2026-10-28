@@ -1,7 +1,5 @@
-import type { ColourFamilyId, ElementKind, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
-import type { BeadType, BraceletStyleId, WristSize } from '../bracelet'
-import type { KnotStyleId, SecondElementId, TasselLengthId } from '../norigae'
+import type { TasselLengthId } from '../norigae'
 import type { PearlPattern } from '../signaturePearl'
 import type { HanbokItemId, ShopCategory, ShopItemId } from '../shop'
 
@@ -18,13 +16,6 @@ export type PieceCopy = {
   upcycling?: string
   petiteNote?: string
   related: string
-}
-
-export type ConnectPieceCopy = {
-  /** Translation of the product name, shown under it. Omitted when it would only repeat the name. */
-  subtitle?: string
-  roleLabel: string
-  description: string
 }
 
 // One Copy per language. Both languages must satisfy this type, so a missing string is a compile error.
@@ -83,22 +74,7 @@ export type Copy = {
     title: string
     origin: string
     lead: string
-    paletteLabel: string
-    paletteNote: string
-    paletteGroups: Record<PaletteGroupId, { label: string; note: string }>
-    indigoPrint: string
-    familiesLabel: string
-    families: Record<ColourFamilyId, { label: string; note: string }>
-    accentNote: string
-    piecesLabel: string
-    figureNote: string
-    pieces: Record<string, ConnectPieceCopy>
-    elementsEyebrow: string
-    elementsNote: string
-    elementNames: Record<ElementKind, { label: string; description: string }>
-    statusLabel: string
-    disclosure: string
-    pending: { label: string; status: string }[]
+    image: { alt: string; pending: string }
   }
   // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
   shop: {
@@ -116,44 +92,20 @@ export type Copy = {
       priceTbd: string
       orderButton: string
       orderNote: string
+      /** Shown instead of the picture while the picture file is missing. */
+      imagePending: string
       items: Record<ShopItemId, { imageAlt: string }>
-    }
-    // Both builders share these key names for the same concepts: title, intro, note, previewLabel, previewNote,
-    // presetsLabel, `hint` on option groups, summary and copy.
-    bracelet: {
-      title: string
-      eyebrow: string
-      intro: string
-      note: string
-      previewLabel: string
-      presetsLabel: string
-      style: { legend: string; hint: string; options: Record<BraceletStyleId, string> }
-      photoAlt: Record<BraceletStyleId, string>
-      cord: { legend: string; hint: string }
-      beadColour: { legend: string; hint: string }
-      size: { legend: string; hint: string; options: Record<WristSize, { label: string; range: string }> }
-      summary: {
-        prefix: string
-        labels: Record<'style' | 'cord' | 'beads' | 'signature' | 'size', string>
-        /** Value shown for the signature pearl count: exactly one. */
-        signatureCount: string
-        beadTypeNames: Record<BeadType, string>
-      }
-      copy: { button: string; success: string; failure: string; heading: string; footer: string }
     }
     maedeup: {
       title: string
       intro: string
       note: string
       previewLabel: string
-      presetsLabel: string
       photoAlt: string
       pearlNote: string
-      knotStyle: { legend: string; hint: string; options: Record<KnotStyleId, { label: string; description: string }> }
-      colours: Record<'knot' | 'cord' | 'second' | 'tassel', { legend: string; hint: string }>
-      secondElement: { legend: string; hint: string; options: Record<SecondElementId, string> }
+      colours: Record<'knot' | 'cord' | 'tassel', { legend: string; hint: string }>
       tasselLength: { legend: string; hint: string; options: Record<TasselLengthId, string> }
-      summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'second' | 'tassel', string> }
+      summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'tassel', string> }
       copy: { button: string; success: string; failure: string; heading: string; footer: string }
     }
 

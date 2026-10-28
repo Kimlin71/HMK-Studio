@@ -1,6 +1,5 @@
 import { hanbokItems, shopAnchors, shopCategories, shopItems } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
-import { BraceletBuilder } from './BraceletBuilder'
 import { NorigaeBuilder } from './NorigaeBuilder'
 import { HanbokShop } from './HanbokShop'
 import { ShopItemCard } from './ShopItemCard'
@@ -29,12 +28,10 @@ export function ShopSection() {
             </div>
             <div className="shop-category__items">
               {category === 'hanbok' ? <HanbokShop items={hanbokItems} /> : (
-                category === 'bracelet' ? <BraceletBuilder /> : (
-                  <>
-                    {shopItems.filter((item) => item.category === category).map((item) => <ShopItemCard item={item} key={item.id} />)}
-                    <NorigaeBuilder />
-                  </>
-                )
+                <>
+                  {shopItems.filter((item) => item.category === category).map((item) => <ShopItemCard item={item} key={item.id} />)}
+                  {category === 'maedeup' ? <NorigaeBuilder /> : null}
+                </>
               )}
             </div>
           </div>

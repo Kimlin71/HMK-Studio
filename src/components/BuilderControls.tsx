@@ -1,6 +1,5 @@
-import { useId, type ReactNode } from 'react'
-import { colourLabels, type ColourFamilyId, type ModuleColour } from '../content/jewellery'
-import { useCopy } from '../i18n/LanguageContext'
+import type { ReactNode } from 'react'
+import { colourLabels, type ModuleColour } from '../content/jewellery'
 import type { SummaryRow } from './builderSummary'
 import type { CopyStatus } from './useCopyToClipboard'
 import './BuilderControls.css'
@@ -54,31 +53,6 @@ export function ColourOptionGroup({ colours, ...props }: ColourOptionGroupProps)
       {...props}
       options={colours.map((colour) => ({ value: colour, swatch: colour, label: <span lang="en">{colourLabels[colour]}</span> }))}
     />
-  )
-}
-
-type PresetRowProps<P extends { id: ColourFamilyId }> = {
-  label: string
-  presets: P[]
-  onSelect: (preset: P) => void
-}
-
-// Colour-family starting points. Labels come from copy.connect.families.
-export function PresetRow<P extends { id: ColourFamilyId }>({ label, presets, onSelect }: PresetRowProps<P>) {
-  const { copy } = useCopy()
-  const labelId = useId()
-
-  return (
-    <div className="builder-presets">
-      <p className="eyebrow" id={labelId}>{label}</p>
-      <div aria-labelledby={labelId} className="builder-presets__row" role="group">
-        {presets.map((preset) => (
-          <button className="builder-button" key={preset.id} onClick={() => onSelect(preset)} type="button">
-            <span lang="en">{copy.connect.families[preset.id].label}</span>
-          </button>
-        ))}
-      </div>
-    </div>
   )
 }
 

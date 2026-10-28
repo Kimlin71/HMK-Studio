@@ -69,6 +69,19 @@
   object-fit: contain;
 }
 
+.shop-card__pending {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 16px;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--ink-soft);
+  color: var(--ink-soft);
+  font-size: var(--text-small);
+  text-align: center;
+}
+
 .shop-card__meta {
   display: flex;
   flex-wrap: wrap;
