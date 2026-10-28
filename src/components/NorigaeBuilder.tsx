@@ -2,10 +2,11 @@ import { useId, useState } from 'react'
 import type { ModuleColour } from '../content/jewellery'
 import {
   initialNorigae,
+  isNorigaeShowcase,
   knotStyleIds,
   norigaeColours,
+  norigaePhoto,
   norigaePresets,
-  pendantColours,
   secondElementIds,
   tasselLengthIds,
   type NorigaeColourField,
@@ -14,17 +15,18 @@ import {
 import { shopAnchors } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
 import { BuilderSummary, ColourOptionGroup, CopyDesign, OptionGroup, PresetRow } from './BuilderControls'
+import { DesignPreview } from './DesignPreview'
 import { NorigaeDrawing } from './NorigaeDrawing'
+import { PearlControls } from './PearlControls'
 import { summaryRowText, type SummaryRow } from './builderSummary'
 import { useCopyToClipboard } from './useCopyToClipboard'
 import './NorigaeBuilder.css'
 
-type ColourKey = 'knot' | 'cord' | 'pendant' | 'second' | 'tassel'
+type ColourKey = 'knot' | 'cord' | 'second' | 'tassel'
 
 const colourFields: Record<ColourKey, NorigaeColourField> = {
   knot: 'knotColour',
   cord: 'cordColour',
-  pendant: 'pendantColour',
   second: 'secondColour',
   tassel: 'tasselColour',
 }
@@ -46,11 +48,11 @@ export function NorigaeBuilder() {
 
   // One ordered list of summary rows: used for the live summary and for the copied text.
   const rows: SummaryRow[] = [
-    { label: labels.knot, value: text.knotStyle.options[design.knotStyle].label, colour: design.knotColour },
-    { label: labels.cord, colour: design.cordColour },
-    { label: labels.pendant, colour: design.pendantColour },
-    ...(hasSecond ? [{ label: labels.second, value: text.secondElement.options[design.secondElement], colour: design.secondColour }] : []),
-    { label: labels.tassel, value: text.tasselLength.options[design.tasselLength], colour: design.tasselColour },
+    { label: labels.knot, value: text.knotStyle.options[design.knotStyle].label, colours: [design.knotColour] },
+    { label: labels.cord, colours: [design.cordColour] },
+    { label: labels.pendant, value: copy.shop.signaturePearl.pattern.options[design.pendant.pattern], colours: [design.pendant.first, design.pendant.second] },
+    ...(hasSecond ? [{ label: labels.second, value: text.secondElement.options[design.secondElement], colours: [design.secondColour] }] : []),
+    { label: labels.tassel, value: text.tasselLength.options[design.tasselLength], colours: [design.tasselColour] },
   ]
 
   const plainSummary = [text.copy.heading, ...rows.map(summaryRowText), text.pearlNote, text.copy.footer].join('\n')
@@ -76,13 +78,17 @@ export function NorigaeBuilder() {
       <div className="norigae__workspace">
         <div className="norigae__preview">
           <span className="norigae__label">{text.previewLabel}</span>
-          <div aria-hidden="true" className="norigae__drawing">
-            <NorigaeDrawing design={design} />
-          </div>
-          <span className="norigae__label">{text.previewNote}</span>
+          <DesignPreview
+            drawing={<NorigaeDrawing design={design} />}
+            drawingClassName="norigae__drawing"
+            idPrefix={idPrefix}
+            photo={norigaePhoto}
+            photoAlt={text.photoAlt}
+            photoMatches={isNorigaeShowcase(design)}
+          />
         </div>
         <div className="norigae__controls">
-          <PresetRow label={text.presetsLabel} onSelect={(preset) => update(preset.colours)} presets={norigaePresets} />
+          <PresetRow label={text.presetsLabel} onSelect={(preset) => update({ ...preset.colours, pendant: { ...design.pendant, first: preset.pearl[0], second: preset.pearl[1] } })} presets={norigaePresets} />
           <OptionGroup
             hint={text.knotStyle.hint}
             legend={text.knotStyle.legend}
@@ -94,7 +100,7 @@ export function NorigaeBuilder() {
           />
           {colourGroup('knot', norigaeColours)}
           {colourGroup('cord', norigaeColours)}
-          {colourGroup('pendant', pendantColours)}
+          <PearlControls idPrefix={idPrefix} onChange={(pendant) => update({ pendant })} value={design.pendant} />
           <p className="norigae__pearl">{text.pearlNote}</p>
           <OptionGroup
             hint={text.secondElement.hint}

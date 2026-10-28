@@ -1,6 +1,7 @@
-import type { BraceletDesign } from '../content/bracelet'
+import { braceletStyles, type BraceletDesign } from '../content/bracelet'
 import type { ModuleColour } from '../content/jewellery'
 import { detail, EDGE, tone } from './drawingStyle'
+import { SignaturePearlShape } from './SignaturePearlDrawing'
 
 // Graphic colour study only: a drawing, not a photograph and not a construction drawing.
 // The signature pearl is always drawn once, in the centre, whatever the design.
@@ -30,13 +31,22 @@ function KnotBand({ x, colour }: { x: number; colour: ModuleColour }) {
   )
 }
 
-function Pearl({ x, r, colour, signature }: { x: number; r: number; colour: ModuleColour; signature?: boolean }) {
+function Pearl({ x, r, colour }: { x: number; r: number; colour: ModuleColour }) {
   const y = cordY(x)
   return (
-    <g className={signature ? 'bracelet-drawing__signature' : 'bracelet-drawing__bead'}>
-      {signature ? <circle cx={x} cy={y} fill="none" r={r + 5} stroke={EDGE} strokeDasharray="2 3" strokeWidth="1" /> : null}
+    <g className="bracelet-drawing__bead">
       <circle cx={x} cy={y} fill={tone(colour)} r={r} stroke={EDGE} strokeWidth="1" />
       <ellipse cx={x - r * 0.3} cy={y - r * 0.35} fill="rgba(255, 252, 245, 0.6)" rx={r * 0.3} ry={r * 0.2} transform={`rotate(-30 ${x - r * 0.3} ${y - r * 0.35})`} />
+    </g>
+  )
+}
+
+function SignaturePearl({ x, r, design }: { x: number; r: number; design: BraceletDesign }) {
+  const y = cordY(x)
+  return (
+    <g className="bracelet-drawing__signature">
+      <circle cx={x} cy={y} fill="none" r={r + 5} stroke={EDGE} strokeDasharray="2 3" strokeWidth="1" />
+      <SignaturePearlShape pearl={design.signature} r={r} x={x} y={y} />
     </g>
   )
 }
@@ -58,7 +68,8 @@ function Crystal({ x, r, colour }: { x: number; r: number; colour: ModuleColour 
 }
 
 export function BraceletDrawing({ design }: { design: BraceletDesign }) {
-  const sideCount = (design.beadCount - 1) / 2
+  const style = braceletStyles[design.style]
+  const sideCount = (style.beadCount - 1) / 2
   const offsets = Array.from({ length: sideCount }, (_, i) => (i + 1) * SPACING)
   const groupHalf = sideCount * SPACING
   const knotXs = [groupHalf + 24, groupHalf + 46]
@@ -67,13 +78,13 @@ export function BraceletDrawing({ design }: { design: BraceletDesign }) {
     <svg aria-hidden="true" className="bracelet-drawing" focusable="false" viewBox={`0 0 ${WIDTH} 130`}>
       <path d={CORD_PATH} fill="none" stroke={EDGE} strokeLinecap="round" strokeWidth="5.6" />
       <path d={CORD_PATH} fill="none" stroke={tone(design.cord)} strokeLinecap="round" strokeWidth="4" />
-      {knotXs.flatMap((offset) => [CENTRE - offset, CENTRE + offset]).map((x) => <KnotBand colour={design.cord} key={x} x={x} />)}
+      {style.knotBands ? knotXs.flatMap((offset) => [CENTRE - offset, CENTRE + offset]).map((x) => <KnotBand colour={design.cord} key={x} x={x} />) : null}
       {offsets.flatMap((offset) => [CENTRE - offset, CENTRE + offset]).map((x) =>
-        design.beadType === 'crystal'
+        style.beadType === 'crystal'
           ? <Crystal colour={design.beadColour} key={x} r={BEAD_RADIUS} x={x} />
           : <Pearl colour={design.beadColour} key={x} r={BEAD_RADIUS} x={x} />,
       )}
-      <Pearl colour={design.signatureColour} r={SIGNATURE_RADIUS} signature x={CENTRE} />
+      <SignaturePearl design={design} r={SIGNATURE_RADIUS} x={CENTRE} />
     </svg>
   )
 }

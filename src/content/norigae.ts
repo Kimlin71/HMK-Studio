@@ -1,9 +1,10 @@
 // Maedeup + Norigae builder: language-independent data. Visible text lives in src/content/copy/ under `shop.maedeup`.
-// A Norigae is modelled as: top knot, pendant (the signature pearl, always present), an optional second element and a tassel.
+// A Norigae is modelled as: top knot, pendant (the signature pearl, always present, two colours), an optional second element and a tassel.
 // Knot styles are graphic studies inspired by Korean decorative knotwork, not documented techniques.
 // Nothing here is stock, a product variant or an order.
 
-import { allColours, signatureBeadColours, type ColourFamilyId, type ModuleColour } from './jewellery'
+import { allColours, type ColourFamilyId, type ModuleColour } from './jewellery'
+import { samePearl, type SignaturePearlDesign } from './signaturePearl'
 
 export type KnotStyleId = 'diamond' | 'layered' | 'ringed'
 export type SecondElementId = 'none' | 'bead' | 'knot'
@@ -15,15 +16,13 @@ export const tasselLengthIds: TasselLengthId[] = ['short', 'medium', 'long']
 
 /** Colours offered for knot, cord, second element and tassel: the whole CONNECT palette. */
 export const norigaeColours: ModuleColour[] = allColours
-/** The pendant is always the signature pearl, so only the pearl colours are offered. */
-export const pendantColours: ModuleColour[] = signatureBeadColours
 
 export type NorigaeDesign = {
   knotStyle: KnotStyleId
   knotColour: ModuleColour
   cordColour: ModuleColour
-  /** Colour of the signature pearl. There is deliberately no way to remove the pearl. */
-  pendantColour: ModuleColour
+  /** The signature pearl: two colours and a pattern. There is deliberately no way to remove the pearl. */
+  pendant: SignaturePearlDesign
   secondElement: SecondElementId
   secondColour: ModuleColour
   tasselColour: ModuleColour
@@ -34,23 +33,43 @@ export const initialNorigae: NorigaeDesign = {
   knotStyle: 'diamond',
   knotColour: 'indigo',
   cordColour: 'indigo',
-  pendantColour: 'ivory',
+  pendant: { first: 'ivory', second: 'indigo', pattern: 'vertical' },
   secondElement: 'none',
   secondColour: 'ivory',
   tasselColour: 'ivory',
   tasselLength: 'medium',
 }
 
-export type NorigaeColourField = 'knotColour' | 'cordColour' | 'pendantColour' | 'secondColour' | 'tasselColour'
+/**
+ * The design that the founder's photograph shows. While the customer's design equals this one, the photograph is a true preview.
+ * Placeholder: set it to match `norigaePhoto` once the photograph is in place.
+ */
+export const norigaeShowcase: NorigaeDesign = initialNorigae
+export const norigaePhoto = '/images/shop/norigae/norigae-reference.jpg'
 
-type NorigaeColours = Pick<NorigaeDesign, NorigaeColourField>
+export function isNorigaeShowcase(design: NorigaeDesign) {
+  const s = norigaeShowcase
+  return (
+    design.knotStyle === s.knotStyle &&
+    design.knotColour === s.knotColour &&
+    design.cordColour === s.cordColour &&
+    samePearl(design.pendant, s.pendant) &&
+    design.secondElement === s.secondElement &&
+    (design.secondElement === 'none' || design.secondColour === s.secondColour) &&
+    design.tasselColour === s.tasselColour &&
+    design.tasselLength === s.tasselLength
+  )
+}
+
+export type NorigaeColourField = 'knotColour' | 'cordColour' | 'secondColour' | 'tasselColour'
 
 // Colour starting points. Ids match colourFamilies so the family names in copy.connect.families are reused.
-export const norigaePresets: { id: ColourFamilyId; colours: NorigaeColours }[] = [
-  { id: 'indigo-ivory', colours: { knotColour: 'indigo', cordColour: 'indigo', pendantColour: 'ivory', secondColour: 'ivory', tasselColour: 'ivory' } },
-  { id: 'ochre-glaucous', colours: { knotColour: 'ochre', cordColour: 'ochre', pendantColour: 'glaucous', secondColour: 'glaucous', tasselColour: 'glaucous' } },
-  { id: 'ivory-glaucous', colours: { knotColour: 'ivory', cordColour: 'indigo', pendantColour: 'ivory', secondColour: 'glaucous', tasselColour: 'glaucous' } },
-  { id: 'cameo-indigo', colours: { knotColour: 'cameo', cordColour: 'indigo', pendantColour: 'indigo', secondColour: 'cameo', tasselColour: 'cameo' } },
-  { id: 'vandyke-khaki', colours: { knotColour: 'vandyke', cordColour: 'vandyke', pendantColour: 'ivory', secondColour: 'khaki', tasselColour: 'khaki' } },
-  { id: 'ivory-cameo', colours: { knotColour: 'ivory', cordColour: 'vandyke', pendantColour: 'ivory', secondColour: 'cameo', tasselColour: 'cameo' } },
+// A preset sets colours only: the knot style, tassel length and pearl pattern stay.
+export const norigaePresets: { id: ColourFamilyId; colours: Pick<NorigaeDesign, NorigaeColourField>; pearl: [ModuleColour, ModuleColour] }[] = [
+  { id: 'indigo-ivory', pearl: ['ivory', 'indigo'], colours: { knotColour: 'indigo', cordColour: 'indigo', secondColour: 'ivory', tasselColour: 'ivory' } },
+  { id: 'ochre-glaucous', pearl: ['glaucous', 'ochre'], colours: { knotColour: 'ochre', cordColour: 'ochre', secondColour: 'glaucous', tasselColour: 'glaucous' } },
+  { id: 'ivory-glaucous', pearl: ['ivory', 'glaucous'], colours: { knotColour: 'ivory', cordColour: 'indigo', secondColour: 'glaucous', tasselColour: 'glaucous' } },
+  { id: 'cameo-indigo', pearl: ['indigo', 'cameo'], colours: { knotColour: 'cameo', cordColour: 'indigo', secondColour: 'cameo', tasselColour: 'cameo' } },
+  { id: 'vandyke-khaki', pearl: ['ivory', 'ochre'], colours: { knotColour: 'vandyke', cordColour: 'vandyke', secondColour: 'khaki', tasselColour: 'khaki' } },
+  { id: 'ivory-cameo', pearl: ['ivory', 'cameo'], colours: { knotColour: 'ivory', cordColour: 'vandyke', secondColour: 'cameo', tasselColour: 'cameo' } },
 ]

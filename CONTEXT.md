@@ -53,7 +53,7 @@ A Korean ornament (노리개), traditionally worn with hanbok. In the studio's b
 _Avoid_: Charm, keyring
 
 **Signature pearl**:
-The one pearl that every bracelet and Maedeup/Norigae piece carries, the studio's recognisable mark. It is always present and cannot be removed from a design.
+The one pearl that every bracelet and Maedeup/Norigae piece carries, the studio's recognisable mark. It always has two colours, divided by a curved line with a dot of each colour in the other half, and the dividing line runs either vertically or horizontally. It is always present and cannot be removed from a design.
 _Avoid_: Logo bead, optional pearl
 
 **Custom design**:

@@ -23,11 +23,12 @@ En tvåspråkig (svenska och engelska) redaktionell webbplats för Hyang-Mee Stu
 - `src/content/products.ts` innehåller den språkoberoende strukturen för kategorier och fiktiva, tydligt markerade demo-produkter med stabila id:n, kategorikoppling och explicit prototypstatus.
 - `src/content/jewellery.ts` innehåller paletten, färgkombinationerna och smyckenas färgdelar. Valen representerar inte lager eller köpbara varianter.
 - `src/content/shop.ts` innehåller butikens språkoberoende katalog (fiktiva demoobjekt, `hanbokItems`) och ankare.
-- `src/content/bracelet.ts` och `src/content/norigae.ts` innehåller armbandets och Norigaens byggardata (delar, förval, standarddesign).
+- `src/content/bracelet.ts` och `src/content/norigae.ts` innehåller armbandets och Norigaens byggardata. Armbandet har tre färdiga designer med färgval, Norigaen byggs fritt. `src/content/signaturePearl.ts` beskriver signaturpärlan: två färger och vertikalt eller horisontellt mönster.
+- Foton till förhandsvisningen ligger i `public/images/shop/bracelets/` (`bracelet-1.jpg` till `bracelet-3.jpg`) och `public/images/shop/norigae/norigae-reference.jpg`. Ett foto kan inte byta färg och visas därför bara som förhandsvisning när kundens val stämmer med färgerna på fotot (`hasBaseColours`, `isNorigaeShowcase`). Annars, och om fotot saknas, visas teckningen.
 - `src/content/site.ts` innehåller navigationens ankare och hantverksbilderna.
 - `src/content/copy/` innehåller all text, en fil per språk.
 - `src/i18n/` innehåller språkkontext, val av språk och leverantör.
-- `src/components/` innehåller sidans återanvändbara sektioner och produktdetaljdialog. Butiken består av `ShopSection`, `ShopItemCard`, `BraceletBuilder` (+ `BraceletDrawing`), `NorigaeBuilder` (+ `NorigaeDrawing`), `HanbokShop`, `HanbokDialog` och `HanbokBadges`. De delade delarna är `BuilderControls`, `builderSummary`, `useCopyToClipboard` och dialogskalet `PieceDialogShell`, som även `ProductDialog` använder.
+- `src/components/` innehåller sidans återanvändbara sektioner och produktdetaljdialog. Butiken består av `ShopSection`, `ShopItemCard`, `BraceletBuilder` (+ `BraceletDrawing`), `NorigaeBuilder` (+ `NorigaeDrawing`), `HanbokShop`, `HanbokDialog` och `HanbokBadges`. De delade delarna är `BuilderControls`, `PearlControls`, `SignaturePearlDrawing`, `DesignPreview` (foto eller teckning), `builderSummary`, `useCopyToClipboard` och dialogskalet `PieceDialogShell`, som även `ProductDialog` använder.
 - `src/index.css` innehåller designvariabler och globala tillgänglighetsregler.
 - `src/App.css` innehåller responsiv presentation.
 - `CONTEXT.md` definierar varumärkets centrala begrepp.
@@ -46,7 +47,7 @@ Signaturpärlans bild är en konceptbild (makrostudie), inte ett foto: ett rikti
 
 ## Shop-gränssnitt och byggare
 
-Butiken (**Butik**, `#butik`, med egen länk i menyn) är byggd som enbart gränssnitt: beställning är inaktiv och priser visas som "pris meddelas senare". Specen [`docs/specs/0001-webshop-ui/spec.md`](docs/specs/0001-webshop-ui/spec.md) beskriver en shopsektion med armband, Maedeup med Norigae och hanbokplagg, samt två byggare (armband och Maedeup + Norigae) med live-förhandsvisning i SVG. Varje design har alltid en signaturpärla. Hanbokplagg presenteras som unika, gjorda av en enda second hand-skjorta.
+Butiken (**Butik**, `#butik`, med egen länk i menyn) är byggd som enbart gränssnitt: beställning är inaktiv och priser visas som "pris meddelas senare". Specen [`docs/specs/0001-webshop-ui/spec.md`](docs/specs/0001-webshop-ui/spec.md) beskriver en shopsektion med armband, Maedeup med Norigae och hanbokplagg, samt två val med live-förhandsvisning: tre färdiga armband där kunden byter färger, och en Maedeup + Norigae-byggare. Varje design har alltid en signaturpärla i två färger. Hanbokplagg presenteras som unika, gjorda av en enda second hand-skjorta.
 
 Medvetet inaktivt: priser visas som "pris meddelas senare", och det finns ingen varukorg, kassa, betalning, inloggning eller insamling av personuppgifter. Byggarna och beställningsknappen sparar och skickar ingenting: valen finns bara i komponentens minne, och det enda resultatet är en sammanfattning på skärmen som kan kopieras till urklipp. Det enda sajten behåller är språkvalet i den egna webbläsaren (`hms-language`). En design är ett utkast, inte en beställning. Beslutet finns i [`docs/adr/0002-shop-ui-before-commerce.md`](docs/adr/0002-shop-ui-before-commerce.md); Stripe Checkout, mönster med måttformulär och PDF-generering på servern efter betalning är separata, senare specar.
 

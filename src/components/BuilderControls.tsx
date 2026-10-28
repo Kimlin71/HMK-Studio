@@ -90,7 +90,9 @@ export function BuilderSummary({ prefix, rows }: { prefix: string; rows: Summary
       {rows.map((row) => (
         <span key={row.label}>
           {row.label}: {row.value ? `${row.value}, ` : ''}
-          {row.colour ? <span lang="en">{colourLabels[row.colour]}</span> : null}
+          {row.colours?.map((colour, index) => (
+            <span key={colour + index}>{index > 0 ? ' + ' : null}<span lang="en">{colourLabels[colour]}</span></span>
+          ))}
         </span>
       ))}
     </output>

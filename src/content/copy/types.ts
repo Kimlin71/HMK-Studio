@@ -1,7 +1,8 @@
-import type { ColourFamilyId, ElementKind, ModuleId, PaletteGroupId } from '../jewellery'
+import type { ColourFamilyId, ElementKind, PaletteGroupId } from '../jewellery'
 import type { CollectionId, PieceId, ProductArea } from '../products'
-import type { BeadType, WristSize } from '../bracelet'
+import type { BeadType, BraceletStyleId, WristSize } from '../bracelet'
 import type { KnotStyleId, SecondElementId, TasselLengthId } from '../norigae'
+import type { PearlPattern } from '../signaturePearl'
 import type { HanbokItemId, ShopCategory, ShopItemId } from '../shop'
 
 export type Language = 'sv' | 'en'
@@ -99,18 +100,6 @@ export type Copy = {
     disclosure: string
     pending: { label: string; status: string }[]
   }
-  modular: {
-    eyebrow: string
-    title: string
-    intro: string
-    note: string
-    previewEyebrow: string
-    previewNote: string
-    presetsEyebrow: string
-    modules: Record<ModuleId, { label: string; description: string }>
-    summaryPrefix: string
-    link: string
-  }
   // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
   shop: {
     section: {
@@ -137,17 +126,15 @@ export type Copy = {
       intro: string
       note: string
       previewLabel: string
-      previewNote: string
       presetsLabel: string
+      style: { legend: string; hint: string; options: Record<BraceletStyleId, string> }
+      photoAlt: Record<BraceletStyleId, string>
       cord: { legend: string; hint: string }
-      beadType: { legend: string; hint: string; options: Record<BeadType, string> }
       beadColour: { legend: string; hint: string }
-      signature: { legend: string; hint: string }
-      beadCount: { legend: string; hint: string }
       size: { legend: string; hint: string; options: Record<WristSize, { label: string; range: string }> }
       summary: {
         prefix: string
-        labels: Record<'cord' | 'beads' | 'signature' | 'size', string>
+        labels: Record<'style' | 'cord' | 'beads' | 'signature' | 'size', string>
         /** Value shown for the signature pearl count: exactly one. */
         signatureCount: string
         beadTypeNames: Record<BeadType, string>
@@ -159,17 +146,31 @@ export type Copy = {
       intro: string
       note: string
       previewLabel: string
-      previewNote: string
       presetsLabel: string
+      photoAlt: string
       pearlNote: string
       knotStyle: { legend: string; hint: string; options: Record<KnotStyleId, { label: string; description: string }> }
-      colours: Record<'knot' | 'cord' | 'pendant' | 'second' | 'tassel', { legend: string; hint: string }>
+      colours: Record<'knot' | 'cord' | 'second' | 'tassel', { legend: string; hint: string }>
       secondElement: { legend: string; hint: string; options: Record<SecondElementId, string> }
       tasselLength: { legend: string; hint: string; options: Record<TasselLengthId, string> }
       summary: { prefix: string; labels: Record<'knot' | 'cord' | 'pendant' | 'second' | 'tassel', string> }
       copy: { button: string; success: string; failure: string; heading: string; footer: string }
     }
 
+    signaturePearl: {
+      first: { legend: string; hint: string }
+      second: { legend: string; hint: string }
+      pattern: { legend: string; hint: string; options: Record<PearlPattern, string> }
+    }
+    preview: {
+      legend: string
+      hint: string
+      options: { photo: string; drawing: string }
+      photoNote: string
+      photoDiffers: string
+      photoMissing: string
+      drawingNote: string
+    }
     hanbok: {
       title: string
       oneOfAKind: string

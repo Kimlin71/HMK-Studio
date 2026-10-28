@@ -29,10 +29,12 @@ export function ShopSection() {
             </div>
             <div className="shop-category__items">
               {category === 'hanbok' ? <HanbokShop items={hanbokItems} /> : (
-                <>
-                  {shopItems.filter((item) => item.category === category).map((item) => <ShopItemCard item={item} key={item.id} />)}
-                  {category === 'bracelet' ? <BraceletBuilder /> : <NorigaeBuilder />}
-                </>
+                category === 'bracelet' ? <BraceletBuilder /> : (
+                  <>
+                    {shopItems.filter((item) => item.category === category).map((item) => <ShopItemCard item={item} key={item.id} />)}
+                    <NorigaeBuilder />
+                  </>
+                )
               )}
             </div>
           </div>

@@ -7,7 +7,7 @@ export const shopCategories: ShopCategory[] = ['bracelet', 'maedeup', 'hanbok']
 
 export type HanbokItemId = 'shirt-hanbok-demo' | 'shirt-hanbok-demo-2'
 
-export type ShopItemId = 'signature-bracelet-demo' | 'maedeup-norigae-demo' | HanbokItemId
+export type ShopItemId = 'maedeup-norigae-demo' | HanbokItemId
 
 export type ShopItem = {
   id: ShopItemId
@@ -19,12 +19,6 @@ export type ShopItem = {
 }
 
 export const shopItems: ShopItem[] = [
-  {
-    id: 'signature-bracelet-demo',
-    category: 'bracelet',
-    name: 'Signature Bracelet No. 1',
-    image: '/images/macro-signature-pearl.png',
-  },
   {
     id: 'maedeup-norigae-demo',
     category: 'maedeup',

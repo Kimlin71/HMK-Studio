@@ -1,19 +1,21 @@
 import { useId, useState } from 'react'
 import {
   braceletBeadColours,
-  braceletBeadCounts,
-  braceletBeadTypes,
   braceletCordColours,
   braceletPresets,
-  braceletSignatureColours,
   braceletSizes,
+  braceletStyleIds,
+  braceletStyles,
   defaultBraceletDesign,
+  hasBaseColours,
   type BraceletDesign,
 } from '../content/bracelet'
 import { shopAnchors } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
 import { BraceletDrawing } from './BraceletDrawing'
 import { BuilderSummary, ColourOptionGroup, CopyDesign, OptionGroup, PresetRow } from './BuilderControls'
+import { DesignPreview } from './DesignPreview'
+import { PearlControls } from './PearlControls'
 import { summaryRowText, type SummaryRow } from './builderSummary'
 import { useCopyToClipboard } from './useCopyToClipboard'
 import './BraceletBuilder.css'
@@ -30,14 +32,15 @@ export function BraceletBuilder() {
     clipboard.reset()
   }
 
-  const beadTypeName = text.summary.beadTypeNames[design.beadType]
+  const style = braceletStyles[design.style]
   const size = text.size.options[design.size]
   const labels = text.summary.labels
 
   const rows: SummaryRow[] = [
-    { label: labels.cord, colour: design.cord },
-    { label: labels.beads, value: `${design.beadCount - 1} ${beadTypeName}`, colour: design.beadColour },
-    { label: labels.signature, value: text.summary.signatureCount, colour: design.signatureColour },
+    { label: labels.style, value: style.name },
+    { label: labels.cord, colours: [design.cord] },
+    { label: labels.beads, value: `${style.beadCount - 1} ${text.summary.beadTypeNames[style.beadType]}`, colours: [design.beadColour] },
+    { label: labels.signature, value: `${text.summary.signatureCount}, ${copy.shop.signaturePearl.pattern.options[design.signature.pattern]}`, colours: [design.signature.first, design.signature.second] },
     { label: labels.size, value: `${size.label} (${size.range})` },
   ]
 
@@ -54,11 +57,33 @@ export function BraceletBuilder() {
       <div className="bracelet-builder__workspace">
         <div className="bracelet-builder__preview">
           <span className="eyebrow">{text.previewLabel}</span>
-          <BraceletDrawing design={design} />
-          <span className="bracelet-builder__preview-note">{text.previewNote}</span>
+          <DesignPreview
+            drawing={<BraceletDrawing design={design} />}
+            idPrefix={idPrefix}
+            photo={style.photo}
+            photoAlt={text.photoAlt[design.style]}
+            photoMatches={hasBaseColours(design)}
+          />
         </div>
         <div className="bracelet-builder__controls">
-          <PresetRow label={text.presetsLabel} onSelect={(preset) => update(preset.design)} presets={braceletPresets} />
+          <OptionGroup
+            hint={text.style.hint}
+            legend={text.style.legend}
+            name={`${idPrefix}-style`}
+            onChange={(next) => setDesign({ ...defaultBraceletDesign, ...braceletStyles[next].base, style: next, size: design.size })}
+            options={braceletStyleIds.map((id) => ({
+              value: id,
+              label: <span lang="en">{braceletStyles[id].name}</span>,
+              detail: text.style.options[id],
+            }))}
+            value={design.style}
+            wide
+          />
+          <PresetRow
+            label={text.presetsLabel}
+            onSelect={(preset) => update({ cord: preset.cord, beadColour: preset.beadColour, signature: { ...design.signature, first: preset.pearl[0], second: preset.pearl[1] } })}
+            presets={braceletPresets}
+          />
           <ColourOptionGroup
             colours={braceletCordColours}
             hint={text.cord.hint}
@@ -66,14 +91,6 @@ export function BraceletBuilder() {
             name={`${idPrefix}-cord`}
             onChange={(cord) => update({ cord })}
             value={design.cord}
-          />
-          <OptionGroup
-            hint={text.beadType.hint}
-            legend={text.beadType.legend}
-            name={`${idPrefix}-bead-type`}
-            onChange={(beadType) => update({ beadType })}
-            options={braceletBeadTypes.map((type) => ({ value: type, label: text.beadType.options[type] }))}
-            value={design.beadType}
           />
           <ColourOptionGroup
             colours={braceletBeadColours}
@@ -83,22 +100,7 @@ export function BraceletBuilder() {
             onChange={(beadColour) => update({ beadColour })}
             value={design.beadColour}
           />
-          <OptionGroup
-            hint={text.beadCount.hint}
-            legend={text.beadCount.legend}
-            name={`${idPrefix}-bead-count`}
-            onChange={(beadCount) => update({ beadCount })}
-            options={braceletBeadCounts.map((count) => ({ value: count, label: count }))}
-            value={design.beadCount}
-          />
-          <ColourOptionGroup
-            colours={braceletSignatureColours}
-            hint={text.signature.hint}
-            legend={text.signature.legend}
-            name={`${idPrefix}-signature`}
-            onChange={(signatureColour) => update({ signatureColour })}
-            value={design.signatureColour}
-          />
+          <PearlControls idPrefix={idPrefix} onChange={(signature) => update({ signature })} value={design.signature} />
           <OptionGroup
             hint={text.size.hint}
             legend={text.size.legend}
