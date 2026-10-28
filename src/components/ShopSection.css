@@ -1,8 +1,50 @@
 /* Shop section. Component-scoped so it does not collide with App.css. */
+/* The shop is a place of its own: a dark banner (as in the other dark blocks) opens it, and the shelves sit on a warmer ground
+   than the editorial pages above and below. */
+/* --shop-side is the section's side padding at each width, so the banner can bleed out to the page edges. */
 .shop {
-  padding-top: 96px;
+  --shop-side: clamp(24px, 10.5vw, 180px);
+  padding-top: 0;
+  padding-right: var(--shop-side);
   padding-bottom: 96px;
-  border-top: 1px solid var(--line);
+  padding-left: var(--shop-side);
+  border-top: 0;
+  background: var(--paper-warm);
+}
+
+.shop__banner {
+  display: grid;
+  gap: 8px;
+  margin: 0 calc(-1 * var(--shop-side)) 72px;
+  padding: 72px var(--shop-side) 64px;
+  color: var(--ivory-buff);
+  background: var(--deep-indigo);
+  --ink-heading: var(--ivory-buff);
+  --ink-soft: #E9E0CC;
+  --ink-accent: var(--cameo-pink);
+}
+
+.shop__banner .eyebrow {
+  margin: 0;
+  color: var(--cameo-pink);
+}
+
+.shop__banner h2 {
+  margin: 0;
+  color: var(--ivory-buff);
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 84px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+}
+
+.shop__banner p:last-child {
+  max-width: 640px;
+  margin: 8px 0 0;
+  color: #E9E0CC;
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 .shop__intro {
@@ -10,8 +52,9 @@
   margin-bottom: 56px;
 }
 
-.shop__intro h2 {
+.shop__intro h3 {
   margin: 0 0 16px;
+  font-size: clamp(24px, 3vw, 32px);
 }
 
 .shop__lead {
@@ -120,10 +163,23 @@
   text-transform: uppercase;
 }
 
+@media (max-width: 900px) {
+  .shop {
+    --shop-side: 7vw;
+  }
+}
+
 @media (max-width: 640px) {
   .shop {
-    padding-top: 64px;
+    --shop-side: 23px;
+    padding-top: 0;
     padding-bottom: 64px;
+  }
+
+  .shop__banner {
+    margin-bottom: 44px;
+    padding-top: 52px;
+    padding-bottom: 44px;
   }
 
   .shop__intro {

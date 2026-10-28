@@ -83,6 +83,8 @@ export type Copy = {
   // Shop. T1 owns `section` and `card`. T2 owns `bracelet`, T3 `maedeup`, T4 `hanbok`: each extends only its own sub-object.
   shop: {
     section: {
+      /** The banner that marks the start of the shop. */
+      banner: { eyebrow: string; title: string; line: string }
       eyebrow: string
       title: string
       intro: string

@@ -47,7 +47,8 @@ main section[id] {
 
 /* On dark blocks the thread's Ochre Red would sink into the background; the bead gets an Ivory Buff ring there. */
 .brand-intro::before,
-.signature-bead::before {
+.signature-bead::before,
+.shop::before {
   box-shadow: 0 0 0 3px var(--ivory-buff);
 }
 

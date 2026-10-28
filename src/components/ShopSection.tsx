@@ -11,10 +11,15 @@ export function ShopSection() {
   const text = copy.shop.section
 
   return (
-    <section aria-labelledby="shop-title" className="shop section-shell" id={shopAnchors.section}>
+    <section aria-labelledby="shop-banner-title" className="shop section-shell" id={shopAnchors.section}>
+      <div className="shop__banner">
+        <p className="eyebrow">{text.banner.eyebrow}</p>
+        <h2 id="shop-banner-title">{text.banner.title}</h2>
+        <p>{text.banner.line}</p>
+      </div>
       <div className="shop__intro">
         <p className="eyebrow">{text.eyebrow}</p>
-        <h2 id="shop-title">{text.title}</h2>
+        <h3 id="shop-title">{text.title}</h3>
         <p className="shop__lead">{text.intro}</p>
         <p className="image-disclosure">{text.disclosure}</p>
       </div>

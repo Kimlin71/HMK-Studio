@@ -158,9 +158,10 @@ export const en: Copy = {
   },
   shop: {
     section: {
+      banner: { eyebrow: 'Prototype · everything is a demo', title: 'Welcome to the webshop', line: 'Choose bracelets, Maedeup with Norigae and sewing patterns, put them in the cart and go to the checkout.' },
       eyebrow: 'Shop · prototype',
       title: 'Choose, or design your own.',
-      intro: 'Bracelets, Maedeup with Norigae and re-sewn hanbok. Everything here is a demo. Prices are fictional and nothing can be bought for real.',
+      intro: 'Bracelets, Maedeup with Norigae, sewing patterns and re-sewn hanbok. Everything here is a demo. Prices are fictional and nothing can be bought for real.',
       disclosure: 'Demo content: the images are concept images and graphic studies, not stock. The cart, checkout and payment are a prototype with fictional details: no real order, no payment and no data collection. The only thing the site keeps is your language choice, in your own browser.',
       categories: {
         bracelet: { title: 'Bracelets', description: 'Three finished macramé bracelets with pearls and a two-colour signature pearl.' },

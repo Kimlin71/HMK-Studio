@@ -158,9 +158,10 @@ export const sv: Copy = {
   },
   shop: {
     section: {
+      banner: { eyebrow: 'Prototyp · allt är demo', title: 'Välkommen till webshopen', line: 'Här kan du välja armband, Maedeup med Norigae och sömnadsmönster, lägga dem i varukorgen och gå till kassan.' },
       eyebrow: 'Butik · prototyp',
       title: 'Välj, eller designa själv.',
-      intro: 'Armband, Maedeup med Norigae och omsydda hanbok. Allt här är demo. Priserna är fiktiva och inget går att köpa på riktigt.',
+      intro: 'Armband, Maedeup med Norigae, sömnadsmönster och omsydda hanbok. Allt här är demo. Priserna är fiktiva och inget går att köpa på riktigt.',
       disclosure: 'Demoinnehåll: bilderna är konceptbilder och grafiska studier, inte varor i lager. Varukorg, kassa och betalning är en prototyp med fiktiva uppgifter: ingen riktig beställning, ingen betalning och ingen insamling av uppgifter. Det enda som sajten behåller är ditt språkval, i din egen webbläsare.',
       categories: {
         bracelet: { title: 'Armband', description: 'Tre färdiga armband i makramé med pärlor och en tvåfärgad signaturpärla.' },
