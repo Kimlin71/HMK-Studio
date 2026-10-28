@@ -4,9 +4,9 @@ import type { SignaturePearlDesign } from './signaturePearl.ts'
 // Language-independent shop catalogue. Visible text lives in src/content/copy/ under `shop`.
 // DEMO CONTENT: every item is a fictional placeholder, never stock for sale. Prices are not numbers on purpose.
 
-export type ShopCategory = 'bracelet' | 'maedeup' | 'hanbok'
+export type ShopCategory = 'bracelet' | 'maedeup' | 'pattern' | 'hanbok'
 
-export const shopCategories: ShopCategory[] = ['bracelet', 'maedeup', 'hanbok']
+export const shopCategories: ShopCategory[] = ['bracelet', 'maedeup', 'pattern', 'hanbok']
 
 export type HanbokItemId = 'shirt-hanbok-demo' | 'shirt-hanbok-demo-2'
 

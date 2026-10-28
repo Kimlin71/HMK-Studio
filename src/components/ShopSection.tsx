@@ -2,6 +2,7 @@ import { hanbokItems, shopAnchors, shopCategories, shopItems } from '../content/
 import { useCopy } from '../i18n/LanguageContext'
 import { NorigaeBuilder } from './NorigaeBuilder'
 import { HanbokShop } from './HanbokShop'
+import { PatternShop } from './PatternShop'
 import { ShopItemCard } from './ShopItemCard'
 import './ShopSection.css'
 
@@ -31,6 +32,7 @@ export function ShopSection() {
                 <>
                   {shopItems.filter((item) => item.category === category).map((item) => <ShopItemCard item={item} key={item.id} />)}
                   {category === 'maedeup' ? <NorigaeBuilder /> : null}
+                  {category === 'pattern' ? <PatternShop /> : null}
                 </>
               )}
             </div>

@@ -25,14 +25,14 @@ En tvåspråkig (svenska och engelska) redaktionell webbplats för Hyang-Mee Stu
 - `src/content/products.ts` innehåller den språkoberoende strukturen för kategorier och fiktiva, tydligt markerade demo-produkter med stabila id:n, kategorikoppling och explicit prototypstatus.
 - `src/content/jewellery.ts` innehåller paletten, färgkombinationerna och smyckenas färgdelar. Valen representerar inte lager eller köpbara varianter.
 - `src/content/shop.ts` innehåller butikens språkoberoende katalog (fiktiva demoobjekt, `hanbokItems`), armbandens signaturpärlor (`braceletPearls`) och ankare.
-- `src/content/prices.ts`, `cart.ts`, `order.ts`, `pattern.ts`, `patternFile.ts` och `routes.ts` är butikens affärsregler som rena moduler, se Butikens prototypflöde.
+- `src/content/prices.ts`, `cart.ts`, `order.ts`, `pattern.ts`, `patterns.ts` och `routes.ts` är butikens affärsregler som rena moduler, se Butikens prototypflöde.
 - `src/content/norigae.ts` innehåller Norigaens byggardata (Norigaen byggs fritt, armbanden är tre färdiga produkter). `src/content/signaturePearl.ts` beskriver signaturpärlan: två färger och vertikalt eller horisontellt mönster.
 - Foton till förhandsvisningen ligger i `public/images/shop/bracelets/` (`bracelet-1.webp` till `bracelet-3.webp`, utan bakgrund) och `public/images/shop/norigae/` (`maedeup-norigae-1.jpg` till `-4.jpg` är de färdiga produkterna, `norigae-reference.webp` visas i byggaren). Ett foto kan inte byta färg och visas därför bara som förhandsvisning när kundens val stämmer med färgerna på fotot (`hasBaseColours`, `isNorigaeShowcase`). Annars, och om fotot saknas, visas teckningen.
 - `src/content/site.ts` innehåller navigationens ankare och hantverksbilderna.
 - `src/content/copy/` innehåller all text, en fil per språk.
 - `src/i18n/` innehåller språkkontext, val av språk och leverantör.
 - `src/cart/` innehåller varukorgens React-tillstånd (`CartProvider`, `useCart`) och `src/routing/` hash-routingen.
-- `src/components/` innehåller sidans återanvändbara sektioner och produktdetaljdialog. Butiken består av `ShopSection`, `ShopItemCard`, `NorigaeBuilder` (+ `NorigaeDrawing`), `HanbokShop`, `HanbokDialog` och `HanbokBadges`. Prototypflödet består av `AddToCartButton`, `CartButton`, `CartPanel`, `OrderLines`, `Price`, `MeasurementForm`, `PatternPreview`, `FlowShell`, `CheckoutView` och `ConfirmationView`. De delade delarna är `BuilderControls`, `PearlControls`, `SignaturePearlDrawing`, `DesignPreview` (foto eller teckning), `builderSummary`, `useCopyToClipboard` och dialogskalet `PieceDialogShell`, som även `ProductDialog` använder.
+- `src/components/` innehåller sidans återanvändbara sektioner och produktdetaljdialog. Butiken består av `ShopSection`, `ShopItemCard`, `NorigaeBuilder` (+ `NorigaeDrawing`), `HanbokShop`, `HanbokDialog` och `HanbokBadges`. Prototypflödet består av `AddToCartButton`, `CartButton`, `CartPanel`, `OrderLines`, `Price`, `PatternShop`, `MeasurementForm`, `FlowShell`, `CheckoutView` och `ConfirmationView`. De delade delarna är `BuilderControls`, `PearlControls`, `SignaturePearlDrawing`, `DesignPreview` (foto eller teckning), `builderSummary`, `useCopyToClipboard` och dialogskalet `PieceDialogShell`, som även `ProductDialog` använder.
 - `src/index.css` innehåller designvariabler och globala tillgänglighetsregler.
 - `src/App.css` innehåller responsiv presentation.
 - `CONTEXT.md` definierar varumärkets centrala begrepp.
@@ -61,7 +61,7 @@ Butiken (**Butik**, `#butik`, med egen länk i menyn) är en **hårdkodad protot
 **Vägen genom demon:**
 
 1. **Armband** (tre färdiga), **Maedeup med Norigae** (fyra färdiga, eller en egen design i byggaren) läggs i varukorgen med "Lägg i varukorgen". De färdiga Norigae-produkterna har färgerna från sina foton (`norigaeProducts` i `src/content/norigae.ts`). Hanbok är demoplagg och kan inte köpas. Hanbokkorten visar baksidan när man pekar på dem (`hoverImage` i `src/content/shop.ts`).
-2. **Måttanpassat mönster** (`MeasurementForm`, i MAKE): fem mått, förifyllda för Kund Demo, ger ett skjortmönster som ritas direkt som SVG efter Proportion Study 01. "Skapa mönstret" kräver att alla fem är rimliga. Mönstret läggs i varukorgen.
+2. **Sömnadsmönster** (kategorin i butiken, `PatternShop`): tre dummymönster med bild, text och pris. Ett kort öppnar en pop-up med mönstrets information, tygåtgång och ett måttformulär förifyllt för Kund Demo. Skjort- och västmönstren frågar efter fem mått (axelbredd, bröstvidd, överkroppslängd, ärmlängd, plagglängd), byxorna efter fyra (midja, stuss, innerbenslängd, skrevlängd). Måtten kontrolleras (`src/content/pattern.ts`) och följer med i varukorgen. **Inget mönster anpassas eller ritas**: det är en prototyp.
 3. **Varukorgen** (knappen i sidhuvudet) är en dialog med rader, borttagning och totalsumma. Därifrån går man till **`#kassa`**.
 4. **`#kassa`**: sammanfattning, fiktiva uppgifter och en betalknapp. Betalningen väntar cirka 1,5 s ("Behandlar…") och leder till **`#bekraftelse`**.
 5. **`#bekraftelse`**: ordernummer (`HMS-DEMO-0001` och uppåt, räknas i minnet), raderna och summan. Ett mönster i ordern ger en nedladdningslänk till demo-PDF:en. Omladdning visar tomt läge.
@@ -76,13 +76,13 @@ Hash-routing görs utan bibliotek (`src/routing/useRoute.ts`): bara `#kassa` och
 | Varukorg | `src/content/cart.ts` (`addItem`, `removeItem`, `cartTotal`) och `src/cart/` (React-tillstånd) | serverlagrad varukorg |
 | Kund och order | `src/content/order.ts` (`demoCustomer`, `placeOrder`) | riktig kund- och orderhantering |
 | Betalning | `PAYMENT_DELAY_MS` och `CheckoutView` | betalleverantör (kräver ny spec och nytt ADR) |
-| Mönsterregler | `src/content/pattern.ts` (`generatePattern`, `validateMeasurements`) | serverfunktion med provsydda regler |
-| Mönster-PDF | `public/patterns/proportion-study-01-demo.pdf`, gjord av `scripts/make-pattern-pdf.mjs` | PDF som genereras per order efter betalning |
+| Mönster och mått | `src/content/patterns.ts` (produkterna), `src/content/pattern.ts` (måttuppsättningar och kontroll) | serverfunktion som anpassar mönstret efter måtten |
+| Mönster-PDF | `public/patterns/pattern-N-demo.pdf`, gjorda av `scripts/make-pattern-pdf.mjs` | PDF som genereras per order efter betalning |
 | Rutter | `src/content/routes.ts` | en riktig router |
 
-**Mönster-PDF:en är en fast fil**, inte genererad per order. Den gör `scripts/make-pattern-pdf.mjs` en gång, utan beroenden: skriptet ritar bitarna med samma `generatePattern` för Kund Demos mått och skriver PDF:en för hand (en sida A4, märkt "Prototyp, inte ett riktigt mönster"). Kör `npm run make:pattern-pdf` om mönsterreglerna eller demomåtten ändras.
+**Mönster-PDF:erna är fasta filer**, inte genererade per order. `scripts/make-pattern-pdf.mjs` gör en A4-sida per mönster, utan beroenden: mönstrets bild, markeringen "Prototyp, inte ett riktigt mönster" och Kund Demos mått. Kör `npm run make:pattern-pdf` när ett mönster, en bild eller demomåtten ändras. Ett mönster läggs till i `src/content/patterns.ts` (bild i `public/images/shop/patterns/`, text i `sv.ts` och `en.ts`).
 
-**Tester.** `npm test` kör `tests/pattern.test.ts` (validering, att samma mått alltid ger samma delar, att sidsömmar och axelsömmar är lika långa och att ärmkullen passar ärmhålet för demomåtten och för två extremuppsättningar) och `tests/shop-flow.test.ts` (priser, varukorg, order, rutter).
+**Tester.** `tests/pattern.test.ts` (måttuppsättningarna, kontroll av intervall och korsregler, avläsning av fält) och `tests/shop-flow.test.ts` (priser, varukorg, order, mönsterprodukter, Norigae-produkter, rutter).
 
 **Byggarna** (Maedeup med Norigae, och armbandens tre designer) är desamma som tidigare: valen finns bara i komponentens minne, och förutom att lägga designen i varukorgen kan sammanfattningen kopieras till urklipp. Varje design har alltid en signaturpärla i två färger. Hanbokplagg presenteras som unika, gjorda av en enda second hand-skjorta.
 

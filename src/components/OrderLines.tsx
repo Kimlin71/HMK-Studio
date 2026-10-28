@@ -1,7 +1,8 @@
 import { useCopy } from '../i18n/LanguageContext'
 import type { CartItem } from '../content/cart'
 import { braceletPearls, getShopItem } from '../content/shop'
-import { formatMeasurement, measurementKeys } from '../content/pattern'
+import { formatMeasurement, measuredKeys } from '../content/pattern'
+import { getPatternProduct } from '../content/patterns'
 import { price } from '../content/prices'
 import { norigaeSummaryRows, type SummaryRow } from './builderSummary'
 import { SummaryRowContent } from './BuilderControls'
@@ -32,9 +33,10 @@ function describe(item: CartItem, copy: Copy, language: Language): Line {
       }
     case 'pattern':
       return {
-        name: kinds.pattern,
+        name: getPatternProduct(item.patternId)?.name ?? kinds.pattern,
+        nameLang: 'en',
         kind: kinds.pattern,
-        rows: measurementKeys.map((key) => ({ label: copy.pattern.form.fields[key].label, value: formatMeasurement(item.measurements[key], language) })),
+        rows: measuredKeys(item.measurements).map((key) => ({ label: copy.pattern.form.fields[key].label, value: formatMeasurement(item.measurements[key]!, language) })),
       }
   }
 }

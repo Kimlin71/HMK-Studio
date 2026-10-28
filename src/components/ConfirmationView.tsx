@@ -1,5 +1,5 @@
 import { useCart } from '../cart/CartContext'
-import { patternPdf } from '../content/patternFile'
+import { orderedPatterns } from '../content/order'
 import { shopAnchors } from '../content/shop'
 import { useCopy } from '../i18n/LanguageContext'
 import { FlowShell } from './FlowShell'
@@ -34,7 +34,11 @@ export function ConfirmationView() {
         <section aria-labelledby="order-download-title" className="flow__panel flow__download">
           <h2 id="order-download-title">{text.downloadTitle}</h2>
           <p className="flow__small">{copy.pattern.download.note}</p>
-          <a className="flow__button" download href={patternPdf}>{copy.pattern.download.button} <span className="flow__file">{copy.pattern.download.fileHint}</span></a>
+          {orderedPatterns(order).map((product) => (
+            <a className="flow__button" download href={product.pdf} key={product.id}>
+              <span lang="en">{product.name}</span> <span className="flow__file">{copy.pattern.download.fileHint}</span>
+            </a>
+          ))}
         </section>
       ) : null}
       <button className="flow__button flow__button--quiet" onClick={() => { startOver(); window.location.hash = '' }} type="button">{text.startOver}</button>

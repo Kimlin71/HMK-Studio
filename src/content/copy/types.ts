@@ -2,7 +2,8 @@ import type { CollectionId, PieceId, ProductArea } from '../products'
 import type { TasselLengthId } from '../norigae'
 import type { PearlPattern } from '../signaturePearl'
 import type { HanbokItemId, ShopCategory, ShopItemId } from '../shop'
-import type { MeasurementKey, PatternPieceId } from '../pattern'
+import type { MeasurementKey } from '../pattern'
+import type { PatternFabric, PatternMaterial, PatternProductId, SkillLevel } from '../patterns'
 import type { CustomerField } from '../order'
 
 export type Language = 'sv' | 'en'
@@ -171,32 +172,32 @@ export type Copy = {
     unit: string
   }
   pattern: {
-    eyebrow: string
-    title: string
-    intro: string
+    card: { skillLabel: string; open: string; openLabel: (name: string) => string }
+    skill: Record<SkillLevel, string>
+    products: Record<PatternProductId, { description: string; imageAlt: string }>
+    details: {
+      fabricTitle: string
+      extrasTitle: string
+      widthLabel: string
+      amountLabel: string
+      yards: (amount: number) => string
+      width: (cm: number) => string
+      fabrics: Record<PatternFabric, string>
+      extras: Record<PatternMaterial, string>
+    }
+    dialogNote: string
     form: {
       legend: string
       customer: string
       customerName: string
       demoNote: string
       range: (min: number, max: number) => string
-      fields: Record<MeasurementKey, { label: string; short: string; hint: string }>
-      errors: Record<'required' | 'shoulderVsBust' | 'lengthVsUpperBody', string> & {
+      fields: Record<MeasurementKey, { label: string; hint: string }>
+      errors: Record<'required' | 'shoulderVsBust' | 'lengthVsUpperBody' | 'waistVsHip', string> & {
         tooLow: (min: number) => string
         tooHigh: (max: number) => string
       }
-      generate: string
       invalidSummary: string
-    }
-    preview: {
-      title: string
-      note: string
-      stale: string
-      alt: string
-      pieces: Record<PatternPieceId, string>
-      legend: { measurements: string; halves: string; fold: string; grain: string }
-      add: string
-      empty: string
     }
     download: { button: string; note: string; fileHint: string }
   }

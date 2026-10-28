@@ -1,119 +1,91 @@
-import { useId, useState, type FormEvent } from 'react'
+import { useId, useState } from 'react'
 import { price } from '../content/prices'
 import {
   demoMeasurements,
-  generatePattern,
-  measurementKeys,
   measurementRanges,
-  patternAnchor,
+  measurementSets,
   readMeasurementField,
-  sameMeasurements,
   toMeasurements,
   validateMeasurements,
   type MeasurementError,
   type MeasurementInput,
   type MeasurementKey,
-  type Measurements,
 } from '../content/pattern'
+import type { PatternProduct } from '../content/patterns'
 import { useCopy } from '../i18n/LanguageContext'
 import { AddToCartButton } from './AddToCartButton'
-import { PatternPreview } from './PatternPreview'
 import { Price } from './Price'
 import './MeasurementForm.css'
 
-const initialTexts = Object.fromEntries(measurementKeys.map((key) => [key, String(demoMeasurements[key])])) as Record<MeasurementKey, string>
-
-// The measured-pattern part of MAKE: five fields pre-filled for "Kund Demo", a generate button and the SVG preview.
-// The rules (ranges, cross rules, the pieces) live in src/content/pattern.ts. This component only reads and shows them.
-export function MeasurementForm() {
+// The measurement fields the pattern asks for, pre-filled for "Kund Demo", and the add button. The customer's measurements go into the cart with the pattern.
+// The ranges and checks live in src/content/pattern.ts. This component only reads and shows them. No pattern is drawn from the values.
+export function MeasurementForm({ pattern }: { pattern: PatternProduct }) {
   const { copy } = useCopy()
-  const text = copy.pattern
+  const text = copy.pattern.form
   const idPrefix = useId()
-  const [texts, setTexts] = useState(initialTexts)
-  const [generated, setGenerated] = useState<Measurements>(demoMeasurements)
+  const keys = measurementSets[pattern.measurements]
+  const [texts, setTexts] = useState<Partial<Record<MeasurementKey, string>>>(() => Object.fromEntries(keys.map((key) => [key, String(demoMeasurements[key])])))
 
-  const input = Object.fromEntries(measurementKeys.map((key) => [key, readMeasurementField(texts[key])])) as MeasurementInput
-  const errors = validateMeasurements(input)
-  const valid = Object.keys(errors).length === 0
-  const current = toMeasurements(input)
-  const stale = current !== null && !sameMeasurements(current, generated)
+  const input: MeasurementInput = Object.fromEntries(keys.map((key) => [key, readMeasurementField(texts[key] ?? '')]))
+  const errors = validateMeasurements(input, keys)
+  const measurements = toMeasurements(input, keys)
 
   const errorText = (error: MeasurementError, key: MeasurementKey) => {
     const range = measurementRanges[key]
-    if (error === 'tooLow') return text.form.errors.tooLow(range.min)
-    if (error === 'tooHigh') return text.form.errors.tooHigh(range.max)
-    return text.form.errors[error]
-  }
-
-  const onSubmit = (event: FormEvent) => {
-    event.preventDefault()
-    if (current) setGenerated(current)
+    if (error === 'tooLow') return text.errors.tooLow(range.min)
+    if (error === 'tooHigh') return text.errors.tooHigh(range.max)
+    return text.errors[error]
   }
 
   return (
-    <div aria-labelledby={`${idPrefix}-title`} className="measure" id={patternAnchor} role="group">
-      <div className="measure__heading">
-        <p className="eyebrow">{text.eyebrow}</p>
-        <h3 id={`${idPrefix}-title`}>{text.title}</h3>
-        <p>{text.intro}</p>
-        <p className="prototype-notice">{copy.prototypeNotice}</p>
-      </div>
-      <div className="measure__workspace">
-        <form className="measure__form" noValidate onSubmit={onSubmit}>
-          <fieldset>
-            <legend>
-              <span>{text.form.legend}</span>
-              <span className="demo-tag">{copy.demoTag}</span>
-            </legend>
-            <p className="measure__customer">{text.form.customer} <strong>{text.form.customerName}</strong></p>
-            <p className="measure__demo-note" id={`${idPrefix}-demo`}>{text.form.demoNote}</p>
-            <div className="measure__fields">
-            {measurementKeys.map((key) => {
-              const field = text.form.fields[key]
-              const range = measurementRanges[key]
-              const error = errors[key]
-              const hintId = `${idPrefix}-${key}-hint`
-              const errorId = `${idPrefix}-${key}-error`
-              return (
-                <div className={error ? 'measure__field measure__field--error' : 'measure__field'} key={key}>
-                  <label htmlFor={`${idPrefix}-${key}`}>{field.label}</label>
-                  <div className="measure__control">
-                    <input
-                      aria-describedby={`${hintId} ${error ? errorId : ''} ${idPrefix}-demo`.replace(/\s+/g, ' ').trim()}
-                      aria-invalid={error ? true : undefined}
-                      autoComplete="off"
-                      id={`${idPrefix}-${key}`}
-                      inputMode="decimal"
-                      max={range.max}
-                      min={range.min}
-                      onChange={(event) => setTexts((previous) => ({ ...previous, [key]: event.target.value }))}
-                      step="0.5"
-                      type="number"
-                      value={texts[key]}
-                    />
-                    <span aria-hidden="true">{copy.cart.unit}</span>
-                  </div>
-                  <p className="measure__hint" id={hintId}><span>{field.hint}</span> <span>{text.form.range(range.min, range.max)}</span></p>
-                  {error ? <p className="measure__error" id={errorId}>{errorText(error, key)}</p> : null}
+    <form className="measure__form" noValidate onSubmit={(event) => event.preventDefault()}>
+      <fieldset>
+        <legend>
+          <span>{text.legend}</span>
+          <span className="demo-tag">{copy.demoTag}</span>
+        </legend>
+        <p className="measure__customer">{text.customer} <strong>{text.customerName}</strong></p>
+        <p className="measure__demo-note" id={`${idPrefix}-demo`}>{text.demoNote}</p>
+        <div className="measure__fields">
+          {keys.map((key) => {
+            const field = text.fields[key]
+            const range = measurementRanges[key]
+            const error = errors[key]
+            const hintId = `${idPrefix}-${key}-hint`
+            const errorId = `${idPrefix}-${key}-error`
+            return (
+              <div className={error ? 'measure__field measure__field--error' : 'measure__field'} key={key}>
+                <label htmlFor={`${idPrefix}-${key}`}>{field.label}</label>
+                <div className="measure__control">
+                  <input
+                    aria-describedby={[hintId, error ? errorId : '', `${idPrefix}-demo`].filter(Boolean).join(' ')}
+                    aria-invalid={error ? true : undefined}
+                    autoComplete="off"
+                    id={`${idPrefix}-${key}`}
+                    inputMode="decimal"
+                    max={range.max}
+                    min={range.min}
+                    onChange={(event) => setTexts((previous) => ({ ...previous, [key]: event.target.value }))}
+                    step="0.5"
+                    type="number"
+                    value={texts[key] ?? ''}
+                  />
+                  <span aria-hidden="true">{copy.cart.unit}</span>
                 </div>
-              )
-            })}
-            </div>
-            <p className="measure__summary" role="status">{valid ? '' : text.form.invalidSummary}</p>
-            <button className="measure__generate" disabled={!valid} type="submit">{text.form.generate}</button>
-          </fieldset>
-        </form>
-        <div className="measure__result">
-          <h4>{text.preview.title}</h4>
-          <p className="image-disclosure measure__note">{text.preview.note}</p>
-          <PatternPreview measurements={generated} pieces={generatePattern(generated)} />
-          <p className="measure__stale" role="status">{stale ? text.preview.stale : ''}</p>
-          <div className="measure__buy">
-            <p className="norigae__price"><span>{copy.shop.card.priceLabel}</span> <Price amount={price({ kind: 'pattern', measurements: generated })} /></p>
-            <AddToCartButton item={{ kind: 'pattern', measurements: generated }} />
-          </div>
+                <p className="measure__hint" id={hintId}><span>{field.hint}</span> <span>{text.range(range.min, range.max)}</span></p>
+                {error ? <p className="measure__error" id={errorId}>{errorText(error, key)}</p> : null}
+              </div>
+            )
+          })}
         </div>
-      </div>
-    </div>
+        <p className="measure__summary" role="status">{measurements ? '' : text.invalidSummary}</p>
+        <div className="measure__buy">
+          <p className="norigae__price"><span>{copy.shop.card.priceLabel}</span> <Price amount={price({ kind: 'pattern', patternId: pattern.id, measurements: demoMeasurements })} /></p>
+          {measurements ? <AddToCartButton item={{ kind: 'pattern', patternId: pattern.id, measurements }} /> : (
+            <button aria-disabled="true" className="measure__generate" disabled type="button">{copy.cart.add.button}</button>
+          )}
+        </div>
+      </fieldset>
+    </form>
   )
 }

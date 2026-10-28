@@ -1,7 +1,6 @@
 import { collections, type EditorialPiece } from '../content/products'
 import { useCopy } from '../i18n/LanguageContext'
 import { ConnectFamily } from './ConnectFamily'
-import { MeasurementForm } from './MeasurementForm'
 import { ReconstructCompare } from './ReconstructCompare'
 
 type CollectionGridProps = {
@@ -48,7 +47,6 @@ export function CollectionGrid({ pieces, onExplore }: CollectionGridProps) {
                 <span className="piece-card__meta"><span>{piece.name}</span><span>{pieceCopy.category}</span></span>
               </button>
             )}
-            {area === 'MAKE' ? <MeasurementForm /> : null}
             {area === 'ACCENTED' ? <ConnectFamily /> : null}
           </section>
         )

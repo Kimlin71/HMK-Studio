@@ -3,17 +3,18 @@ import { existsSync, statSync } from 'node:fs'
 import test from 'node:test'
 import { addItem, cartItemCount, cartTotal, hasPattern, removeItem, shopItemToNewCartItem, type CartItem } from '../src/content/cart.ts'
 import { initialNorigae, norigaeProducts, norigaeShowcase } from '../src/content/norigae.ts'
-import { PAYMENT_DELAY_MS, demoCustomer, formatOrderNumber, placeOrder, validateCustomer } from '../src/content/order.ts'
+import { PAYMENT_DELAY_MS, demoCustomer, formatOrderNumber, orderedPatterns, placeOrder, validateCustomer } from '../src/content/order.ts'
 import { demoMeasurements } from '../src/content/pattern.ts'
 import { formatPrice, price } from '../src/content/prices.ts'
 import { parseRoute, routeHash } from '../src/content/routes.ts'
+import { getPatternProduct, patternProducts } from '../src/content/patterns.ts'
 import { getShopItem, type ShopItemId } from '../src/content/shop.ts'
 
 const NBSP = '\u00a0'
 
 test('price: each item kind has a fictional SEK amount from one place', () => {
   assert.equal(price({ kind: 'bracelet', braceletId: 'signature-bracelet-1' }), 350)
-  assert.equal(price({ kind: 'pattern', measurements: demoMeasurements }), 149)
+  assert.equal(price({ kind: 'pattern', patternId: 'pattern-1', measurements: demoMeasurements }), 149)
 })
 
 test('price: norigae base price plus a long tassel surcharge', () => {
@@ -35,7 +36,7 @@ test('cart: add, remove and total without mutating the input', () => {
   const one = addItem(empty, { kind: 'bracelet', braceletId: 'signature-bracelet-2' })
   assert.equal(empty.length, 0)
   const two = addItem(one, { kind: 'norigae', design: norigaeShowcase })
-  const three = addItem(two, { kind: 'pattern', measurements: demoMeasurements })
+  const three = addItem(two, { kind: 'pattern', patternId: 'pattern-1', measurements: demoMeasurements })
   assert.equal(three.length, 3)
   assert.equal(new Set(three.map((item) => item.id)).size, 3)
   assert.ok(three.every((item) => item.quantity === 1))
@@ -61,7 +62,7 @@ test('shop cards map to cart items; hanbok has none', () => {
 test('order: numbers come from a sequence and the order keeps items and total', () => {
   assert.equal(formatOrderNumber(1), 'HMS-DEMO-0001')
   assert.equal(formatOrderNumber(42), 'HMS-DEMO-0042')
-  const items = addItem(addItem([], { kind: 'bracelet', braceletId: 'signature-bracelet-1' }), { kind: 'pattern', measurements: demoMeasurements })
+  const items = addItem(addItem([], { kind: 'bracelet', braceletId: 'signature-bracelet-1' }), { kind: 'pattern', patternId: 'pattern-1', measurements: demoMeasurements })
   const order = placeOrder(items, 3)
   assert.equal(order.number, 'HMS-DEMO-0003')
   assert.equal(order.total, 499)
@@ -115,4 +116,30 @@ test('the designs of the finished Norigae differ from each other and from the bu
   const keys = Object.values(norigaeProducts).map((design) => JSON.stringify(design))
   assert.equal(new Set(keys).size, 4)
   assert.ok(!keys.includes(JSON.stringify(initialNorigae)))
+})
+
+test('every sewing pattern has a picture and a demo PDF on disk, the picture under 400 kB', () => {
+  assert.equal(patternProducts.length, 3)
+  for (const product of patternProducts) {
+    assert.ok(existsSync(`public${product.image}`), `${product.image} exists`)
+    assert.ok(statSync(`public${product.image}`).size < 400_000, `${product.image} is under 400 kB`)
+    assert.ok(existsSync(`public${product.pdf}`), `${product.pdf} exists (run npm run make:pattern-pdf)`)
+    assert.equal(getPatternProduct(product.id), product)
+  }
+  assert.equal(new Set(patternProducts.map((product) => product.id)).size, patternProducts.length)
+})
+
+test('a trousers pattern keeps only its four measurements in the cart and the order', () => {
+  const items = addItem([], { kind: 'pattern', patternId: 'pattern-3', measurements: { waist: 72, hip: 96, inseam: 76, crotch: 68 } })
+  assert.deepEqual(Object.keys((items[0] as { measurements: object }).measurements), ['waist', 'hip', 'inseam', 'crotch'])
+  assert.equal(placeOrder(items, 1).hasPattern, true)
+})
+
+test('the order lists each ordered pattern once, in the order first bought', () => {
+  let items = addItem([], { kind: 'pattern', patternId: 'pattern-3', measurements: demoMeasurements })
+  items = addItem(items, { kind: 'bracelet', braceletId: 'signature-bracelet-1' })
+  items = addItem(items, { kind: 'pattern', patternId: 'pattern-1', measurements: demoMeasurements })
+  items = addItem(items, { kind: 'pattern', patternId: 'pattern-3', measurements: demoMeasurements })
+  assert.deepEqual(orderedPatterns({ items }).map((product) => product.id), ['pattern-3', 'pattern-1'])
+  assert.deepEqual(orderedPatterns({ items: [] }), [])
 })

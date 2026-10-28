@@ -2,6 +2,7 @@
 // DEMO CONTENT: one fictional customer. Nothing here is a real person, address or card.
 
 import { cartTotal, hasPattern, type CartItem } from './cart.ts'
+import { getPatternProduct, type PatternProduct } from './patterns.ts'
 
 /** The mock payment waits this long before the confirmation shows. */
 export const PAYMENT_DELAY_MS = 1500
@@ -45,4 +46,15 @@ export const formatOrderNumber = (sequence: number) => `HMS-DEMO-${String(sequen
 /** The confirmed order. The sequence is a counter the caller keeps in memory. Customer details are deliberately not part of it. */
 export function placeOrder(items: readonly CartItem[], sequence: number): Order {
   return { number: formatOrderNumber(sequence), items: [...items], total: cartTotal(items), hasPattern: hasPattern(items) }
+}
+
+/** The distinct patterns in an order, once each, for the download links on the confirmation. */
+export function orderedPatterns(order: Pick<Order, 'items'>): PatternProduct[] {
+  const found: PatternProduct[] = []
+  for (const item of order.items) {
+    if (item.kind !== 'pattern') continue
+    const product = getPatternProduct(item.patternId)
+    if (product && !found.includes(product)) found.push(product)
+  }
+  return found
 }

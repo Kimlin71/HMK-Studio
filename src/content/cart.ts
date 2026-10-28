@@ -4,6 +4,7 @@
 import type { BraceletItemId, ShopItem } from './shop.ts'
 import { norigaeProducts, type NorigaeDesign, type NorigaeProductId } from './norigae.ts'
 import type { Measurements } from './pattern.ts'
+import type { PatternProductId } from './patterns.ts'
 import { price } from './prices.ts'
 
 /** What is added: one of the three kinds the prototype sells. Hanbok is a demo piece and has no cart item. */
@@ -11,7 +12,7 @@ export type NewCartItem =
   | { kind: 'bracelet'; braceletId: BraceletItemId }
   /** `productId` is set when a finished piece from the shop is bought, and absent for the customer's own design. */
   | { kind: 'norigae'; design: NorigaeDesign; productId?: NorigaeProductId }
-  | { kind: 'pattern'; measurements: Measurements }
+  | { kind: 'pattern'; patternId: PatternProductId; measurements: Measurements }
 
 export type CartItem = NewCartItem & { id: string; quantity: 1 }
 
