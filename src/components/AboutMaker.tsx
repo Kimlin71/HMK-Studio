@@ -20,7 +20,6 @@ export function AboutMaker() {
         <span className="about-maker__image-quote">{text.quote[0]}<br />{text.quote[1]}</span>
       </div>
       <div className="about-maker__copy">
-        <p className="eyebrow">{text.eyebrow}</p>
         <h2 id="about-title">{text.titleTop}<br /><em>{text.titleEm}</em></h2>
         <p>{text.p1}</p>
         <p>{text.p2}</p>

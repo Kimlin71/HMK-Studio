@@ -75,7 +75,8 @@ export const sv: Copy = {
     },
     connect: {
       concept: 'CONNECT',
-      title: 'PRÖVA DINA EGNA FÄRGKOMBINATIONER.',
+      // \u00AD is a soft hyphen: the long word breaks as FÄRGKOMBI-NATIONER only when the column is too narrow.
+      title: 'PRÖVA DINA EGNA FÄRGKOMBI\u00ADNATIONER.',
       paragraphs: [
         'Knut. Pärla. Tofs. Färg.',
         'Enskilda delar är utformade för att fungera tillsammans, så att färger och former kan flytta mellan smycken.',
@@ -182,6 +183,7 @@ export const sv: Copy = {
         'maedeup-norigae-4': { imageAlt: 'Norigae i marinblått med en knut överst, en signaturpärla i marinblått och rött och en lång tofs.' },
         'shirt-hanbok-demo': { imageAlt: 'Bild: en ung kvinna i en kort blå omlottjacka med knytband och en veckad blå kjol med knytband i midjan, sedd framifrån. Konceptbild, inte ett foto av ett dokumenterat plagg.' },
         'shirt-hanbok-demo-2': { imageAlt: 'Bild: en kvinna i en kort lila skjorta med diagonal omlott, knappar och en knut vid sidan, med vida jeans, sedd framifrån. Konceptbild, inte ett foto av ett dokumenterat plagg.' },
+        'shirt-hanbok-demo-3': { imageAlt: 'Bild: en kvinna i en kort randig skjorta i svart och vitt med diagonal omlott, knappar och en rosett vid sidan, med svarta byxor och stövletter, sedd framifrån. Konceptbild, inte ett foto av ett dokumenterat plagg.' },
       },
     },
     maedeup: {
@@ -237,6 +239,7 @@ export const sv: Copy = {
       title: 'Hanbok att välja bland',
       oneOfAKind: 'Unikt plagg',
       oneOfAKindNote: 'Sytt av en enda second hand-herrskjorta. Ingen färg och ingen storlek upprepas.',
+      availability: 'Varje hanbok finns i ett enda exemplar. Plaggen läggs ut efter hand som de blir sydda, först till kvarn.',
       detailsButton: 'Visa detaljer',
       detailsButtonLabel: (name) => `Visa detaljer om ${name}`,
       fields: { status: 'Status', material: 'Material', sourceShirt: 'Ursprungsskjorta' },
@@ -262,6 +265,12 @@ export const sv: Copy = {
           story: 'En herrskjorta som sys om till en modern hanbok: kortare i längd, med diagonal omlott och en knut vid sidan. Kragen och knapparna behålls, och bröstfickan finns kvar.',
           material: 'Platshållare. Material och färg anges när det finns ett dokumenterat plagg.',
           sourceShirt: 'Originalskjorta: platshållare. Ingen färg och ingen storlek återkommer i ett annat plagg.',
+        },
+        'shirt-hanbok-demo-3': {
+          category: 'Omsydd skjorta · Randig · Modern hanbok · Demo',
+          story: 'En randig skjorta som sys om till en modern hanbok: kort i längden, med diagonal omlott över framsidan och en rosett vid sidan. Kragen, knapparna och manschetterna behålls. Ryggen är hel och ger plagget en lugn silhuett bakifrån.',
+          material: 'Platshållare. Material och färg anges när det finns ett dokumenterat plagg.',
+          sourceShirt: 'Originalskjorta: platshållare. Varje skjorta är unik, så varje hanbok blir det också.',
         },
       },
     },
@@ -384,13 +393,9 @@ export const sv: Copy = {
     ],
     colourNote: 'Samma form i varje färg. Ivory Buff är en egen smyckesfärg.',
     coloursLabel: 'Signaturpärlan i olika färger',
-    coloursFootnote: 'Grafisk färgstudie, inte ett foto av den fysiska pärlan.',
     macro: {
       alt: 'Makrostudie av två blanka, glaserade pärlor med ett svängt tvåfärgsmönster, en prick i den andra halvans färg och ett genomgående hål, en i Deep Indigo och rosa och en i Ivory och Ochre Red, på ljus linneduk. Konceptbild, inte ett foto av en färdig produkt.',
-      caption: 'Makrostudie av signaturpärlan som referens för bildspråk, inte ett fotografi av en färdig fysisk produkt.',
     },
-    pendingPhoto: 'Studions makrofotografi av den fysiska pärlan inväntas.',
-    imageBrief: 'Makrofotografi av signaturpärlan, med hela formen och hålets anslutning synliga.',
   },
   craft: {
     marker: 'Studio · form och material',
@@ -399,18 +404,16 @@ export const sv: Copy = {
     titleEm: 'Stor skillnad.',
     text: 'En söm påverkar silhuetten. Material ger tyngd och balans. En knut förbinder linjer och detaljer till en helhet.',
     details: [
-      { title: 'Sömmens placering', note: 'En linje som förändrar silhuetten.', alt: 'Grafisk närbild av en röd handsydd söm genom textil' },
-      { title: 'Material i balans', note: 'Tyngd och struktur i relation till formen.', alt: 'Överlappande textilprover i studions färgpalett' },
-      { title: 'Knuten som förbindelse', note: 'Linjer och detaljer knyts till en helhet.', alt: 'Grafisk detaljstudie av tråd, knut och tofs' },
+      { title: 'Sömmens placering', note: 'En linje som förändrar silhuetten.', alt: 'Närbild av en nål med brun tråd som syr en rad korta stygn längs kanten på ett beige linnetyg, bredvid ett dammrosa tyg. Trådrullar och en skiss syns i bakgrunden.' },
+      { title: 'Material i balans', note: 'Tyngd och struktur i relation till formen.', alt: 'En hög med vikta linnetyger i gult, dammrosa, senapsgult och mörkgrönt, med färgprover i sicksackkant, en bricka med färgkort och torkade blommor i bakgrunden.' },
+      { title: 'Knuten som förbindelse', note: 'Linjer och detaljer knyts till en helhet.', alt: 'Två händer håller en handknuten knut i roströd snöre, med tygprover, garnrullar och ett skissblock på bordet bakom.' },
     ],
-    disclosure: 'Grafiska platshållare · Detaljstudier som ersätts med studions egna närbilder.',
   },
   about: {
     marker: 'Om studion',
-    imageAlt: 'Bild till avsnittet Om studion.',
+    imageAlt: 'Konceptbild: en kvinna i vit skjorta och vida beige byxor blickar ner mot sig själv bredvid en golvspegel. Till höger hänger plagg på en klädstång och på väggen sitter bilder av kläder. Inte ett foto av grundaren.',
     imagePending: 'Bild kommer',
     quote: ['En liten studio', 'med många trådar.'],
-    eyebrow: 'Grundarens text · godkänd',
     titleTop: 'En personlig erfarenhet.',
     titleEm: 'En tanke om proportion.',
     p1: 'Grundarens egen erfarenhet av petite-storlekar är utgångspunkten för idén om proportion: det räcker inte alltid att korta ett plagg.',

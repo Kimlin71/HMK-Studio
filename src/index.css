@@ -39,6 +39,9 @@
   --line: rgba(15, 30, 107, 0.18);
   --serif: 'Iowan Old Style', 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
   --sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Shop headings (from "Choose, or design your own." and down): a humanist sans with calligraphic stroke contrast. System fonts only,
+     so no external font request is made. Optima on Apple, Gill Sans where installed, Candara/Segoe UI on Windows. */
+  --shop-heading: Optima, 'Gill Sans', 'Gill Sans MT', Candara, 'Segoe UI', sans-serif;
   --text-body: 1rem;
   --text-small: 0.875rem;
   --text-label: 0.75rem;

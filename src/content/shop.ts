@@ -8,7 +8,7 @@ export type ShopCategory = 'bracelet' | 'maedeup' | 'pattern' | 'hanbok'
 
 export const shopCategories: ShopCategory[] = ['bracelet', 'maedeup', 'pattern', 'hanbok']
 
-export type HanbokItemId = 'shirt-hanbok-demo' | 'shirt-hanbok-demo-2'
+export type HanbokItemId = 'shirt-hanbok-demo' | 'shirt-hanbok-demo-2' | 'shirt-hanbok-demo-3'
 
 export type BraceletItemId = 'signature-bracelet-1' | 'signature-bracelet-2' | 'signature-bracelet-3'
 
@@ -58,6 +58,13 @@ export const shopItems: ShopItem[] = [
     name: 'Shirt Hanbok No. 2',
     image: '/images/shop/hanbok/hanbok-2.jpg',
     hoverImage: '/images/shop/hanbok/hanbok-2b.jpg',
+  },
+  {
+    id: 'shirt-hanbok-demo-3',
+    category: 'hanbok',
+    name: 'Shirt Hanbok No. 3',
+    image: '/images/shop/hanbok/striped-hanbok-front.jpg',
+    hoverImage: '/images/shop/hanbok/striped-hanbok-back.jpg',
   },
 ]
 

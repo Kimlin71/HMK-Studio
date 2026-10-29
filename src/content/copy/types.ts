@@ -132,6 +132,7 @@ export type Copy = {
       title: string
       oneOfAKind: string
       oneOfAKindNote: string
+      availability: string
       detailsButton: string
       detailsButtonLabel: (name: string) => string
       fields: { status: string; material: string; sourceShirt: string }
@@ -233,10 +234,7 @@ export type Copy = {
     paragraphs: string[]
     colourNote: string
     coloursLabel: string
-    coloursFootnote: string
-    macro: { alt: string; caption: string }
-    pendingPhoto: string
-    imageBrief: string
+    macro: { alt: string }
   }
   craft: {
     marker: string
@@ -245,14 +243,12 @@ export type Copy = {
     titleEm: string
     text: string
     details: { title: string; note: string; alt: string }[]
-    disclosure: string
   }
   about: {
     marker: string
     imageAlt: string
     imagePending: string
     quote: [string, string]
-    eyebrow: string
     titleTop: string
     titleEm: string
     p1: string
